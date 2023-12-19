@@ -17,6 +17,15 @@ namespace DustEngine.DustEditor
             SetGizmoIconEnabled<Scale>(false);
             SetGizmoIconEnabled<Shake>(false);
             
+            // Events
+            SetGizmoIconEnabled<OnCollision2DEvent>(false);
+            SetGizmoIconEnabled<OnCollisionEvent>(false);
+            SetGizmoIconEnabled<OnKeyEvent>(false);
+            SetGizmoIconEnabled<OnMouseEvent>(false);
+            SetGizmoIconEnabled<OnTimerEvent>(false);
+            SetGizmoIconEnabled<OnTrigger2DEvent>(false);
+            SetGizmoIconEnabled<OnTriggerEvent>(false);
+            
             // Gizmos
             SetGizmoIconEnabled<ArrowGizmo>(false);
             SetGizmoIconEnabled<ConeGizmo>(false);
