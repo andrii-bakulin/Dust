@@ -206,11 +206,6 @@ namespace DustEngine
         }
 
 #if UNITY_EDITOR
-        private void OnDrawGizmos()
-        {
-            // OnDrawGizmosSelected();
-        }
-
         private void OnDrawGizmosSelected()
         {
             switch (destroyMode)
