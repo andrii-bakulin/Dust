@@ -16,6 +16,17 @@ namespace DustEngine.DustEditor
             SetGizmoIconEnabled<Rotate>(false);
             SetGizmoIconEnabled<Scale>(false);
             SetGizmoIconEnabled<Shake>(false);
+            
+            // Gizmos
+            SetGizmoIconEnabled<ArrowGizmo>(false);
+            SetGizmoIconEnabled<ConeGizmo>(false);
+            SetGizmoIconEnabled<CubeGizmo>(false);
+            SetGizmoIconEnabled<CylinderGizmo>(false);
+            SetGizmoIconEnabled<MeshGizmo>(false);
+            SetGizmoIconEnabled<PyramidGizmo>(false);
+            SetGizmoIconEnabled<SphereGizmo>(false);
+            SetGizmoIconEnabled<TorusGizmo>(false);
+            SetGizmoIconEnabled<TriggerGizmo>(false);
         }
         
         //--------------------------------------------------------------------------------------------------------------
