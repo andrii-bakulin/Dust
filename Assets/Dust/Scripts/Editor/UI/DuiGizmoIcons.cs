@@ -36,6 +36,11 @@ namespace DustEngine.DustEditor
             SetGizmoIconEnabled<SphereGizmo>(false);
             SetGizmoIconEnabled<TorusGizmo>(false);
             SetGizmoIconEnabled<TriggerGizmo>(false);
+            
+            // Helpers
+            SetGizmoIconEnabled<Debugger>(false);
+            SetGizmoIconEnabled<LockTransform>(false);
+            SetGizmoIconEnabled<RandomTransform>(false);
         }
         
         //--------------------------------------------------------------------------------------------------------------
