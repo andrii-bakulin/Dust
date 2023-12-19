@@ -641,6 +641,7 @@ GameObject:
   - component: {fileID: 256908831}
   - component: {fileID: 256908830}
   - component: {fileID: 256908828}
+  - component: {fileID: 256908829}
   m_Layer: 0
   m_Name: Cube (Passive)
   m_TagString: Untagged
@@ -679,6 +680,25 @@ MonoBehaviour:
   m_UpVectorObject: {fileID: 0}
   m_UpdateMode: 1
   m_UpdateInEditor: 1
+--- !u!114 &256908829
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 256908826}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e95ec8a0bb954139be6244494f29374, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Color: {r: 1, g: 0.66, b: 0.33, a: 1}
+  m_GizmoVisibility: 2
+  m_Direction: {x: 0, y: 0, z: 1}
+  m_StartPosition: {x: 0, y: 0, z: 0}
+  m_Size: 3.5
+  m_AxisColorMode: 0
+  m_ShowStartPoint: 1
 --- !u!23 &256908830
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3250,6 +3270,7 @@ GameObject:
   - component: {fileID: 1776199135}
   - component: {fileID: 1776199134}
   - component: {fileID: 1776199133}
+  - component: {fileID: 1776199136}
   m_Layer: 0
   m_Name: Diff spaces
   m_TagString: Untagged
@@ -3337,6 +3358,25 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1776199131}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1776199136
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1776199131}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e95ec8a0bb954139be6244494f29374, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Color: {r: 1, g: 0.66, b: 0.33, a: 1}
+  m_GizmoVisibility: 2
+  m_Direction: {x: 0, y: 1, z: 0}
+  m_StartPosition: {x: 0, y: 0, z: 0}
+  m_Size: 1.5
+  m_AxisColorMode: 0
+  m_ShowStartPoint: 1
 --- !u!1 &1797361645
 GameObject:
   m_ObjectHideFlags: 0
