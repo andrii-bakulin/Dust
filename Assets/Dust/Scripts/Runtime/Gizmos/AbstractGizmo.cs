@@ -7,13 +7,6 @@ namespace DustEngine
     {
         protected static readonly Color k_GizmosDefaultColor = new Color(1.00f, 0.66f, 0.33f);
 
-        public enum GizmosVisibility
-        {
-            Hidden = 0,
-            DrawOnSelect = 1,
-            AlwaysDraw = 2,
-        }
-
         //--------------------------------------------------------------------------------------------------------------
 
         [SerializeField]
@@ -25,9 +18,9 @@ namespace DustEngine
         }
 
         [SerializeField]
-        private GizmosVisibility m_GizmoVisibility = GizmosVisibility.AlwaysDraw;
+        private GizmoVisibility m_GizmoVisibility = GizmoVisibility.AlwaysDraw;
 
-        public GizmosVisibility gizmoVisibility
+        public GizmoVisibility gizmoVisibility
         {
             get => m_GizmoVisibility;
             set => m_GizmoVisibility = value;
@@ -43,7 +36,7 @@ namespace DustEngine
             if (Selection.activeGameObject == this.gameObject)
                 return;
 
-            if (gizmoVisibility == GizmosVisibility.Hidden || gizmoVisibility == GizmosVisibility.DrawOnSelect)
+            if (gizmoVisibility == GizmoVisibility.Hidden || gizmoVisibility == GizmoVisibility.DrawOnSelect)
                 return; // No need to draw
 
             DrawGizmos();
@@ -51,7 +44,7 @@ namespace DustEngine
 
         private void OnDrawGizmosSelected()
         {
-            if (gizmoVisibility == GizmosVisibility.Hidden)
+            if (gizmoVisibility == GizmoVisibility.Hidden)
                 return; // No need to draw
 
             DrawGizmos();
