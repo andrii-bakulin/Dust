@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Reflection;
+using UnityEngine;
 using UnityEditor;
 
 namespace DustEngine.DustEditor
@@ -24,10 +25,13 @@ namespace DustEngine.DustEditor
         private DuProperty m_MultipleSpawnCount;
         private DuProperty m_MultipleSpawnSeed;
 
-        private DuProperty m_ResetTransform;
         private DuProperty m_ParentMode;
         private DuProperty m_Limit;
         private DuProperty m_SpawnOnAwake;
+
+        private DuProperty m_ResetPosition;
+        private DuProperty m_ResetRotation;
+        private DuProperty m_ResetScale;
 
         private DuProperty m_OnSpawn;
 
@@ -49,11 +53,11 @@ namespace DustEngine.DustEditor
             m_Interval = FindProperty("m_Interval", "Interval");
             m_IntervalRange = FindProperty("m_IntervalRange", "Interval Range");
 
-            m_SpawnObjects = FindProperty("m_SpawnObjects", "Objects");
+            m_SpawnObjects = FindProperty("m_SpawnObjects", "Objects To Spawn");
             m_SpawnObjectsIterate = FindProperty("m_SpawnObjectsIterate", "Objects Iterate");
             m_SpawnObjectsSeed = FindProperty("m_SpawnObjectsSeed", "Seed");
 
-            m_SpawnPointMode = FindProperty("m_SpawnPointMode", "Spawn At");
+            m_SpawnPointMode = FindProperty("m_SpawnPointMode", "Spawn At Point");
             m_SpawnPoints = FindProperty("m_SpawnPoints", "Spawn Points");
             m_SpawnPointsIterate = FindProperty("m_SpawnPointsIterate", "Spawn Points Iterate");
             m_SpawnPointsSeed = FindProperty("m_SpawnPointsSeed", "Seed");
@@ -62,11 +66,14 @@ namespace DustEngine.DustEditor
             m_MultipleSpawnCount = FindProperty("m_MultipleSpawnCount", "Spawn Count");
             m_MultipleSpawnSeed = FindProperty("m_MultipleSpawnSeed", "Seed");
 
-            m_ResetTransform = FindProperty("m_ResetTransform", "Reset Transform");
             m_ParentMode = FindProperty("m_ParentMode", "Assign Parent As");
             m_Limit = FindProperty("m_Limit", "Total Limit");
             m_SpawnOnAwake = FindProperty("m_SpawnOnAwake", "Spawn On Awake");
 
+            m_ResetPosition = FindProperty("m_ResetPosition", "Position");
+            m_ResetRotation = FindProperty("m_ResetRotation", "Rotation");
+            m_ResetScale = FindProperty("m_ResetScale", "Scale");
+            
             m_OnSpawn = FindProperty("m_OnSpawn", "On Spawn");
         }
 
@@ -74,7 +81,7 @@ namespace DustEngine.DustEditor
         {
             InspectorInitStates();
 
-            // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+            // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
             PropertyField(m_SpawnEvent);
 
@@ -91,17 +98,11 @@ namespace DustEngine.DustEditor
                 case Spawner.SpawnEvent.IntervalInRange:
                     PropertyFieldDurationRange(m_IntervalRange);
                     break;
-
-                default:
-                    // Nothing to show
-                    break;
             }
 
             Space();
 
-            // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-            DustGUI.Header("Objects To Spawn");
+            // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
             PropertyField(m_SpawnObjects);
 
@@ -115,9 +116,9 @@ namespace DustEngine.DustEditor
 
             Space();
 
-            // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+            // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-            DustGUI.Header("Spawn At Points");
+            DustGUI.Header("Spawn At");
 
             PropertyField(m_SpawnPointMode);
 
@@ -137,15 +138,11 @@ namespace DustEngine.DustEditor
                             PropertySeedRandomOrFixed(m_SpawnPointsSeed);
                     }
                     break;
-
-                default:
-                    // Nothing to show
-                    break;
             }
 
             Space();
 
-            // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+            // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
             DustGUI.Header("Spawn Multiple Objects");
 
@@ -159,16 +156,27 @@ namespace DustEngine.DustEditor
 
             Space();
 
-            // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+            // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
             PropertyField(m_Limit);
             PropertyField(m_SpawnOnAwake);
-            PropertyField(m_ResetTransform);
             PropertyField(m_ParentMode);
+
+            Space();
 
             // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-            Space();
+            if (DustGUI.FoldoutBegin("Reset Transform", "Spawner.ResetTransform", false))
+            {
+                PropertyField(m_ResetPosition);
+                PropertyField(m_ResetRotation);
+                PropertyField(m_ResetScale);
+
+                Space();
+            }
+            DustGUI.FoldoutEnd();
+            
+            // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
             if (DustGUI.FoldoutBegin("Events", "Spawner.Events", false))
             {
@@ -176,7 +184,7 @@ namespace DustEngine.DustEditor
             }
             DustGUI.FoldoutEnd();
 
-            // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+            // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
             if (Application.isPlaying)
             {

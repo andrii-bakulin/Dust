@@ -193,12 +193,30 @@ namespace DustEngine
             set => m_SpawnOnAwake = value;
         }
 
+        // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
         [SerializeField]
-        private bool m_ResetTransform = true;
-        public bool resetTransform
+        private bool m_ResetPosition = false;
+        public bool resetPosition
         {
-            get => m_ResetTransform;
-            set => m_ResetTransform = value;
+            get => m_ResetPosition;
+            set => m_ResetPosition = value;
+        }
+
+        [SerializeField]
+        private bool m_ResetRotation = false;
+        public bool resetRotation
+        {
+            get => m_ResetRotation;
+            set => m_ResetRotation = value;
+        }
+
+        [SerializeField]
+        private bool m_ResetScale = false;
+        public bool resetScale
+        {
+            get => m_ResetScale;
+            set => m_ResetScale = value;
         }
 
         // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -279,15 +297,15 @@ namespace DustEngine
 
         public GameObject SpawnSingleObject()
         {
-            GameObject useSpawnPoint = null;
-            GameObject useSpawnObject = null;
+            GameObject spawnAtPoint = null;
+            GameObject objectToSpawn = null;
 
-            // Detect spawn point
+            // Detect spawn point  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
             switch (spawnPointMode)
             {
                 case SpawnPointMode.Self:
-                    useSpawnPoint = this.gameObject;
+                    spawnAtPoint = this.gameObject;
                     break;
 
                 case SpawnPointMode.Points:
@@ -297,68 +315,63 @@ namespace DustEngine
                     switch (spawnPointsIterate)
                     {
                         case IterateMode.Iterate:
-                            useSpawnPoint = spawnPoints[(spawnPointsIteration++) % spawnPoints.Count];
+                            spawnAtPoint = spawnPoints[(spawnPointsIteration++) % spawnPoints.Count];
                             break;
 
                         case IterateMode.Random:
-                            useSpawnPoint = spawnPoints[spawnPointsRandom.Range(0, spawnPoints.Count)];
+                            spawnAtPoint = spawnPoints[spawnPointsRandom.Range(0, spawnPoints.Count)];
                             break;
-                        
-                        default:
-                            return null;
                     }
                     break;
-
-                default:
-                    return null;
             }
 
-            if (Dust.IsNull(useSpawnPoint))
+            if (Dust.IsNull(spawnAtPoint))
                 return null;
 
-            // Detect GameObject to spawn
+            // Detect GameObject to spawn  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
             if (Dust.IsNotNull(spawnObjects) && spawnObjects.Count > 0)
             {
                 switch (spawnObjectsIterate)
                 {
                     case IterateMode.Iterate:
-                        useSpawnObject = spawnObjects[(spawnObjectsIteration++) % spawnObjects.Count];
+                        objectToSpawn = spawnObjects[(spawnObjectsIteration++) % spawnObjects.Count];
                         break;
 
                     case IterateMode.Random:
-                        useSpawnObject = spawnObjects[spawnObjectsRandom.Range(0, spawnObjects.Count)];
+                        objectToSpawn = spawnObjects[spawnObjectsRandom.Range(0, spawnObjects.Count)];
                         break;
-
-                    default:
-                        return null;
                 }
             }
 
-            if (Dust.IsNull(useSpawnObject) || Dust.IsNull(useSpawnPoint))
+            if (Dust.IsNull(objectToSpawn))
                 return null;
 
-            // Spawn
+            // Spawn - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-            GameObject obj = Instantiate(useSpawnObject, useSpawnPoint.transform);
+            // 1. Create object and make parent as spawn-object
+            GameObject obj = Instantiate(objectToSpawn, spawnAtPoint.transform);
 
-            if (resetTransform)
-                DuTransform.Reset(obj.transform);
-
-            switch (parentMode)
+            // 2. Change parent if need
+            obj.transform.parent = parentMode switch
             {
-                case SpawnParentMode.Spawner:
-                    obj.transform.parent = transform;
-                    break;
+                SpawnParentMode.Spawner    => transform,
+                SpawnParentMode.SpawnPoint => spawnAtPoint.transform,
+                SpawnParentMode.World      => null,
+                _                          => spawnAtPoint.transform
+            };
 
-                case SpawnParentMode.SpawnPoint:
-                    obj.transform.parent = useSpawnPoint.transform;
-                    break;
+            // 3. Reset transform if need only after change parent!
+            if (resetPosition)
+                obj.transform.localPosition = Vector3.zero;
 
-                case SpawnParentMode.World:
-                    obj.transform.parent = null;
-                    break;
-            }
+            if (resetRotation)
+                obj.transform.localRotation = Quaternion.identity;
+            
+            if (resetScale)
+                obj.transform.localScale = Vector3.one;
+
+            // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
             m_Count++;
 
