@@ -7,7 +7,7 @@ namespace DustEngine
     public class DestroyAction : InstantAction
     {
         [SerializeField]
-        private bool m_ApplyToSelf = false;
+        private bool m_ApplyToSelf = true;
         public bool applyToSelf
         {
             get => m_ApplyToSelf;
