@@ -1,23 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
 
 namespace DustEngine
 {
-    public abstract class ActionWithCallbacks : Action
+    public abstract class SequencedAction : Action
     {
-        [Serializable]
-        public class ActionCallback : UnityEvent<Action>
-        {
-        }
-
-        //--------------------------------------------------------------------------------------------------------------
-
-        [SerializeField]
-        protected ActionCallback m_OnCompleteCallback = null;
-        public ActionCallback onCompleteCallback => m_OnCompleteCallback;
-
         [SerializeField]
         protected List<Action> m_OnCompleteActions = null;
         public List<Action> onCompleteActions
@@ -39,8 +26,6 @@ namespace DustEngine
             
             if (!isTerminated)
             {
-                onCompleteCallback?.Invoke(this);
-
                 if (Dust.IsNotNull(onCompleteActions))
                 {
                     foreach (var action in onCompleteActions)

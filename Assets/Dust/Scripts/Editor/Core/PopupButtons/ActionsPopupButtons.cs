@@ -50,8 +50,8 @@ namespace DustEngine.DustEditor
         {
             Component newAction = Undo.AddComponent(m_Action.gameObject, cellRecord.type);
             
-            if (m_Action as ActionWithCallbacks is ActionWithCallbacks actionWithCallbacks)
-                actionWithCallbacks.onCompleteActions.Add((Action)newAction);
+            if (m_Action as SequencedAction is SequencedAction sequencedAction)
+                sequencedAction.onCompleteActions.Add((Action)newAction);
 
             return true;
         }

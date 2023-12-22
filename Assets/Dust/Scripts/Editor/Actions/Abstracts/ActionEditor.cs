@@ -114,9 +114,9 @@ namespace DustEngine.DustEditor
 
                 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-                if (action as ActionWithCallbacks is ActionWithCallbacks actionWithCallbacks)
+                if (action as SequencedAction is SequencedAction sequencedAction)
                 {
-                    foreach (var nextAction in actionWithCallbacks.onCompleteActions)
+                    foreach (var nextAction in sequencedAction.onCompleteActions)
                     {
                         if (Dust.IsNull(nextAction))
                             continue;
@@ -166,7 +166,7 @@ namespace DustEngine.DustEditor
 
         protected virtual void OnInspectorGUI_Extended(string actionId)
         {
-            if (DustGUI.FoldoutBegin("Extended", actionId + ".Extended", this))
+            if (DustGUI.FoldoutBegin("Extended", actionId + ".Extended", this, false))
             {
                 OnInspectorGUI_Extended_BlockFirst();
                 OnInspectorGUI_Extended_BlockMiddle();

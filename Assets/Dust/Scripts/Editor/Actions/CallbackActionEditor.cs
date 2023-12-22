@@ -8,6 +8,10 @@ namespace DustEngine.DustEditor
     [InitializeOnLoad]
     public class CallbackActionEditor : InstantActionEditor
     {
+        protected DuProperty m_OnCompleteCallback;
+
+        //--------------------------------------------------------------------------------------------------------------
+
         static CallbackActionEditor()
         {
             ActionsPopupButtons.AddActionOthers(typeof(CallbackAction), "Callback");
@@ -21,6 +25,13 @@ namespace DustEngine.DustEditor
 
         //--------------------------------------------------------------------------------------------------------------
 
+        protected override void InitializeEditor()
+        {
+            base.InitializeEditor();
+
+            m_OnCompleteCallback = FindProperty("m_OnCompleteCallback", "Callback");
+        }
+
         public override void OnInspectorGUI()
         {
             InspectorInitStates();
@@ -29,7 +40,11 @@ namespace DustEngine.DustEditor
 
             OnInspectorGUI_BaseControlUI();
 
-            OnInspectorGUI_Callbacks("CallbackAction", callbackExpanded:true);
+            PropertyField(m_OnCompleteCallback);
+
+            // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+            OnInspectorGUI_Callbacks("CallbackAction");
             OnInspectorGUI_Extended("CallbackAction");
 
             // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
