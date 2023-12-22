@@ -70,7 +70,7 @@ namespace DustEngine.DustEditor
 
         private static MethodInfo setIconEnabled;
             
-        private static void SetGizmoIconEnabled<T>(bool isEnabled)
+        public static void SetGizmoIconEnabled<T>(bool isEnabled)
         {
             const int MONO_BEHAVIOR_CLASS_ID = 114; // https://docs.unity3d.com/Manual/ClassIDReference.html
 
