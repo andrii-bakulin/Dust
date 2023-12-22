@@ -5,17 +5,17 @@ namespace DustEngine.DustEditor.UI
 {
     public static class Icons
     {
-        internal const string ACTION_DELETE = "UI/Action-Delete";
+        // internal const string ACTION_DELETE = "UI/Action-Delete";
         internal const string ACTION_ADD_ACTION = "UI/Add-Action";
-        internal const string ACTION_ADD_FACTORY_MACHINE = "UI/Add-Factory-Machine";
-        internal const string ACTION_ADD_FIELD = "UI/Add-Field";
+        // internal const string ACTION_ADD_FACTORY_MACHINE = "UI/Add-Factory-Machine";
+        // internal const string ACTION_ADD_FIELD = "UI/Add-Field";
 
         internal const string ACTION_PLAY = "UI/Action-Play";
         internal const string ACTION_IDLE = "UI/Action-Idle";
         internal const string ACTION_NEXT = "UI/Action-Next";
 
-        internal const string STATE_ENABLED = "UI/State-Enabled";
-        internal const string STATE_DISABLED = "UI/State-Disabled";
+        // internal const string STATE_ENABLED = "UI/State-Enabled";
+        // internal const string STATE_DISABLED = "UI/State-Disabled";
 
         internal const string GAME_OBJECT_STATS = "UI/GameObject-Stats";
         internal const string TRANSFORM_RESET = "UI/Transform-Reset";
@@ -24,6 +24,7 @@ namespace DustEngine.DustEditor.UI
 
         private static readonly string[] resourcePaths =
         {
+            "Components/Actions/",
             "Components/Animations/",
             "Components/Events/",
             "Components/Gizmos/",

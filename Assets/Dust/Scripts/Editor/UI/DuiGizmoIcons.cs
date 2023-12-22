@@ -8,6 +8,26 @@ namespace DustEngine.DustEditor
     {
         static DuiGizmoIcons()
         {
+            // Actions
+            SetGizmoIconEnabled<ActivateAction>(false);
+            SetGizmoIconEnabled<CallbackAction>(false);
+            SetGizmoIconEnabled<DelayAction>(false);
+            SetGizmoIconEnabled<DestroyAction>(false);
+            SetGizmoIconEnabled<FlipAction>(false);
+            SetGizmoIconEnabled<FlowRandomAction>(false);
+            SetGizmoIconEnabled<MoveByAction>(false);
+            SetGizmoIconEnabled<MoveToAction>(false);
+            SetGizmoIconEnabled<RotateByAction>(false);
+            SetGizmoIconEnabled<RotateToAction>(false);
+            SetGizmoIconEnabled<ScaleByAction>(false);
+            SetGizmoIconEnabled<ScaleToAction>(false);
+            SetGizmoIconEnabled<SpawnAction>(false);
+            SetGizmoIconEnabled<TintAction>(false);
+            SetGizmoIconEnabled<TransformCopyAction>(false);
+            SetGizmoIconEnabled<TransformRandomAction>(false);
+            SetGizmoIconEnabled<TransformSetAction>(false);
+            SetGizmoIconEnabled<UpdateHierarchyAction>(false);
+            
             // Animations
             SetGizmoIconEnabled<Follow>(false);
             SetGizmoIconEnabled<LookAt>(false);
@@ -47,8 +67,8 @@ namespace DustEngine.DustEditor
         
         //--------------------------------------------------------------------------------------------------------------
         // Thanks to https://stackoverflow.com/a/74942431
-        
-        private static MethodInfo setIconEnabled = null;
+
+        private static MethodInfo setIconEnabled;
             
         private static void SetGizmoIconEnabled<T>(bool isEnabled)
         {
