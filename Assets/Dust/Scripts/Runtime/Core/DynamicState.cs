@@ -115,12 +115,10 @@ namespace DustEngine
             dynamicState ^= sequenceIndex * 512661 + (Dust.IsNotNull(field) ? field.GetDynamicStateHashCode() : 123456);
         }
 
-#if DUST_NEW_FEATURE_FACTORY
         public static void Append(ref int dynamicState, int sequenceIndex, FactoryMachine factoryMachine)
         {
             dynamicState ^= sequenceIndex * 814356 + (Dust.IsNotNull(factoryMachine) ? factoryMachine.GetDynamicStateHashCode() : 123456);
         }
-#endif
 
         //--------------------------------------------------------------------------------------------------------------
 

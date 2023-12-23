@@ -23,10 +23,7 @@ namespace DustEngine
         {
             m_CalcFieldPoint.inPosition = worldPosition;
             m_CalcFieldPoint.inOffset = offset;
-
-#if DUST_NEW_FEATURE_FACTORY
             m_CalcFieldPoint.inFactoryInstanceState = null;
-#endif
 
             fieldsMap.Calculate(m_CalcFieldPoint);
 
@@ -42,10 +39,7 @@ namespace DustEngine
         {
             m_CalcFieldPoint.inPosition = worldPosition;
             m_CalcFieldPoint.inOffset = offset;
-
-#if DUST_NEW_FEATURE_FACTORY
             m_CalcFieldPoint.inFactoryInstanceState = null;
-#endif
 
             fieldsMap.Calculate(m_CalcFieldPoint);
 
@@ -61,10 +55,7 @@ namespace DustEngine
         {
             m_CalcFieldPoint.inPosition = worldPosition;
             m_CalcFieldPoint.inOffset = offset;
-
-#if DUST_NEW_FEATURE_FACTORY
             m_CalcFieldPoint.inFactoryInstanceState = null;
-#endif
 
             fieldsMap.Calculate(m_CalcFieldPoint);
 

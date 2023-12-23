@@ -20,9 +20,7 @@ namespace DustEngine.DustEditor
             DuDeformer selectedDeformer = null;
 #endif
             FieldsSpace selectedFieldsSpace = null;
-#if DUST_NEW_FEATURE_FACTORY
             BasicFactoryMachine selectedFactoryMachine = null;
-#endif
 
             if (Dust.IsNotNull(activeGameObject))
             {
@@ -42,12 +40,10 @@ namespace DustEngine.DustEditor
 
                 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-#if DUST_NEW_FEATURE_FACTORY
                 selectedFactoryMachine = activeGameObject.GetComponent<BasicFactoryMachine>();
 
                 if (Dust.IsNull(selectedFactoryMachine) && Dust.IsNotNull(activeGameObject.transform.parent))
                     selectedFactoryMachine = activeGameObject.transform.parent.GetComponent<BasicFactoryMachine>();
-#endif
             }
 
             var gameObject = new GameObject();
@@ -67,13 +63,11 @@ namespace DustEngine.DustEditor
                     field.transform.parent = selectedFieldsSpace.transform;
                     selectedFieldsSpace.fieldsMap.AddField(field);
                 }
-#if DUST_NEW_FEATURE_FACTORY
                 else if (Dust.IsNotNull(selectedFactoryMachine))
                 {
                     field.transform.parent = selectedFactoryMachine.transform;
                     selectedFactoryMachine.fieldsMap.AddField(field);
                 }
-#endif
 
                 gameObject.name = field.FieldName() + " Field";
                 DuTransform.Reset(gameObject.transform);

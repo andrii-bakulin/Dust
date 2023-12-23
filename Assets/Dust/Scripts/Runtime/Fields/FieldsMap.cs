@@ -93,9 +93,7 @@ namespace DustEngine
         {
             Custom = 0,
             FieldsSpace = 1,
-#if DUST_NEW_FEATURE_FACTORY
             FactoryMachine = 2,
-#endif
 #if DUST_NEW_FEATURE_DEFORMER
             Deformer = 3,
 #endif
@@ -170,7 +168,6 @@ namespace DustEngine
         }
 #endif
 
-#if DUST_NEW_FEATURE_FACTORY
         public static FieldsMap FactoryMachine()
         {
             return new FieldsMap
@@ -184,7 +181,6 @@ namespace DustEngine
                 defaultColor = Color.clear,
             };
         }
-#endif
 
         public static FieldsMap FieldsSpace()
         {
@@ -248,10 +244,7 @@ namespace DustEngine
 
             m_CalcFieldPoint.inPosition = worldPosition;
             m_CalcFieldPoint.inOffset = sequenceOffset;
-
-#if DUST_NEW_FEATURE_FACTORY
             m_CalcFieldPoint.inFactoryInstanceState = null;
-#endif
 
             bool result = Calculate(m_CalcFieldPoint);
 
@@ -271,10 +264,7 @@ namespace DustEngine
 
             m_CalcFieldPoint.inPosition = worldPosition;
             m_CalcFieldPoint.inOffset = sequenceOffset;
-
-#if DUST_NEW_FEATURE_FACTORY
             m_CalcFieldPoint.inFactoryInstanceState = null;
-#endif
 
             bool result = Calculate(m_CalcFieldPoint);
 
@@ -286,7 +276,6 @@ namespace DustEngine
 
         // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-#if DUST_NEW_FEATURE_FACTORY
         public bool Calculate(FactoryMachine.FactoryInstanceState factoryInstanceState, out float power, out Color color)
         {
             if (!HasFields())
@@ -298,7 +287,6 @@ namespace DustEngine
 
             m_CalcFieldPoint.inPosition = factoryInstanceState.factory.GetPositionInWorldSpace(factoryInstanceState.instance);
             m_CalcFieldPoint.inOffset = factoryInstanceState.instance.offset;
-
             m_CalcFieldPoint.inFactoryInstanceState = factoryInstanceState;
 
             bool result = Calculate(m_CalcFieldPoint);
@@ -308,7 +296,6 @@ namespace DustEngine
 
             return result;
         }
-#endif
 
         // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 

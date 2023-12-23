@@ -14,12 +14,10 @@ namespace DustEngine.DustEditor
             AddEntity("Fields.Basic", type, title);
         }
 
-#if DUST_NEW_FEATURE_FACTORY
         public static void AddFactoryField(System.Type type, string title)
         {
             AddEntity("Fields.Factory", type, title);
         }
-#endif
 
         public static void Add2DField(System.Type type, string title)
         {
@@ -45,10 +43,8 @@ namespace DustEngine.DustEditor
 
             GenerateColumn(popup, "Fields.Basic", "Basic Fields");
 
-#if DUST_NEW_FEATURE_FACTORY
             if (fieldsMap.fieldsMapInstance.fieldsMapMode == FieldsMap.FieldsMapMode.FactoryMachine)
                 GenerateColumn(popup, "Fields.Factory", "Factory Fields");
-#endif
 
             GenerateColumn(popup, "Fields.2D", "2D Fields");
             GenerateColumn(popup, "Fields.3D", "3D Fields");

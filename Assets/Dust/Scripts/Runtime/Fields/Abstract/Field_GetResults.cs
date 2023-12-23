@@ -14,9 +14,7 @@ namespace DustEngine
         {
             m_CalcFieldPoint.inPosition = worldPosition;
             m_CalcFieldPoint.inOffset = 0f;
-#if DUST_NEW_FEATURE_FACTORY
             m_CalcFieldPoint.inFactoryInstanceState = null;
-#endif
 
             this.Calculate(m_CalcFieldPoint, out var result, false);
 
@@ -29,9 +27,7 @@ namespace DustEngine
         {
             m_CalcFieldPoint.inPosition = worldPosition;
             m_CalcFieldPoint.inOffset = 0f;
-#if DUST_NEW_FEATURE_FACTORY
             m_CalcFieldPoint.inFactoryInstanceState = null;
-#endif
 
             this.Calculate(m_CalcFieldPoint, out var result, true);
 
@@ -44,9 +40,7 @@ namespace DustEngine
         {
             m_CalcFieldPoint.inPosition = worldPosition;
             m_CalcFieldPoint.inOffset = 0f;
-#if DUST_NEW_FEATURE_FACTORY
             m_CalcFieldPoint.inFactoryInstanceState = null;
-#endif
 
             this.Calculate(m_CalcFieldPoint, out var result, true);
 

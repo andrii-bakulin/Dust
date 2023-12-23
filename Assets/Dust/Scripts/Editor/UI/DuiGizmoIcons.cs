@@ -50,9 +50,19 @@ namespace DustEngine.DustEditor
             SetGizmoIconEnabled<OnTrigger2DEvent>(false);
             SetGizmoIconEnabled<OnTriggerEvent>(false);
             
-#if DUST_NEW_FEATURE_FACTORY
             // Factory
-#endif
+            SetGizmoIconEnabled<FactoryInstance>(false);
+            SetGizmoIconEnabled<GridFactory>(false);
+            SetGizmoIconEnabled<LinearFactory>(false);
+            SetGizmoIconEnabled<RadialFactory>(false);
+            // FactoryMachines
+            SetGizmoIconEnabled<BasicFactoryMachine>(false);
+            SetGizmoIconEnabled<ClampFactoryMachine>(false);
+            SetGizmoIconEnabled<LookAtFactoryMachine>(false);
+            SetGizmoIconEnabled<MaterialFactoryMachine>(false);
+            SetGizmoIconEnabled<NoiseFactoryMachine>(false);
+            SetGizmoIconEnabled<TimeFactoryMachine>(false);
+            SetGizmoIconEnabled<TransformFactoryMachine>(false);
             
             // Fields:2D
             SetGizmoIconEnabled<DirectionalField>(false);

@@ -6,9 +6,7 @@ namespace DustEngine.DustEditor.UI
     public static class Icons
     {
         public const string ADD_ACTION = "UI/Add-Action";
-#if DUST_NEW_FEATURE_FACTORY
         public const string ADD_FACTORY_MACHINE = "UI/Add-Factory-Machine";
-#endif
         public const string ADD_FIELD = "UI/Add-Field";
 
         public const string ACTION_PLAY = "UI/Action-Play";
@@ -33,10 +31,8 @@ namespace DustEngine.DustEditor.UI
             "Components/Deformers/",
 #endif
             "Components/Events/",
-#if DUST_NEW_FEATURE_FACTORY
             "Components/Factory/",
             "Components/FactoryMachines/",
-#endif
             "Components/Fields/",
             "Components/Gizmos/",
             "Components/Helpers/",
