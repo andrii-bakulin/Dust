@@ -90,7 +90,7 @@ namespace DustEngine
         {
             base.OnActionStart();
             
-            m_ActiveTintUpdater = FactoryUpdater(tintMode);
+            m_ActiveTintUpdater = UniversalTintUpdater(tintMode);
         }
 
         protected override void OnActionUpdate(float deltaTime)
@@ -129,14 +129,14 @@ namespace DustEngine
             TintMode.UIText,
         };
 
-        protected TintUpdater FactoryUpdater(TintMode inTintMode)
+        protected TintUpdater UniversalTintUpdater(TintMode inTintMode)
         {
             switch (inTintMode)
             {
                 case TintMode.Auto:
                     foreach (var tryTintMode in autoDetectTintsSequence)
                     {
-                        TintUpdater updater = FactoryUpdater(tryTintMode);
+                        TintUpdater updater = UniversalTintUpdater(tryTintMode);
 
                         if (Dust.IsNotNull(updater))
                             return updater;

@@ -5,17 +5,20 @@ namespace DustEngine.DustEditor.UI
 {
     public static class Icons
     {
-        // public const string ACTION_DELETE = "UI/Action-Delete";
-        public const string ACTION_ADD_ACTION = "UI/Add-Action";
-        // public const string ACTION_ADD_FACTORY_MACHINE = "UI/Add-Factory-Machine";
-        // public const string ACTION_ADD_FIELD = "UI/Add-Field";
+        public const string ADD_ACTION = "UI/Add-Action";
+#if DUST_NEW_FEATURE_FACTORY
+        public const string ADD_FACTORY_MACHINE = "UI/Add-Factory-Machine";
+#endif
+        public const string ADD_FIELD = "UI/Add-Field";
 
         public const string ACTION_PLAY = "UI/Action-Play";
         public const string ACTION_IDLE = "UI/Action-Idle";
         public const string ACTION_NEXT = "UI/Action-Next";
 
-        // public const string STATE_ENABLED = "UI/State-Enabled";
-        // public const string STATE_DISABLED = "UI/State-Disabled";
+        public const string DELETE = "UI/Delete";
+
+        public const string STATE_ENABLED = "UI/State-Enabled";
+        public const string STATE_DISABLED = "UI/State-Disabled";
 
         public const string GAME_OBJECT_STATS = "UI/GameObject-Stats";
         public const string TRANSFORM_RESET = "UI/Transform-Reset";
@@ -25,8 +28,16 @@ namespace DustEngine.DustEditor.UI
         private static readonly string[] resourcePaths =
         {
             "Components/Actions/",
-            "Components/Animations/",
+            "Components/Animations/", 
+#if DUST_NEW_FEATURE_DEFORMER
+            "Components/Deformers/",
+#endif
             "Components/Events/",
+#if DUST_NEW_FEATURE_FACTORY
+            "Components/Factory/",
+            "Components/FactoryMachines/",
+#endif
+            "Components/Fields/",
             "Components/Gizmos/",
             "Components/Helpers/",
             "Components/Instances/",

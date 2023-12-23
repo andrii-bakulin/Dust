@@ -126,7 +126,7 @@ namespace DustEngine.DustEditor
                     }
                 }
 
-                if (DustGUI.IconButton(Icons.ACTION_ADD_ACTION))
+                if (DustGUI.IconButton(Icons.ADD_ACTION))
                     PopupWindow.Show(m_RectsAddButton, ActionsPopupButtons.Popup(action));
 
                 if (Event.current.type == EventType.Repaint)
