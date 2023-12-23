@@ -89,36 +89,9 @@ namespace DustEngine
 
         private int m_ObjectsQueue_index;
         private DuRandom m_ObjectsQueue_duRandom;
-        private List<GameObject> m_FinalSourceObjects;
 
         internal void ObjectsQueue_Initialize()
         {
-            m_FinalSourceObjects = new List<GameObject>();
-
-            if (m_Factory.sourceObjectsMode == Factory.SourceObjectsMode.Holder ||
-                m_Factory.sourceObjectsMode == Factory.SourceObjectsMode.HolderAndList)
-            {
-                // Make SourceObject list. Step 1:
-                if (Dust.IsNotNull(m_Factory.sourceObjectsHolder))
-                {
-                    var holder = m_Factory.sourceObjectsHolder.transform;
-                    for (int i = 0; i < holder.childCount; i++)
-                    {
-                        m_FinalSourceObjects.Add(holder.GetChild(i).gameObject);
-                    }
-                }
-            }
-
-            if (m_Factory.sourceObjectsMode == Factory.SourceObjectsMode.List ||
-                m_Factory.sourceObjectsMode == Factory.SourceObjectsMode.HolderAndList)
-            {
-                // Make SourceObject list. Step 2:
-                foreach (var sourceObject in m_Factory.sourceObjects)
-                {
-                    m_FinalSourceObjects.Add(sourceObject);
-                }
-            }
-
             switch (m_Factory.iterateMode)
             {
                 case Factory.IterateMode.Iterate:
@@ -128,31 +101,27 @@ namespace DustEngine
                 case Factory.IterateMode.Random:
                     m_ObjectsQueue_duRandom = new DuRandom( DuRandom.NormalizeSeedToNonRandom(m_Factory.seed) );
                     break;
-
-                default:
-                    break;
             }
         }
 
         private GameObject ObjectsQueue_GetNextPrefab()
         {
-            if (m_FinalSourceObjects.Count == 0)
+            if (m_Factory.sourceObjects.Count == 0)
                 return null;
 
             switch (m_Factory.iterateMode)
             {
                 case Factory.IterateMode.Iterate:
                 default:
-                    return m_FinalSourceObjects[m_ObjectsQueue_index++ % m_FinalSourceObjects.Count];
+                    return m_Factory.sourceObjects[m_ObjectsQueue_index++ % m_Factory.sourceObjects.Count];
 
                 case Factory.IterateMode.Random:
-                    return m_FinalSourceObjects[m_ObjectsQueue_duRandom.Range(0, m_FinalSourceObjects.Count)];
+                    return m_Factory.sourceObjects[m_ObjectsQueue_duRandom.Range(0, m_Factory.sourceObjects.Count)];
             }
         }
 
         internal void ObjectsQueue_Release()
         {
-            m_FinalSourceObjects = null;
             m_ObjectsQueue_duRandom = null;
         }
 

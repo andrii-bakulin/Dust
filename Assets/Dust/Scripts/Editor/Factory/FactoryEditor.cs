@@ -12,8 +12,6 @@ namespace DustEngine.DustEditor
 
         //--------------------------------------------------------------------------------------------------------------
 
-        private DuProperty m_SourceObjectsMode;
-        private DuProperty m_SourceObjectsHolder;
         private DuProperty m_SourceObjects;
         private DuProperty m_IterateMode;
         private DuProperty m_Seed;
@@ -71,8 +69,6 @@ namespace DustEngine.DustEditor
         {
             base.InitializeEditor();
 
-            m_SourceObjectsMode = FindProperty("m_SourceObjectsMode", "Source Mode");
-            m_SourceObjectsHolder = FindProperty("m_SourceObjectsHolder", "Holder");
             m_SourceObjects = FindProperty("m_SourceObjects", "Source Objects");
             m_IterateMode = FindProperty("m_IterateMode", "Iterate");
             m_Seed = FindProperty("m_Seed", "Forced Set Active");
@@ -104,9 +100,6 @@ namespace DustEngine.DustEditor
         }
 
         //--------------------------------------------------------------------------------------------------------------
-
-        protected Factory.SourceObjectsMode sourceObjectsMode
-            => (Factory.SourceObjectsMode) m_SourceObjectsMode.valInt;
 
         protected Factory.IterateMode iterateMode
             => (Factory.IterateMode) m_IterateMode.valInt;
@@ -146,22 +139,7 @@ namespace DustEngine.DustEditor
 
         protected void OnInspectorGUI_SourceObjects()
         {
-            DustGUI.Header("Source Objects");
-
-            PropertyField(m_SourceObjectsMode);
-
-            if (sourceObjectsMode == Factory.SourceObjectsMode.Holder ||
-                sourceObjectsMode == Factory.SourceObjectsMode.HolderAndList)
-            {
-                PropertyField(m_SourceObjectsHolder);
-            }
-
-            if (sourceObjectsMode == Factory.SourceObjectsMode.List ||
-                sourceObjectsMode == Factory.SourceObjectsMode.HolderAndList)
-            {
-                PropertyField(m_SourceObjects);
-            }
-
+            PropertyField(m_SourceObjects);
             PropertyField(m_IterateMode);
 
             if (iterateMode == Factory.IterateMode.Random)
@@ -169,8 +147,6 @@ namespace DustEngine.DustEditor
 
             Space();
 
-            m_IsRequireRebuildInstances |= m_SourceObjectsMode.isChanged;
-            m_IsRequireRebuildInstances |= m_SourceObjectsHolder.isChanged;
             m_IsRequireRebuildInstances |= m_SourceObjects.isChanged;
             m_IsRequireRebuildInstances |= m_IterateMode.isChanged;
             m_IsRequireRebuildInstances |= m_Seed.isChanged;

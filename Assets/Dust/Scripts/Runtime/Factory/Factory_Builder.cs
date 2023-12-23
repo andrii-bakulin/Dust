@@ -35,27 +35,11 @@ namespace DustEngine
 
         private int GetSourceObjectsStampId()
         {
-            int stampId = ((int) sourceObjectsMode + 25) * 1001;
+            int stampId = 1;
 
-            if (sourceObjectsMode == SourceObjectsMode.Holder ||
-                sourceObjectsMode == SourceObjectsMode.HolderAndList)
+            for (int i = 0; i < sourceObjects.Count; i++)
             {
-                if (Dust.IsNotNull(sourceObjectsHolder))
-                {
-                    for (int i = 0; i < sourceObjectsHolder.transform.childCount; i++)
-                    {
-                        stampId ^= i * 835141 + sourceObjectsHolder.transform.GetChild(i).GetInstanceID();
-                    }
-                }
-            }
-
-            if (sourceObjectsMode == SourceObjectsMode.List ||
-                sourceObjectsMode == SourceObjectsMode.HolderAndList)
-            {
-                for (int i = 0; i < sourceObjects.Count; i++)
-                {
-                    stampId ^= i * 835141 + sourceObjects[i].GetInstanceID();
-                }
+                stampId ^= i * 835141 + sourceObjects[i].GetInstanceID();
             }
 
             if (stampId == 0)

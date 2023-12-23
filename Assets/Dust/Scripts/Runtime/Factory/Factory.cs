@@ -5,7 +5,6 @@ namespace DustEngine
 {
     public abstract partial class Factory : DuMonoBehaviour, IDynamicState
     {
-        internal readonly string kGameObjectName_SourceObjects = "Source Objects";
         internal readonly string kGameObjectName_Instances = "Instances";
         internal readonly string kGameObjectName_Machines = "Machines";
 
@@ -44,13 +43,6 @@ namespace DustEngine
             XY = 0,
             ZY = 1,
             XZ = 2,
-        }
-
-        public enum SourceObjectsMode
-        {
-            Holder = 0,
-            List = 1,
-            HolderAndList = 2,
         }
 
         public enum TransformSequence
@@ -291,36 +283,6 @@ namespace DustEngine
         // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
         [SerializeField]
-        private SourceObjectsMode m_SourceObjectsMode = SourceObjectsMode.HolderAndList;
-        public SourceObjectsMode sourceObjectsMode
-        {
-            get => m_SourceObjectsMode;
-            set
-            {
-                if (m_SourceObjectsMode == value)
-                    return;
-
-                m_SourceObjectsMode = value;
-                RebuildInstances();
-            }
-        }
-
-        [SerializeField]
-        private GameObject m_SourceObjectsHolder;
-        public GameObject sourceObjectsHolder
-        {
-            get => m_SourceObjectsHolder;
-            set
-            {
-                if (m_SourceObjectsHolder == value)
-                    return;
-
-                m_SourceObjectsHolder = value;
-                RebuildInstances();
-            }
-        }
-
-        [SerializeField]
         private List<GameObject> m_SourceObjects = new List<GameObject>();
         public List<GameObject> sourceObjects => m_SourceObjects;
 
@@ -427,12 +389,6 @@ namespace DustEngine
 
         private void Awake()
         {
-            if (Application.isPlaying)
-            {
-                if (Dust.IsNotNull(sourceObjectsHolder))
-                    sourceObjectsHolder.SetActive(false);
-            }
-
             RebuildInstances();
         }
 
@@ -449,11 +405,7 @@ namespace DustEngine
             {
                 var child = transform.GetChild(i);
 
-                if (Dust.IsNull(sourceObjectsHolder) && child.name.Equals(kGameObjectName_SourceObjects))
-                {
-                    sourceObjectsHolder = child.gameObject;
-                }
-                else if (Dust.IsNull(instancesHolder) && child.name.Equals(kGameObjectName_Instances))
+                if (Dust.IsNull(instancesHolder) && child.name.Equals(kGameObjectName_Instances))
                 {
                     instancesHolder = child.gameObject;
                 }
@@ -461,14 +413,6 @@ namespace DustEngine
                 {
                     factoryMachinesHolder = child.gameObject;
                 }
-            }
-
-            if (Dust.IsNull(sourceObjectsHolder))
-            {
-                sourceObjectsHolder = new GameObject();
-                sourceObjectsHolder.name = kGameObjectName_SourceObjects;
-                sourceObjectsHolder.transform.parent = transform;
-                DuTransform.Reset(sourceObjectsHolder.transform);
             }
 
             if (Dust.IsNull(instancesHolder))
