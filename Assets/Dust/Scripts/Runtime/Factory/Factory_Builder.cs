@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
@@ -216,8 +217,8 @@ namespace DustEngine
                 }
             }
 
-            // Reset array (but it cannot be null)
-            m_Instances = new FactoryInstance[0];
+            // Reset array (it cannot be null !!)
+            m_Instances = Array.Empty<FactoryInstance>();
 
 #if DUST_DEBUG_FACTORY_BUILDER
             Dust.Debug.Checkpoint("Factory.Builder", "DestroyAllInstances", "Done: Destroyed Objects = " + destroyedObjects);
@@ -265,9 +266,6 @@ namespace DustEngine
                         SetInstanceZeroStates_Position(instanceState);
                         SetInstanceZeroStates_Scale(instanceState);
                         break;
-
-                    default:
-                        break;
                 }
 
                 SetInstanceZeroStates_Value(instanceState);
@@ -301,9 +299,6 @@ namespace DustEngine
 
                 case TransformSpace.Instance:
                     instanceState.position += transformPosition;
-                    break;
-
-                default:
                     break;
             }
         }
