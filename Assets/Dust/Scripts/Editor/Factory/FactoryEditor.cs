@@ -213,7 +213,7 @@ namespace DustEngine.DustEditor
 
         protected void OnInspectorGUI_Transform()
         {
-            if (DustGUI.FoldoutBegin("Transform", "Factory.Transform"))
+            if (DustGUI.FoldoutBegin("Default Instances Transform Update", "Factory.Transform"))
             {
                 PropertyField(m_TransformPosition);
                 PropertyField(m_TransformRotation);

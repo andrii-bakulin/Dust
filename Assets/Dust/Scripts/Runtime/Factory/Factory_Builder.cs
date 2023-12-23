@@ -253,6 +253,8 @@ namespace DustEngine
                 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
                 // Apply instances transform params
 
+                // @notice: this will be only important for transformSpace = TransformSpace.Instance!
+                // otherwise - it give same results for PRS or RPS.
                 switch (transformSequence)
                 {
                     case TransformSequence.PositionRotationScale:
@@ -294,11 +296,11 @@ namespace DustEngine
             switch (transformSpace)
             {
                 case TransformSpace.Factory:
-                    instanceState.position += DuMath.RotatePoint(transformPosition, instanceState.rotation);
+                    instanceState.position += transformPosition;
                     break;
 
                 case TransformSpace.Instance:
-                    instanceState.position += transformPosition;
+                    instanceState.position += DuMath.RotatePoint(transformPosition, instanceState.rotation);
                     break;
             }
         }
