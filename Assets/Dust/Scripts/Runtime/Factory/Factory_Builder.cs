@@ -312,7 +312,7 @@ namespace DustEngine
 
         private void SetInstanceZeroStates_Scale(FactoryInstance.State instanceState)
         {
-            instanceState.scale.Scale(transformScale);
+            instanceState.scale = Vector3.Scale(instanceState.scale, transformScale);
         }
 
         private void SetInstanceZeroStates_Value(FactoryInstance.State instanceState)
