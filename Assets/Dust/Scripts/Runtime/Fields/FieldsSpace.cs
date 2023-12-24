@@ -27,7 +27,7 @@ namespace DustEngine
 
             fieldsMap.Calculate(m_CalcFieldPoint);
 
-            return m_CalcFieldPoint.endPower;
+            return m_CalcFieldPoint.result.power;
         }
 
         // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -43,7 +43,7 @@ namespace DustEngine
 
             fieldsMap.Calculate(m_CalcFieldPoint);
 
-            return m_CalcFieldPoint.endColor;
+            return m_CalcFieldPoint.result.color;
         }
 
         // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -59,8 +59,8 @@ namespace DustEngine
 
             fieldsMap.Calculate(m_CalcFieldPoint);
 
-            color = m_CalcFieldPoint.endColor;
-            return m_CalcFieldPoint.endPower;
+            color = m_CalcFieldPoint.result.color;
+            return m_CalcFieldPoint.result.power;
         }
     }
 }

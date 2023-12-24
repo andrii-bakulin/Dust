@@ -99,13 +99,13 @@ namespace DustEngine
 
         public override void Calculate(Field.Point fieldPoint, out Field.Result result, bool calculateColor)
         {
-            result.power = RoundValue(fieldPoint.endPower);
+            result.power = RoundValue(fieldPoint.result.power);
 
             // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
             if (calculateColor)
             {
-                result.color = fieldPoint.endColor;
+                result.color = fieldPoint.result.color;
                 result.color.r = RoundValue(result.color.r);
                 result.color.g = RoundValue(result.color.g);
                 result.color.b = RoundValue(result.color.b);

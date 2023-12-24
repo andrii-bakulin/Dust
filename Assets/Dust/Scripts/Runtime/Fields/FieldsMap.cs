@@ -248,7 +248,7 @@ namespace DustEngine
 
             bool result = Calculate(m_CalcFieldPoint);
 
-            power = m_CalcFieldPoint.endPower;
+            power = m_CalcFieldPoint.result.power;
 
             return result;
         }
@@ -268,8 +268,8 @@ namespace DustEngine
 
             bool result = Calculate(m_CalcFieldPoint);
 
-            power = m_CalcFieldPoint.endPower;
-            color = m_CalcFieldPoint.endColor;
+            power = m_CalcFieldPoint.result.power;
+            color = m_CalcFieldPoint.result.color;
 
             return result;
         }
@@ -291,8 +291,8 @@ namespace DustEngine
 
             bool result = Calculate(m_CalcFieldPoint);
 
-            power = m_CalcFieldPoint.endPower;
-            color = m_CalcFieldPoint.endColor;
+            power = m_CalcFieldPoint.result.power;
+            color = m_CalcFieldPoint.result.color;
 
             return result;
         }
@@ -301,8 +301,8 @@ namespace DustEngine
 
         public bool Calculate(Field.Point fieldPoint)
         {
-            fieldPoint.endPower = defaultPower;
-            fieldPoint.endColor = defaultColor;
+            fieldPoint.result.power = defaultPower;
+            fieldPoint.result.color = defaultColor;
 
             if (fields.Count == 0)
                 return false;
@@ -347,35 +347,35 @@ namespace DustEngine
                             break;
 
                         case FieldRecord.BlendPowerMode.Add:
-                            afterBlendPower = fieldPoint.endPower + fieldResultData.power;
+                            afterBlendPower = fieldPoint.result.power + fieldResultData.power;
                             break;
 
                         case FieldRecord.BlendPowerMode.Subtract:
-                            afterBlendPower = fieldPoint.endPower - fieldResultData.power;
+                            afterBlendPower = fieldPoint.result.power - fieldResultData.power;
                             break;
 
                         case FieldRecord.BlendPowerMode.Multiply:
-                            afterBlendPower = fieldPoint.endPower * fieldResultData.power;
+                            afterBlendPower = fieldPoint.result.power * fieldResultData.power;
                             break;
 
                         case FieldRecord.BlendPowerMode.Divide:
-                            afterBlendPower = DuMath.IsNotZero(fieldResultData.power) ? fieldPoint.endPower / fieldResultData.power : 0f;
+                            afterBlendPower = DuMath.IsNotZero(fieldResultData.power) ? fieldPoint.result.power / fieldResultData.power : 0f;
                             break;
 
                         case FieldRecord.BlendPowerMode.Avg:
-                            afterBlendPower = (fieldPoint.endPower + fieldResultData.power) / 2f;
+                            afterBlendPower = (fieldPoint.result.power + fieldResultData.power) / 2f;
                             break;
 
                         case FieldRecord.BlendPowerMode.Min:
-                            afterBlendPower = Mathf.Min(fieldPoint.endPower, fieldResultData.power);
+                            afterBlendPower = Mathf.Min(fieldPoint.result.power, fieldResultData.power);
                             break;
 
                         case FieldRecord.BlendPowerMode.Max:
-                            afterBlendPower = Mathf.Max(fieldPoint.endPower, fieldResultData.power);
+                            afterBlendPower = Mathf.Max(fieldPoint.result.power, fieldResultData.power);
                             break;
                     }
 
-                    fieldPoint.endPower = Mathf.LerpUnclamped(fieldPoint.endPower, afterBlendPower, fieldRecord.intensity);
+                    fieldPoint.result.power = Mathf.LerpUnclamped(fieldPoint.result.power, afterBlendPower, fieldRecord.intensity);
                 }
 
                 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -393,31 +393,31 @@ namespace DustEngine
                             break;
 
                         case FieldRecord.BlendColorMode.Blend:
-                            blendedColor = ColorBlend.AlphaBlend(fieldPoint.endColor, fieldResultData.color);
+                            blendedColor = ColorBlend.AlphaBlend(fieldPoint.result.color, fieldResultData.color);
                             break;
 
                         case FieldRecord.BlendColorMode.Add:
-                            blendedColor = ColorBlend.Add(fieldPoint.endColor, fieldResultData.color);
+                            blendedColor = ColorBlend.Add(fieldPoint.result.color, fieldResultData.color);
                             break;
 
                         case FieldRecord.BlendColorMode.Subtract:
-                            blendedColor = ColorBlend.Subtract(fieldPoint.endColor, fieldResultData.color);
+                            blendedColor = ColorBlend.Subtract(fieldPoint.result.color, fieldResultData.color);
                             break;
 
                         case FieldRecord.BlendColorMode.Multiply:
-                            blendedColor = ColorBlend.Multiply(fieldPoint.endColor, fieldResultData.color);
+                            blendedColor = ColorBlend.Multiply(fieldPoint.result.color, fieldResultData.color);
                             break;
 
                         case FieldRecord.BlendColorMode.Min:
-                            blendedColor = ColorBlend.MinAfterBlend(fieldPoint.endColor, fieldResultData.color);
+                            blendedColor = ColorBlend.MinAfterBlend(fieldPoint.result.color, fieldResultData.color);
                             break;
 
                         case FieldRecord.BlendColorMode.Max:
-                            blendedColor = ColorBlend.MaxAfterBlend(fieldPoint.endColor,fieldResultData.color);
+                            blendedColor = ColorBlend.MaxAfterBlend(fieldPoint.result.color,fieldResultData.color);
                             break;
                     }
 
-                    fieldPoint.endColor = Color.Lerp(fieldPoint.endColor, blendedColor, fieldRecord.intensity);
+                    fieldPoint.result.color = Color.Lerp(fieldPoint.result.color, blendedColor, fieldRecord.intensity);
                 }
 
                 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

@@ -39,7 +39,7 @@ namespace DustEngine
 
         public override void Calculate(Field.Point fieldPoint, out Field.Result result, bool calculateColor)
         {
-            result.power = remapping.MapValue(fieldPoint.endPower);
+            result.power = remapping.MapValue(fieldPoint.result.power);
             result.color = GetFieldColorFromRemapping(remapping, result.power, calculateColor);
         }
 

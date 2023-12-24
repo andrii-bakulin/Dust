@@ -94,11 +94,11 @@ namespace DustEngine
 
         public override void Calculate(Field.Point fieldPoint, out Field.Result result, bool calculateColor)
         {
-            result.power = shape.Evaluate(RecalculateValue(fieldPoint.endPower));
+            result.power = shape.Evaluate(RecalculateValue(fieldPoint.result.power));
 
             if (calculateColor)
             {
-                result.color = fieldPoint.endColor;
+                result.color = fieldPoint.result.color;
                 result.color.r = shape.Evaluate(RecalculateValue(result.color.r));
                 result.color.g = shape.Evaluate(RecalculateValue(result.color.g));
                 result.color.b = shape.Evaluate(RecalculateValue(result.color.b));

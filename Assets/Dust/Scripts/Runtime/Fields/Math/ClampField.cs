@@ -128,7 +128,7 @@ namespace DustEngine
 
         public override void Calculate(Field.Point fieldPoint, out Field.Result result, bool calculateColor)
         {
-            result.power = fieldPoint.endPower;
+            result.power = fieldPoint.result.power;
 
             if (powerClampMode == ClampMode.MinAndMax || powerClampMode == ClampMode.MinOnly)
                 result.power = Mathf.Max(result.power, powerClampMin);
@@ -140,7 +140,7 @@ namespace DustEngine
 
             if (calculateColor)
             {
-                result.color = fieldPoint.endColor;
+                result.color = fieldPoint.result.color;
 
                 if (colorClampMode == ClampMode.MinAndMax || colorClampMode == ClampMode.MinOnly)
                     result.color = DuColor.Max(result.color, colorClampMin);

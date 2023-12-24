@@ -17,9 +17,8 @@ namespace DustEngine
             internal float inOffset; // offset for point in sequence of points [0..1]
             internal FactoryMachine.FactoryInstanceState inFactoryInstanceState;
 
-            // Out/End/Resulted values
-            internal float endPower; // power calculated by fieldsMap
-            internal Color endColor; // color calculated by fieldsMap
+            // Out/End/Result values
+            internal Result result; // also, here I save data for each iteration of calculations (for fields-list)
         }
 
         public struct Result : IEquatable<Result>
