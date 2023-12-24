@@ -3,7 +3,7 @@
 namespace DustEngine
 {
     [AddComponentMenu("Dust/Fields/Fields Space")]
-    public class FieldsSpace : DuMonoBehaviour
+    public class FieldsSpace : DuMonoBehaviour, ICalcFieldValues
     {
         [SerializeField]
         private FieldsMap m_FieldsMap = FieldsMap.FieldsSpace();

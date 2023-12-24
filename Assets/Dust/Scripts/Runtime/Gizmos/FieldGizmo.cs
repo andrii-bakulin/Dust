@@ -159,11 +159,15 @@ namespace DustEngine
         {
             bool showPower = false, showColor = false;
 
+            ICalcFieldValues calcField;
+
             switch (sourceType)
             {
                 case SourceType.Field:
                     if (Dust.IsNull(field))
                         return;
+
+                    calcField = field;
 
                     showPower = (powerVisible || powerDotsVisible);
                     showColor = colorVisible;
@@ -173,9 +177,14 @@ namespace DustEngine
                     if (Dust.IsNull(fieldsSpace))
                         return;
 
+                    calcField = fieldsSpace;
+                    
                     showPower = (powerVisible || powerDotsVisible) && fieldsSpace.fieldsMap.calculatePower;
                     showColor = colorVisible && fieldsSpace.fieldsMap.calculateColor;
                     break;
+
+                default:
+                    return;
             }
             
             if (!showPower && !showColor)
@@ -211,19 +220,7 @@ namespace DustEngine
                 Color fieldColor;
                 float fieldPower;
 
-                switch (sourceType)
-                {
-                    case SourceType.Field:
-                        fieldPower = field.GetPowerAndColor(worldPosition, out fieldColor);
-                        break;
-
-                    case SourceType.FieldsSpace:
-                        fieldPower = fieldsSpace.GetPowerAndColor(worldPosition, offset, out fieldColor);
-                        break;
-                    
-                    default:
-                        return;
-                }
+                fieldPower = calcField.GetPowerAndColor(worldPosition, offset, out fieldColor);
 
                 if (showColor)
                 {
