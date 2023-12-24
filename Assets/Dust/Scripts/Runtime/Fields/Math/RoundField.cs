@@ -99,21 +99,21 @@ namespace DustEngine
 
         public override void Calculate(Field.Point fieldPoint, out Field.Result result, bool calculateColor)
         {
-            result.fieldPower = RoundValue(fieldPoint.endPower);
+            result.power = RoundValue(fieldPoint.endPower);
 
             // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
             if (calculateColor)
             {
-                result.fieldColor = fieldPoint.endColor;
-                result.fieldColor.r = RoundValue(result.fieldColor.r);
-                result.fieldColor.g = RoundValue(result.fieldColor.g);
-                result.fieldColor.b = RoundValue(result.fieldColor.b);
-                result.fieldColor.a = RoundValue(result.fieldColor.a);
+                result.color = fieldPoint.endColor;
+                result.color.r = RoundValue(result.color.r);
+                result.color.g = RoundValue(result.color.g);
+                result.color.b = RoundValue(result.color.b);
+                result.color.a = RoundValue(result.color.a);
             }
             else
             {
-                result.fieldColor = Color.clear;
+                result.color = Color.clear;
             }
         }
     }

@@ -265,27 +265,27 @@ namespace DustEngine
                     value = localPoint.z;
                 }
 
-                result.fieldPower = RepackValueByShape(powerShape, value * powerScale, powerMin, powerMax);
+                result.power = RepackValueByShape(powerShape, value * powerScale, powerMin, powerMax);
             }
             else
             {
-                result.fieldPower = 0f;
+                result.power = 0f;
             }
 
             // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
             if (calculateColor && colorEnabled && DuMath.IsNotZero(colorScale))
             {
-                result.fieldColor = localPoint.duToColor();
+                result.color = localPoint.duToColor();
 
-                result.fieldColor.r = RepackValueByShape(colorShape, result.fieldColor.r / colorScale, 0f, 1f);
-                result.fieldColor.g = RepackValueByShape(colorShape, result.fieldColor.g / colorScale, 0f, 1f);
-                result.fieldColor.b = RepackValueByShape(colorShape, result.fieldColor.b / colorScale, 0f, 1f);
-                result.fieldColor.a = 1f;
+                result.color.r = RepackValueByShape(colorShape, result.color.r / colorScale, 0f, 1f);
+                result.color.g = RepackValueByShape(colorShape, result.color.g / colorScale, 0f, 1f);
+                result.color.b = RepackValueByShape(colorShape, result.color.b / colorScale, 0f, 1f);
+                result.color.a = 1f;
             }
             else
             {
-                result.fieldColor = Color.clear;
+                result.color = Color.clear;
             }
         }
 

@@ -21,7 +21,7 @@ namespace DustEngine
 
             this.Calculate(m_CalcFieldPoint, out var result, false);
 
-            return result.fieldPower;
+            return result.power;
         }
 
         // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -37,7 +37,7 @@ namespace DustEngine
 
             this.Calculate(m_CalcFieldPoint, out var result, true);
 
-            return result.fieldColor;
+            return result.color;
         }
 
         // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -53,8 +53,8 @@ namespace DustEngine
 
             this.Calculate(m_CalcFieldPoint, out var result, true);
 
-            color = result.fieldColor;
-            return result.fieldPower;
+            color = result.color;
+            return result.power;
         }
     }
 }

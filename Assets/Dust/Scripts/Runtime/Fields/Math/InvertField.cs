@@ -43,18 +43,18 @@ namespace DustEngine
 
         public override void Calculate(Field.Point fieldPoint, out Field.Result result, bool calculateColor)
         {
-            result.fieldPower = 1f - fieldPoint.endPower;
+            result.power = 1f - fieldPoint.endPower;
 
             if (calculateColor)
             {
                 if (colorInvertAlpha)
-                    result.fieldColor = DuColor.InvertRGBA(fieldPoint.endColor);
+                    result.color = DuColor.InvertRGBA(fieldPoint.endColor);
                 else
-                    result.fieldColor = DuColor.InvertRGB(fieldPoint.endColor);
+                    result.color = DuColor.InvertRGB(fieldPoint.endColor);
             }
             else
             {
-                result.fieldColor = Color.clear;
+                result.color = Color.clear;
             }
         }
     }

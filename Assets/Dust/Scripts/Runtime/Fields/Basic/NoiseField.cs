@@ -233,8 +233,8 @@ namespace DustEngine
 
             // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-            result.fieldPower = remapping.MapValue(noiseValue);
-            result.fieldColor = GetFieldColorFromRemapping(remapping, result.fieldPower, calculateColor);
+            result.power = remapping.MapValue(noiseValue);
+            result.color = GetFieldColorFromRemapping(remapping, result.power, calculateColor);
         }
 
         //--------------------------------------------------------------------------------------------------------------

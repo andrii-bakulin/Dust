@@ -24,8 +24,8 @@ namespace DustEngine
 
         public struct Result : IEquatable<Result>
         {
-            internal float fieldPower; // power calculated by field
-            internal Color fieldColor; // color calculated by field, Color.alpha used as power of color
+            internal float power; // power calculated by field
+            internal Color color; // color calculated by field, Color.alpha used as power of color
 
             public bool Equals(Result other)
             {

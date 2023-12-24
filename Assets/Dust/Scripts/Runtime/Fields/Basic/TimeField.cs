@@ -94,8 +94,8 @@ namespace DustEngine
 
             float power = GetPowerByTimeMode(timeMode, globalOffset);
 
-            result.fieldPower = remapping.MapValue(power);
-            result.fieldColor = GetFieldColorFromRemapping(remapping, result.fieldPower, calculateColor);
+            result.power = remapping.MapValue(power);
+            result.color = GetFieldColorFromRemapping(remapping, result.power, calculateColor);
         }
 
         //--------------------------------------------------------------------------------------------------------------

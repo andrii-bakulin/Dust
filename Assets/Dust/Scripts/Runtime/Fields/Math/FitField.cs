@@ -72,9 +72,9 @@ namespace DustEngine
 
         public override void Calculate(Field.Point fieldPoint, out Field.Result result, bool calculateColor)
         {
-            result.fieldPower = DuMath.Fit(minInput, maxInput, minOutput, maxOutput, fieldPoint.endPower);
+            result.power = DuMath.Fit(minInput, maxInput, minOutput, maxOutput, fieldPoint.endPower);
 
-            result.fieldColor = Color.clear;
+            result.color = Color.clear;
         }
 
         //--------------------------------------------------------------------------------------------------------------

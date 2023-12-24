@@ -133,8 +133,8 @@ namespace DustEngine
         {
             if (Dust.IsNull(texture))
             {
-                result.fieldPower = 0f;
-                result.fieldColor = Color.black;
+                result.power = 0f;
+                result.color = Color.black;
             }
             else if (texture.isReadable)
             {
@@ -169,57 +169,57 @@ namespace DustEngine
 
                 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-                result.fieldColor = texture.GetPixel(xOnTexture, yOnTexture);
+                result.color = texture.GetPixel(xOnTexture, yOnTexture);
 
                 switch (powerSource)
                 {
                     default:
                     case ColorComponent.Ignore:
-                        result.fieldPower = 0f;
+                        result.power = 0f;
                         break;
 
                     case ColorComponent.Grayscale:
-                        result.fieldPower = result.fieldColor.grayscale;
+                        result.power = result.color.grayscale;
                         break;
 
                     case ColorComponent.Red:
-                        result.fieldPower = result.fieldColor.r;
+                        result.power = result.color.r;
                         break;
 
                     case ColorComponent.Green:
-                        result.fieldPower = result.fieldColor.g;
+                        result.power = result.color.g;
                         break;
 
                     case ColorComponent.Blue:
-                        result.fieldPower = result.fieldColor.b;
+                        result.power = result.color.b;
                         break;
 
                     case ColorComponent.Alpha:
-                        result.fieldPower = result.fieldColor.a;
+                        result.power = result.color.a;
                         break;
 
                     case ColorComponent.RGBAverage:
-                        result.fieldPower = (result.fieldColor.r + result.fieldColor.g + result.fieldColor.b) / 3f;
+                        result.power = (result.color.r + result.color.g + result.color.b) / 3f;
                         break;
 
                     case ColorComponent.RGBMin:
-                        result.fieldPower = Mathf.Min(Mathf.Min(result.fieldColor.r, result.fieldColor.g), result.fieldColor.b);
+                        result.power = Mathf.Min(Mathf.Min(result.color.r, result.color.g), result.color.b);
                         break;
 
                     case ColorComponent.RGBMax:
-                        result.fieldPower = Mathf.Max(Mathf.Max(result.fieldColor.r, result.fieldColor.g), result.fieldColor.b);
+                        result.power = Mathf.Max(Mathf.Max(result.color.r, result.color.g), result.color.b);
                         break;
                 }
 
-                result.fieldPower = remapping.MapValue(result.fieldPower);
+                result.power = remapping.MapValue(result.power);
 
                 if (applyPowerToAlpha)
-                    result.fieldColor.a = result.fieldPower;
+                    result.color.a = result.power;
             }
             else
             {
-                result.fieldPower = 0f;
-                result.fieldColor = Color.magenta;
+                result.power = 0f;
+                result.color = Color.magenta;
 
 #if UNITY_EDITOR
                 Dust.Debug.Warning("Texture [" + texture.name + "] has not read/write enabled");

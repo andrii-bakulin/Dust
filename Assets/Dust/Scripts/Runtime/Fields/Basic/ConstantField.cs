@@ -50,10 +50,10 @@ namespace DustEngine
 
         public override void Calculate(Field.Point fieldPoint, out Field.Result result, bool calculateColor)
         {
-            result.fieldPower = power;
+            result.power = power;
 
             // Notice: ignore power in alpha, but used what user defined in editor
-            result.fieldColor = calculateColor ? color : Color.clear;
+            result.color = calculateColor ? color : Color.clear;
         }
 
         //--------------------------------------------------------------------------------------------------------------
