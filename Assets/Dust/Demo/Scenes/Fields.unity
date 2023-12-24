@@ -2143,7 +2143,7 @@ GameObject:
   - component: {fileID: 1138665425}
   - component: {fileID: 1138665426}
   m_Layer: 0
-  m_Name: Texture Space
+  m_Name: Texture
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

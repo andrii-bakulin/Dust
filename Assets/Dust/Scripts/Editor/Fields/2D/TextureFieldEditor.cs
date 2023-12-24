@@ -3,10 +3,10 @@ using UnityEditor;
 
 namespace DustEngine.DustEditor
 {
-    [CustomEditor(typeof(TextureSpaceField))]
+    [CustomEditor(typeof(TextureField))]
     [CanEditMultipleObjects]
     [InitializeOnLoad]
-    public class TextureSpaceFieldEditor : SpaceFieldEditor
+    public class TextureFieldEditor : SpaceFieldEditor
     {
         private DuProperty m_Texture;
         private DuProperty m_WrapMode;
@@ -23,15 +23,15 @@ namespace DustEngine.DustEditor
 
         //--------------------------------------------------------------------------------------------------------------
 
-        static TextureSpaceFieldEditor()
+        static TextureFieldEditor()
         {
-            FieldsPopupButtons.Add2DField(typeof(TextureSpaceField), "Texture Space");
+            FieldsPopupButtons.Add2DField(typeof(TextureField), "Texture");
         }
 
-        [MenuItem("Dust/Fields/2D Fields/Texture Space")]
+        [MenuItem("Dust/Fields/2D Fields/Texture")]
         public static void AddComponent()
         {
-            AddFieldComponentByType(typeof(TextureSpaceField));
+            AddFieldComponentByType(typeof(TextureField));
         }
 
         //--------------------------------------------------------------------------------------------------------------
@@ -88,7 +88,7 @@ namespace DustEngine.DustEditor
             // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
             // OnInspectorGUI_RemappingBlock();
 
-            if ((TextureSpaceField.ColorComponent) m_PowerSource.valInt != TextureSpaceField.ColorComponent.Ignore)
+            if ((TextureField.ColorComponent) m_PowerSource.valInt != TextureField.ColorComponent.Ignore)
             {
                 m_RemappingEditor.OnInspectorGUI(false);
             }
@@ -96,10 +96,10 @@ namespace DustEngine.DustEditor
             // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
             if (m_Width.isChanged)
-                m_Width.valFloat = TextureSpaceField.NormalizeWidth(m_Width.valFloat);
+                m_Width.valFloat = TextureField.NormalizeWidth(m_Width.valFloat);
 
             if (m_Height.isChanged)
-                m_Height.valFloat = TextureSpaceField.NormalizeHeight(m_Height.valFloat);
+                m_Height.valFloat = TextureField.NormalizeHeight(m_Height.valFloat);
 
             InspectorCommitUpdates();
         }

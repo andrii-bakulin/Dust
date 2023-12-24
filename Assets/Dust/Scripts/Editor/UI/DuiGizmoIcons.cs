@@ -67,7 +67,7 @@ namespace DustEngine.DustEditor
             // Fields:2D
             SetGizmoIconEnabled<DirectionalField>(false);
             SetGizmoIconEnabled<RadialField>(false);
-            SetGizmoIconEnabled<TextureSpaceField>(false);
+            SetGizmoIconEnabled<TextureField>(false);
             SetGizmoIconEnabled<WaveField>(false);
             // Fields:3D
             SetGizmoIconEnabled<ConeField>(false);
