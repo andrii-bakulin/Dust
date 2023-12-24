@@ -242,6 +242,12 @@ namespace DustEngine
         private InstanceUpdateEvent m_OnInstanceUpdate = null;
         public InstanceUpdateEvent onInstanceUpdate => m_OnInstanceUpdate;
 
+        // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+        [SerializeField]
+        private Vector3 m_DefaultPrefabScale;
+        public Vector3 defaultPrefabScale => m_DefaultPrefabScale;
+
         //--------------------------------------------------------------------------------------------------------------
 
         public void Initialize(Factory factory, int initIndex, float initOffset, float initRandomScalar, Vector3 initRandomVector)
@@ -251,6 +257,8 @@ namespace DustEngine
             m_Offset = initOffset;
             m_RandomScalar = initRandomScalar;
             m_RandomVector = initRandomVector;
+
+            m_DefaultPrefabScale = this.transform.localScale;
         }
 
         internal void SetPrevNextInstances(FactoryInstance prevFactoryInstance, FactoryInstance nextFactoryInstance)

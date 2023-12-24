@@ -250,6 +250,20 @@ namespace DustEngine
             }
         }
 
+        [SerializeField]
+        protected bool m_TransformApplyDefaultScale = true;
+        public bool transformApplyDefaultScale
+        {
+            get => m_TransformApplyDefaultScale;
+            set
+            {
+                if (!UpdatePropertyValue(ref m_TransformApplyDefaultScale, value))
+                    return;
+
+                UpdateInstancesZeroStates();
+            }
+        }
+
         // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
         [SerializeField]

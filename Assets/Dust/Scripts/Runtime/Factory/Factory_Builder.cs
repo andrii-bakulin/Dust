@@ -251,6 +251,13 @@ namespace DustEngine
                 var instanceState = builder.GetDefaultInstanceState(factoryInstance);
 
                 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+                if (transformApplyDefaultScale)
+                {
+                    instanceState.scale = factoryInstance.defaultPrefabScale;
+                }
+
+                // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
                 // Apply instances transform params
 
                 // @notice: this will be only important for transformSpace = TransformSpace.Instance!

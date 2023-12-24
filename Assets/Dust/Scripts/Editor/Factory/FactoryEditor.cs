@@ -26,6 +26,7 @@ namespace DustEngine.DustEditor
         private DuProperty m_TransformPosition;
         private DuProperty m_TransformRotation;
         private DuProperty m_TransformScale;
+        private DuProperty m_TransformApplyDefaultScale;
 
         private DuProperty m_InstanceAccessMode;
         private DuProperty m_InstanceTypeMode;
@@ -83,6 +84,7 @@ namespace DustEngine.DustEditor
             m_TransformPosition = FindProperty("m_TransformPosition", "Position");
             m_TransformRotation = FindProperty("m_TransformRotation", "Rotation");
             m_TransformScale = FindProperty("m_TransformScale", "Scale");
+            m_TransformApplyDefaultScale = FindProperty("m_TransformApplyDefaultScale", "Apply Source Object Scale");
 
             m_InstanceAccessMode = FindProperty("m_InstanceAccessMode", "Access Mode");
             m_InstanceTypeMode = FindProperty("m_InstanceTypeMode", "Type Mode");
@@ -219,6 +221,7 @@ namespace DustEngine.DustEditor
                 PropertyField(m_TransformRotation);
                 PropertyField(m_TransformScale);
                 PropertyField(m_TransformSpace);
+                PropertyField(m_TransformApplyDefaultScale);
 
                 if (transformSpace == Factory.TransformSpace.Instance)
                     PropertyField(m_TransformSequence);
@@ -232,6 +235,7 @@ namespace DustEngine.DustEditor
             m_IsRequireResetupInstances |= m_TransformScale.isChanged;
             m_IsRequireResetupInstances |= m_TransformSpace.isChanged;
             m_IsRequireResetupInstances |= m_TransformSequence.isChanged;
+            m_IsRequireResetupInstances |= m_TransformApplyDefaultScale.isChanged;
         }
 
         protected void OnInspectorGUI_Gizmos()
