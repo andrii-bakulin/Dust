@@ -27,6 +27,7 @@ namespace DustEngine.DustEditor
         }
 
         [MenuItem("Dust/Fields/Math Fields/Invert")]
+        [MenuItem("GameObject/Dust/Fields/Math Fields/Invert")]
         public static void AddComponent()
         {
             AddFieldComponentByType(typeof(InvertField));

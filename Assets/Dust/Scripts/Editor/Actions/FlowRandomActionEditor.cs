@@ -20,6 +20,7 @@ namespace DustEngine.DustEditor
         }
 
         [MenuItem("Dust/Actions/Flow Random")]
+        [MenuItem("GameObject/Dust/Actions/Flow Random")]
         public static void AddComponentToSelectedObjects()
         {
             AddComponentToSelectedOrNewObject("Flow Random Action", typeof(FlowRandomAction));

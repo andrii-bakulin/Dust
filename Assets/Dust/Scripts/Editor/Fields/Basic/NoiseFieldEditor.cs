@@ -30,6 +30,7 @@ namespace DustEngine.DustEditor
         }
 
         [MenuItem("Dust/Fields/Basic Fields/Noise")]
+        [MenuItem("GameObject/Dust/Fields/Basic Fields/Noise")]
         public static void AddComponent()
         {
             AddFieldComponentByType(typeof(NoiseField));

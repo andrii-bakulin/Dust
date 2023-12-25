@@ -27,6 +27,7 @@ namespace DustEngine.DustEditor
         //--------------------------------------------------------------------------------------------------------------
 
         [MenuItem("Dust/Helpers/Destroyer")]
+        [MenuItem("GameObject/Dust/Helpers/Destroyer")]
         public static void AddComponentToSelectedObjects()
         {
             AddComponentToSelectedOrNewObject("Destroyer", typeof(Destroyer));

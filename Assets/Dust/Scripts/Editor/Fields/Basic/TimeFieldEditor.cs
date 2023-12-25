@@ -22,6 +22,7 @@ namespace DustEngine.DustEditor
         }
 
         [MenuItem("Dust/Fields/Basic Fields/Time")]
+        [MenuItem("GameObject/Dust/Fields/Basic Fields/Time")]
         public static void AddComponent()
         {
             AddFieldComponentByType(typeof(TimeField));

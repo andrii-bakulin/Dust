@@ -20,6 +20,7 @@ namespace DustEngine.DustEditor
         //--------------------------------------------------------------------------------------------------------------
 
         [MenuItem("Dust/Helpers/Lock Transform")]
+        [MenuItem("GameObject/Dust/Helpers/Lock Transform")]
         public static void AddComponentToSelectedObjects()
         {
             AddComponentToSelectedObjects(typeof(LockTransform));

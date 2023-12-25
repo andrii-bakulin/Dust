@@ -16,6 +16,7 @@ namespace DustEngine.DustEditor
         }
 
         [MenuItem("Dust/Factory/Machines/Time")]
+        [MenuItem("GameObject/Dust/Factory/Machines/Time")]
         public new static void AddComponent()
         {
             AddFactoryMachineComponentByType(typeof(TimeFactoryMachine));

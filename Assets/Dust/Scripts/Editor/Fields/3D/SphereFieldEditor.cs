@@ -18,6 +18,7 @@ namespace DustEngine.DustEditor
         }
 
         [MenuItem("Dust/Fields/3D Fields/Sphere")]
+        [MenuItem("GameObject/Dust/Fields/3D Fields/Sphere")]
         public static void AddComponent()
         {
             AddFieldComponentByType(typeof(SphereField));

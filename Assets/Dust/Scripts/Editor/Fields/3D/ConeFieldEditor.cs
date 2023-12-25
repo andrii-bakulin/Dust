@@ -20,6 +20,7 @@ namespace DustEngine.DustEditor
         }
 
         [MenuItem("Dust/Fields/3D Fields/Cone")]
+        [MenuItem("GameObject/Dust/Fields/3D Fields/Cone")]
         public static void AddComponent()
         {
             AddFieldComponentByType(typeof(ConeField));

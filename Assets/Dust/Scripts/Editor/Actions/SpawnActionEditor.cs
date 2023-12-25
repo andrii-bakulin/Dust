@@ -35,6 +35,7 @@ namespace DustEngine.DustEditor
         }
 
         [MenuItem("Dust/Actions/Spawn")]
+        [MenuItem("GameObject/Dust/Actions/Spawn")]
         public static void AddComponentToSelectedObjects()
         {
             AddComponentToSelectedOrNewObject("Spawn Action", typeof(SpawnAction));

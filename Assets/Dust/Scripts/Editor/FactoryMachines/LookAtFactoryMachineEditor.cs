@@ -26,6 +26,7 @@ namespace DustEngine.DustEditor
         }
 
         [MenuItem("Dust/Factory/Machines/LookAt")]
+        [MenuItem("GameObject/Dust/Factory/Machines/LookAt")]
         public new static void AddComponent()
         {
             AddFactoryMachineComponentByType(typeof(LookAtFactoryMachine));

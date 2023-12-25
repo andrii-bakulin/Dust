@@ -29,6 +29,7 @@ namespace DustEngine.DustEditor
         }
 
         [MenuItem("Dust/Fields/2D Fields/Texture")]
+        [MenuItem("GameObject/Dust/Fields/2D Fields/Texture")]
         public static void AddComponent()
         {
             AddFieldComponentByType(typeof(TextureField));

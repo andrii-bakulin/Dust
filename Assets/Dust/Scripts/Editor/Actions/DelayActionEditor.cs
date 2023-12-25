@@ -22,6 +22,7 @@ namespace DustEngine.DustEditor
         }
 
         [MenuItem("Dust/Actions/Delay")]
+        [MenuItem("GameObject/Dust/Actions/Delay")]
         public static void AddComponentToSelectedObjects()
         {
             AddComponentToSelectedOrNewObject("Delay Action", typeof(DelayAction));

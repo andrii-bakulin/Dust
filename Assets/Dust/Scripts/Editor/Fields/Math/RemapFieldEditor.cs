@@ -25,6 +25,7 @@ namespace DustEngine.DustEditor
         }
 
         [MenuItem("Dust/Fields/Math Fields/Remap")]
+        [MenuItem("GameObject/Dust/Fields/Math Fields/Remap")]
         public static void AddComponent()
         {
             AddFieldComponentByType(typeof(RemapField));

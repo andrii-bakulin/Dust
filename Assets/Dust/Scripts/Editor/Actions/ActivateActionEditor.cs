@@ -26,6 +26,7 @@ namespace DustEngine.DustEditor
         }
 
         [MenuItem("Dust/Actions/Activate")]
+        [MenuItem("GameObject/Dust/Actions/Activate")]
         public static void AddComponentToSelectedObjects()
         {
             AddComponentToSelectedOrNewObject("Activate Action", typeof(ActivateAction));

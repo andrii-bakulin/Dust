@@ -23,6 +23,7 @@ namespace DustEngine.DustEditor
         }
 
         [MenuItem("Dust/Actions/Transform Copy")]
+        [MenuItem("GameObject/Dust/Actions/Transform Copy")]
         public static void AddComponentToSelectedObjects()
         {
             AddComponentToSelectedOrNewObject("Transform Copy Action", typeof(TransformCopyAction));

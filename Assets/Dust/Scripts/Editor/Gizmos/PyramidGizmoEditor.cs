@@ -15,6 +15,7 @@ namespace DustEngine.DustEditor
         //--------------------------------------------------------------------------------------------------------------
 
         [MenuItem("Dust/Gizmos/Pyramid")]
+        [MenuItem("GameObject/Dust/Gizmos/Pyramid")]
         public static void AddComponentToSelectedObjects()
         {
             AddGizmoToSelectedOrNewObject(typeof(PyramidGizmo));

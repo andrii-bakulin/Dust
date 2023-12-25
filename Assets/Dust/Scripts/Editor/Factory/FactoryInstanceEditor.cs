@@ -26,6 +26,7 @@ namespace DustEngine.DustEditor
         //--------------------------------------------------------------------------------------------------------------
 
         [MenuItem("Dust/Factory/Support/Factory Instance")]
+        [MenuItem("GameObject/Dust/Factory/Support/Factory Instance")]
         public static void AddComponentToSelectedObjects()
         {
             AddComponentToSelectedObjects(typeof(FactoryInstance));

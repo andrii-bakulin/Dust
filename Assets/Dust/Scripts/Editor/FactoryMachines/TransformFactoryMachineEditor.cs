@@ -16,6 +16,7 @@ namespace DustEngine.DustEditor
         }
 
         [MenuItem("Dust/Factory/Machines/Transform")]
+        [MenuItem("GameObject/Dust/Factory/Machines/Transform")]
         public new static void AddComponent()
         {
             AddFactoryMachineComponentByType(typeof(TransformFactoryMachine));

@@ -19,6 +19,7 @@ namespace DustEngine.DustEditor
         }
 
         [MenuItem("Dust/Fields/Basic Fields/Constant")]
+        [MenuItem("GameObject/Dust/Fields/Basic Fields/Constant")]
         public static void AddComponent()
         {
             AddFieldComponentByType(typeof(ConstantField));

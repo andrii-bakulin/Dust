@@ -19,6 +19,7 @@ namespace DustEngine.DustEditor
         }
 
         [MenuItem("Dust/Fields/Math Fields/Round")]
+        [MenuItem("GameObject/Dust/Fields/Math Fields/Round")]
         public static void AddComponent()
         {
             AddFieldComponentByType(typeof(RoundField));

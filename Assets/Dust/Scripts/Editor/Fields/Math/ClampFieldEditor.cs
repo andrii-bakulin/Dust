@@ -29,6 +29,7 @@ namespace DustEngine.DustEditor
         }
 
         [MenuItem("Dust/Fields/Math Fields/Clamp")]
+        [MenuItem("GameObject/Dust/Fields/Math Fields/Clamp")]
         public static void AddComponent()
         {
             AddFieldComponentByType(typeof(ClampField));

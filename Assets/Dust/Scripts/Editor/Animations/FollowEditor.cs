@@ -26,6 +26,7 @@ namespace DustEngine.DustEditor
         //--------------------------------------------------------------------------------------------------------------
 
         [MenuItem("Dust/Animations/Follow")]
+        [MenuItem("GameObject/Dust/Animations/Follow")]
         public static void AddComponentToSelectedObjects()
         {
             AddComponentToSelectedOrNewObject("Follow", typeof(Follow));

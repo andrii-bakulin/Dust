@@ -22,6 +22,7 @@ namespace DustEngine.DustEditor
         //--------------------------------------------------------------------------------------------------------------
 
         [MenuItem("Dust/Factory/Grid Factory")]
+        [MenuItem("GameObject/Dust/Factory/Grid Factory")]
         public static void AddComponent()
         {
             CreateFactoryByType(typeof(GridFactory));

@@ -23,6 +23,7 @@ namespace DustEngine.DustEditor
         }
 
         [MenuItem("Dust/Fields/Math Fields/Curve")]
+        [MenuItem("GameObject/Dust/Fields/Math Fields/Curve")]
         public static void AddComponent()
         {
             AddFieldComponentByType(typeof(CurveField));

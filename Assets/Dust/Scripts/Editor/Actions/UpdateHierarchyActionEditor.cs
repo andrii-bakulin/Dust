@@ -23,6 +23,7 @@ namespace DustEngine.DustEditor
         }
 
         [MenuItem("Dust/Actions/Update Hierarchy")]
+        [MenuItem("GameObject/Dust/Actions/Update Hierarchy")]
         public static void AddComponentToSelectedObjects()
         {
             AddComponentToSelectedOrNewObject("Update Hierarchy Action", typeof(UpdateHierarchyAction));

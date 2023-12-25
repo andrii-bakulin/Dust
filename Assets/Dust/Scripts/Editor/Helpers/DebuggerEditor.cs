@@ -16,6 +16,7 @@ namespace DustEngine.DustEditor
         //--------------------------------------------------------------------------------------------------------------
 
         [MenuItem("Dust/Helpers/Debugger")]
+        [MenuItem("GameObject/Dust/Helpers/Debugger")]
         public static void AddComponentToSelectedObjects()
         {
             AddComponentToSelectedObjects(typeof(Debugger));

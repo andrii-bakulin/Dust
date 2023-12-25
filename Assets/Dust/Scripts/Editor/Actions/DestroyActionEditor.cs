@@ -20,6 +20,7 @@ namespace DustEngine.DustEditor
         }
 
         [MenuItem("Dust/Actions/Destroy")]
+        [MenuItem("GameObject/Dust/Actions/Destroy")]
         public static void AddComponentToSelectedObjects()
         {
             AddComponentToSelectedOrNewObject("Destroy Action", typeof(DestroyAction));

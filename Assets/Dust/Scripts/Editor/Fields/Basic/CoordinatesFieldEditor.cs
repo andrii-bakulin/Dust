@@ -30,6 +30,7 @@ namespace DustEngine.DustEditor
         }
 
         [MenuItem("Dust/Fields/Basic Fields/Coordinates")]
+        [MenuItem("GameObject/Dust/Fields/Basic Fields/Coordinates")]
         public static void AddComponent()
         {
             AddFieldComponentByType(typeof(CoordinatesField));

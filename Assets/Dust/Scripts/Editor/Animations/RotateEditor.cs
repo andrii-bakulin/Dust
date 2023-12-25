@@ -22,6 +22,7 @@ namespace DustEngine.DustEditor
         //--------------------------------------------------------------------------------------------------------------
 
         [MenuItem("Dust/Animations/Rotate")]
+        [MenuItem("GameObject/Dust/Animations/Rotate")]
         public static void AddComponentToSelectedObjects()
         {
             AddComponentToSelectedOrNewObject("Rotate", typeof(Rotate));

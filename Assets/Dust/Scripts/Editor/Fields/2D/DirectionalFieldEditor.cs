@@ -22,6 +22,7 @@ namespace DustEngine.DustEditor
         }
 
         [MenuItem("Dust/Fields/2D Fields/Directional")]
+        [MenuItem("GameObject/Dust/Fields/2D Fields/Directional")]
         public static void AddComponent()
         {
             AddFieldComponentByType(typeof(DirectionalField));

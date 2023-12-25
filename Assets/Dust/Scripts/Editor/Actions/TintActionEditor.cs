@@ -24,6 +24,7 @@ namespace DustEngine.DustEditor
         }
 
         [MenuItem("Dust/Actions/Tint")]
+        [MenuItem("GameObject/Dust/Actions/Tint")]
         public static void AddComponentToSelectedObjects()
         {
             AddComponentToSelectedOrNewObject("Tint Action", typeof(TintAction));

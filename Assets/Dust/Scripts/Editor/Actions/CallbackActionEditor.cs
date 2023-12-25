@@ -18,6 +18,7 @@ namespace DustEngine.DustEditor
         }
 
         [MenuItem("Dust/Actions/Callback")]
+        [MenuItem("GameObject/Dust/Actions/Callback")]
         public static void AddComponentToSelectedObjects()
         {
             AddComponentToSelectedOrNewObject("Callback Action", typeof(CallbackAction));

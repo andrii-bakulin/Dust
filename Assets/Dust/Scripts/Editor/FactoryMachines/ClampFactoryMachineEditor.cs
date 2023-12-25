@@ -43,6 +43,7 @@ namespace DustEngine.DustEditor
         }
 
         [MenuItem("Dust/Factory/Machines/Clamp")]
+        [MenuItem("GameObject/Dust/Factory/Machines/Clamp")]
         public new static void AddComponent()
         {
             AddFactoryMachineComponentByType(typeof(ClampFactoryMachine));

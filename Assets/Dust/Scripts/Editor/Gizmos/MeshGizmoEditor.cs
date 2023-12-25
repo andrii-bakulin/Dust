@@ -14,6 +14,7 @@ namespace DustEngine.DustEditor
         //--------------------------------------------------------------------------------------------------------------
 
         [MenuItem("Dust/Gizmos/Mesh")]
+        [MenuItem("GameObject/Dust/Gizmos/Mesh")]
         public static void AddComponentToSelectedObjects()
         {
             AddGizmoToSelectedOrNewObject(typeof(MeshGizmo));

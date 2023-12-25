@@ -26,6 +26,7 @@ namespace DustEngine.DustEditor
         //--------------------------------------------------------------------------------------------------------------
 
         [MenuItem("Dust/Factory/Radial Factory")]
+        [MenuItem("GameObject/Dust/Factory/Radial Factory")]
         public static void AddComponent()
         {
             CreateFactoryByType(typeof(RadialFactory));

@@ -16,6 +16,7 @@ namespace DustEngine.DustEditor
         //--------------------------------------------------------------------------------------------------------------
 
         [MenuItem("Dust/Events/On Key")]
+        [MenuItem("GameObject/Dust/Events/On Key")]
         public static void AddComponent()
         {
             AddComponentToSelectedOrNewObject("OnKey", typeof(OnKeyEvent));

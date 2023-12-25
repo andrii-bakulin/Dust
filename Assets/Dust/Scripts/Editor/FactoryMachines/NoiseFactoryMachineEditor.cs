@@ -30,6 +30,7 @@ namespace DustEngine.DustEditor
         }
 
         [MenuItem("Dust/Factory/Machines/Noise")]
+        [MenuItem("GameObject/Dust/Factory/Machines/Noise")]
         public new static void AddComponent()
         {
             AddFactoryMachineComponentByType(typeof(NoiseFactoryMachine));

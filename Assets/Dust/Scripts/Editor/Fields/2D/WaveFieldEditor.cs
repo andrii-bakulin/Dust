@@ -27,6 +27,7 @@ namespace DustEngine.DustEditor
         }
 
         [MenuItem("Dust/Fields/2D Fields/Wave")]
+        [MenuItem("GameObject/Dust/Fields/2D Fields/Wave")]
         public static void AddComponent()
         {
             AddFieldComponentByType(typeof(WaveField));

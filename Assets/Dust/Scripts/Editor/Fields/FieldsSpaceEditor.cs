@@ -14,6 +14,7 @@ namespace DustEngine.DustEditor
         //--------------------------------------------------------------------------------------------------------------
 
         [MenuItem("Dust/Fields/Fields Space")]
+        [MenuItem("GameObject/Dust/Fields/Fields Space")]
         protected static void AddComponentToSelectedObjects()
         {
             AddComponentToSelectedOrNewObject("Fields Space", typeof(FieldsSpace));

@@ -22,6 +22,7 @@ namespace DustEngine.DustEditor
         }
 
         [MenuItem("Dust/Fields/Math Fields/Fit")]
+        [MenuItem("GameObject/Dust/Fields/Math Fields/Fit")]
         public static void AddComponent()
         {
             AddFieldComponentByType(typeof(FitField));

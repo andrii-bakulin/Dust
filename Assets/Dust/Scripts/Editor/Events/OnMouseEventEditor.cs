@@ -16,6 +16,7 @@ namespace DustEngine.DustEditor
         //--------------------------------------------------------------------------------------------------------------
 
         [MenuItem("Dust/Events/On Mouse")]
+        [MenuItem("GameObject/Dust/Events/On Mouse")]
         public static void AddComponent()
         {
             AddComponentToSelectedOrNewObject("DuMouse", typeof(OnMouseEvent));

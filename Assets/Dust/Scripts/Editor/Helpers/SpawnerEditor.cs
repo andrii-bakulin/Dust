@@ -38,6 +38,7 @@ namespace DustEngine.DustEditor
         //--------------------------------------------------------------------------------------------------------------
 
         [MenuItem("Dust/Helpers/Spawner")]
+        [MenuItem("GameObject/Dust/Helpers/Spawner")]
         public static void AddComponentToSelectedObjects()
         {
             AddComponentToSelectedOrNewObject("Spawner", typeof(Spawner));

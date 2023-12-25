@@ -29,6 +29,7 @@ namespace DustEngine.DustEditor
         //--------------------------------------------------------------------------------------------------------------
 
         [MenuItem("Dust/Helpers/Random Transform")]
+        [MenuItem("GameObject/Dust/Helpers/Random Transform")]
         public static void AddComponentToSelectedObjects()
         {
             AddComponentToSelectedOrNewObject("Random Transform", typeof(RandomTransform));

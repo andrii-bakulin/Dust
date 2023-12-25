@@ -19,6 +19,7 @@ namespace DustEngine.DustEditor
         }
 
         [MenuItem("Dust/Actions/MoveBy")]
+        [MenuItem("GameObject/Dust/Actions/MoveBy")]
         public static void AddComponentToSelectedObjects()
         {
             AddComponentToSelectedOrNewObject("MoveBy Action", typeof(MoveByAction));

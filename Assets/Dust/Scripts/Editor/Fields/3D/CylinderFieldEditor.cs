@@ -20,6 +20,7 @@ namespace DustEngine.DustEditor
         }
 
         [MenuItem("Dust/Fields/3D Fields/Cylinder")]
+        [MenuItem("GameObject/Dust/Fields/3D Fields/Cylinder")]
         public static void AddComponent()
         {
             AddFieldComponentByType(typeof(CylinderField));

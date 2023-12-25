@@ -29,6 +29,7 @@ namespace DustEngine.DustEditor
         }
 
         [MenuItem("Dust/Fields/2D Fields/Radial")]
+        [MenuItem("GameObject/Dust/Fields/2D Fields/Radial")]
         public static void AddComponent()
         {
             AddFieldComponentByType(typeof(RadialField));

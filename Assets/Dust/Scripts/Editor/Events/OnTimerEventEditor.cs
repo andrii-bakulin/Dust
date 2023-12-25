@@ -16,6 +16,7 @@ namespace DustEngine.DustEditor
         //--------------------------------------------------------------------------------------------------------------
 
         [MenuItem("Dust/Events/On Timer")]
+        [MenuItem("GameObject/Dust/Events/On Timer")]
         public static void AddComponent()
         {
             AddComponentToSelectedOrNewObject("OnTimer", typeof(OnTimerEvent));

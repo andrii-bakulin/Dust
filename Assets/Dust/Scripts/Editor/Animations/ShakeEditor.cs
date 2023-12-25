@@ -31,6 +31,7 @@ namespace DustEngine.DustEditor
         //--------------------------------------------------------------------------------------------------------------
 
         [MenuItem("Dust/Animations/Shake")]
+        [MenuItem("GameObject/Dust/Animations/Shake")]
         public static void AddComponentToSelectedObjects()
         {
             AddComponentToSelectedOrNewObject("Shake", typeof(Shake));

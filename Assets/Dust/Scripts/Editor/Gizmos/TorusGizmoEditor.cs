@@ -14,6 +14,7 @@ namespace DustEngine.DustEditor
         //--------------------------------------------------------------------------------------------------------------
 
         [MenuItem("Dust/Gizmos/Torus")]
+        [MenuItem("GameObject/Dust/Gizmos/Torus")]
         public static void AddComponentToSelectedObjects()
         {
             AddGizmoToSelectedOrNewObject(typeof(TorusGizmo));

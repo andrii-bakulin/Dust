@@ -20,6 +20,7 @@ namespace DustEngine.DustEditor
         }
 
         [MenuItem("Dust/Actions/Flip")]
+        [MenuItem("GameObject/Dust/Actions/Flip")]
         public static void AddComponentToSelectedObjects()
         {
             AddComponentToSelectedOrNewObject("Flip Action", typeof(FlipAction));

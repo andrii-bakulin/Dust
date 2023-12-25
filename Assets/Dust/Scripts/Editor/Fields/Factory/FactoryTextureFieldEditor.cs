@@ -28,6 +28,7 @@ namespace DustEngine.DustEditor
         }
 
         [MenuItem("Dust/Fields/Factory Fields/Factory Texture")]
+        [MenuItem("GameObject/Dust/Fields/Factory Fields/Factory Texture")]
         public static void AddComponent()
         {
             AddFieldComponentByType(typeof(FactoryTextureField));

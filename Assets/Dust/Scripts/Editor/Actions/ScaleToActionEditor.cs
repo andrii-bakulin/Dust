@@ -19,6 +19,7 @@ namespace DustEngine.DustEditor
         }
 
         [MenuItem("Dust/Actions/ScaleTo")]
+        [MenuItem("GameObject/Dust/Actions/ScaleTo")]
         public static void AddComponentToSelectedObjects()
         {
             AddComponentToSelectedOrNewObject("ScaleTo Action", typeof(ScaleToAction));

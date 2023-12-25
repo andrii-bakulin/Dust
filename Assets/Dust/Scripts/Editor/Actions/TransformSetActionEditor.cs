@@ -26,6 +26,7 @@ namespace DustEngine.DustEditor
         }
 
         [MenuItem("Dust/Actions/Transform Set")]
+        [MenuItem("GameObject/Dust/Actions/Transform Set")]
         public static void AddComponentToSelectedObjects()
         {
             AddComponentToSelectedOrNewObject("Transform Set Action", typeof(TransformSetAction));
