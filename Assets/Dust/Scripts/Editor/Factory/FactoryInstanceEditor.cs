@@ -153,28 +153,9 @@ namespace DustEngine.DustEditor
 
             // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-            if (!IsFreeInstance && Dust.IsNotNull(mainScript.stateZero))
-            {
-                if (DustGUI.FoldoutBegin("Default State", "FactoryInstance.DefaultStates"))
-                {
-                    DustGUI.Lock();
-                    DustGUI.Field("Position", mainScript.stateZero.position.duToRound(3));
-                    DustGUI.Field("Rotation", mainScript.stateZero.rotation.duToRound(3));
-                    DustGUI.Field("Scale", mainScript.stateZero.scale.duToRound(3));
-                    Space();
-                    DustGUI.Field("Value", mainScript.stateZero.value);
-                    DustGUI.Field("Color", mainScript.stateZero.color);
-                    DustGUI.Field("Color Values", mainScript.stateZero.color.duToVector3(2));
-                    DustGUI.Field("Color RGB", (mainScript.stateZero.color * 255).duToVector3Int());
-                    DustGUI.Field("UVW", mainScript.stateZero.uvw.duToRound(3));
-                    DustGUI.Unlock();
-                }
-                DustGUI.FoldoutEnd();
-            }
-
             if (!IsFreeInstance && Dust.IsNotNull(mainScript.stateDynamic))
             {
-                if (DustGUI.FoldoutBegin("Dynamic End State", "FactoryInstance.DynamicStates"))
+                if (DustGUI.FoldoutBegin("Dynamic Final State", "FactoryInstance.DynamicStates"))
                 {
                     DustGUI.Lock();
                     DustGUI.Field("Position", mainScript.stateDynamic.position.duToRound(3));
@@ -193,7 +174,7 @@ namespace DustEngine.DustEditor
 
             if (!IsFreeInstance && Dust.IsNotNull(mainScript.stateDynamicPrevious))
             {
-                if (DustGUI.FoldoutBegin("Dynamic Previous State", "FactoryInstance.DynamicStatesPrevious"))
+                if (DustGUI.FoldoutBegin("Dynamic Previous State", "FactoryInstance.DynamicStatesPrevious", false))
                 {
                     DustGUI.Lock();
                     DustGUI.Field("Position", mainScript.stateDynamicPrevious.position.duToRound(3));
@@ -205,6 +186,25 @@ namespace DustEngine.DustEditor
                     DustGUI.Field("Color Values", mainScript.stateDynamicPrevious.color.duToVector3(2));
                     DustGUI.Field("Color RGB", (mainScript.stateDynamicPrevious.color * 255).duToVector3Int());
                     DustGUI.Field("UVW", mainScript.stateDynamicPrevious.uvw.duToRound(3));
+                    DustGUI.Unlock();
+                }
+                DustGUI.FoldoutEnd();
+            }
+
+            if (!IsFreeInstance && Dust.IsNotNull(mainScript.stateZero))
+            {
+                if (DustGUI.FoldoutBegin("Default State", "FactoryInstance.DefaultStates", false))
+                {
+                    DustGUI.Lock();
+                    DustGUI.Field("Position", mainScript.stateZero.position.duToRound(3));
+                    DustGUI.Field("Rotation", mainScript.stateZero.rotation.duToRound(3));
+                    DustGUI.Field("Scale", mainScript.stateZero.scale.duToRound(3));
+                    Space();
+                    DustGUI.Field("Value", mainScript.stateZero.value);
+                    DustGUI.Field("Color", mainScript.stateZero.color);
+                    DustGUI.Field("Color Values", mainScript.stateZero.color.duToVector3(2));
+                    DustGUI.Field("Color RGB", (mainScript.stateZero.color * 255).duToVector3Int());
+                    DustGUI.Field("UVW", mainScript.stateZero.uvw.duToRound(3));
                     DustGUI.Unlock();
                 }
                 DustGUI.FoldoutEnd();

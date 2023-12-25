@@ -429,20 +429,20 @@ namespace DustEngine
                 }
             }
 
-            if (Dust.IsNull(instancesHolder))
-            {
-                instancesHolder = new GameObject();
-                instancesHolder.name = kGameObjectName_Instances;
-                instancesHolder.transform.parent = transform;
-                DuTransform.Reset(instancesHolder.transform);
-            }
-
             if (Dust.IsNull(factoryMachinesHolder))
             {
                 factoryMachinesHolder = new GameObject();
                 factoryMachinesHolder.name = kGameObjectName_Machines;
                 factoryMachinesHolder.transform.parent = transform;
                 DuTransform.Reset(factoryMachinesHolder.transform);
+            }
+
+            if (Dust.IsNull(instancesHolder))
+            {
+                instancesHolder = new GameObject();
+                instancesHolder.name = kGameObjectName_Instances;
+                instancesHolder.transform.parent = transform;
+                DuTransform.Reset(instancesHolder.transform);
             }
 
             RebuildInstances();
