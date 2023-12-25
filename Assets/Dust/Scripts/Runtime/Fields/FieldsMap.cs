@@ -234,11 +234,12 @@ namespace DustEngine
 
         //--------------------------------------------------------------------------------------------------------------
 
-        public bool Calculate(Vector3 worldPosition, float sequenceOffset, out float power)
+        public bool Calculate(Vector3 worldPosition, float sequenceOffset, out Field.Result result)
         {
             if (!HasFields())
             {
-                power = defaultPower;
+                result.power = defaultPower;
+                result.color = defaultColor;
                 return false;
             }
 
@@ -246,42 +247,19 @@ namespace DustEngine
             m_CalcFieldPoint.inOffset = sequenceOffset;
             m_CalcFieldPoint.inFactoryInstanceState = null;
 
-            bool result = Calculate(m_CalcFieldPoint);
-
-            power = m_CalcFieldPoint.result.power;
-
-            return result;
-        }
-
-        public bool Calculate(Vector3 worldPosition, float sequenceOffset, out float power, out Color color)
-        {
-            if (!HasFields())
-            {
-                power = defaultPower;
-                color = defaultColor;
-                return false;
-            }
-
-            m_CalcFieldPoint.inPosition = worldPosition;
-            m_CalcFieldPoint.inOffset = sequenceOffset;
-            m_CalcFieldPoint.inFactoryInstanceState = null;
-
-            bool result = Calculate(m_CalcFieldPoint);
-
-            power = m_CalcFieldPoint.result.power;
-            color = m_CalcFieldPoint.result.color;
-
-            return result;
+            bool didCalculated = Calculate(m_CalcFieldPoint);
+            result = m_CalcFieldPoint.result;
+            return didCalculated;
         }
 
         // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-        public bool Calculate(FactoryMachine.FactoryInstanceState factoryInstanceState, out float power, out Color color)
+        public bool Calculate(FactoryMachine.FactoryInstanceState factoryInstanceState, out Field.Result result)
         {
             if (!HasFields())
             {
-                power = defaultPower;
-                color = defaultColor;
+                result.power = defaultPower;
+                result.color = defaultColor;
                 return false;
             }
 
@@ -289,12 +267,9 @@ namespace DustEngine
             m_CalcFieldPoint.inOffset = factoryInstanceState.instance.offset;
             m_CalcFieldPoint.inFactoryInstanceState = factoryInstanceState;
 
-            bool result = Calculate(m_CalcFieldPoint);
-
-            power = m_CalcFieldPoint.result.power;
-            color = m_CalcFieldPoint.result.color;
-
-            return result;
+            bool didCalculated = Calculate(m_CalcFieldPoint);
+            result = m_CalcFieldPoint.result;
+            return didCalculated;
         }
 
         // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

@@ -151,9 +151,11 @@ namespace DustEngine
         {
             factoryInstanceState.intensityByMachine = intensityByMachine;
 
-            fieldsMap.Calculate(factoryInstanceState,
-                out factoryInstanceState.fieldPower,
-                out factoryInstanceState.fieldColor);
+            fieldsMap.Calculate(factoryInstanceState, out Field.Result result);
+            {
+                factoryInstanceState.fieldPower = result.power;
+                factoryInstanceState.fieldColor = result.color;
+            }
 
             UpdateInstanceDynamicState_Value(factoryInstanceState);
             UpdateInstanceDynamicState_Color(factoryInstanceState);
