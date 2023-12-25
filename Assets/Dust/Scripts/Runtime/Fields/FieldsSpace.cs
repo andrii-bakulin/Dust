@@ -48,10 +48,10 @@ namespace DustEngine
 
         // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-        public float GetPowerAndColor(Vector3 worldPosition, out Color color)
-            => GetPowerAndColor(worldPosition, 0f, out color);
+        public Field.Result GetPowerAndColor(Vector3 worldPosition)
+            => GetPowerAndColor(worldPosition, 0f);
 
-        public float GetPowerAndColor(Vector3 worldPosition, float offset, out Color color)
+        public Field.Result GetPowerAndColor(Vector3 worldPosition, float offset)
         {
             m_CalcFieldPoint.inPosition = worldPosition;
             m_CalcFieldPoint.inOffset = offset;
@@ -59,8 +59,7 @@ namespace DustEngine
 
             fieldsMap.Calculate(m_CalcFieldPoint);
 
-            color = m_CalcFieldPoint.result.color;
-            return m_CalcFieldPoint.result.power;
+            return m_CalcFieldPoint.result;
         }
     }
 }

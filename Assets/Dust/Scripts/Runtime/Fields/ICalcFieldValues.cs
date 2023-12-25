@@ -10,9 +10,7 @@ namespace DustEngine
         public Color GetColor(Vector3 worldPosition);
         public Color GetColor(Vector3 worldPosition, float offset);
         
-        public float GetPowerAndColor(Vector3 worldPosition, out Color color);
-        public float GetPowerAndColor(Vector3 worldPosition, float offset, out Color color);
-
-        // public Field.Result GetPowerAndColor(Vector3 worldPosition);
+        public Field.Result GetPowerAndColor(Vector3 worldPosition);
+        public Field.Result GetPowerAndColor(Vector3 worldPosition, float offset);
     }
 }

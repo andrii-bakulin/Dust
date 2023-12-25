@@ -214,24 +214,20 @@ namespace DustEngine
             for (int x = 0; x < gridPointsCount.x; x++)
             {
                 var position = zeroPoint + new Vector3(gridStep.x * x, gridStep.y * y, gridStep.z * z);
+                var worldPosition = transform.TransformPoint(position);
 
-                Vector3 worldPosition = transform.TransformPoint(position);
-
-                Color fieldColor;
-                float fieldPower;
-
-                fieldPower = calcField.GetPowerAndColor(worldPosition, offset, out fieldColor);
+                Field.Result fieldResult = calcField.GetPowerAndColor(worldPosition, offset);
 
                 if (showColor)
                 {
                     if (!colorAllowTransparent)
-                        fieldColor = ColorBlend.AlphaBlend(Color.black, fieldColor);
+                        fieldResult.color = ColorBlend.AlphaBlend(Color.black, fieldResult.color);
 
                     float dotSize = 0.1f * colorSize;
                     if (powerImpactOnColorSize)
-                        dotSize *= fieldPower;
+                        dotSize *= fieldResult.power;
 
-                    Handles.color = fieldColor;
+                    Handles.color = fieldResult.color;
                     Handles.DotHandleCap(0, worldPosition, transform.rotation, dotSize, EventType.Repaint);
                 }
 
@@ -240,13 +236,13 @@ namespace DustEngine
                     if (powerDotsVisible)
                     {
                         if (Dust.IsNotNull(powerDotsColor))
-                            Handles.color = powerDotsColor.Evaluate(fieldPower);
+                            Handles.color = powerDotsColor.Evaluate(fieldResult.power);
                         else
-                            Handles.color = Color.Lerp(Color.black, Color.white, fieldPower);
+                            Handles.color = Color.Lerp(Color.black, Color.white, fieldResult.power);
 
                         float dotSize = 0.1f * powerDotsSize;
                         if (powerImpactOnDotsSize)
-                            dotSize *= fieldPower;
+                            dotSize *= fieldResult.power;
 
                         Handles.DotHandleCap(0, worldPosition, transform.rotation, dotSize, EventType.Repaint);
                     }
@@ -255,10 +251,10 @@ namespace DustEngine
                     if (powerVisible)
                     {
                         GUIStyle style = new GUIStyle("Label");
-                        style.fontSize = Mathf.RoundToInt(style.fontSize * powerSize * (powerImpactOnDotsSize ? fieldPower : 1f));
+                        style.fontSize = Mathf.RoundToInt(style.fontSize * powerSize * (powerImpactOnDotsSize ? fieldResult.power : 1f));
                         style.fontSize = Mathf.Max(style.fontSize, 3); // Cannot be 0!
 
-                        Handles.Label(worldPosition, fieldPower.ToString("F2"), style);
+                        Handles.Label(worldPosition, fieldResult.power.ToString("F2"), style);
                     }
                 }
 

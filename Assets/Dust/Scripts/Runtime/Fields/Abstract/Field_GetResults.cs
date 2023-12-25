@@ -19,7 +19,7 @@ namespace DustEngine
             m_CalcFieldPoint.inOffset = 0f;
             m_CalcFieldPoint.inFactoryInstanceState = null;
 
-            this.Calculate(m_CalcFieldPoint, out var result, false);
+            Calculate(m_CalcFieldPoint, out var result, false);
 
             return result.power;
         }
@@ -35,26 +35,25 @@ namespace DustEngine
             m_CalcFieldPoint.inOffset = 0f;
             m_CalcFieldPoint.inFactoryInstanceState = null;
 
-            this.Calculate(m_CalcFieldPoint, out var result, true);
+            Calculate(m_CalcFieldPoint, out var result, true);
 
             return result.color;
         }
 
         // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-        public float GetPowerAndColor(Vector3 worldPosition, out Color color)
-            => GetPowerAndColor(worldPosition, 0f, out color);
+        public Field.Result GetPowerAndColor(Vector3 worldPosition)
+            => GetPowerAndColor(worldPosition, 0f);
 
-        public float GetPowerAndColor(Vector3 worldPosition, float offset, out Color color)
+        public Field.Result GetPowerAndColor(Vector3 worldPosition, float offset)
         {
             m_CalcFieldPoint.inPosition = worldPosition;
             m_CalcFieldPoint.inOffset = 0f;
             m_CalcFieldPoint.inFactoryInstanceState = null;
 
-            this.Calculate(m_CalcFieldPoint, out var result, true);
+            Calculate(m_CalcFieldPoint, out var result, true);
 
-            color = result.color;
-            return result.power;
+            return result;
         }
     }
 }
