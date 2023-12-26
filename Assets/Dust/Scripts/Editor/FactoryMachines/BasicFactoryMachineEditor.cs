@@ -81,6 +81,19 @@ namespace DustEngine.DustEditor
 
         //--------------------------------------------------------------------------------------------------------------
 
+        protected override void InspectorCommitUpdates()
+        {
+            if (m_ValueImpactIntensity.isChanged)
+                m_ValueImpactIntensity.valFloat = BasicFactoryMachine.NormalizeImpactIntensity(m_ValueImpactIntensity.valFloat);
+
+            if (m_ColorImpactIntensity.isChanged)
+                m_ColorImpactIntensity.valFloat = BasicFactoryMachine.NormalizeImpactIntensity(m_ColorImpactIntensity.valFloat);
+
+            base.InspectorCommitUpdates();
+        }
+
+        //--------------------------------------------------------------------------------------------------------------
+
         // WARNING!
         // On change logic/structure here, also required to check changes in parent/children methods
         // with same method name/links

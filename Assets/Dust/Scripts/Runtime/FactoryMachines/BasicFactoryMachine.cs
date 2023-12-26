@@ -47,7 +47,7 @@ namespace DustEngine
         public float valueImpactIntensity
         {
             get => m_ValueImpactIntensity;
-            set => m_ValueImpactIntensity = value;
+            set => m_ValueImpactIntensity = NormalizeImpactIntensity(value);
         }
 
         [SerializeField]
@@ -97,7 +97,7 @@ namespace DustEngine
         public float colorImpactIntensity
         {
             get => m_ColorImpactIntensity;
-            set => m_ColorImpactIntensity = value;
+            set => m_ColorImpactIntensity = NormalizeImpactIntensity(value);
         }
 
         [SerializeField]
@@ -335,6 +335,14 @@ namespace DustEngine
 
             m_ValueImpactEnabled = true;
             m_ColorImpactEnabled = true;
+        }
+        
+        //--------------------------------------------------------------------------------------------------------------
+        // Normalizer
+
+        public static float NormalizeImpactIntensity(float value)
+        {
+            return Mathf.Clamp01(value);
         }
     }
 }
