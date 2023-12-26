@@ -224,13 +224,36 @@ namespace DustEngine
 
             // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
             // Merge
-
+            
+            // Here final calculation may looks like a bug.
+            // But it's NO!
+            // Final value calculates next way:
+            // 1) Took Value before calculations by upper rules [v1]
+            // 2) Calculate Value by all upper rules [v2]
+            // 3) Get UnclampedLerp between v1 and v2 by finalIntensity (included all intensities).
+            //
+            // For finalIntensity [0..1] -> it's looks good
+            // For finalIntensity < 0 or finalIntensity > 1 -> something strange may happened
+            //
+            // Situation:
+            //      Base Factory has init power 10.0f
+            //      Inner TransformFactoryMachine has final power 2.0f
+            //      ValueBlendMode = SET <<!!
+            // For SET mode:
+            //      For finalIntensity = 0.f => LerpUnclamped(10f, 2f, 1f) =>   10f (OK) 
+            //      For finalIntensity = 1.f => LerpUnclamped(10f, 2f, 1f) =>   2f  (OK)
+            //      For finalIntensity = 2.f => LerpUnclamped(10f, 2f, 2f) =>  -6f  (Hm...) 
+            //      For finalIntensity = 3.f => LerpUnclamped(10f, 2f, 2f) => -14f  (Hm...) 
+            //      For finalIntensity =-1.f => LerpUnclamped(10f, 2f, 1f) =>  18f  (Hm...)
+            //
+            // But I keep this logic to save linearity of results!
+            
             // @notice: here fieldPower also involve to transferPower (not like in PRS-Factory)
-            float transferPower = factoryInstanceState.intensityByFactory
-                                  * factoryInstanceState.intensityByMachine
-                                  * valueImpactIntensity;
+            float finalIntensity = factoryInstanceState.intensityByFactory 
+                                   * factoryInstanceState.intensityByMachine 
+                                   * valueImpactIntensity;
 
-            instanceState.value = Mathf.LerpUnclamped(instanceState.value, newValue, transferPower);
+            instanceState.value = Mathf.LerpUnclamped(instanceState.value, newValue, finalIntensity);
 
             if (valueClampEnabled)
                 instanceState.value = Mathf.Clamp(instanceState.value, valueClampMin, valueClampMax);
