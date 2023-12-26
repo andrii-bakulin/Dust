@@ -43,18 +43,16 @@ namespace DustEngine.DustEditor
 
             // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-            if (DustGUI.FoldoutBegin("Field Parameters", "DuAnyField.Parameters"))
-            {
-                PropertyField(m_CustomHint);
-                Space();
+            PropertyField(m_CustomHint);
+            Space();
 
-                PropertyExtendedSlider(m_Radius, 0f, 20f, 0.01f);
-                PropertyExtendedSlider(m_Thickness, 0f, 20f, 0.01f);
-                PropertyField(m_Direction);
-                Space();
-            }
-            DustGUI.FoldoutEnd();
+            PropertyExtendedSlider(m_Radius, 0f, 20f, 0.01f);
+            PropertyExtendedSlider(m_Thickness, 0f, 20f, 0.01f);
+            PropertyField(m_Direction);
+            Space();
 
+            // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+            
             OnInspectorGUI_RemappingBlock();
             OnInspectorGUI_GizmoBlock();
 

@@ -60,43 +60,39 @@ namespace DustEngine.DustEditor
 
             // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-            if (DustGUI.FoldoutBegin("Field Parameters", "DuAnyField.Parameters"))
+            PropertyField(m_CustomHint);
+            Space();
+
+            PropertyField(m_Texture);
+            PropertyField(m_SpaceUVW);
+
+            switch ((FactoryTextureField.SpaceUVW) m_SpaceUVW.valInt)
             {
-                PropertyField(m_CustomHint);
-                Space();
+                default:
+                case FactoryTextureField.SpaceUVW.UV:
+                    PropertyField(m_FlipU);
+                    PropertyField(m_FlipV);
+                    break;
 
-                PropertyField(m_Texture);
-                PropertyField(m_SpaceUVW);
+                case FactoryTextureField.SpaceUVW.UW:
+                    PropertyField(m_FlipU);
+                    PropertyField(m_FlipW);
+                    break;
 
-                switch ((FactoryTextureField.SpaceUVW) m_SpaceUVW.valInt)
-                {
-                    default:
-                    case FactoryTextureField.SpaceUVW.UV:
-                        PropertyField(m_FlipU);
-                        PropertyField(m_FlipV);
-                        break;
-
-                    case FactoryTextureField.SpaceUVW.UW:
-                        PropertyField(m_FlipU);
-                        PropertyField(m_FlipW);
-                        break;
-
-                    case FactoryTextureField.SpaceUVW.VW:
-                        PropertyField(m_FlipV);
-                        PropertyField(m_FlipW);
-                        break;
-                }
-                Space();
-
-                DustGUI.Header("Power Impact");
-                PropertyField(m_PowerSource);
-                Space();
-
-                DustGUI.Header("Color Impact");
-                PropertyField(m_ApplyPowerToAlpha);
-                Space();
+                case FactoryTextureField.SpaceUVW.VW:
+                    PropertyField(m_FlipV);
+                    PropertyField(m_FlipW);
+                    break;
             }
-            DustGUI.FoldoutEnd();
+            Space();
+
+            DustGUI.Header("Power Impact");
+            PropertyField(m_PowerSource);
+            Space();
+
+            DustGUI.Header("Color Impact");
+            PropertyField(m_ApplyPowerToAlpha);
+            Space();
 
             // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
             // OnInspectorGUI_RemappingBlock();

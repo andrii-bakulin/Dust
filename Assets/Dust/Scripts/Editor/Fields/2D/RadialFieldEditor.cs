@@ -61,27 +61,25 @@ namespace DustEngine.DustEditor
 
             // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-            if (DustGUI.FoldoutBegin("Field Parameters", "DuAnyField.Parameters"))
-            {
-                PropertyField(m_CustomHint);
-                Space();
+            PropertyField(m_CustomHint);
+            Space();
 
-                PropertyExtendedSlider(m_StartAngle, 0f, 360f, 1f);
-                PropertyExtendedSlider(m_EndAngle, 0f, 360f, 1f);
-                Space();
+            PropertyExtendedSlider(m_StartAngle, 0f, 360f, 1f);
+            PropertyExtendedSlider(m_EndAngle, 0f, 360f, 1f);
+            Space();
 
-                PropertyExtendedSlider(m_FadeInOffset, 0f, 360f, 1f);
-                PropertyExtendedSlider(m_FadeOutOffset, 0f, 360f, 1f);
-                Space();
+            PropertyExtendedSlider(m_FadeInOffset, 0f, 360f, 1f);
+            PropertyExtendedSlider(m_FadeOutOffset, 0f, 360f, 1f);
+            Space();
 
-                PropertyExtendedSlider(m_Iterations, 1f, 10f, 0.01f, 1f);
-                PropertyExtendedSlider(m_Offset, 0f, 360f, 1f);
-                Space();
+            PropertyExtendedSlider(m_Iterations, 1f, 10f, 0.01f, 1f);
+            PropertyExtendedSlider(m_Offset, 0f, 360f, 1f);
+            Space();
 
-                PropertyField(m_Direction);
-                Space();
-            }
-            DustGUI.FoldoutEnd();
+            PropertyField(m_Direction);
+            Space();
+
+            // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
             OnInspectorGUI_RemappingBlock();
 

@@ -63,44 +63,40 @@ namespace DustEngine.DustEditor
 
             // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-            if (DustGUI.FoldoutBegin("Field Parameters", "DuAnyField.Parameters"))
+            PropertyField(m_CustomHint);
+            Space();
+
+            // PropertyExtendedSlider(m_Max, -1f, +1f, 0.01f);
+            // PropertyExtendedSlider(m_Min, -1f, +1f, 0.01f);
+            // Space();
+
+            PropertyField(m_NoiseMode);
+            PropertySeedFixed(m_Seed);
+            Space();
+
+            switch ((NoiseField.NoiseMode) m_NoiseMode.valInt)
             {
-                PropertyField(m_CustomHint);
-                Space();
+                case NoiseField.NoiseMode.Random:
+                default:
+                    // Ignore
+                    break;
 
-                // PropertyExtendedSlider(m_Max, -1f, +1f, 0.01f);
-                // PropertyExtendedSlider(m_Min, -1f, +1f, 0.01f);
-                // Space();
+                case NoiseField.NoiseMode.Perlin:
+                    PropertyField(m_NoiseSpace);
+                    PropertyExtendedSlider(m_NoiseScale, 0.01f, 16f, 0.01f, 0.01f);
+                    PropertyExtendedSlider(m_NoisePower, 0.01f, 3f, 0.01f, 0.01f);
+                    Space();
 
-                PropertyField(m_NoiseMode);
-                PropertySeedFixed(m_Seed);
-                Space();
+                    PropertyExtendedSlider(m_AnimationSpeed, 0f, 10f, 0.01f);
+                    PropertyExtendedSlider(m_AnimationOffset, -5f, 5f, 0.01f);
+                    Space();
 
-                switch ((NoiseField.NoiseMode) m_NoiseMode.valInt)
-                {
-                    case NoiseField.NoiseMode.Random:
-                    default:
-                        // Ignore
-                        break;
-
-                    case NoiseField.NoiseMode.Perlin:
-                        PropertyField(m_NoiseSpace);
-                        PropertyExtendedSlider(m_NoiseScale, 0.01f, 16f, 0.01f, 0.01f);
-                        PropertyExtendedSlider(m_NoisePower, 0.01f, 3f, 0.01f, 0.01f);
-                        Space();
-
-                        PropertyExtendedSlider(m_AnimationSpeed, 0f, 10f, 0.01f);
-                        PropertyExtendedSlider(m_AnimationOffset, -5f, 5f, 0.01f);
-                        Space();
-
-                        PropertyField(m_IgnoreAxisX);
-                        PropertyField(m_IgnoreAxisY);
-                        PropertyField(m_IgnoreAxisZ);
-                        Space();
-                        break;
-                }
+                    PropertyField(m_IgnoreAxisX);
+                    PropertyField(m_IgnoreAxisY);
+                    PropertyField(m_IgnoreAxisZ);
+                    Space();
+                    break;
             }
-            DustGUI.FoldoutEnd();
 
             // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
