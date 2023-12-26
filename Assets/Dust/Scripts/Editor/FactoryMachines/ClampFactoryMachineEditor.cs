@@ -8,26 +8,26 @@ namespace DustEngine.DustEditor
     [InitializeOnLoad]
     public class ClampFactoryMachineEditor : BasicFactoryMachineEditor
     {
-        private DuProperty m_PositionMode;
-        private DuProperty m_PositionMin;
-        private DuProperty m_PositionMax;
-        private DuProperty m_PositionClampX;
-        private DuProperty m_PositionClampY;
-        private DuProperty m_PositionClampZ;
+        protected DuProperty m_PositionMode;
+        protected DuProperty m_PositionMin;
+        protected DuProperty m_PositionMax;
+        protected DuProperty m_PositionClampX;
+        protected DuProperty m_PositionClampY;
+        protected DuProperty m_PositionClampZ;
 
-        private DuProperty m_RotationMode;
-        private DuProperty m_RotationMin;
-        private DuProperty m_RotationMax;
-        private DuProperty m_RotationClampX;
-        private DuProperty m_RotationClampY;
-        private DuProperty m_RotationClampZ;
+        protected DuProperty m_RotationMode;
+        protected DuProperty m_RotationMin;
+        protected DuProperty m_RotationMax;
+        protected DuProperty m_RotationClampX;
+        protected DuProperty m_RotationClampY;
+        protected DuProperty m_RotationClampZ;
 
-        private DuProperty m_ScaleMode;
-        private DuProperty m_ScaleMin;
-        private DuProperty m_ScaleMax;
-        private DuProperty m_ScaleClampX;
-        private DuProperty m_ScaleClampY;
-        private DuProperty m_ScaleClampZ;
+        protected DuProperty m_ScaleMode;
+        protected DuProperty m_ScaleMin;
+        protected DuProperty m_ScaleMax;
+        protected DuProperty m_ScaleClampX;
+        protected DuProperty m_ScaleClampY;
+        protected DuProperty m_ScaleClampZ;
 
         // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -82,88 +82,88 @@ namespace DustEngine.DustEditor
             InspectorInitStates();
 
             // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-            // OnInspectorGUI_BaseParameters();
 
-            if (DustGUI.FoldoutBegin("Parameters", "FactoryMachine.Parameters"))
+            PropertyField(m_CustomHint);
+            PropertyExtendedSlider(m_Intensity, 0f, 1f, 0.01f);
+            Space();
+
+            // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+            PropertyField(m_PositionMode);
             {
-                PropertyField(m_CustomHint);
-                PropertyExtendedSlider(m_Intensity, 0f, 1f, 0.01f);
-                Space();
+                bool showMin = false;
+                bool showMax = false;
 
-                PropertyField(m_PositionMode);
+                showMin |= positionMode == ClampMode.MinOnly;
+                showMin |= positionMode == ClampMode.MinAndMax;
+
+                showMax |= positionMode == ClampMode.MaxOnly;
+                showMax |= positionMode == ClampMode.MinAndMax;
+
+                PropertyFieldOrHide(m_PositionMin, !showMin);
+                PropertyFieldOrHide(m_PositionMax, !showMax);
+
+                if (showMin || showMax)
                 {
-                    bool showMin = false;
-                    bool showMax = false;
-
-                    showMin |= positionMode == ClampMode.MinOnly;
-                    showMin |= positionMode == ClampMode.MinAndMax;
-
-                    showMax |= positionMode == ClampMode.MaxOnly;
-                    showMax |= positionMode == ClampMode.MinAndMax;
-
-                    PropertyFieldOrHide(m_PositionMin, !showMin);
-                    PropertyFieldOrHide(m_PositionMax, !showMax);
-
-                    if (showMin || showMax)
-                    {
-                        PropertyField(m_PositionClampX);
-                        PropertyField(m_PositionClampY);
-                        PropertyField(m_PositionClampZ);
-                    }
+                    PropertyField(m_PositionClampX);
+                    PropertyField(m_PositionClampY);
+                    PropertyField(m_PositionClampZ);
                 }
-                Space();
-
-                PropertyField(m_RotationMode);
-                {
-                    bool showMin = false;
-                    bool showMax = false;
-
-                    showMin |= rotationMode == ClampMode.MinOnly;
-                    showMin |= rotationMode == ClampMode.MinAndMax;
-
-                    showMax |= rotationMode == ClampMode.MaxOnly;
-                    showMax |= rotationMode == ClampMode.MinAndMax;
-
-                    PropertyFieldOrHide(m_RotationMin, !showMin);
-                    PropertyFieldOrHide(m_RotationMax, !showMax);
-
-                    if (showMin || showMax)
-                    {
-                        PropertyField(m_RotationClampX);
-                        PropertyField(m_RotationClampY);
-                        PropertyField(m_RotationClampZ);
-                    }
-                }
-                Space();
-
-                PropertyField(m_ScaleMode);
-                {
-                    bool showMin = false;
-                    bool showMax = false;
-
-                    showMin |= scaleMode == ClampMode.MinOnly;
-                    showMin |= scaleMode == ClampMode.MinAndMax;
-
-                    showMax |= scaleMode == ClampMode.MaxOnly;
-                    showMax |= scaleMode == ClampMode.MinAndMax;
-
-                    PropertyFieldOrHide(m_ScaleMin, !showMin);
-                    PropertyFieldOrHide(m_ScaleMax, !showMax);
-
-                    if (showMin || showMax)
-                    {
-                        PropertyField(m_ScaleClampX);
-                        PropertyField(m_ScaleClampY);
-                        PropertyField(m_ScaleClampZ);
-                    }
-                }
-                Space();
             }
-            DustGUI.FoldoutEnd();
+            Space();
+
+            PropertyField(m_RotationMode);
+            {
+                bool showMin = false;
+                bool showMax = false;
+
+                showMin |= rotationMode == ClampMode.MinOnly;
+                showMin |= rotationMode == ClampMode.MinAndMax;
+
+                showMax |= rotationMode == ClampMode.MaxOnly;
+                showMax |= rotationMode == ClampMode.MinAndMax;
+
+                PropertyFieldOrHide(m_RotationMin, !showMin);
+                PropertyFieldOrHide(m_RotationMax, !showMax);
+
+                if (showMin || showMax)
+                {
+                    PropertyField(m_RotationClampX);
+                    PropertyField(m_RotationClampY);
+                    PropertyField(m_RotationClampZ);
+                }
+            }
+            Space();
+
+            PropertyField(m_ScaleMode);
+            {
+                bool showMin = false;
+                bool showMax = false;
+
+                showMin |= scaleMode == ClampMode.MinOnly;
+                showMin |= scaleMode == ClampMode.MinAndMax;
+
+                showMax |= scaleMode == ClampMode.MaxOnly;
+                showMax |= scaleMode == ClampMode.MinAndMax;
+
+                PropertyFieldOrHide(m_ScaleMin, !showMin);
+                PropertyFieldOrHide(m_ScaleMax, !showMax);
+
+                if (showMin || showMax)
+                {
+                    PropertyField(m_ScaleClampX);
+                    PropertyField(m_ScaleClampY);
+                    PropertyField(m_ScaleClampZ);
+                }
+            }
+            Space();
+
+            // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+            OnInspectorGUI_FieldsMap();
 
             OnInspectorGUI_ImpactOnValueBlock();
             OnInspectorGUI_ImpactOnColorBlock();
-            OnInspectorGUI_FieldsMap();
 
             // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 

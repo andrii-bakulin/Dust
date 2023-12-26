@@ -30,11 +30,18 @@ namespace DustEngine.DustEditor
 
             // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-            OnInspectorGUI_BaseParameters();
+            PropertyField(m_CustomHint);
+            PropertyExtendedSlider(m_Intensity, 0f, 1f, 0.01f);
+            Space();
+
+            // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
             OnInspectorGUI_TransformBlock();
+
+            OnInspectorGUI_FieldsMap();
+            
             OnInspectorGUI_ImpactOnValueBlock();
             OnInspectorGUI_ImpactOnColorBlock();
-            OnInspectorGUI_FieldsMap();
 
             // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 

@@ -99,6 +99,9 @@ namespace DustEngine.DustEditor
 
         public DuProperty FindProperty(string propertyPath, string title, string tooltip)
         {
+            if (tooltip != "")
+                title += " (?)";
+
             var duProperty = new DuProperty
             {
                 propertyPath = propertyPath,

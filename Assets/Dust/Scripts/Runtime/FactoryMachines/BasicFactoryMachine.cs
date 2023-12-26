@@ -51,7 +51,7 @@ namespace DustEngine
         }
 
         [SerializeField]
-        protected ValueBlendMode m_ValueBlendMode = ValueBlendMode.Set;
+        protected ValueBlendMode m_ValueBlendMode = ValueBlendMode.Add;
         public ValueBlendMode valueBlendMode
         {
             get => m_ValueBlendMode;
@@ -198,10 +198,7 @@ namespace DustEngine
                     break;
 
                 case ValueBlendMode.Divide:
-                    if (newValue > 0f)
-                        newValue = instanceState.value / newValue;
-                    else
-                        newValue = 0f;
+                    newValue = DuMath.IsNotZero(newValue) ? instanceState.value / newValue : 0f;
                     break;
 
                 case ValueBlendMode.Avg:

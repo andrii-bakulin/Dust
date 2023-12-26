@@ -5,9 +5,6 @@ namespace DustEngine.DustEditor
 {
     public abstract class PRSFactoryMachineEditor : BasicFactoryMachineEditor
     {
-        protected DuProperty m_Min;
-        protected DuProperty m_Max;
-
         protected DuProperty m_PositionEnabled;
         protected DuProperty m_Position;
         protected DuProperty m_PositionTransformSpace;
@@ -25,9 +22,6 @@ namespace DustEngine.DustEditor
         {
             base.InitializeEditor();
 
-            m_Min = FindProperty("m_Min", "Min");
-            m_Max = FindProperty("m_Max", "Max");
-
             m_PositionEnabled = FindProperty("m_PositionEnabled", "Position");
             m_Position = FindProperty("m_Position", "Offset");
             m_PositionTransformSpace = FindProperty("m_PositionTransformSpace", "Transform Space");
@@ -40,24 +34,6 @@ namespace DustEngine.DustEditor
             m_ScaleEnabled = FindProperty("m_ScaleEnabled", "Scale");
             m_Scale = FindProperty("m_Scale", "Value");
             m_ScaleTransformMode = FindProperty("m_ScaleTransformMode", "Transform Mode");
-        }
-
-        // WARNING!
-        // On change logic/structure here, also required to check changes in parent/children methods
-        // with same method name/links
-        protected override void OnInspectorGUI_BaseParameters()
-        {
-            if (DustGUI.FoldoutBegin("Parameters", "FactoryMachine.Parameters"))
-            {
-                PropertyField(m_CustomHint);
-                PropertyExtendedSlider(m_Intensity, 0f, 1f, 0.01f);
-                Space();
-
-                PropertyExtendedSlider(m_Max, -1f, +1f, 0.01f);
-                PropertyExtendedSlider(m_Min, -1f, +1f, 0.01f);
-                Space();
-            }
-            DustGUI.FoldoutEnd();
         }
 
         // WARNING!

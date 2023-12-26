@@ -71,19 +71,5 @@ namespace DustEngine.DustEditor
             m_CustomHint = FindProperty("m_CustomHint", "Hint for Machine");
             m_Intensity = FindProperty("m_Intensity", "Intensity");
         }
-
-        // WARNING!
-        // On change logic/structure here, also required to check changes in parent/children methods
-        // with same method name/links
-        protected virtual void OnInspectorGUI_BaseParameters()
-        {
-            if (DustGUI.FoldoutBegin("Parameters", "FactoryMachine.Parameters"))
-            {
-                PropertyField(m_CustomHint);
-                PropertyExtendedSlider(m_Intensity, 0f, 1f, 0.01f);
-                Space();
-            }
-            DustGUI.FoldoutEnd();
-        }
     }
 }

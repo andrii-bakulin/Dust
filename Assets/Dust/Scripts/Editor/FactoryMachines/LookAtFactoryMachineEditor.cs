@@ -8,15 +8,15 @@ namespace DustEngine.DustEditor
     [InitializeOnLoad]
     public class LookAtFactoryMachineEditor : BasicFactoryMachineEditor
     {
-        private DuProperty m_TargetMode;
-        private DuProperty m_TargetObject;
+        protected DuProperty m_TargetMode;
+        protected DuProperty m_TargetObject;
 
-        private DuProperty m_UpVectorMode;
-        private DuProperty m_UpVectorObject;
+        protected DuProperty m_UpVectorMode;
+        protected DuProperty m_UpVectorObject;
 
-        private DuProperty m_LockAxisX;
-        private DuProperty m_LockAxisY;
-        private DuProperty m_LockAxisZ;
+        protected DuProperty m_LockAxisX;
+        protected DuProperty m_LockAxisY;
+        protected DuProperty m_LockAxisZ;
 
         //--------------------------------------------------------------------------------------------------------------
 
@@ -55,30 +55,33 @@ namespace DustEngine.DustEditor
 
             // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-            OnInspectorGUI_BaseParameters();
+            PropertyField(m_CustomHint);
+            PropertyExtendedSlider(m_Intensity, 0f, 1f, 0.01f);
+            Space();
 
-            if (DustGUI.FoldoutBegin("LookAt", "FactoryMachine.LookAt"))
-            {
-                PropertyField(m_TargetMode);
-                PropertyFieldOrHide(m_TargetObject, (LookAtFactoryMachine.TargetMode) m_TargetMode.valInt
-                                                    != LookAtFactoryMachine.TargetMode.ObjectTarget);
-                Space();
+            // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-                PropertyField(m_UpVectorMode);
-                PropertyFieldOrHide(m_UpVectorObject, (LookAtFactoryMachine.UpVectorMode) m_UpVectorMode.valInt
-                                                      != LookAtFactoryMachine.UpVectorMode.Object);
-                Space();
+            PropertyField(m_TargetMode);
+            PropertyFieldOrHide(m_TargetObject, (LookAtFactoryMachine.TargetMode) m_TargetMode.valInt
+                                                != LookAtFactoryMachine.TargetMode.ObjectTarget);
+            Space();
 
-                PropertyField(m_LockAxisX);
-                PropertyField(m_LockAxisY);
-                PropertyField(m_LockAxisZ);
-                Space();
-            }
-            DustGUI.FoldoutEnd();
+            PropertyField(m_UpVectorMode);
+            PropertyFieldOrHide(m_UpVectorObject, (LookAtFactoryMachine.UpVectorMode) m_UpVectorMode.valInt
+                                                  != LookAtFactoryMachine.UpVectorMode.Object);
+            Space();
+
+            PropertyField(m_LockAxisX);
+            PropertyField(m_LockAxisY);
+            PropertyField(m_LockAxisZ);
+            Space();
+
+            // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+            OnInspectorGUI_FieldsMap();
 
             OnInspectorGUI_ImpactOnValueBlock();
             OnInspectorGUI_ImpactOnColorBlock();
-            OnInspectorGUI_FieldsMap();
 
             // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 

@@ -19,7 +19,7 @@ namespace DustEngine
 
         public override void UpdateInstanceState(FactoryInstanceState factoryInstanceState)
         {
-            float intensityByMachine = min + (max - min) * intensity;
+            float intensityByMachine = intensity;
 
             UpdateInstanceDynamicState(factoryInstanceState, intensityByMachine);
         }

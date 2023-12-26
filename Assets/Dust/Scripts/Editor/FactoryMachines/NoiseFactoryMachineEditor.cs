@@ -8,19 +8,22 @@ namespace DustEngine.DustEditor
     [InitializeOnLoad]
     public class NoiseFactoryMachineEditor : PRSFactoryMachineEditor
     {
-        private DuProperty m_NoiseMode;
-        private DuProperty m_NoiseDimension;
-        private DuProperty m_Synchronized;
-        private DuProperty m_AnimationSpeed;
-        private DuProperty m_AnimationOffset;
-        private DuProperty m_NoiseSpace;
-        private DuProperty m_NoiseForce;
-        private DuProperty m_NoiseScale;
-        private DuProperty m_Seed;
+        protected DuProperty m_Min;
+        protected DuProperty m_Max;
 
-        private DuProperty m_PositionAxisRemapping;
-        private DuProperty m_RotationAxisRemapping;
-        private DuProperty m_ScaleAxisRemapping;
+        protected DuProperty m_NoiseMode;
+        protected DuProperty m_NoiseDimension;
+        protected DuProperty m_Synchronized;
+        protected DuProperty m_AnimationSpeed;
+        protected DuProperty m_AnimationOffset;
+        protected DuProperty m_NoiseSpace;
+        protected DuProperty m_NoiseForce;
+        protected DuProperty m_NoiseScale;
+        protected DuProperty m_Seed;
+
+        protected DuProperty m_PositionAxisRemapping;
+        protected DuProperty m_RotationAxisRemapping;
+        protected DuProperty m_ScaleAxisRemapping;
 
         //--------------------------------------------------------------------------------------------------------------
 
@@ -41,6 +44,9 @@ namespace DustEngine.DustEditor
         protected override void InitializeEditor()
         {
             base.InitializeEditor();
+
+            m_Min = FindProperty("m_Min", "Min");
+            m_Max = FindProperty("m_Max", "Max");
 
             m_NoiseMode = FindProperty("m_NoiseMode", "Noise Mode");
             m_NoiseDimension = FindProperty("m_NoiseDimension", "Noise Dimension");
@@ -63,37 +69,42 @@ namespace DustEngine.DustEditor
 
             // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-            OnInspectorGUI_BaseParameters();
+            PropertyField(m_CustomHint);
+            PropertyExtendedSlider(m_Intensity, 0f, 1f, 0.01f);
+            Space();
 
-            if (DustGUI.FoldoutBegin("Noise", "FactoryMachine.Noise"))
+            PropertyExtendedSlider(m_Max, -1f, +1f, 0.01f);
+            PropertyExtendedSlider(m_Min, -1f, +1f, 0.01f);
+            Space();
+
+            // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+            PropertyField(m_NoiseMode);
+            PropertyField(m_NoiseDimension);
+            PropertySeedFixed(m_Seed);
+            PropertyField(m_Synchronized);
+            Space();
+
+            switch ((NoiseFactoryMachine.NoiseMode) m_NoiseMode.valInt)
             {
-                PropertyField(m_NoiseMode);
-                PropertyField(m_NoiseDimension);
-                PropertySeedFixed(m_Seed);
-                PropertyField(m_Synchronized);
-                Space();
+                case NoiseFactoryMachine.NoiseMode.Random:
+                default:
+                    // Ignore
+                    break;
 
-                switch ((NoiseFactoryMachine.NoiseMode) m_NoiseMode.valInt)
-                {
-                    case NoiseFactoryMachine.NoiseMode.Random:
-                    default:
-                        // Ignore
-                        break;
+                case NoiseFactoryMachine.NoiseMode.Perlin:
+                    PropertyField(m_NoiseSpace);
+                    PropertyExtendedSlider(m_NoiseForce, 0.0f, 4.0f, 0.01f, 0.00f, 10f);
+                    PropertyExtendedSlider(m_NoiseScale, 0.01f, 16f, 0.01f, 0.01f);
+                    Space();
 
-                    case NoiseFactoryMachine.NoiseMode.Perlin:
-                        PropertyField(m_NoiseSpace);
-                        PropertyExtendedSlider(m_NoiseForce, 0.0f, 4.0f, 0.01f, 0.00f, 10f);
-                        PropertyExtendedSlider(m_NoiseScale, 0.01f, 16f, 0.01f, 0.01f);
-                        Space();
-
-                        PropertyExtendedSlider(m_AnimationSpeed, 0f, 10f, 0.01f);
-                        PropertyExtendedSlider(m_AnimationOffset, -5f, 5f, 0.01f);
-                        Space();
-                        break;
-                }
+                    PropertyExtendedSlider(m_AnimationSpeed, 0f, 10f, 0.01f);
+                    PropertyExtendedSlider(m_AnimationOffset, -5f, 5f, 0.01f);
+                    Space();
+                    break;
             }
-            DustGUI.FoldoutEnd();
 
+            // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
             if (m_Synchronized.IsTrue
                 && (NoiseFactoryMachine.NoiseDimension) m_NoiseDimension.valInt == NoiseFactoryMachine.NoiseDimension.Noise3D)
@@ -110,9 +121,10 @@ namespace DustEngine.DustEditor
 
             OnInspectorGUI_TransformBlock();
 
+            OnInspectorGUI_FieldsMap();
+
             OnInspectorGUI_ImpactOnValueBlock();
             OnInspectorGUI_ImpactOnColorBlock();
-            OnInspectorGUI_FieldsMap();
 
             // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 

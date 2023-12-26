@@ -44,7 +44,7 @@ namespace DustEngine.DustEditor
             m_ValueImpactEnabled = FindProperty("m_ValueImpactEnabled", "Enabled");
             m_ValueImpactIntensity = FindProperty("m_ValueImpactIntensity", "Intensity");
             m_ValueBlendMode = FindProperty("m_ValueBlendMode", "Blend Mode");
-            m_ValueClampEnabled = FindProperty("m_ValueClampEnabled", "Clamp");
+            m_ValueClampEnabled = FindProperty("m_ValueClampEnabled", "Final Clamp");
             m_ValueClampMin = FindProperty("m_ValueClampMin", "Min");
             m_ValueClampMax = FindProperty("m_ValueClampMax", "Max");
 
@@ -63,10 +63,16 @@ namespace DustEngine.DustEditor
 
             // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-            OnInspectorGUI_BaseParameters();
+            PropertyField(m_CustomHint);
+            PropertyExtendedSlider(m_Intensity, 0f, 1f, 0.01f);
+            Space();
+
+            // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+            OnInspectorGUI_FieldsMap();
+            
             OnInspectorGUI_ImpactOnValueBlock();
             OnInspectorGUI_ImpactOnColorBlock();
-            OnInspectorGUI_FieldsMap();
 
             // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -80,7 +86,7 @@ namespace DustEngine.DustEditor
         // with same method name/links
         protected void OnInspectorGUI_ImpactOnValueBlock()
         {
-            if (DustGUI.FoldoutBegin("Impact On Instances Value", "FactoryMachine.ImpactOnValue"))
+            if (DustGUI.FoldoutBegin("Impact on the Value of Instances", "FactoryMachine.ImpactOnValue"))
             {
                 PropertyField(m_ValueImpactEnabled);
 
@@ -112,7 +118,7 @@ namespace DustEngine.DustEditor
         // with same method name/links
         protected void OnInspectorGUI_ImpactOnColorBlock()
         {
-            if (DustGUI.FoldoutBegin("Impact On Instances Color", "FactoryMachine.ImpactOnColor"))
+            if (DustGUI.FoldoutBegin("Impact on the Color of Instances", "FactoryMachine.ImpactOnColor"))
             {
                 PropertyField(m_ColorImpactEnabled);
 

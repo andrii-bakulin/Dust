@@ -29,7 +29,7 @@ namespace DustEngine.DustEditor
         {
             base.InitializeEditor();
 
-            m_DeltaScale = FindProperty("m_DeltaScale", "Delta Scale*", "Support only local scale");
+            m_DeltaScale = FindProperty("m_DeltaScale", "Delta Scale", "Support only local scale");
             m_Speed = FindProperty("m_Speed", "Speed");
 
             m_Freeze = FindProperty("m_Freeze", "Freeze");

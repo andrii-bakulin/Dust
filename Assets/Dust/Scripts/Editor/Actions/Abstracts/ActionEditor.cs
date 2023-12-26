@@ -23,7 +23,7 @@ namespace DustEngine.DustEditor
 
             m_AutoStart = FindProperty("m_AutoStart", "Auto Start");
 
-            m_TargetMode = FindProperty("m_TargetMode", "Target Mode (?)",
+            m_TargetMode = FindProperty("m_TargetMode", "Target Mode",
                 "If the action has Inherited Target Mode and that action starts the animation then for Target Object will be used SELF object.");
             
             m_TargetObject = FindProperty("m_TargetObject", "Target Object");

@@ -115,7 +115,8 @@ namespace DustEngine
             //----------------------------------------------------------------------------------------------------------
             // [1] Base logic
 
-            float intensityByMachine = intensity;
+            float intensityByMachine = factoryInstanceState.intensityByFactory
+                                       * intensity;
 
             UpdateInstanceDynamicState(factoryInstanceState, intensityByMachine);
 

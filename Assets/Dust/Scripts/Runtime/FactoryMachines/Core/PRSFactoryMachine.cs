@@ -22,24 +22,6 @@ namespace DustEngine
         // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
         [SerializeField]
-        protected float m_Min = 0.0f;
-        public float min
-        {
-            get => m_Min;
-            set => m_Min = value;
-        }
-
-        [SerializeField]
-        protected float m_Max = 1.0f;
-        public float max
-        {
-            get => m_Max;
-            set => m_Max = value;
-        }
-
-        // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-        [SerializeField]
         protected bool m_PositionEnabled = true;
         public bool positionEnabled
         {
@@ -130,9 +112,6 @@ namespace DustEngine
         {
             var seq = 0;
             var dynamicState = base.GetDynamicStateHashCode();
-
-            DynamicState.Append(ref dynamicState, ++seq, min);
-            DynamicState.Append(ref dynamicState, ++seq, max);
 
             DynamicState.Append(ref dynamicState, ++seq, positionEnabled);
             if (positionEnabled)

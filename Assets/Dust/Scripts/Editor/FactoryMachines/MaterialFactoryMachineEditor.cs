@@ -30,13 +30,9 @@ namespace DustEngine.DustEditor
 
             // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-            if (DustGUI.FoldoutBegin("Parameters", "FactoryMachine.Parameters"))
-            {
-                PropertyField(m_CustomHint);
-                PropertyExtendedSlider(m_Intensity, 0f, 1f, 0.01f);
-                Space();
-            }
-            DustGUI.FoldoutEnd();
+            PropertyField(m_CustomHint);
+            PropertyExtendedSlider(m_Intensity, 0f, 1f, 0.01f);
+            Space();
 
             // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
