@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace DustEngine
@@ -406,6 +407,11 @@ namespace DustEngine
         public bool HasFields()
         {
             return fields.Count > 0;
+        }
+
+        public bool HasField(Field field)
+        {
+            return Dust.IsNotNull(field) && fields.Any(rec => rec.field == field);
         }
 
         public FieldRecord.BlendPowerMode GetDefaultBlendPower(Field field)

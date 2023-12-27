@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace DustEngine
@@ -388,6 +389,16 @@ namespace DustEngine
             factoryMachines.Add(record);
 
             return record;
+        }
+        
+        //--------------------------------------------------------------------------------------------------------------
+
+        public bool HasFactoryMachine(FactoryMachine factoryMachine)
+        {
+            if (Dust.IsNull(factoryMachine))
+                return false;
+
+            return factoryMachines.Any(rec => rec.factoryMachine == factoryMachine);
         }
 
         //--------------------------------------------------------------------------------------------------------------

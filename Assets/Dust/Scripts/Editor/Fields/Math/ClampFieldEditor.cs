@@ -56,6 +56,8 @@ namespace DustEngine.DustEditor
 
             // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+            InspectorBreadcrumbsForField(this);
+
             PropertyField(m_CustomHint);
             Space();
 

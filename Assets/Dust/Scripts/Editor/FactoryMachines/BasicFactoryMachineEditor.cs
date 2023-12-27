@@ -63,6 +63,8 @@ namespace DustEngine.DustEditor
 
             // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+            InspectorBreadcrumbsForFactoryMachine(this);
+
             PropertyField(m_CustomHint);
             PropertyExtendedSlider(m_Intensity, 0f, 1f, 0.01f);
             Space();
