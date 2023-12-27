@@ -1,4 +1,3 @@
-using DustEngine.DustEditor.UI;
 using UnityEngine;
 using UnityEditor;
 
@@ -51,12 +50,12 @@ namespace DustEngine.DustEditor
 
             if (Application.isPlaying)
             {
-                iconName  = action.isPlaying ? Icons.ACTION_PLAY : Icons.ACTION_IDLE;
+                iconName  = action.isPlaying ? UI.Icons.ACTION_PLAY : UI.Icons.ACTION_IDLE;
                 iconTitle = action.isPlaying ? "Playing" : "Idle";
             }
             else
             {
-                iconName  = isAutoStart ? Icons.ACTION_PLAY : Icons.ACTION_IDLE;
+                iconName  = isAutoStart ? UI.Icons.ACTION_PLAY : UI.Icons.ACTION_IDLE;
                 iconTitle = isAutoStart ? "Auto Start" : "Idle";
             }
             
@@ -109,7 +108,7 @@ namespace DustEngine.DustEditor
                 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
                 DustGUI.Lock();
-                DustGUI.IconButton(Icons.ACTION_NEXT, DustGUI.Config.ICON_BUTTON_WIDTH * 0.75f, DustGUI.Config.ICON_BUTTON_HEIGHT);
+                DustGUI.IconButton(UI.Icons.ACTION_NEXT, DustGUI.Config.ICON_BUTTON_WIDTH * 0.75f, DustGUI.Config.ICON_BUTTON_HEIGHT);
                 DustGUI.Unlock();
 
                 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -121,12 +120,12 @@ namespace DustEngine.DustEditor
                         if (Dust.IsNull(nextAction))
                             continue;
 
-                        Texture icon = Icons.GetTextureByComponent(nextAction);
+                        Texture icon = UI.Icons.GetTextureByComponent(nextAction);
                         DustGUI.IconButton(icon);
                     }
                 }
 
-                if (DustGUI.IconButton(Icons.ADD_ACTION))
+                if (DustGUI.IconButton(UI.Icons.ADD_ACTION))
                     PopupWindow.Show(m_RectsAddButton, ActionsPopupButtons.Popup(action));
 
                 if (Event.current.type == EventType.Repaint)

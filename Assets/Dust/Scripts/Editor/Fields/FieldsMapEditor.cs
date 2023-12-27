@@ -6,14 +6,6 @@ namespace DustEngine.DustEditor
 {
     public class FieldsMapEditor
     {
-        private const float CELL_WIDTH_ICON = 32f;
-        private const float CELL_WIDTH_STATE = 20f;
-        private const float CELL_WIDTH_INTENSITY = 54f;
-        private const float CELL_WIDTH_BLENDING = 50f;
-        private const float CELL_WIDTH_CONTROL = 40f;
-
-        //--------------------------------------------------------------------------------------------------------------
-
         public enum ColumnVisibility
         {
             Auto = 0,
@@ -106,21 +98,21 @@ namespace DustEngine.DustEditor
                     DustGUI.BeginHorizontal();
                     {
                         float padding = 2;
-                        DustGUI.Header("", CELL_WIDTH_ICON - padding);
-                        DustGUI.Header("", CELL_WIDTH_STATE - padding);
+                        DustGUI.Header("", UI.CELL_WIDTH_ICON - padding);
+                        DustGUI.Header("", UI.CELL_WIDTH_STATE - padding);
                         DustGUI.Header("Name", 36);
 
                         DustGUI.SpaceExpand();
 
-                        DustGUI.Header("Intensity", CELL_WIDTH_INTENSITY);
+                        DustGUI.Header("Intensity", UI.CELL_WIDTH_INTENSITY);
 
                         if (showPowerEditor)
-                            DustGUI.Header("Power", CELL_WIDTH_BLENDING - padding);
+                            DustGUI.Header("Power", UI.CELL_WIDTH_BLENDING - padding);
 
                         if (showColorEditor)
-                            DustGUI.Header("Color", CELL_WIDTH_BLENDING - padding);
+                            DustGUI.Header("Color", UI.CELL_WIDTH_BLENDING - padding);
 
-                        DustGUI.Header("", CELL_WIDTH_CONTROL);
+                        DustGUI.Header("", UI.CELL_WIDTH_CONTROL);
                     }
                     DustGUI.EndHorizontal();
 
@@ -198,14 +190,14 @@ namespace DustEngine.DustEditor
 
                 var fieldIcon = UI.Icons.GetTextureByComponent(newRecord.field, !fieldEnabledInScene ? "Disabled" : "");
 
-                if (DustGUI.IconButton(fieldIcon, CELL_WIDTH_ICON, CELL_WIDTH_ICON, UI.ExtraList.styleMiniButton))
+                if (DustGUI.IconButton(fieldIcon, UI.CELL_WIDTH_ICON, UI.CELL_WIDTH_ICON, ExtraList.styleMiniButton))
                     Selection.activeGameObject = newRecord.field.gameObject;
 
                 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
                 var btnStateIcon = newRecord.enabled ? UI.Icons.STATE_ENABLED : UI.Icons.STATE_DISABLED;
 
-                if (DustGUI.IconButton(btnStateIcon, CELL_WIDTH_STATE, 32, UI.ExtraList.styleMiniButton))
+                if (DustGUI.IconButton(btnStateIcon, UI.CELL_WIDTH_STATE, 32, ExtraList.styleMiniButton))
                     newRecord.enabled = !newRecord.enabled;
 
                 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -227,7 +219,7 @@ namespace DustEngine.DustEditor
                     DustGUI.BeginVertical();
                     {
                         DustGUI.SimpleLabel(fieldName, 0, 14);
-                        DustGUI.SimpleLabel(fieldHint, 0, 10, UI.ExtraList.styleHintLabel);
+                        DustGUI.SimpleLabel(fieldHint, 0, 10, ExtraList.styleHintLabel);
                     }
                     DustGUI.EndVertical();
                 }
@@ -242,7 +234,7 @@ namespace DustEngine.DustEditor
 
                 string intensityValue = newRecord.intensity.ToString("F2");
 
-                if (DustGUI.Button(intensityValue, CELL_WIDTH_INTENSITY, 20f, UI.ExtraList.styleIntensityButton, DustGUI.ButtonState.Pressed))
+                if (DustGUI.Button(intensityValue, UI.CELL_WIDTH_INTENSITY, 20f, ExtraList.styleIntensityButton, DustGUI.ButtonState.Pressed))
                 {
                     Rect buttonRect = m_RectsUI["item" + itemIndex.ToString()];
                     buttonRect.y += 5f;
@@ -257,7 +249,7 @@ namespace DustEngine.DustEditor
 
                 if (showPowerEditor)
                 {
-                    var enumValue = DustGUI.DropDownList(newRecord.blendPowerMode, CELL_WIDTH_BLENDING, 0, UI.ExtraList.styleDropDownList);
+                    var enumValue = DustGUI.DropDownList(newRecord.blendPowerMode, UI.CELL_WIDTH_BLENDING, 0, ExtraList.styleDropDownList);
                     newRecord.blendPowerMode = (FieldsMap.FieldRecord.BlendPowerMode) enumValue;
                 }
 
@@ -267,7 +259,7 @@ namespace DustEngine.DustEditor
                 {
                     if (newRecord.field.IsAllowCalculateFieldColor())
                     {
-                        var enumValue = DustGUI.DropDownList(newRecord.blendColorMode, CELL_WIDTH_BLENDING, 0, UI.ExtraList.styleDropDownList);
+                        var enumValue = DustGUI.DropDownList(newRecord.blendColorMode, UI.CELL_WIDTH_BLENDING, 0, ExtraList.styleDropDownList);
                         newRecord.blendColorMode = (FieldsMap.FieldRecord.BlendColorMode) enumValue;
 
                         if (newRecord.field.IsHasFieldColorPreview())
@@ -296,7 +288,7 @@ namespace DustEngine.DustEditor
                     else
                     {
                         DustGUI.Lock();
-                        DustGUI.DropDownList(FieldsMap.FieldRecord.BlendColorMode.Ignore, CELL_WIDTH_BLENDING, 0, UI.ExtraList.styleDropDownList);
+                        DustGUI.DropDownList(FieldsMap.FieldRecord.BlendColorMode.Ignore, UI.CELL_WIDTH_BLENDING, 0, ExtraList.styleDropDownList);
                         DustGUI.Unlock();
                     }
                 }
@@ -308,15 +300,15 @@ namespace DustEngine.DustEditor
 
                 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-                clickOnDelete = DustGUI.IconButton(UI.Icons.DELETE, 20, 32, UI.ExtraList.styleMiniButton);
+                clickOnDelete = DustGUI.IconButton(UI.Icons.DELETE, 20, 32, ExtraList.styleMiniButton);
 
                 DustGUI.BeginVertical(20);
                 {
                     DustGUI.ButtonState stateUp = itemIndex > 0 ? DustGUI.ButtonState.Normal : DustGUI.ButtonState.Locked;
                     DustGUI.ButtonState stateDw = itemIndex < itemsCount - 1 ? DustGUI.ButtonState.Normal : DustGUI.ButtonState.Locked;
 
-                    clickOnMoveUp = DustGUI.IconButton(DustGUI.Config.RESOURCE_ICON_ARROW_UP, 20, 16, UI.ExtraList.styleMiniButton, stateUp);
-                    clickOnMoveDw = DustGUI.IconButton(DustGUI.Config.RESOURCE_ICON_ARROW_DOWN, 20, 16, UI.ExtraList.styleMiniButton, stateDw);
+                    clickOnMoveUp = DustGUI.IconButton(DustGUI.Config.RESOURCE_ICON_ARROW_UP, 20, 16, ExtraList.styleMiniButton, stateUp);
+                    clickOnMoveDw = DustGUI.IconButton(DustGUI.Config.RESOURCE_ICON_ARROW_DOWN, 20, 16, ExtraList.styleMiniButton, stateDw);
                 }
                 DustGUI.EndVertical();
             }
@@ -367,7 +359,7 @@ namespace DustEngine.DustEditor
         {
             DustGUI.BeginHorizontal();
             {
-                if (DustGUI.IconButton(UI.Icons.ADD_FIELD, CELL_WIDTH_ICON, CELL_WIDTH_ICON, UI.ExtraList.styleMiniButton))
+                if (DustGUI.IconButton(UI.Icons.ADD_FIELD, UI.CELL_WIDTH_ICON, UI.CELL_WIDTH_ICON, ExtraList.styleMiniButton))
                     PopupWindow.Show(m_RectsUI["Add"], FieldsPopupButtons.Popup(this));
 
                 if (Event.current.type == EventType.Repaint)

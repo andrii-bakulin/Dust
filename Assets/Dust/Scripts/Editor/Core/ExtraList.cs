@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEditor;
 
-namespace DustEngine.DustEditor.UI
+namespace DustEngine.DustEditor
 {
     public static class ExtraList
     {

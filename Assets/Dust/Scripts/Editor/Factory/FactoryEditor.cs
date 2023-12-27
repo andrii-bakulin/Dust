@@ -6,12 +6,6 @@ namespace DustEngine.DustEditor
 {
     public abstract class FactoryEditor : DuEditor
     {
-        private const float CELL_WIDTH_ICON = 32f;
-        private const float CELL_WIDTH_STATE = 20f;
-        private const float CELL_WIDTH_INTENSITY = 54f;
-
-        //--------------------------------------------------------------------------------------------------------------
-
         private DuProperty m_SourceObjects;
         private DuProperty m_IterateMode;
         private DuProperty m_Seed;
@@ -364,14 +358,14 @@ namespace DustEngine.DustEditor
 
                 var machineIcon = UI.Icons.GetTextureByComponent(newRecord.factoryMachine, !machineEnabledInScene ? "Disabled" : "");
 
-                if (DustGUI.IconButton(machineIcon, CELL_WIDTH_ICON, CELL_WIDTH_ICON, UI.ExtraList.styleMiniButton))
+                if (DustGUI.IconButton(machineIcon, UI.CELL_WIDTH_ICON, UI.CELL_WIDTH_ICON, ExtraList.styleMiniButton))
                     Selection.activeGameObject = newRecord.factoryMachine.gameObject;
 
                 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
                 var btnStateIcon = newRecord.enabled ? UI.Icons.STATE_ENABLED : UI.Icons.STATE_DISABLED;
 
-                if (DustGUI.IconButton(btnStateIcon, CELL_WIDTH_STATE, 32f, UI.ExtraList.styleMiniButton))
+                if (DustGUI.IconButton(btnStateIcon, UI.CELL_WIDTH_STATE, 32f, ExtraList.styleMiniButton))
                     newRecord.enabled = !newRecord.enabled;
 
                 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -393,7 +387,7 @@ namespace DustEngine.DustEditor
                     DustGUI.BeginVertical();
                     {
                         DustGUI.SimpleLabel(machineName, 0, 14);
-                        DustGUI.SimpleLabel(machineHint, 0, 10, UI.ExtraList.styleHintLabel);
+                        DustGUI.SimpleLabel(machineHint, 0, 10, ExtraList.styleHintLabel);
                     }
                     DustGUI.EndVertical();
                 }
@@ -408,7 +402,7 @@ namespace DustEngine.DustEditor
 
                 string intensityValue = newRecord.intensity.ToString("F2");
 
-                if (DustGUI.Button(intensityValue, CELL_WIDTH_INTENSITY, 20f, UI.ExtraList.styleIntensityButton, DustGUI.ButtonState.Pressed))
+                if (DustGUI.Button(intensityValue, UI.CELL_WIDTH_INTENSITY, 20f, ExtraList.styleIntensityButton, DustGUI.ButtonState.Pressed))
                 {
                     Rect buttonRect = m_RectsUI["item" + itemIndex.ToString()];
                     buttonRect.y += 5f;
@@ -426,15 +420,15 @@ namespace DustEngine.DustEditor
 
                 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-                clickOnDelete = DustGUI.IconButton(UI.Icons.DELETE, 20, 32, UI.ExtraList.styleMiniButton);
+                clickOnDelete = DustGUI.IconButton(UI.Icons.DELETE, 20, 32, ExtraList.styleMiniButton);
 
                 DustGUI.BeginVertical(20);
                 {
                     DustGUI.ButtonState stateUp = itemIndex > 0 ? DustGUI.ButtonState.Normal : DustGUI.ButtonState.Locked;
                     DustGUI.ButtonState stateDw = itemIndex < itemsCount - 1 ? DustGUI.ButtonState.Normal : DustGUI.ButtonState.Locked;
 
-                    clickOnMoveUp = DustGUI.IconButton(DustGUI.Config.RESOURCE_ICON_ARROW_UP, 20, 16, UI.ExtraList.styleMiniButton, stateUp);
-                    clickOnMoveDw = DustGUI.IconButton(DustGUI.Config.RESOURCE_ICON_ARROW_DOWN, 20, 16, UI.ExtraList.styleMiniButton, stateDw);
+                    clickOnMoveUp = DustGUI.IconButton(DustGUI.Config.RESOURCE_ICON_ARROW_UP, 20, 16, ExtraList.styleMiniButton, stateUp);
+                    clickOnMoveDw = DustGUI.IconButton(DustGUI.Config.RESOURCE_ICON_ARROW_DOWN, 20, 16, ExtraList.styleMiniButton, stateDw);
                 }
                 DustGUI.EndVertical();
             }
@@ -475,7 +469,7 @@ namespace DustEngine.DustEditor
         {
             DustGUI.BeginHorizontal();
             {
-                if (DustGUI.IconButton(UI.Icons.ADD_FACTORY_MACHINE, CELL_WIDTH_ICON, CELL_WIDTH_ICON, UI.ExtraList.styleMiniButton))
+                if (DustGUI.IconButton(UI.Icons.ADD_FACTORY_MACHINE, UI.CELL_WIDTH_ICON, UI.CELL_WIDTH_ICON, ExtraList.styleMiniButton))
                     PopupWindow.Show(m_RectsUI["Add"], FactoryMachinesPopupButtons.Popup(this));
 
                 if (Event.current.type == EventType.Repaint)
