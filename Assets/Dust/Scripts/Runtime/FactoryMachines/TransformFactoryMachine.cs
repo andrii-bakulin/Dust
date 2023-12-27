@@ -2,7 +2,7 @@
 
 namespace DustEngine
 {
-    [AddComponentMenu("Dust/Factory/Machines/Transform Machine")]
+    [AddComponentMenu("Dust/Factory Machines/Transform Machine")]
     public class TransformFactoryMachine : PRSFactoryMachine
     {
         public override string FactoryMachineName()

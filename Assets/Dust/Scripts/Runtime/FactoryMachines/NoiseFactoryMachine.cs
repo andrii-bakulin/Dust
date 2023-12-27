@@ -2,7 +2,7 @@
 
 namespace DustEngine
 {
-    [AddComponentMenu("Dust/Factory/Machines/Noise Machine")]
+    [AddComponentMenu("Dust/Factory Machines/Noise Machine")]
     public class NoiseFactoryMachine : PRSFactoryMachine
     {
         public enum AxisRemapping

@@ -32,8 +32,8 @@ namespace DustEngine.DustEditor
             FactoryMachinesPopupButtons.AddMachine(typeof(NoiseFactoryMachine), "Noise");
         }
 
-        [MenuItem("Dust/Factory/Machines/Noise")]
-        [MenuItem("GameObject/Dust/Factory/Machines/Noise")]
+        [MenuItem("Dust/Factory Machines/Noise")]
+        [MenuItem("GameObject/Dust/Factory Machines/Noise")]
         public new static void AddComponent()
         {
             AddFactoryMachineComponentByType(typeof(NoiseFactoryMachine));

@@ -2,7 +2,7 @@
 
 namespace DustEngine
 {
-    [AddComponentMenu("Dust/Factory/Machines/Material Machine")]
+    [AddComponentMenu("Dust/Factory Machines/Material Machine")]
     public class MaterialFactoryMachine : FactoryMachine
     {
         public override string FactoryMachineName()

@@ -2,7 +2,7 @@
 
 namespace DustEngine
 {
-    [AddComponentMenu("Dust/Factory/Machines/Clamp Machine")]
+    [AddComponentMenu("Dust/Factory Machines/Clamp Machine")]
     public class ClampFactoryMachine : BasicFactoryMachine
     {
         [SerializeField]

@@ -42,8 +42,8 @@ namespace DustEngine.DustEditor
             FactoryMachinesPopupButtons.AddMachine(typeof(ClampFactoryMachine), "Clamp");
         }
 
-        [MenuItem("Dust/Factory/Machines/Clamp")]
-        [MenuItem("GameObject/Dust/Factory/Machines/Clamp")]
+        [MenuItem("Dust/Factory Machines/Clamp")]
+        [MenuItem("GameObject/Dust/Factory Machines/Clamp")]
         public new static void AddComponent()
         {
             AddFactoryMachineComponentByType(typeof(ClampFactoryMachine));

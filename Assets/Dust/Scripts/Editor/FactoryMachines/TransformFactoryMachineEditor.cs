@@ -15,8 +15,8 @@ namespace DustEngine.DustEditor
             FactoryMachinesPopupButtons.AddMachine(typeof(TransformFactoryMachine), "Transform");
         }
 
-        [MenuItem("Dust/Factory/Machines/Transform")]
-        [MenuItem("GameObject/Dust/Factory/Machines/Transform")]
+        [MenuItem("Dust/Factory Machines/Transform")]
+        [MenuItem("GameObject/Dust/Factory Machines/Transform")]
         public new static void AddComponent()
         {
             AddFactoryMachineComponentByType(typeof(TransformFactoryMachine));

@@ -2,7 +2,7 @@
 
 namespace DustEngine
 {
-    [AddComponentMenu("Dust/Factory/Machines/Time Machine")]
+    [AddComponentMenu("Dust/Factory Machines/Time Machine")]
     public class TimeFactoryMachine : PRSFactoryMachine
     {
         private float m_TimeSinceStart;

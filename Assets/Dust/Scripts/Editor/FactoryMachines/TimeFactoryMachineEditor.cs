@@ -15,8 +15,8 @@ namespace DustEngine.DustEditor
             FactoryMachinesPopupButtons.AddMachine(typeof(TimeFactoryMachine), "Time");
         }
 
-        [MenuItem("Dust/Factory/Machines/Time")]
-        [MenuItem("GameObject/Dust/Factory/Machines/Time")]
+        [MenuItem("Dust/Factory Machines/Time")]
+        [MenuItem("GameObject/Dust/Factory Machines/Time")]
         public new static void AddComponent()
         {
             AddFactoryMachineComponentByType(typeof(TimeFactoryMachine));
