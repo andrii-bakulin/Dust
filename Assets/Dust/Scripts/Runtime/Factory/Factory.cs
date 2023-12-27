@@ -6,7 +6,6 @@ namespace DustEngine
     public abstract partial class Factory : DuMonoBehaviour, IDynamicState
     {
         internal readonly string kGameObjectName_Instances = "Instances";
-        internal readonly string kGameObjectName_Machines = "Machines";
 
         //--------------------------------------------------------------------------------------------------------------
 
@@ -306,14 +305,6 @@ namespace DustEngine
         private List<FactoryMachine.Record> m_FactoryMachines = new List<FactoryMachine.Record>();
         public List<FactoryMachine.Record> factoryMachines => m_FactoryMachines;
 
-        [SerializeField]
-        private GameObject m_FactoryMachinesHolder;
-        public GameObject factoryMachinesHolder
-        {
-            get => m_FactoryMachinesHolder;
-            set => m_FactoryMachinesHolder = value;
-        }
-
         // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
         [SerializeField]
@@ -423,18 +414,7 @@ namespace DustEngine
                 {
                     instancesHolder = child.gameObject;
                 }
-                else if (Dust.IsNull(factoryMachinesHolder) &&child.name.Equals(kGameObjectName_Machines))
-                {
-                    factoryMachinesHolder = child.gameObject;
-                }
-            }
-
-            if (Dust.IsNull(factoryMachinesHolder))
-            {
-                factoryMachinesHolder = new GameObject();
-                factoryMachinesHolder.name = kGameObjectName_Machines;
-                factoryMachinesHolder.transform.parent = transform;
-                DuTransform.Reset(factoryMachinesHolder.transform);
+                // find another links/objects here
             }
 
             if (Dust.IsNull(instancesHolder))

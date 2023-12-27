@@ -31,29 +31,37 @@ namespace DustEngine.DustEditor
             {
                 var factoryMachine = gameObject.AddComponent(factoryMachineType) as FactoryMachine;
 
+                if (Dust.IsNull(factoryMachine))
+                {
+                    Debug.LogError("Cannot add FactoryMachine component");
+                    return null;
+                }
+
+                gameObject.name = factoryMachine.FactoryMachineName() + " Machine";
+                
                 if (Dust.IsNotNull(selectedFactory))
                 {
                     selectedFactory.AddFactoryMachine(factoryMachine);
 
-                    if (Dust.IsNotNull(selectedFactory.factoryMachinesHolder))
+                    factoryMachine.transform.parent = selectedFactory.transform;
+                    factoryMachine.transform.SetSiblingIndex(0);
+
+                    // Need put factory-machine in special place in tree.
+                    // - if selectedFactory already has one or more factoryMachines -> require add after last one
+                    // - if not (default) -> add it as a first child
+                    
+                    for (int i = selectedFactory.transform.childCount - 1; i >= 0; i--)
                     {
-                        factoryMachine.transform.parent = selectedFactory.factoryMachinesHolder.transform;
-                    }
-                    else if(Dust.IsNotNull(selectedFactory.instancesHolder) && selectedFactory.instancesHolder != selectedFactory.gameObject)
-                    {
-                        // If has instancesHolder and it's not same object as factory
-                        // then add factoryMachine as a child for factory object
-                        factoryMachine.transform.parent = selectedFactory.transform;
-                    }
-                    else
-                    {
-                        // Add factoryMachine on the same level as factory, and right after factory
-                        factoryMachine.transform.parent = selectedFactory.transform.parent;
-                        factoryMachine.transform.SetSiblingIndex(selectedFactory.transform.GetSiblingIndex() + 1);
+                        var fm = selectedFactory.transform.GetChild(i).GetComponent<FactoryMachine>();
+                        
+                        if (Dust.IsNotNull(fm) && fm != factoryMachine)
+                        {
+                            factoryMachine.transform.SetSiblingIndex(i);
+                            break;
+                        }
                     }
                 }
 
-                gameObject.name = factoryMachine.FactoryMachineName() + " Machine";
                 DuTransform.Reset(gameObject.transform);
             }
 

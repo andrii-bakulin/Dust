@@ -19,7 +19,6 @@ namespace DustEngine.DustEditor
         private DuProperty m_DefaultValue;
         private DuProperty m_DefaultColor;
         private DuProperty m_FactoryMachines;
-        private DuProperty m_FactoryMachinesHolder;
 
         private DuProperty m_TransformSpace;
         private DuProperty m_TransformSequence;
@@ -77,7 +76,6 @@ namespace DustEngine.DustEditor
             m_DefaultValue = FindProperty("m_DefaultValue", "Default Value");
             m_DefaultColor = FindProperty("m_DefaultColor", "Default Color");
             m_FactoryMachines = FindProperty("m_FactoryMachines", "Factory Machines");
-            m_FactoryMachinesHolder = FindProperty("m_FactoryMachinesHolder", "Machines Holder");
 
             m_TransformSpace = FindProperty("m_TransformSpace", "Transform Space");
             m_TransformSequence = FindProperty("m_TransformSequence", "Transform Sequence");
@@ -202,10 +200,6 @@ namespace DustEngine.DustEditor
                 Space();
 
                 DrawFactoryMachinesBlock();
-                // Space();
-
-                PropertyField(m_FactoryMachinesHolder);
-                Space();
             }
             DustGUI.FoldoutEnd();
 
