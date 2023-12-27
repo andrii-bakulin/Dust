@@ -1,25 +1,30 @@
-﻿using UnityEngine;
+﻿using JetBrains.Annotations;
+using UnityEngine;
 using UnityEditor;
 
 namespace DustEngine
 {
     public static class Dust
     {
+        [ContractAnnotation("obj:null => true; obj:notnull => false")]
         public static bool IsNull(System.Object obj)
         {
             return obj is null;
         }
 
+        [ContractAnnotation("obj:notnull => true; obj:null => false")]
         public static bool IsNotNull(System.Object obj)
         {
             return !(obj is null);
         }
 
+        [ContractAnnotation("obj:null => true; obj:notnull => false")]
         public static bool IsNull(Object obj)
         {
             return obj == null;
         }
 
+        [ContractAnnotation("obj:notnull => true; obj:null => false")]
         public static bool IsNotNull(Object obj)
         {
             return obj != null;
