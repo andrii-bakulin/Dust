@@ -61,15 +61,20 @@ namespace DustEngine
 
         public override void Calculate(Field.Point fieldPoint, out Field.Result result, bool calculateColor)
         {
-            Vector3 localPosition = transform.worldToLocalMatrix.MultiplyPoint(fieldPoint.inPosition);
+            float offset = 0f;
 
-            // Convert to [X+]-axis-space by direction
-            localPosition = AxisDirection.ConvertFromDirectionToAxisXPlus(direction, localPosition);
+            if (radius > 0f && height > 0f && DuVector3.IsAllAxisNonZero(transform.localScale))
+            {
+                Vector3 localPosition = transform.worldToLocalMatrix.MultiplyPoint(fieldPoint.inPosition);
 
-            float distanceToPoint = localPosition.magnitude;
-            float distanceToEdge = DuMath.Cylinder.DistanceToEdge(radius, height, localPosition);
+                // Convert to [X+]-axis-space by direction
+                localPosition = AxisDirection.ConvertFromDirectionToAxisXPlus(direction, localPosition);
 
-            float offset = distanceToEdge > 0f ? 1f - distanceToPoint / distanceToEdge : 0f;
+                float distanceToPoint = localPosition.magnitude;
+                float distanceToEdge = DuMath.Cylinder.DistanceToEdge(radius, height, localPosition);
+
+                offset = 1f - (distanceToEdge > 0f ? distanceToPoint / distanceToEdge : 0f);
+            }
 
             result.power = remapping.MapValue(offset);
             result.color = GetFieldColorFromRemapping(remapping, result.power, calculateColor);
