@@ -134,5 +134,17 @@ namespace DustEngine
             r.z = Mathf.SmoothDamp(current.z, target.z, ref currentVelocity.z, smoothTime.z, maxSpeed, deltaTime);
             return r;
         }
+
+        //--------------------------------------------------------------------------------------------------------------
+
+        public static bool IsAnyAxisIsZero(Vector3 v)
+        {
+            return DuMath.IsZero(v.x) || DuMath.IsZero(v.y) || DuMath.IsZero(v.z);
+        }
+        
+        public static bool IsAllAxisNonZero(Vector3 v)
+        {
+            return DuMath.IsNotZero(v.x) && DuMath.IsNotZero(v.y) && DuMath.IsNotZero(v.z);
+        }
     }
 }
