@@ -1010,7 +1010,7 @@ MonoBehaviour:
   m_Remapping:
     m_RemapPowerEnabled: 1
     m_Strength: 1
-    m_Offset: 0.5
+    m_Offset: 0.56
     m_LimitByStrength: 0
     m_Invert: 0
     m_Min: 0
@@ -1083,7 +1083,7 @@ MonoBehaviour:
     m_RandomMaxColor: {r: 1, g: 0, b: 0, a: 1}
   m_GizmoVisibility: 1
   m_GizmoFieldColor: 1
-  m_Size: {x: 6.09, y: 5.35, z: 8.41}
+  m_Size: {x: 3, y: 3, z: 3}
 --- !u!4 &457914252
 Transform:
   m_ObjectHideFlags: 0
