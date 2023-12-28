@@ -97,7 +97,7 @@ namespace DustEngine
                 if (m_Calc.planeZ.Raycast(m_Calc.ray, out distanceToPlane) && distanceToPlane > 0)
                     distanceToEdge = Mathf.Min(distanceToEdge, distanceToPlane);
 
-                offset = DuMath.IsNotZero(distanceToEdge) ? (1f - distanceToPoint / distanceToEdge) : 0f;
+                offset = DuMath.IsNotZero(distanceToEdge) ? 1f - distanceToPoint / distanceToEdge : 0f;
             }
 
             result.power = remapping.MapValue(offset);
