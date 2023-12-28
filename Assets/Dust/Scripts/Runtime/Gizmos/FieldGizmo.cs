@@ -157,7 +157,7 @@ namespace DustEngine
 #if UNITY_EDITOR
         protected override void DrawGizmos()
         {
-            bool showPower = false, showColor = false;
+            bool showPower, showColor;
 
             ICalcFieldValues calcField;
 
@@ -182,6 +182,9 @@ namespace DustEngine
                     showPower = (powerVisible || powerDotsVisible) && fieldsSpace.fieldsMap.calculatePower;
                     showColor = colorVisible && fieldsSpace.fieldsMap.calculateColor;
                     break;
+                
+                default:
+                    return;
             }
             
             if (!showPower && !showColor)
