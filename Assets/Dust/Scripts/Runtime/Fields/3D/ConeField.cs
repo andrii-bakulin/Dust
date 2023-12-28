@@ -66,10 +66,15 @@ namespace DustEngine
             // Convert to [X+]-axis-space by direction
             localPosition = AxisDirection.ConvertFromDirectionToAxisXPlus(direction, localPosition);
 
-            float distanceToPoint = localPosition.magnitude;
-            float distanceToEdge = DuMath.Cone.DistanceToEdge(radius, height, localPosition);
+            float offset = 0f;
 
-            float offset = distanceToEdge > 0f ? 1f - distanceToPoint / distanceToEdge : 0f;
+            if (radius > 0f && height > 0f)
+            {
+                float distanceToPoint = localPosition.magnitude;
+                float distanceToEdge = DuMath.Cone.DistanceToEdge(radius, height, localPosition);
+
+                offset = 1f - (distanceToEdge > 0f ? distanceToPoint / distanceToEdge : 0f);
+            }
 
             result.power = remapping.MapValue(offset);
             result.color = GetFieldColorFromRemapping(remapping, result.power, calculateColor);
