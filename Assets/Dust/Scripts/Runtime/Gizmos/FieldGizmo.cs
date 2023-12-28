@@ -182,9 +182,6 @@ namespace DustEngine
                     showPower = (powerVisible || powerDotsVisible) && fieldsSpace.fieldsMap.calculatePower;
                     showColor = colorVisible && fieldsSpace.fieldsMap.calculateColor;
                     break;
-
-                default:
-                    return;
             }
             
             if (!showPower && !showColor)

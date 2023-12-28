@@ -396,9 +396,6 @@ namespace DustEngine
 
                     DynamicState.Append(ref dynamicState, ++seq, m_OffsetDynamic);
                     break;
-
-                default:
-                    break;
             }
 
             return DynamicState.Normalize(dynamicState);

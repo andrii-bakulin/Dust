@@ -270,9 +270,6 @@ namespace DustEngine
                     DynamicState.Append(ref dynamicState, ++seq, randomMinColor);
                     DynamicState.Append(ref dynamicState, ++seq, randomMaxColor);
                     break;
-
-                default:
-                    break;
             }
 
             return DynamicState.Normalize(dynamicState);
@@ -342,9 +339,6 @@ namespace DustEngine
                     outValue = DuMath.Fit01To(outMin, outMax, valueNormalized);
                     break;
                 }
-
-                default:
-                    break;
             }
 
             outValue *= postPower;

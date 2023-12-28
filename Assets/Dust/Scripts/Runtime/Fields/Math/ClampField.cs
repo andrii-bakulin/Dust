@@ -113,9 +113,6 @@ namespace DustEngine
                 case ClampMode.NoClamp:
                     parts.Add("(∞ .. ∞)");
                     break;
-
-                default:
-                    break;
             }
 
             if (colorClampMode != ClampMode.NoClamp)

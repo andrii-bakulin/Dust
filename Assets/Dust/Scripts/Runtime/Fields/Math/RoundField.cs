@@ -62,9 +62,6 @@ namespace DustEngine
                 case RoundMode.Ceil:
                     value = Mathf.Ceil(value / distance) * distance;
                     break;
-
-                default:
-                    break;
             }
 
             return value;
@@ -87,9 +84,6 @@ namespace DustEngine
                 case RoundMode.Round: hint = "Round"; break;
                 case RoundMode.Floor: hint = "Floor"; break;
                 case RoundMode.Ceil:  hint = "Ceil"; break;
-
-                default:
-                    break;
             }
 
             return hint + ", " + distance.ToString("F2");

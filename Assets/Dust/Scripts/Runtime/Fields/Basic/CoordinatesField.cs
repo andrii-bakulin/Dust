@@ -183,8 +183,6 @@ namespace DustEngine
                     case AggregateMode.Min: hint = "MIN( " + string.Join(", ", items) + " )"; break;
                     case AggregateMode.Max: hint = "MAX( " + string.Join(", ", items) + " )"; break;
                     case AggregateMode.Sum: hint = "SUM( " + string.Join(", ", items) + " )"; break;
-                    default:
-                        break;
                 }
             }
             else if (items.Count == 1)

@@ -105,9 +105,6 @@ namespace DustEngine.DustEditor
                             break;
                     }
                     break;
-
-                default:
-                    return;
             }
 
             Space();
@@ -144,9 +141,6 @@ namespace DustEngine.DustEditor
                 case Destroyer.DestroyMode.DeadZone:
                     DustGUI.HelpBoxInfo("GameObject will be destroyed\nwhen it will get inside Dead Zone");
                     break;
-
-                default:
-                    return;
             }
 
             // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

@@ -74,9 +74,6 @@ namespace DustEngine
                             kBaseDotSize * inspectorScale,
                             EventType.Repaint);
                         break;
-
-                    default:
-                        break;
                 }
             }
         }

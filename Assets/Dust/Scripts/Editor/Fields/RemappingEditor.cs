@@ -122,9 +122,6 @@ namespace DustEngine.DustEditor
                         case Remapping.PostReshapeMode.Step:
                             DuEditor.PropertyExtendedIntSlider(m_PostStepsCount, 1, 25, 1, 1);
                             break;
-
-                        default:
-                            break;
                     }
                 }
 
@@ -171,9 +168,6 @@ namespace DustEngine.DustEditor
                             DustGUI.Lock();
                             DustGUI.Field("Preview", DuGradient.CreateBetweenColors(m_RandomMinColor.valColor, m_RandomMaxColor.valColor));
                             DustGUI.Unlock();
-                            break;
-
-                        default:
                             break;
                     }
 
