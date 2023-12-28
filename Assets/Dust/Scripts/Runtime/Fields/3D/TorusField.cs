@@ -63,7 +63,7 @@ namespace DustEngine
         {
             float offset = 0f;
 
-            if (DuMath.IsNotZero(radius) && DuMath.IsNotZero(thickness))
+            if (radius > 0f && thickness > 0f && DuVector3.IsAllAxisNonZero(transform.localScale))
             {
                 Vector3 localPosition = transform.worldToLocalMatrix.MultiplyPoint(fieldPoint.inPosition);
 
@@ -80,7 +80,7 @@ namespace DustEngine
                 float distanceToPoint = localPoint2D.magnitude;
                 float distanceToEdge = thickness;
 
-                offset = 1f - distanceToPoint / distanceToEdge;
+                offset = 1f - (distanceToEdge > 0f ? distanceToPoint / distanceToEdge : 0f);
             }
 
             result.power = remapping.MapValue(offset);
