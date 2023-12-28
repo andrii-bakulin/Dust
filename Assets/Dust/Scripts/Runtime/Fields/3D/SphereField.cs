@@ -45,14 +45,14 @@ namespace DustEngine
         {
             float offset = 0f;
 
-            if (DuMath.IsNotZero(radius))
+            if (radius > 0f && DuVector3.IsAllAxisNonZero(transform.localScale))
             {
                 Vector3 localPosition = transform.worldToLocalMatrix.MultiplyPoint(fieldPoint.inPosition);
 
                 float distanceToPoint = localPosition.magnitude;
                 float distanceToEdge = radius;
 
-                offset = 1f - distanceToPoint / distanceToEdge;
+                offset = 1f - (distanceToEdge > 0f ? distanceToPoint / distanceToEdge : 0f);
             }
 
             result.power = remapping.MapValue(offset);
