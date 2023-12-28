@@ -77,7 +77,7 @@ namespace DustEngine
 
             float offset = 0f;
 
-            if (DuMath.IsNotZero(size.x) && DuMath.IsNotZero(size.y) && DuMath.IsNotZero(size.z))
+            if (DuVector3.IsAllAxisNonZero(size) && DuVector3.IsAllAxisNonZero(transform.localScale))
             {
                 Vector3 localPosition = transform.worldToLocalMatrix.MultiplyPoint(fieldPoint.inPosition);
 
