@@ -252,7 +252,7 @@ namespace DustEngine
                     {
                         GUIStyle style = new GUIStyle("Label");
                         style.fontSize = Mathf.RoundToInt(style.fontSize * powerSize * (powerImpactOnDotsSize ? fieldResult.power : 1f));
-                        style.fontSize = Mathf.Max(style.fontSize, 3); // Cannot be 0!
+                        style.fontSize = Mathf.Clamp(style.fontSize, 3, 32);
 
                         Handles.Label(worldPosition, fieldResult.power.ToString("F2"), style);
                     }
