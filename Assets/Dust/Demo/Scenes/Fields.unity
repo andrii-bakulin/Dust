@@ -762,9 +762,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 332484ea7bd5f43fd8411dad2d6fc27a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_CustomHint: 
+  m_Hint: 
   m_Power: 1
-  m_Unlimited: 0
   m_Remapping:
     m_RemapPowerEnabled: 1
     m_InMin: 0
@@ -804,8 +803,9 @@ MonoBehaviour:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
+  m_Coloring:
     m_ColorMode: 1
-    m_Color: {r: 1, g: 0.6725613, b: 0, a: 1}
+    m_Color: {r: 1, g: 0, b: 0.8646321, a: 1}
     m_Gradient:
       serializedVersion: 2
       key0: {r: 0, g: 0, b: 0, a: 1}
@@ -842,6 +842,7 @@ MonoBehaviour:
     m_RandomMaxColor: {r: 1, g: 0, b: 0, a: 1}
   m_GizmoVisibility: 1
   m_GizmoFieldColor: 1
+  m_Unlimited: 0
   m_Length: 5
   m_Direction: 0
   m_GizmoWidth: 4
@@ -1008,9 +1009,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e199d0cdde1ce4169a5c40ec34d376a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_CustomHint: 
+  m_Hint: 
   m_Power: 1
-  m_Unlimited: 0
   m_Remapping:
     m_RemapPowerEnabled: 1
     m_InMin: 0
@@ -1050,6 +1050,7 @@ MonoBehaviour:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
+  m_Coloring:
     m_ColorMode: 1
     m_Color: {r: 0, g: 0.5, b: 1, a: 1}
     m_Gradient:
@@ -1088,6 +1089,7 @@ MonoBehaviour:
     m_RandomMaxColor: {r: 1, g: 0, b: 0, a: 1}
   m_GizmoVisibility: 1
   m_GizmoFieldColor: 1
+  m_Unlimited: 0
   m_Size: {x: 3, y: 3, z: 3}
 --- !u!4 &457914252
 Transform:
@@ -1146,9 +1148,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91a8642051b44f429dfea35147bfeaea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_CustomHint: 
+  m_Hint: 
   m_Power: 1
-  m_Unlimited: 0
   m_Remapping:
     m_RemapPowerEnabled: 1
     m_InMin: 0
@@ -1188,6 +1189,7 @@ MonoBehaviour:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
+  m_Coloring:
     m_ColorMode: 1
     m_Color: {r: 0, g: 0.5, b: 1, a: 1}
     m_Gradient:
@@ -1278,9 +1280,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c728418605894164bbb9d283bf20c1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_CustomHint: 
+  m_Hint: 
   m_Power: 1
-  m_Unlimited: 0
   m_Remapping:
     m_RemapPowerEnabled: 1
     m_InMin: 0
@@ -1320,6 +1321,7 @@ MonoBehaviour:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
+  m_Coloring:
     m_ColorMode: 1
     m_Color: {r: 0, g: 0.5, b: 1, a: 1}
     m_Gradient:
@@ -1358,6 +1360,7 @@ MonoBehaviour:
     m_RandomMaxColor: {r: 1, g: 0, b: 0, a: 1}
   m_GizmoVisibility: 2
   m_GizmoFieldColor: 1
+  m_Unlimited: 0
   m_Radius: 3
   m_Height: 8
   m_Direction: 0
@@ -1390,9 +1393,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c728418605894164bbb9d283bf20c1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_CustomHint: 
+  m_Hint: 
   m_Power: 1
-  m_Unlimited: 0
   m_Remapping:
     m_RemapPowerEnabled: 1
     m_InMin: 0
@@ -1432,8 +1434,9 @@ MonoBehaviour:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
+  m_Coloring:
     m_ColorMode: 1
-    m_Color: {r: 0.35463858, g: 0, b: 1, a: 1}
+    m_Color: {r: 0.3578205, g: 1, b: 0, a: 1}
     m_Gradient:
       serializedVersion: 2
       key0: {r: 0, g: 0, b: 0, a: 1}
@@ -1470,6 +1473,7 @@ MonoBehaviour:
     m_RandomMaxColor: {r: 1, g: 0, b: 0, a: 1}
   m_GizmoVisibility: 1
   m_GizmoFieldColor: 1
+  m_Unlimited: 0
   m_Radius: 3.41
   m_Height: 11.63
   m_Direction: 1
@@ -1663,9 +1667,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a55c4752f35e4153ba439cd398b6c27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_CustomHint: 
+  m_Hint: 
   m_Power: 1
-  m_Unlimited: 0
   m_Remapping:
     m_RemapPowerEnabled: 1
     m_InMin: 0
@@ -1705,6 +1708,7 @@ MonoBehaviour:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
+  m_Coloring:
     m_ColorMode: 1
     m_Color: {r: 0, g: 0.5, b: 1, a: 1}
     m_Gradient:
@@ -1796,9 +1800,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d9d31633ad3b458b8f7782bf4bdb81e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_CustomHint: 
+  m_Hint: 
   m_Power: 1
-  m_Unlimited: 0
   m_Remapping:
     m_RemapPowerEnabled: 0
     m_InMin: 0
@@ -1838,6 +1841,7 @@ MonoBehaviour:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
+  m_Coloring:
     m_ColorMode: 1
     m_Color: {r: 0, g: 0.5, b: 1, a: 1}
     m_Gradient:
@@ -1931,9 +1935,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1da5f3a46c76f463f848a4ca83f90504, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_CustomHint: 
+  m_Hint: 
   m_Power: 1
-  m_Unlimited: 0
   m_Remapping:
     m_RemapPowerEnabled: 1
     m_InMin: 0
@@ -1973,6 +1976,7 @@ MonoBehaviour:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
+  m_Coloring:
     m_ColorMode: 1
     m_Color: {r: 0, g: 0.5, b: 1, a: 1}
     m_Gradient:
@@ -2287,7 +2291,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 827fa527305504dbfbeb3af9f6c87de0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_CustomHint: 
+  m_Hint: 
   m_Power: 1
   m_Color: {r: 0, g: 0.13069366, b: 0.5471698, a: 1}
 --- !u!1001 &830824108
@@ -2452,9 +2456,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa6d45ef43df44cc3ab3acab596294d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_CustomHint: 
+  m_Hint: 
   m_Power: 1
-  m_Unlimited: 0
   m_Remapping:
     m_RemapPowerEnabled: 1
     m_InMin: 0
@@ -2494,6 +2497,7 @@ MonoBehaviour:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
+  m_Coloring:
     m_ColorMode: 1
     m_Color: {r: 0, g: 0.5, b: 1, a: 1}
     m_Gradient:
@@ -2532,6 +2536,7 @@ MonoBehaviour:
     m_RandomMaxColor: {r: 1, g: 0, b: 0, a: 1}
   m_GizmoVisibility: 1
   m_GizmoFieldColor: 1
+  m_Unlimited: 0
   m_Radius: 3
   m_Thickness: 1
   m_Direction: 2
@@ -2592,9 +2597,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48e743f53881042e69d89b0d608eb24e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_CustomHint: 
+  m_Hint: 
   m_Power: 1
-  m_Unlimited: 0
   m_Remapping:
     m_RemapPowerEnabled: 1
     m_InMin: 0
@@ -2634,6 +2638,7 @@ MonoBehaviour:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
+  m_Coloring:
     m_ColorMode: 1
     m_Color: {r: 0, g: 0.5, b: 1, a: 1}
     m_Gradient:
@@ -2710,9 +2715,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1c56ec36708641ab8e7f75987fb8432, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_CustomHint: 
+  m_Hint: 
   m_Power: 1
-  m_Unlimited: 0
   m_Remapping:
     m_RemapPowerEnabled: 1
     m_InMin: 0
@@ -2752,6 +2756,7 @@ MonoBehaviour:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
+  m_Coloring:
     m_ColorMode: 1
     m_Color: {r: 0, g: 0.5, b: 1, a: 1}
     m_Gradient:
@@ -2790,6 +2795,7 @@ MonoBehaviour:
     m_RandomMaxColor: {r: 1, g: 0, b: 0, a: 1}
   m_GizmoVisibility: 1
   m_GizmoFieldColor: 1
+  m_Unlimited: 0
   m_Radius: 3
   m_Height: 7.28
   m_Direction: 1
@@ -3340,9 +3346,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd7b5aff2f6bd41988460940559044c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_CustomHint: 
+  m_Hint: 
   m_Power: 1
-  m_Unlimited: 0
   m_Remapping:
     m_RemapPowerEnabled: 1
     m_InMin: 0
@@ -3382,6 +3387,7 @@ MonoBehaviour:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
+  m_Coloring:
     m_ColorMode: 1
     m_Color: {r: 0, g: 0.5, b: 1, a: 1}
     m_Gradient:
@@ -3420,6 +3426,7 @@ MonoBehaviour:
     m_RandomMaxColor: {r: 1, g: 0, b: 0, a: 1}
   m_GizmoVisibility: 1
   m_GizmoFieldColor: 1
+  m_Unlimited: 0
   m_Radius: 4
 --- !u!4 &1481514473
 Transform:
@@ -3744,9 +3751,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b261e1ac660434f0eb2facc18d289403, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_CustomHint: 
+  m_Hint: 
   m_Power: 1
-  m_Unlimited: 0
   m_Remapping:
     m_RemapPowerEnabled: 1
     m_InMin: 0
@@ -3786,6 +3792,7 @@ MonoBehaviour:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
+  m_Coloring:
     m_ColorMode: 1
     m_Color: {r: 0, g: 0.5, b: 1, a: 1}
     m_Gradient:
@@ -3943,9 +3950,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa6d45ef43df44cc3ab3acab596294d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_CustomHint: 
+  m_Hint: 
   m_Power: 1
-  m_Unlimited: 0
   m_Remapping:
     m_RemapPowerEnabled: 1
     m_InMin: 0
@@ -3985,6 +3991,7 @@ MonoBehaviour:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
+  m_Coloring:
     m_ColorMode: 1
     m_Color: {r: 0, g: 0.5, b: 1, a: 1}
     m_Gradient:
@@ -4023,6 +4030,7 @@ MonoBehaviour:
     m_RandomMaxColor: {r: 1, g: 0, b: 0, a: 1}
   m_GizmoVisibility: 1
   m_GizmoFieldColor: 1
+  m_Unlimited: 0
   m_Radius: 2
   m_Thickness: 0.5
   m_Direction: 1
@@ -4134,9 +4142,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 332484ea7bd5f43fd8411dad2d6fc27a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_CustomHint: 
+  m_Hint: 
   m_Power: 1
-  m_Unlimited: 0
   m_Remapping:
     m_RemapPowerEnabled: 1
     m_InMin: 0
@@ -4176,6 +4183,7 @@ MonoBehaviour:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
+  m_Coloring:
     m_ColorMode: 1
     m_Color: {r: 0, g: 0.5, b: 1, a: 1}
     m_Gradient:
@@ -4214,6 +4222,7 @@ MonoBehaviour:
     m_RandomMaxColor: {r: 1, g: 0, b: 0, a: 1}
   m_GizmoVisibility: 1
   m_GizmoFieldColor: 1
+  m_Unlimited: 0
   m_Length: 5
   m_Direction: 0
   m_GizmoWidth: 4
