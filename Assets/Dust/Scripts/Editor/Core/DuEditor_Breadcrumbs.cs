@@ -35,13 +35,23 @@ namespace DustEngine.DustEditor
                 queue.Enqueue(typeof(Factory));
             }
 
-            InspectorBreadcrumbs(editor, queue);
+            if (InspectorBreadcrumbs(editor, queue))
+                return;
+            
+            // 2nd: try to build Breadcrumbs for FieldsSpace holder of the Filed 
+            var queue2nd = new Queue<Type>(); 
+            {
+                queue2nd.Enqueue(typeof(Field));
+                queue2nd.Enqueue(typeof(FieldsSpace));
+            }
+
+            InspectorBreadcrumbs(editor, queue2nd);
         }
         
-        private static void InspectorBreadcrumbs(DuEditor editor, Queue<Type> componentsQueue)
+        private static bool InspectorBreadcrumbs(DuEditor editor, Queue<Type> componentsQueue)
         {
             if (editor.targets.Length > 1)
-                return;
+                return false;
 
             var breadcrumbs = new List<BreadcrumbItem>();
 
@@ -95,7 +105,7 @@ namespace DustEngine.DustEditor
             // Draw UI
 
             if (breadcrumbs.Count <= 1)
-                return;
+                return false;
 
             DustGUI.BeginVerticalBox(0, DustGUI.Config.ICON_BUTTON_HEIGHT);
             DustGUI.BeginHorizontal();
@@ -139,6 +149,8 @@ namespace DustEngine.DustEditor
             DustGUI.EndVertical();
 
             Space();
+
+            return true;
         }
     }
 }
