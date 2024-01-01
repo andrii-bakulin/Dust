@@ -96,7 +96,7 @@ namespace DustEngine.DustEditor
                     break;
             }
 
-            PropertyField(m_CustomHint);
+            PropertyField(m_Hint);
             Space();
 
             // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

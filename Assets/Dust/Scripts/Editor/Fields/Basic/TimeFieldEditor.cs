@@ -99,7 +99,7 @@ namespace DustEngine.DustEditor
 
             Space();
 
-            PropertyField(m_CustomHint);
+            PropertyField(m_Hint);
             Space();
 
             // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

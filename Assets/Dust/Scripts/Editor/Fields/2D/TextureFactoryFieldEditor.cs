@@ -92,7 +92,7 @@ namespace DustEngine.DustEditor
             PropertyField(m_ApplyPowerToAlpha);
             Space();
 
-            PropertyField(m_CustomHint);
+            PropertyField(m_Hint);
             Space();
 
             // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

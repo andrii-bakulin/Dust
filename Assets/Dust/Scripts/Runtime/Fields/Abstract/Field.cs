@@ -30,11 +30,11 @@ namespace DustEngine
         //--------------------------------------------------------------------------------------------------------------
 
         [SerializeField]
-        protected string m_CustomHint = "";
-        public string customHint
+        protected string m_Hint = "";
+        public string hint
         {
-            get => m_CustomHint;
-            set => m_CustomHint = value;
+            get => m_Hint;
+            set => m_Hint = value;
         }
 
         // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

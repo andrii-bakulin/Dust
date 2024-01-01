@@ -60,7 +60,7 @@ namespace DustEngine.DustEditor
             PropertyField(m_AfterCurve);
             Space();
 
-            PropertyField(m_CustomHint);
+            PropertyField(m_Hint);
             Space();
 
             // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

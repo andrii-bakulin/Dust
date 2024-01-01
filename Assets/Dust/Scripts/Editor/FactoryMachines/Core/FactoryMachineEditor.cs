@@ -5,7 +5,7 @@ namespace DustEngine.DustEditor
 {
     public abstract class FactoryMachineEditor : DuEditor
     {
-        protected DuProperty m_CustomHint;
+        protected DuProperty m_Hint;
         protected DuProperty m_Intensity;
 
         //--------------------------------------------------------------------------------------------------------------
@@ -76,7 +76,7 @@ namespace DustEngine.DustEditor
         {
             base.InitializeEditor();
 
-            m_CustomHint = FindProperty("m_CustomHint", "Hint for Machine");
+            m_Hint = FindProperty("m_Hint", "Hint for Machine");
             m_Intensity = FindProperty("m_Intensity", "Intensity");
         }
     }

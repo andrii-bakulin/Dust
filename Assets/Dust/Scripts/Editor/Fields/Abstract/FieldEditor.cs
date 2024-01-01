@@ -5,7 +5,7 @@ namespace DustEngine.DustEditor
 {
     public abstract class FieldEditor : DuEditor
     {
-        protected DuProperty m_CustomHint;
+        protected DuProperty m_Hint;
 
         //--------------------------------------------------------------------------------------------------------------
 
@@ -84,7 +84,7 @@ namespace DustEngine.DustEditor
         {
             base.InitializeEditor();
 
-            m_CustomHint = FindProperty("m_CustomHint", "Hint for Field");
+            m_Hint = FindProperty("m_Hint", "Hint for Field");
         }
     }
 }

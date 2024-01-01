@@ -72,7 +72,7 @@ namespace DustEngine.DustEditor
             PropertyExtendedSlider(m_Offset, -1f, +1f, 0.01f);
             Space();
 
-            PropertyField(m_CustomHint);
+            PropertyField(m_Hint);
             Space();
 
             // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

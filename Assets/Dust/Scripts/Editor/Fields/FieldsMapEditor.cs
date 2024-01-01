@@ -208,7 +208,7 @@ namespace DustEngine.DustEditor
                 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
                 var fieldName = newRecord.field.gameObject.name;
-                var fieldHint = newRecord.field.customHint;
+                var fieldHint = newRecord.field.hint;
                 var dynamicHint = newRecord.field.FieldDynamicHint();
 
                 if (dynamicHint != "")
