@@ -6,7 +6,7 @@ namespace DustEngine.DustEditor
     [CustomEditor(typeof(CubeField))]
     [CanEditMultipleObjects]
     [InitializeOnLoad]
-    public class CubeFieldEditor : Space3DFieldEditor
+    public class CubeFieldEditor : SpaceObjectFieldEditor
     {
         private DuProperty m_Size;
 
@@ -41,10 +41,14 @@ namespace DustEngine.DustEditor
 
             InspectorBreadcrumbsForField(this);
 
-            PropertyField(m_CustomHint);
+            PropertyExtendedSlider(m_Power, 0f, 5f, 0.01f);
             Space();
 
             PropertyField(m_Size);
+            Space();
+
+            PropertyField(m_Unlimited);
+            PropertyField(m_CustomHint);
             Space();
 
             // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

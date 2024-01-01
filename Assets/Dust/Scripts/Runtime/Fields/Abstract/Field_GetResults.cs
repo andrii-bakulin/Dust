@@ -10,10 +10,10 @@ namespace DustEngine
 
         //--------------------------------------------------------------------------------------------------------------
 
-        public float GetPower(Vector3 worldPosition)
-            => GetPower(worldPosition, 0f);
+        public float GetPowerAtPoint(Vector3 worldPosition)
+            => GetPowerAtPoint(worldPosition, 0f);
 
-        public float GetPower(Vector3 worldPosition, float offset)
+        public float GetPowerAtPoint(Vector3 worldPosition, float offset)
         {
             m_CalcFieldPoint.inPosition = worldPosition;
             m_CalcFieldPoint.inOffset = 0f;
@@ -26,10 +26,10 @@ namespace DustEngine
 
         // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-        public Color GetColor(Vector3 worldPosition)
-            => GetColor(worldPosition, 0f);
+        public Color GetColorAtPoint(Vector3 worldPosition)
+            => GetColorAtPoint(worldPosition, 0f);
 
-        public Color GetColor(Vector3 worldPosition, float offset)
+        public Color GetColorAtPoint(Vector3 worldPosition, float offset)
         {
             m_CalcFieldPoint.inPosition = worldPosition;
             m_CalcFieldPoint.inOffset = 0f;
@@ -42,10 +42,10 @@ namespace DustEngine
 
         // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-        public Field.Result GetPowerAndColor(Vector3 worldPosition)
-            => GetPowerAndColor(worldPosition, 0f);
+        public Field.Result GetPowerAndColorAtPoint(Vector3 worldPosition)
+            => GetPowerAndColorAtPoint(worldPosition, 0f);
 
-        public Field.Result GetPowerAndColor(Vector3 worldPosition, float offset)
+        public Field.Result GetPowerAndColorAtPoint(Vector3 worldPosition, float offset)
         {
             m_CalcFieldPoint.inPosition = worldPosition;
             m_CalcFieldPoint.inOffset = 0f;

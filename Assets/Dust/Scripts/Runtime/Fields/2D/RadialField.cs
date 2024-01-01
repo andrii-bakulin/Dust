@@ -125,7 +125,7 @@ namespace DustEngine
             angle = DuMath.NormalizeAngle360(angle - offset);        // step 1
             angle = DuMath.NormalizeAngle360(angle * iterations);    // step 2
 
-            float power = 0f;
+            result.power = 0f;
 
             if (DuMath.Between(angle, startAngle, endAngle))
             {
@@ -136,7 +136,7 @@ namespace DustEngine
 
                 if (DuMath.Between(angle, pointB, pointC))
                 {
-                    power = 1f;
+                    result.power = 1f;
                 }
                 else // somewhere in fade-in-out. But if in both in+out then get min value
                 {
@@ -145,20 +145,22 @@ namespace DustEngine
 
                     if (inRangeAB && inRangeCD)
                     {
-                        power = Mathf.Min(Mathf.InverseLerp(pointA, pointB, angle), 1f - Mathf.InverseLerp(pointC, pointD, angle));
+                        result.power = Mathf.Min(Mathf.InverseLerp(pointA, pointB, angle), 1f - Mathf.InverseLerp(pointC, pointD, angle));
                     }
                     else if (inRangeAB)
                     {
-                        power = Mathf.InverseLerp(pointA, pointB, angle);
+                        result.power = Mathf.InverseLerp(pointA, pointB, angle);
                     }
                     else if (inRangeCD)
                     {
-                        power = 1f - Mathf.InverseLerp(pointC, pointD, angle);
+                        result.power = 1f - Mathf.InverseLerp(pointC, pointD, angle);
                     }
                 }
             }
 
-            result.power = remapping.MapValue(power);
+            result.power *= power;
+
+            result.power = remapping.MapValue(result.power);
             result.color = GetFieldColorFromRemapping(remapping, result.power, calculateColor);
         }
 

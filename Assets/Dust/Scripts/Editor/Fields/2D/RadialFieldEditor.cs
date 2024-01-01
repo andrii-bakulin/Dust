@@ -63,7 +63,7 @@ namespace DustEngine.DustEditor
 
             InspectorBreadcrumbsForField(this);
 
-            PropertyField(m_CustomHint);
+            PropertyExtendedSlider(m_Power, 0f, 5f, 0.01f);
             Space();
 
             PropertyExtendedSlider(m_StartAngle, 0f, 360f, 1f);
@@ -79,6 +79,9 @@ namespace DustEngine.DustEditor
             Space();
 
             PropertyField(m_Direction);
+            Space();
+
+            PropertyField(m_CustomHint);
             Space();
 
             // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

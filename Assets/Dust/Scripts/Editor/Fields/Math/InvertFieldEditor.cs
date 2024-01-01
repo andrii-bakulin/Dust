@@ -6,7 +6,7 @@ namespace DustEngine.DustEditor
     [CustomEditor(typeof(InvertField))]
     [CanEditMultipleObjects]
     [InitializeOnLoad]
-    public class InvertFieldEditor : FieldEditor
+    public class InvertFieldEditor : MathFieldEditor
     {
         protected DuProperty m_ColorInvertAlpha;
 
@@ -43,11 +43,11 @@ namespace DustEngine.DustEditor
 
             InspectorBreadcrumbsForField(this);
 
-            PropertyField(m_CustomHint);
-            Space();
-
             DustGUI.Header("Color");
             PropertyField(m_ColorInvertAlpha);
+            Space();
+
+            PropertyField(m_CustomHint);
             Space();
 
             // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

@@ -4,7 +4,7 @@ using UnityEngine;
 namespace DustEngine
 {
     [AddComponentMenu("Dust/Fields/Basic Fields/Coordinates Field")]
-    public class CoordinatesField : Field
+    public class CoordinatesField : SpaceField
     {
         public enum ShapeMode
         {
@@ -128,8 +128,6 @@ namespace DustEngine
         {
             var seq = 0;
             var dynamicState = base.GetDynamicStateHashCode();
-
-            DynamicState.Append(ref dynamicState, ++seq, transform);
 
             DynamicState.Append(ref dynamicState, ++seq, powerEnabled);
             DynamicState.Append(ref dynamicState, ++seq, colorEnabled);
@@ -270,6 +268,8 @@ namespace DustEngine
                 result.power = 0f;
             }
 
+            result.power *= power;
+
             // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
             if (calculateColor && colorEnabled && DuMath.IsNotZero(colorScale))
@@ -330,5 +330,14 @@ namespace DustEngine
                     return min + Mathf.PingPong(value, max - min);
             }
         }
+
+        //--------------------------------------------------------------------------------------------------------------
+
+#if UNITY_EDITOR
+        protected override void DrawFieldGizmos()
+        {
+            // Nothing for now...
+        }
+#endif
     }
 }

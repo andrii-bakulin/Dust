@@ -94,10 +94,10 @@ namespace DustEngine.DustEditor
             {
                 DuEditor.PropertyField(m_RemapPowerEnabled);
 
-                PropertyMappingGraph(m_Remapping, m_Color.valColor.duToRGBWithoutAlpha());
-
                 if (m_RemapPowerEnabled.IsTrue)
                 {
+                    PropertyMappingGraph(m_Remapping, m_Color.valColor.duToRGBWithoutAlpha());
+
                     DuEditor.PropertyExtendedSlider01(m_InMin);
                     DuEditor.PropertyExtendedSlider01(m_InMax);
                     DuEditor.PropertyField(m_ClampInMode);

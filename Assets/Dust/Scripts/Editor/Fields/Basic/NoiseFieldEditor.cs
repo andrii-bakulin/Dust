@@ -65,12 +65,8 @@ namespace DustEngine.DustEditor
 
             InspectorBreadcrumbsForField(this);
 
-            PropertyField(m_CustomHint);
+            PropertyExtendedSlider(m_Power, 0f, 5f, 0.01f);
             Space();
-
-            // PropertyExtendedSlider(m_Max, -1f, +1f, 0.01f);
-            // PropertyExtendedSlider(m_Min, -1f, +1f, 0.01f);
-            // Space();
 
             PropertyField(m_NoiseMode);
             PropertySeedFixed(m_Seed);
@@ -100,11 +96,12 @@ namespace DustEngine.DustEditor
                     break;
             }
 
+            PropertyField(m_CustomHint);
+            Space();
+
             // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
             OnInspectorGUI_RemappingBlock();
-
-            // OnInspectorGUI_GizmoBlock();
 
             // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 

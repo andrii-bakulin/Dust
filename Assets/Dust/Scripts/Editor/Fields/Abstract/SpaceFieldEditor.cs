@@ -3,10 +3,8 @@ using UnityEditor;
 
 namespace DustEngine.DustEditor
 {
-    public abstract class SpaceFieldEditor : FieldEditor
+    public abstract class SpaceFieldEditor : BasicFieldEditor
     {
-        protected RemappingEditor m_RemappingEditor;
-
         protected DuProperty m_GizmoVisibility;
         protected DuProperty m_GizmoFieldColor;
 
@@ -16,15 +14,8 @@ namespace DustEngine.DustEditor
         {
             base.InitializeEditor();
 
-            m_RemappingEditor = new RemappingEditor((target as SpaceField).remapping, serializedObject.FindProperty("m_Remapping"));
-
             m_GizmoVisibility = FindProperty("m_GizmoVisibility", "Visibility");
             m_GizmoFieldColor = FindProperty("m_GizmoFieldColor", "Use Field Color");
-        }
-
-        protected void OnInspectorGUI_RemappingBlock()
-        {
-            m_RemappingEditor.OnInspectorGUI();
         }
 
         protected void OnInspectorGUI_GizmoBlock()

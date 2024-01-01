@@ -6,7 +6,7 @@ namespace DustEngine.DustEditor
     [CustomEditor(typeof(TorusField))]
     [CanEditMultipleObjects]
     [InitializeOnLoad]
-    public class TorusFieldEditor : Space3DFieldEditor
+    public class TorusFieldEditor : SpaceObjectFieldEditor
     {
         private DuProperty m_Radius;
         private DuProperty m_Thickness;
@@ -45,12 +45,16 @@ namespace DustEngine.DustEditor
 
             InspectorBreadcrumbsForField(this);
 
-            PropertyField(m_CustomHint);
+            PropertyExtendedSlider(m_Power, 0f, 5f, 0.01f);
             Space();
 
             PropertyExtendedSlider(m_Radius, 0f, 20f, 0.01f);
             PropertyExtendedSlider(m_Thickness, 0f, 20f, 0.01f);
             PropertyField(m_Direction);
+            Space();
+
+            PropertyField(m_Unlimited);
+            PropertyField(m_CustomHint);
             Space();
 
             // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

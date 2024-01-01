@@ -231,6 +231,8 @@ namespace DustEngine
                         break;
                 }
 
+                result.power *= power;
+
                 result.power = remapping.MapValue(result.power);
 
                 if (applyPowerToAlpha)

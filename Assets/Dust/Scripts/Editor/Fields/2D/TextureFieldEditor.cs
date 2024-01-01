@@ -64,7 +64,7 @@ namespace DustEngine.DustEditor
 
             InspectorBreadcrumbsForField(this);
 
-            PropertyField(m_CustomHint);
+            PropertyExtendedSlider(m_Power, 0f, 5f, 0.01f);
             Space();
 
             PropertyField(m_Texture);
@@ -82,6 +82,9 @@ namespace DustEngine.DustEditor
 
             DustGUI.Header("Color Impact");
             PropertyField(m_ApplyPowerToAlpha);
+            Space();
+
+            PropertyField(m_CustomHint);
             Space();
 
             // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

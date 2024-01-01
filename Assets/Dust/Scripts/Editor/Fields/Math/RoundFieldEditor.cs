@@ -6,7 +6,7 @@ namespace DustEngine.DustEditor
     [CustomEditor(typeof(RoundField))]
     [CanEditMultipleObjects]
     [InitializeOnLoad]
-    public class RoundFieldEditor : FieldEditor
+    public class RoundFieldEditor : MathFieldEditor
     {
         protected DuProperty m_RoundMode;
         protected DuProperty m_Distance;
@@ -43,11 +43,11 @@ namespace DustEngine.DustEditor
 
             InspectorBreadcrumbsForField(this);
 
-            PropertyField(m_CustomHint);
-            Space();
-
             PropertyField(m_RoundMode);
             PropertyExtendedSlider(m_Distance, 0f, 1f, 0.01f);
+            Space();
+
+            PropertyField(m_CustomHint);
             Space();
 
             // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

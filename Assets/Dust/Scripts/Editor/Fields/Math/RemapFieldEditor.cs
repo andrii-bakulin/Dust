@@ -6,7 +6,7 @@ namespace DustEngine.DustEditor
     [CustomEditor(typeof(RemapField))]
     [CanEditMultipleObjects]
     [InitializeOnLoad]
-    public class RemapFieldEditor : FieldEditor
+    public class RemapFieldEditor : MathFieldEditor
     {
         protected RemappingEditor m_RemappingEditor;
 

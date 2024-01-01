@@ -3,7 +3,7 @@
 namespace DustEngine
 {
     [AddComponentMenu("Dust/Fields/Basic Fields/Time Field")]
-    public class TimeField : Field
+    public class TimeField : BasicField
     {
         public enum TimeMode
         {
@@ -46,12 +46,6 @@ namespace DustEngine
 
         // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-        [SerializeField]
-        private Remapping m_Remapping = new Remapping();
-        public Remapping remapping => m_Remapping;
-
-        // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
         private float m_OffsetDynamic;
 
         //--------------------------------------------------------------------------------------------------------------
@@ -66,7 +60,6 @@ namespace DustEngine
             DynamicState.Append(ref dynamicState, ++seq, timeScale);
             DynamicState.Append(ref dynamicState, ++seq, offset);
 
-            DynamicState.Append(ref dynamicState, ++seq, remapping);
             DynamicState.Append(ref dynamicState, ++seq, m_OffsetDynamic);
 
             return DynamicState.Normalize(dynamicState);
@@ -92,9 +85,10 @@ namespace DustEngine
         {
             float globalOffset = m_OffsetDynamic + offset * timeScale;
 
-            float power = GetPowerByTimeMode(timeMode, globalOffset);
+            result.power = GetPowerByTimeMode(timeMode, globalOffset);
+            result.power *= power;
 
-            result.power = remapping.MapValue(power);
+            result.power = remapping.MapValue(result.power);
             result.color = GetFieldColorFromRemapping(remapping, result.power, calculateColor);
         }
 
@@ -139,25 +133,6 @@ namespace DustEngine
                     return Mathf.Repeat(timeOffset, 1f) < 0.5f ? 0f : 1f;
             }
         }
-
-        //--------------------------------------------------------------------------------------------------------------
-
-        public override bool IsAllowCalculateFieldColor()
-        {
-            return remapping.colorMode != Remapping.ColorMode.Ignore;
-        }
-
-#if UNITY_EDITOR
-        public override bool IsHasFieldColorPreview()
-        {
-            return true;
-        }
-
-        public override Gradient GetFieldColorPreview(out float colorPower)
-        {
-            return GetFieldColorPreview(remapping, out colorPower);
-        }
-#endif
 
         //--------------------------------------------------------------------------------------------------------------
 

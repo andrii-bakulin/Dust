@@ -6,13 +6,11 @@ namespace DustEngine.DustEditor
     [CustomEditor(typeof(TimeField))]
     [CanEditMultipleObjects]
     [InitializeOnLoad]
-    public class TimeFieldEditor : FieldEditor
+    public class TimeFieldEditor : BasicFieldEditor
     {
         protected DuProperty m_TimeMode;
         protected DuProperty m_TimeScale;
         protected DuProperty m_Offset;
-
-        protected RemappingEditor m_RemappingEditor;
 
         //--------------------------------------------------------------------------------------------------------------
 
@@ -37,8 +35,6 @@ namespace DustEngine.DustEditor
             m_TimeMode = FindProperty("m_TimeMode", "Mode");
             m_TimeScale = FindProperty("m_TimeScale", "Time Scale");
             m_Offset = FindProperty("m_Offset", "Offset");
-
-            m_RemappingEditor = new RemappingEditor((target as TimeField).remapping, serializedObject.FindProperty("m_Remapping"));
         }
 
         public override void OnInspectorGUI()
@@ -49,7 +45,7 @@ namespace DustEngine.DustEditor
 
             InspectorBreadcrumbsForField(this);
 
-            PropertyField(m_CustomHint);
+            PropertyExtendedSlider(m_Power, 0f, 5f, 0.01f);
             Space();
 
             PropertyField(m_TimeMode);
@@ -101,6 +97,9 @@ namespace DustEngine.DustEditor
                 SessionState.SetFloat("TimeField.Preview.Length", previewLength);
             }
 
+            Space();
+
+            PropertyField(m_CustomHint);
             Space();
 
             // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

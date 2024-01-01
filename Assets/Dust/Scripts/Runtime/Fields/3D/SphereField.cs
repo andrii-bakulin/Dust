@@ -3,7 +3,7 @@
 namespace DustEngine
 {
     [AddComponentMenu("Dust/Fields/3D Fields/Sphere Field")]
-    public class SphereField : Space3DField
+    public class SphereField : SpaceObjectField
     {
         [SerializeField]
         private float m_Radius = 1.0f;
@@ -43,7 +43,7 @@ namespace DustEngine
 
         public override void Calculate(Field.Point fieldPoint, out Field.Result result, bool calculateColor)
         {
-            float offset = 0f;
+            result.power = 0f;
 
             if (radius > 0f && DuVector3.IsAllAxisNonZero(transform.localScale))
             {
@@ -52,10 +52,15 @@ namespace DustEngine
                 float distanceToPoint = localPosition.magnitude;
                 float distanceToEdge = radius;
 
-                offset = 1f - (distanceToEdge > 0f ? distanceToPoint / distanceToEdge : 0f);
+                result.power = 1f - (distanceToEdge > 0f ? distanceToPoint / distanceToEdge : 0f);
+                
+                if (!unlimited)
+                    result.power = Mathf.Clamp01(result.power);
+
+                result.power *= power;
             }
 
-            result.power = remapping.MapValue(offset);
+            result.power = remapping.MapValue(result.power);
             result.color = GetFieldColorFromRemapping(remapping, result.power, calculateColor);
         }
 

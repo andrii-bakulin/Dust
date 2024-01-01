@@ -25,7 +25,7 @@ namespace DustEngine
         //--------------------------------------------------------------------------------------------------------------
 
         [SerializeField]
-        private bool m_RemapPowerEnabled = true;
+        private bool m_RemapPowerEnabled = false;
         public bool remapPowerEnabled
         {
             get => m_RemapPowerEnabled;

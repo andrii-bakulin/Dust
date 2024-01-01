@@ -3,7 +3,7 @@
 namespace DustEngine
 {
     [AddComponentMenu("Dust/Fields/3D Fields/Torus Field")]
-    public class TorusField : Space3DField
+    public class TorusField : SpaceObjectField
     {
         [SerializeField]
         private float m_Radius = 2f;
@@ -61,7 +61,7 @@ namespace DustEngine
 
         public override void Calculate(Field.Point fieldPoint, out Field.Result result, bool calculateColor)
         {
-            float offset = 0f;
+            result.power = 0f;
 
             if (radius > 0f && thickness > 0f && DuVector3.IsAllAxisNonZero(transform.localScale))
             {
@@ -80,10 +80,15 @@ namespace DustEngine
                 float distanceToPoint = localPoint2D.magnitude;
                 float distanceToEdge = thickness;
 
-                offset = 1f - (distanceToEdge > 0f ? distanceToPoint / distanceToEdge : 0f);
+                result.power = 1f - (distanceToEdge > 0f ? distanceToPoint / distanceToEdge : 0f);
+                
+                if (!unlimited)
+                    result.power = Mathf.Clamp01(result.power);
+
+                result.power *= power;
             }
 
-            result.power = remapping.MapValue(offset);
+            result.power = remapping.MapValue(result.power);
             result.color = GetFieldColorFromRemapping(remapping, result.power, calculateColor);
         }
 

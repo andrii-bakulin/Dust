@@ -6,7 +6,7 @@ namespace DustEngine.DustEditor
     [CustomEditor(typeof(CoordinatesField))]
     [CanEditMultipleObjects]
     [InitializeOnLoad]
-    public class CoordinatesFieldEditor : FieldEditor
+    public class CoordinatesFieldEditor : SpaceFieldEditor
     {
         private DuProperty m_PowerEnabled;
         private DuProperty m_PowerUseAxisX;
@@ -65,7 +65,7 @@ namespace DustEngine.DustEditor
 
             InspectorBreadcrumbsForField(this);
 
-            PropertyField(m_CustomHint);
+            PropertyExtendedSlider(m_Power, 0f, 5f, 0.01f);
             Space();
 
             // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -112,6 +112,11 @@ namespace DustEngine.DustEditor
             }
             DustGUI.FoldoutEnd();
 
+            // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+            PropertyField(m_CustomHint);
+            Space();
+            
             // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
             InspectorCommitUpdates();

@@ -59,7 +59,7 @@ namespace DustEngine.DustEditor
 
             InspectorBreadcrumbsForField(this);
 
-            PropertyField(m_CustomHint);
+            PropertyExtendedSlider(m_Power, 0f, 5f, 0.01f);
             Space();
 
             PropertyExtendedSlider(m_Amplitude, 0f, 10f, 0.01f);
@@ -70,6 +70,9 @@ namespace DustEngine.DustEditor
 
             PropertyExtendedSlider(m_AnimationSpeed, -2f, +2f, 0.01f);
             PropertyExtendedSlider(m_Offset, -1f, +1f, 0.01f);
+            Space();
+
+            PropertyField(m_CustomHint);
             Space();
 
             // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

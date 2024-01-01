@@ -2,8 +2,8 @@
 
 namespace DustEngine
 {
-    [AddComponentMenu("Dust/Fields/Factory Fields/Factory Texture Field")]
-    public class FactoryTextureField : Field
+    [AddComponentMenu("Dust/Fields/2D Fields/Texture Factory Field")]
+    public class TextureFactoryField : BasicField
     {
         public enum ColorComponent
         {
@@ -85,12 +85,6 @@ namespace DustEngine
             set => m_ApplyPowerToAlpha = value;
         }
 
-        // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-        [SerializeField]
-        private Remapping m_Remapping = new Remapping();
-        public Remapping remapping => m_Remapping;
-
         //--------------------------------------------------------------------------------------------------------------
         // IDynamicState
 
@@ -108,9 +102,6 @@ namespace DustEngine
             DynamicState.Append(ref dynamicState, ++seq, powerSource);
             DynamicState.Append(ref dynamicState, ++seq, applyPowerToAlpha);
 
-            if (powerSource != ColorComponent.Ignore)
-                DynamicState.Append(ref dynamicState, ++seq, remapping);
-
             return DynamicState.Normalize(dynamicState);
         }
 
@@ -119,7 +110,7 @@ namespace DustEngine
 
         public override string FieldName()
         {
-            return "Factory Texture";
+            return "Texture Factory";
         }
 
         public override string FieldDynamicHint()
@@ -212,6 +203,7 @@ namespace DustEngine
                 }
 
                 result.power = remapping.MapValue(result.power);
+                result.power *= power;
 
                 if (applyPowerToAlpha)
                     result.color.a = result.power;

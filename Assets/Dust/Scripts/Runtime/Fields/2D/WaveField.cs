@@ -185,7 +185,7 @@ namespace DustEngine
 
             // Convert to Axis X+ (xp) space
             var xpLocalPosition = AxisDirection.ConvertFromDirectionToAxisXPlus(direction, localPosition);
-
+            
             result.power = GetPowerForLocalPositionInAxisXPlus(xpLocalPosition);
             result.color = GetFieldColorFromRemapping(remapping, result.power, calculateColor);
         }
@@ -208,6 +208,8 @@ namespace DustEngine
 
             // Convert waveOffset [-1..+1] to [0..1]))
             waveOffset = DuMath.Fit(-1f, +1f, 0f, 1f, waveOffset);
+            
+            waveOffset *= power;
 
             return remapping.MapValue(waveOffset);
         }

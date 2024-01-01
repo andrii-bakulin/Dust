@@ -6,7 +6,7 @@ namespace DustEngine.DustEditor
     [CustomEditor(typeof(ClampField))]
     [CanEditMultipleObjects]
     [InitializeOnLoad]
-    public class ClampFieldEditor : FieldEditor
+    public class ClampFieldEditor : MathFieldEditor
     {
         protected DuProperty m_PowerClampMode;
         protected DuProperty m_PowerClampMin;
@@ -58,9 +58,6 @@ namespace DustEngine.DustEditor
 
             InspectorBreadcrumbsForField(this);
 
-            PropertyField(m_CustomHint);
-            Space();
-
             // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
             if (DustGUI.FoldoutBegin("Power", "DuAnyField.Power"))
@@ -101,6 +98,11 @@ namespace DustEngine.DustEditor
                 Space();
             }
             DustGUI.FoldoutEnd();
+
+            // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+            PropertyField(m_CustomHint);
+            Space();
 
             // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 

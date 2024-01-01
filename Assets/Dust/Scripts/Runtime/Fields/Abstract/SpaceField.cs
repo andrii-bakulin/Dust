@@ -3,13 +3,13 @@ using UnityEditor;
 
 namespace DustEngine
 {
-    public abstract class SpaceField : Field
+    public abstract class SpaceField : BasicField
     {
-        [SerializeField]
-        private Remapping m_Remapping = new Remapping();
-        public Remapping remapping => m_Remapping;
+        public static readonly Color k_GizmosColorRangeZero = new Color(0.0f, 0.3f, 0.6f);
+        public static readonly Color k_GizmosColorRangeOne = new Color(0.0f, 0.5f, 1.0f);
+        public static readonly Color k_GizmosColorDefaultShape = new Color(0.1f, 0.1f, 0.1f);
 
-        // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+        //--------------------------------------------------------------------------------------------------------------
 
         [SerializeField]
         private GizmoVisibility m_GizmoVisibility = GizmoVisibility.DrawOnSelect;
@@ -28,25 +28,6 @@ namespace DustEngine
         }
 
         //--------------------------------------------------------------------------------------------------------------
-
-        public override bool IsAllowCalculateFieldColor()
-        {
-            return remapping.colorMode != Remapping.ColorMode.Ignore;
-        }
-
-#if UNITY_EDITOR
-        public override bool IsHasFieldColorPreview()
-        {
-            return true;
-        }
-
-        public override Gradient GetFieldColorPreview(out float colorPower)
-        {
-            return GetFieldColorPreview(remapping, out colorPower);
-        }
-#endif
-
-        //--------------------------------------------------------------------------------------------------------------
         // IDynamicState
 
         public override int GetDynamicStateHashCode()
@@ -55,7 +36,6 @@ namespace DustEngine
             var dynamicState = base.GetDynamicStateHashCode();
 
             DynamicState.Append(ref dynamicState, ++seq, transform);
-            DynamicState.Append(ref dynamicState, ++seq, remapping);
 
             return DynamicState.Normalize(dynamicState);
         }
@@ -99,17 +79,5 @@ namespace DustEngine
             return k_GizmosColorDefaultShape;
         }
 #endif
-
-        //--------------------------------------------------------------------------------------------------------------
-
-        private void Reset()
-        {
-            ResetDefaults();
-        }
-
-        protected void ResetDefaults()
-        {
-            // Use this method to reset values for default to remapping object
-        }
     }
 }

@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace DustEngine
 {
-    [AddComponentMenu("Dust/Fields/2D Fields/Directional Field")]
+    [AddComponentMenu("Dust/Fields/3D Fields/Directional Field")]
     public class DirectionalField : SpaceField
     {
         [SerializeField]
@@ -70,7 +70,7 @@ namespace DustEngine
 
         public override void Calculate(Field.Point fieldPoint, out Field.Result result, bool calculateColor)
         {
-            float offset = 0f;
+            result.power = 0f;
 
             Vector3 localPosition = transform.worldToLocalMatrix.MultiplyPoint(fieldPoint.inPosition);
 
@@ -90,14 +90,21 @@ namespace DustEngine
             if (DuMath.IsNotZero(length))
             {
                 float halfLength = length / 2f;
-                offset = DuMath.Fit(-halfLength, +halfLength, 0f, 1f, distanceToPoint);
+                result.power = DuMath.Fit(-halfLength, +halfLength, 0f, 1f, distanceToPoint);
             }
             else
             {
-                offset = distanceToPoint >= 0f ? +1f : -1f;
+                result.power = distanceToPoint >= 0f ? +1f : -1f;
             }
 
-            result.power = remapping.MapValue(1f - offset);
+            result.power = 1f - result.power;
+
+            if (!unlimited)
+                result.power = Mathf.Clamp01(result.power);
+
+            result.power *= power;
+
+            result.power = remapping.MapValue(result.power);
             result.color = GetFieldColorFromRemapping(remapping, result.power, calculateColor);
         }
 

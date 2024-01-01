@@ -3,7 +3,7 @@ using UnityEngine;
 namespace DustEngine
 {
     [AddComponentMenu("Dust/Fields/3D Fields/Cube Field")]
-    public class CubeField : Space3DField
+    public class CubeField : SpaceObjectField
     {
         internal class Calc
         {
@@ -75,7 +75,7 @@ namespace DustEngine
 
             // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-            float offset = 0f;
+            result.power = 0f;
 
             if (DuVector3.IsAllAxisNonZero(size) && DuVector3.IsAllAxisNonZero(transform.localScale))
             {
@@ -97,10 +97,15 @@ namespace DustEngine
                 if (m_Calc.planeZ.Raycast(m_Calc.ray, out distanceToPlane) && distanceToPlane > 0)
                     distanceToEdge = Mathf.Min(distanceToEdge, distanceToPlane);
 
-                offset = 1f - (distanceToEdge > 0f ? distanceToPoint / distanceToEdge : 0f);
+                result.power = 1f - (distanceToEdge > 0f ? distanceToPoint / distanceToEdge : 0f);
+                
+                if (!unlimited)
+                    result.power = Mathf.Clamp01(result.power);
+
+                result.power *= power;
             }
 
-            result.power = remapping.MapValue(offset);
+            result.power = remapping.MapValue(result.power);
             result.color = GetFieldColorFromRemapping(remapping, result.power, calculateColor);
         }
 

@@ -216,7 +216,7 @@ namespace DustEngine
                 var position = zeroPoint + new Vector3(gridStep.x * x, gridStep.y * y, gridStep.z * z);
                 var worldPosition = transform.TransformPoint(position);
 
-                Field.Result fieldResult = calcField.GetPowerAndColor(worldPosition, offset);
+                Field.Result fieldResult = calcField.GetPowerAndColorAtPoint(worldPosition, offset);
 
                 if (showColor)
                 {

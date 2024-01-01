@@ -6,7 +6,7 @@ namespace DustEngine.DustEditor
     [CustomEditor(typeof(CylinderField))]
     [CanEditMultipleObjects]
     [InitializeOnLoad]
-    public class CylinderFieldEditor : Space3DFieldEditor
+    public class CylinderFieldEditor : SpaceObjectFieldEditor
     {
         private DuProperty m_Height;
         private DuProperty m_Radius;
@@ -45,12 +45,16 @@ namespace DustEngine.DustEditor
 
             InspectorBreadcrumbsForField(this);
 
-            PropertyField(m_CustomHint);
+            PropertyExtendedSlider(m_Power, 0f, 5f, 0.01f);
             Space();
 
             PropertyExtendedSlider(m_Radius, 0f, 20f, 0.01f);
             PropertyExtendedSlider(m_Height, 0f, 20f, 0.01f);
             PropertyField(m_Direction);
+            Space();
+
+            PropertyField(m_Unlimited);
+            PropertyField(m_CustomHint);
             Space();
 
             // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

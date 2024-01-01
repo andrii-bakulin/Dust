@@ -8,8 +8,8 @@ namespace DustEngine.DustEditor
     [InitializeOnLoad]
     public class ConstantFieldEditor : FieldEditor
     {
-        private DuProperty m_Power;
-        private DuProperty m_Color;
+        protected DuProperty m_Power;
+        protected DuProperty m_Color;
 
         //--------------------------------------------------------------------------------------------------------------
 
@@ -43,11 +43,11 @@ namespace DustEngine.DustEditor
 
             InspectorBreadcrumbsForField(this);
 
-            PropertyField(m_CustomHint);
+            PropertyExtendedSlider(m_Power, 0f, 5f, 0.01f);
+            PropertyField(m_Color);
             Space();
 
-            PropertyExtendedSlider(m_Power, 0f, 1f, 0.01f);
-            PropertyField(m_Color);
+            PropertyField(m_CustomHint);
             Space();
 
             // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

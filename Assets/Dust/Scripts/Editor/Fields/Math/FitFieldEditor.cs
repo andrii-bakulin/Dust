@@ -6,7 +6,7 @@ namespace DustEngine.DustEditor
     [CustomEditor(typeof(FitField))]
     [CanEditMultipleObjects]
     [InitializeOnLoad]
-    public class FitFieldEditor : FieldEditor
+    public class FitFieldEditor : MathFieldEditor
     {
         protected DuProperty m_MinInput;
         protected DuProperty m_MaxInput;
@@ -49,15 +49,15 @@ namespace DustEngine.DustEditor
 
             InspectorBreadcrumbsForField(this);
 
-            PropertyField(m_CustomHint);
-            Space();
-
             PropertyExtendedSlider(m_MinInput, -1f, +2f, 0.01f);
             PropertyExtendedSlider(m_MaxInput, -1f, +2f, 0.01f);
             Space();
 
             PropertyExtendedSlider(m_MinOutput, -1f, +2f, 0.01f);
             PropertyExtendedSlider(m_MaxOutput, -1f, +2f, 0.01f);
+            Space();
+
+            PropertyField(m_CustomHint);
             Space();
 
             // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

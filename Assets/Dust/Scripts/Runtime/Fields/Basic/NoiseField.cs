@@ -191,7 +191,7 @@ namespace DustEngine
 
         public override void Calculate(Field.Point fieldPoint, out Field.Result result, bool calculateColor)
         {
-            float noiseValue;
+            result.power = 0f;
 
             // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -200,7 +200,7 @@ namespace DustEngine
                 case NoiseMode.Random:
                 default:
                 {
-                    noiseValue = duNoise.Perlin1D(fieldPoint.inOffset * 1328.8767f, fieldPoint.inOffset * 2984.7353f, 2f);
+                    result.power = duNoise.Perlin1D(fieldPoint.inOffset * 1328.8767f, fieldPoint.inOffset * 2984.7353f, 2f);
                     break;
                 }
 
@@ -220,14 +220,16 @@ namespace DustEngine
                     if (DuMath.IsNotZero(noiseScale))
                         inSpaceOffset /= noiseScale;
 
-                    noiseValue = duNoise.Perlin3D(inSpaceOffset, animTotalOffset, noisePower);
+                    result.power = duNoise.Perlin3D(inSpaceOffset, animTotalOffset, noisePower);
                     break;
                 }
             }
 
+            result.power *= power;
+
             // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-            result.power = remapping.MapValue(noiseValue);
+            result.power = remapping.MapValue(result.power);
             result.color = GetFieldColorFromRemapping(remapping, result.power, calculateColor);
         }
 
@@ -242,12 +244,12 @@ namespace DustEngine
 
         //--------------------------------------------------------------------------------------------------------------
 
-        void Reset()
+        public void ResetStates()
         {
-            ResetStates();
+            m_DuNoise = null;
         }
 
-        public void ResetStates()
+        protected override void ResetDefaults()
         {
             m_DuNoise = null;
         }

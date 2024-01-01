@@ -5,12 +5,6 @@ namespace DustEngine
 {
     public abstract partial class Field : DuMonoBehaviour, IDynamicState
     {
-        public static readonly Color k_GizmosColorRangeZero = new Color(0.0f, 0.3f, 0.6f);
-        public static readonly Color k_GizmosColorRangeOne = new Color(0.0f, 0.5f, 1.0f);
-        public static readonly Color k_GizmosColorDefaultShape = new Color(0.1f, 0.1f, 0.1f);
-
-        //--------------------------------------------------------------------------------------------------------------
-
         public class Point
         {
             // In

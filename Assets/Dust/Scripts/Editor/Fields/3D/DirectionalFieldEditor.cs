@@ -18,11 +18,11 @@ namespace DustEngine.DustEditor
 
         static DirectionalFieldEditor()
         {
-            FieldsPopupButtons.Add2DField(typeof(DirectionalField), "Directional");
+            FieldsPopupButtons.Add3DField(typeof(DirectionalField), "Directional");
         }
 
-        [MenuItem("Dust/Fields/2D Fields/Directional")]
-        [MenuItem("GameObject/Dust/Fields/2D Fields/Directional")]
+        [MenuItem("Dust/Fields/3D Fields/Directional")]
+        [MenuItem("GameObject/Dust/Fields/3D Fields/Directional")]
         public static void AddComponent()
         {
             AddFieldComponentByType(typeof(DirectionalField));
@@ -49,11 +49,15 @@ namespace DustEngine.DustEditor
 
             InspectorBreadcrumbsForField(this);
 
-            PropertyField(m_CustomHint);
+            PropertyExtendedSlider(m_Power, 0f, 5f, 0.01f);
             Space();
 
             PropertyExtendedSlider(m_Length, 0f, 20f, 0.01f);
             PropertyField(m_Direction);
+            Space();
+
+            PropertyField(m_Unlimited);
+            PropertyField(m_CustomHint);
             Space();
 
             // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

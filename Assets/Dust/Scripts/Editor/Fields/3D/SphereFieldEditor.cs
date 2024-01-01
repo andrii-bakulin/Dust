@@ -6,7 +6,7 @@ namespace DustEngine.DustEditor
     [CustomEditor(typeof(SphereField))]
     [CanEditMultipleObjects]
     [InitializeOnLoad]
-    public class SphereFieldEditor : Space3DFieldEditor
+    public class SphereFieldEditor : SpaceObjectFieldEditor
     {
         private DuProperty m_Radius;
 
@@ -41,10 +41,14 @@ namespace DustEngine.DustEditor
 
             InspectorBreadcrumbsForField(this);
 
-            PropertyField(m_CustomHint);
+            PropertyExtendedSlider(m_Power, 0f, 5f, 0.01f);
             Space();
 
             PropertyExtendedSlider(m_Radius, 0f, 20f, 0.01f);
+            Space();
+
+            PropertyField(m_Unlimited);
+            PropertyField(m_CustomHint);
             Space();
 
             // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

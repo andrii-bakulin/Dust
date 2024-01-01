@@ -3,10 +3,10 @@ using UnityEditor;
 
 namespace DustEngine.DustEditor
 {
-    [CustomEditor(typeof(FactoryTextureField))]
+    [CustomEditor(typeof(TextureFactoryField))]
     [CanEditMultipleObjects]
     [InitializeOnLoad]
-    public class FactoryTextureFieldEditor : FieldEditor
+    public class TextureFactoryFieldEditor : BasicFieldEditor
     {
         private DuProperty m_Texture;
         private DuProperty m_SpaceUVW;
@@ -18,20 +18,18 @@ namespace DustEngine.DustEditor
         private DuProperty m_PowerSource;
         private DuProperty m_ApplyPowerToAlpha;
 
-        protected RemappingEditor m_RemappingEditor;
-
         //--------------------------------------------------------------------------------------------------------------
 
-        static FactoryTextureFieldEditor()
+        static TextureFactoryFieldEditor()
         {
-            FieldsPopupButtons.AddFactoryField(typeof(FactoryTextureField), "Factory Texture");
+            FieldsPopupButtons.Add2DField(typeof(TextureFactoryField), "Texture Factory");
         }
 
-        [MenuItem("Dust/Fields/Factory Fields/Factory Texture")]
-        [MenuItem("GameObject/Dust/Fields/Factory Fields/Factory Texture")]
+        [MenuItem("Dust/Fields/2D Fields/Texture Factory")]
+        [MenuItem("GameObject/Dust/Fields/2D Fields/Texture Factory")]
         public static void AddComponent()
         {
-            AddFieldComponentByType(typeof(FactoryTextureField));
+            AddFieldComponentByType(typeof(TextureFactoryField));
         }
 
         //--------------------------------------------------------------------------------------------------------------
@@ -50,8 +48,6 @@ namespace DustEngine.DustEditor
             m_PowerSource = FindProperty("m_PowerSource", "Power Source");
 
             m_ApplyPowerToAlpha = FindProperty("m_ApplyPowerToAlpha", "Apply Power To Alpha");
-
-            m_RemappingEditor = new RemappingEditor((target as FactoryTextureField).remapping, serializedObject.FindProperty("m_Remapping"));
         }
 
         public override void OnInspectorGUI()
@@ -62,26 +58,26 @@ namespace DustEngine.DustEditor
 
             InspectorBreadcrumbsForField(this);
 
-            PropertyField(m_CustomHint);
+            PropertyExtendedSlider(m_Power, 0f, 5f, 0.01f);
             Space();
 
             PropertyField(m_Texture);
             PropertyField(m_SpaceUVW);
 
-            switch ((FactoryTextureField.SpaceUVW) m_SpaceUVW.valInt)
+            switch ((TextureFactoryField.SpaceUVW) m_SpaceUVW.valInt)
             {
                 default:
-                case FactoryTextureField.SpaceUVW.UV:
+                case TextureFactoryField.SpaceUVW.UV:
                     PropertyField(m_FlipU);
                     PropertyField(m_FlipV);
                     break;
 
-                case FactoryTextureField.SpaceUVW.UW:
+                case TextureFactoryField.SpaceUVW.UW:
                     PropertyField(m_FlipU);
                     PropertyField(m_FlipW);
                     break;
 
-                case FactoryTextureField.SpaceUVW.VW:
+                case TextureFactoryField.SpaceUVW.VW:
                     PropertyField(m_FlipV);
                     PropertyField(m_FlipW);
                     break;
@@ -96,12 +92,14 @@ namespace DustEngine.DustEditor
             PropertyField(m_ApplyPowerToAlpha);
             Space();
 
-            // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-            // OnInspectorGUI_RemappingBlock();
+            PropertyField(m_CustomHint);
+            Space();
 
-            if ((FactoryTextureField.ColorComponent) m_PowerSource.valInt != FactoryTextureField.ColorComponent.Ignore)
+            // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+            if ((TextureFactoryField.ColorComponent) m_PowerSource.valInt != TextureFactoryField.ColorComponent.Ignore)
             {
-                m_RemappingEditor.OnInspectorGUI(false);
+                OnInspectorGUI_RemappingBlock(false);
             }
 
             // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

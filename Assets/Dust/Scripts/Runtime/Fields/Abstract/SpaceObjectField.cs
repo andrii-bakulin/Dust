@@ -3,7 +3,7 @@ using UnityEditor;
 
 namespace DustEngine
 {
-    public abstract class Space3DField : SpaceField
+    public abstract class SpaceObjectField : SpaceField
     {
 #if UNITY_EDITOR
         protected override void DrawFieldGizmos()
