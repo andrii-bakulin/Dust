@@ -6,7 +6,7 @@ namespace DustEngine.DustEditor
     [CustomEditor(typeof(DirectionalField))]
     [CanEditMultipleObjects]
     [InitializeOnLoad]
-    public class DirectionalFieldEditor : SpaceFieldEditor
+    public class DirectionalFieldEditor : SpaceObjectFieldEditor
     {
         private DuProperty m_Length;
         private DuProperty m_Direction;

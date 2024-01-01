@@ -6,7 +6,6 @@ namespace DustEngine.DustEditor
     public abstract class BasicFieldEditor : FieldEditor
     {
         protected DuProperty m_Power;
-        protected DuProperty m_Unlimited;
 
         protected RemappingEditor m_RemappingEditor;
 
@@ -17,7 +16,6 @@ namespace DustEngine.DustEditor
             base.InitializeEditor();
 
             m_Power = FindProperty("m_Power", "Power");
-            m_Unlimited = FindProperty("m_Unlimited", "Unlimited");
 
             m_RemappingEditor = new RemappingEditor((target as BasicField).remapping, serializedObject.FindProperty("m_Remapping"));
         }

@@ -13,14 +13,6 @@ namespace DustEngine
             set => m_Power = value;
         }
 
-        [SerializeField]
-        private bool m_Unlimited = false;
-        public bool unlimited
-        {
-            get => m_Unlimited;
-            set => m_Unlimited = value;
-        }
-
         // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
         [SerializeField]
@@ -55,7 +47,6 @@ namespace DustEngine
             var dynamicState = base.GetDynamicStateHashCode();
 
             DynamicState.Append(ref dynamicState, ++seq, power);
-            DynamicState.Append(ref dynamicState, ++seq, unlimited);
 
             DynamicState.Append(ref dynamicState, ++seq, remapping);
 

@@ -3,7 +3,7 @@ using UnityEngine;
 namespace DustEngine
 {
     [AddComponentMenu("Dust/Fields/3D Fields/Directional Field")]
-    public class DirectionalField : SpaceField
+    public class DirectionalField : SpaceObjectField
     {
         [SerializeField]
         private float m_Length = 1.0f;
@@ -173,6 +173,10 @@ namespace DustEngine
             Gizmos.DrawRay(offsetPlane1 * arrowSign, AxisDirection.ConvertFromAxisXPlusToDirection(direction, new Vector3(-0.2f, 0f, -0.06f) * halfLength) * arrowSign);
             Gizmos.DrawRay(offsetPlane1 * arrowSign, AxisDirection.ConvertFromAxisXPlusToDirection(direction, new Vector3(-0.2f, +0.06f, 0f) * halfLength) * arrowSign);
             Gizmos.DrawRay(offsetPlane1 * arrowSign, AxisDirection.ConvertFromAxisXPlusToDirection(direction, new Vector3(-0.2f, -0.06f, 0f) * halfLength) * arrowSign);
+        }
+
+        protected override void DrawFieldGizmo(float scale)
+        {
         }
 
         private void Reset()

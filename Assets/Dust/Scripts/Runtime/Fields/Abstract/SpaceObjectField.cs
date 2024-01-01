@@ -5,6 +5,29 @@ namespace DustEngine
 {
     public abstract class SpaceObjectField : SpaceField
     {
+        [SerializeField]
+        private bool m_Unlimited = false;
+        public bool unlimited
+        {
+            get => m_Unlimited;
+            set => m_Unlimited = value;
+        }
+
+        //--------------------------------------------------------------------------------------------------------------
+        // IDynamicState
+
+        public override int GetDynamicStateHashCode()
+        {
+            var seq = 0;
+            var dynamicState = base.GetDynamicStateHashCode();
+
+            DynamicState.Append(ref dynamicState, ++seq, unlimited);
+
+            return DynamicState.Normalize(dynamicState);
+        }
+
+        //--------------------------------------------------------------------------------------------------------------
+
 #if UNITY_EDITOR
         protected override void DrawFieldGizmos()
         {
