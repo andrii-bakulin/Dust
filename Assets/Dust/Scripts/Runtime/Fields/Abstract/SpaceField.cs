@@ -66,12 +66,12 @@ namespace DustEngine
 
         protected Color GetGizmoColorRange0()
         {
-            return gizmoFieldColor ? remapping.color * 0.66f : k_GizmosColorRangeZero;
+            return gizmoFieldColor ? coloring.color * 0.66f : k_GizmosColorRangeZero;
         }
 
         protected Color GetGizmoColorRange1()
         {
-            return gizmoFieldColor ? remapping.color : k_GizmosColorRangeOne;
+            return gizmoFieldColor ? coloring.color : k_GizmosColorRangeOne;
         }
 
         protected Color GetGizmoColorDefaultShape()

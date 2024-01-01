@@ -8,6 +8,7 @@ namespace DustEngine.DustEditor
         protected DuProperty m_Power;
 
         protected RemappingEditor m_RemappingEditor;
+        protected ColoringEditor m_ColoringEditor;
 
         //--------------------------------------------------------------------------------------------------------------
 
@@ -18,14 +19,17 @@ namespace DustEngine.DustEditor
             m_Power = FindProperty("m_Power", "Power");
 
             m_RemappingEditor = new RemappingEditor((target as BasicField).remapping, serializedObject.FindProperty("m_Remapping"));
+            m_ColoringEditor = new ColoringEditor(serializedObject.FindProperty("m_Coloring"));
         }
 
         protected void OnInspectorGUI_RemappingBlock()
-            => OnInspectorGUI_RemappingBlock(true); 
-
-        protected void OnInspectorGUI_RemappingBlock(bool showColorBlock)
         {
-            m_RemappingEditor.OnInspectorGUI(showColorBlock);
+            m_RemappingEditor.OnInspectorGUI();
+        }
+
+        protected void OnInspectorGUI_ColoringBlock()
+        {
+            m_ColoringEditor.OnInspectorGUI();
         }
     }
 }

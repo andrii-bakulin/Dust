@@ -54,6 +54,7 @@ namespace DustEngine.DustEditor
             // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
             OnInspectorGUI_RemappingBlock();
+            OnInspectorGUI_ColoringBlock();
             OnInspectorGUI_GizmoBlock();
 
             // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

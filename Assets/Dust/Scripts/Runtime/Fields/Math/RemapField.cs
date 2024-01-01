@@ -9,6 +9,10 @@ namespace DustEngine
         private Remapping m_Remapping = new Remapping();
         public Remapping remapping => m_Remapping;
 
+        [SerializeField]
+        private Coloring m_Coloring = new Coloring();
+        public Coloring coloring => m_Coloring;
+
         //--------------------------------------------------------------------------------------------------------------
         // IDynamicState
 
@@ -18,6 +22,7 @@ namespace DustEngine
             var dynamicState = base.GetDynamicStateHashCode();
 
             DynamicState.Append(ref dynamicState, ++seq, remapping);
+            DynamicState.Append(ref dynamicState, ++seq, coloring);
 
             return DynamicState.Normalize(dynamicState);
         }
@@ -40,14 +45,14 @@ namespace DustEngine
         public override void Calculate(Field.Point fieldPoint, out Field.Result result, bool calculateColor)
         {
             result.power = remapping.MapValue(fieldPoint.result.power);
-            result.color = GetFieldColorFromRemapping(remapping, result.power, calculateColor);
+            result.color = calculateColor ? coloring.GetColor(result.power) : Color.clear;
         }
 
         //--------------------------------------------------------------------------------------------------------------
 
         public override bool IsAllowCalculateFieldColor()
         {
-            return remapping.colorMode != Remapping.ColorMode.Ignore;
+            return coloring.colorMode != Coloring.ColorMode.Ignore;
         }
 
 #if UNITY_EDITOR
@@ -58,7 +63,7 @@ namespace DustEngine
 
         public override Gradient GetFieldColorPreview(out float colorPower)
         {
-            return GetFieldColorPreview(remapping, out colorPower);
+            return coloring.GetFieldColorPreview(out colorPower);
         }
 #endif
     }

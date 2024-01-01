@@ -11,17 +11,6 @@ namespace DustEngine
             Steps = 1,
             Curve = 2,
         }
-
-        public enum ColorMode
-        {
-            Ignore = 0,
-            Color = 1,
-            Gradient = 2,
-            Rainbow = 3,
-            RandomColor = 4,
-            RandomColorInRange = 5,
-        }
-
         //--------------------------------------------------------------------------------------------------------------
 
         [SerializeField]
@@ -148,76 +137,6 @@ namespace DustEngine
             set => m_PostCurve = NormalizePostCurve(value);
         }
 
-        // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-        [SerializeField]
-        private ColorMode m_ColorMode = ColorMode.Color;
-        public ColorMode colorMode
-        {
-            get => m_ColorMode;
-            set => m_ColorMode = value;
-        }
-
-        [SerializeField]
-        protected Color m_Color = new Color(0.0f, 0.5f, 1.0f);
-        public Color color
-        {
-            get => m_Color;
-            set => m_Color = value;
-        }
-
-        [SerializeField]
-        protected Gradient m_Gradient = DuGradient.CreateBlackToColor(new Color(0.0f, 0.5f, 1.0f));
-        public Gradient gradient
-        {
-            get => m_Gradient;
-            set => m_Gradient = value;
-        }
-
-        // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-        [SerializeField]
-        private float m_RainbowMinOffset = 0.0f;
-        public float rainbowMinOffset
-        {
-            get => m_RainbowMinOffset;
-            set => m_RainbowMinOffset = value;
-        }
-
-        [SerializeField]
-        private float m_RainbowMaxOffset = 1.0f;
-        public float rainbowMaxOffset
-        {
-            get => m_RainbowMaxOffset;
-            set => m_RainbowMaxOffset = value;
-        }
-
-        [SerializeField]
-        private bool m_RainbowRepeat = false;
-        public bool rainbowRepeat
-        {
-            get => m_RainbowRepeat;
-            set => m_RainbowRepeat = value;
-        }
-
-        // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-        [SerializeField]
-        protected Color m_RandomMinColor = Color.black;
-        public Color randomMinColor
-        {
-            get => m_RandomMinColor;
-            set => m_RandomMinColor = value;
-        }
-
-        [SerializeField]
-        protected Color m_RandomMaxColor = Color.red;
-        public Color randomMaxColor
-        {
-            get => m_RandomMaxColor;
-            set => m_RandomMaxColor = value;
-        }
-
         //--------------------------------------------------------------------------------------------------------------
         // IDynamicState
 
@@ -251,37 +170,6 @@ namespace DustEngine
                 DynamicState.Append(ref dynamicState, ++seq, postReshapeMode);
                 DynamicState.Append(ref dynamicState, ++seq, postStepsCount);
                 DynamicState.Append(ref dynamicState, ++seq, postCurve);
-            }
-
-            // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-            DynamicState.Append(ref dynamicState, ++seq, colorMode);
-
-            switch (colorMode)
-            {
-                case ColorMode.Ignore:
-                case ColorMode.RandomColor:
-                    // none
-                    break;
-
-                case ColorMode.Color:
-                    DynamicState.Append(ref dynamicState, ++seq, color);
-                    break;
-
-                case ColorMode.Gradient:
-                    DynamicState.Append(ref dynamicState, ++seq, gradient);
-                    break;
-
-                case ColorMode.Rainbow:
-                    DynamicState.Append(ref dynamicState, ++seq, rainbowMinOffset);
-                    DynamicState.Append(ref dynamicState, ++seq, rainbowMaxOffset);
-                    DynamicState.Append(ref dynamicState, ++seq, rainbowRepeat);
-                    break;
-
-                case ColorMode.RandomColorInRange:
-                    DynamicState.Append(ref dynamicState, ++seq, randomMinColor);
-                    DynamicState.Append(ref dynamicState, ++seq, randomMaxColor);
-                    break;
             }
 
             return DynamicState.Normalize(dynamicState);

@@ -9,6 +9,7 @@ namespace DustEngine.DustEditor
     public class RemapFieldEditor : MathFieldEditor
     {
         protected RemappingEditor m_RemappingEditor;
+        protected ColoringEditor m_ColoringEditor;
 
         static RemapFieldEditor()
         {
@@ -22,6 +23,7 @@ namespace DustEngine.DustEditor
             base.InitializeEditor();
 
             m_RemappingEditor = new RemappingEditor((target as RemapField).remapping, serializedObject.FindProperty("m_Remapping"));
+            m_ColoringEditor = new ColoringEditor(serializedObject.FindProperty("m_Coloring"));
         }
 
         [MenuItem("Dust/Fields/Math Fields/Remap")]
@@ -47,6 +49,7 @@ namespace DustEngine.DustEditor
             // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
             m_RemappingEditor.OnInspectorGUI();
+            m_ColoringEditor.OnInspectorGUI();
 
             // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 

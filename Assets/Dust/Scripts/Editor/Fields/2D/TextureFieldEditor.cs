@@ -92,7 +92,7 @@ namespace DustEngine.DustEditor
 
             if ((TextureField.ColorComponent) m_PowerSource.valInt != TextureField.ColorComponent.Ignore)
             {
-                m_RemappingEditor.OnInspectorGUI(false);
+                OnInspectorGUI_RemappingBlock();
             }
 
             // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
