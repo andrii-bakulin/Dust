@@ -168,7 +168,7 @@ namespace DustEngine
 
         private void Reset()
         {
-            remapping.clampMode = ClampMode.NoClamp;
+            remapping.clampOutMode = ClampMode.NoClamp;
         }
     }
 }

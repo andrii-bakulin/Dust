@@ -6,7 +6,7 @@ namespace DustEngine.DustEditor
     [CustomEditor(typeof(CubeField))]
     [CanEditMultipleObjects]
     [InitializeOnLoad]
-    public class CubeFieldEditor : SpaceFieldEditor
+    public class CubeFieldEditor : Space3DFieldEditor
     {
         private DuProperty m_Size;
 

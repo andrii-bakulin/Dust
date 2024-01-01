@@ -3,7 +3,7 @@
 namespace DustEngine
 {
     [AddComponentMenu("Dust/Fields/3D Fields/Cylinder Field")]
-    public class CylinderField : SpaceField
+    public class CylinderField : Space3DField
     {
         [SerializeField]
         private float m_Radius = 1.0f;
@@ -83,28 +83,9 @@ namespace DustEngine
         //--------------------------------------------------------------------------------------------------------------
 
 #if UNITY_EDITOR
-        protected override void DrawFieldGizmos()
+        protected override void DrawFieldGizmo(float scale)
         {
-            float innerScale = remapping.offset;
-
-            Gizmos.matrix = transform.localToWorldMatrix;
-
-            Color colorRange0 = GetGizmoColorRange0();
-            Color colorRange1 = GetGizmoColorRange1();
-
-            if (remapping.remapPowerEnabled)
-            {
-                Gizmos.color = !remapping.invert ? colorRange1 : colorRange0;
-                DuGizmos.DrawWireCylinder(radius * innerScale, height * innerScale, Vector3.zero, direction, 32, 4);
-
-                Gizmos.color = !remapping.invert ? colorRange0 : colorRange1;
-                DuGizmos.DrawWireCylinder(radius, height, Vector3.zero, direction, 32, 4);
-            }
-            else
-            {
-                Gizmos.color = colorRange0;
-                DuGizmos.DrawWireCylinder(radius, height, Vector3.zero, direction, 32, 4);
-            }
+            DuGizmos.DrawWireCylinder(radius * scale, height * scale, Vector3.zero, direction, 32, 4);
         }
 #endif
 

@@ -9,16 +9,20 @@ namespace DustEngine.DustEditor
         private Material m_DrawerMaterial;
 
         protected DuEditor.DuProperty m_RemapPowerEnabled;
+
+        protected DuEditor.DuProperty m_InMin;
+        protected DuEditor.DuProperty m_InMax;
+        protected DuEditor.DuProperty m_OutMin;
+        protected DuEditor.DuProperty m_OutMax;
+
         protected DuEditor.DuProperty m_Strength;
-        protected DuEditor.DuProperty m_LimitByStrength;
-        protected DuEditor.DuProperty m_Offset;
         protected DuEditor.DuProperty m_Invert;
 
-        protected DuEditor.DuProperty m_Min;
-        protected DuEditor.DuProperty m_Max;
-        protected DuEditor.DuProperty m_ClampMode;
-        protected DuEditor.DuProperty m_ClampMin;
-        protected DuEditor.DuProperty m_ClampMax;
+        protected DuEditor.DuProperty m_ClampInMode;
+
+        protected DuEditor.DuProperty m_ClampOutMode;
+        protected DuEditor.DuProperty m_ClampOutMin;
+        protected DuEditor.DuProperty m_ClampOutMax;
 
         protected DuEditor.DuProperty m_PostPower;
         protected DuEditor.DuProperty m_PostReshapeMode;
@@ -38,7 +42,8 @@ namespace DustEngine.DustEditor
 
         // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-        private ClampMode clampMode => (ClampMode) m_ClampMode.valInt;
+        private ClampMode clampInMode => (ClampMode) m_ClampInMode.valInt;
+        private ClampMode clampOutMode => (ClampMode) m_ClampOutMode.valInt;
 
         //--------------------------------------------------------------------------------------------------------------
 
@@ -48,16 +53,20 @@ namespace DustEngine.DustEditor
             m_DrawerMaterial = new Material(Shader.Find("Hidden/Internal-Colored"));
 
             m_RemapPowerEnabled = DuEditor.FindProperty(remappingProperty, "m_RemapPowerEnabled", "Enabled");
+
+            m_InMin = DuEditor.FindProperty(remappingProperty, "m_InMin", "In Min");
+            m_InMax = DuEditor.FindProperty(remappingProperty, "m_InMax", "In Max");
+            m_OutMin = DuEditor.FindProperty(remappingProperty, "m_OutMin", "Out Min");
+            m_OutMax = DuEditor.FindProperty(remappingProperty, "m_OutMax", "Out Max");
+        
             m_Strength = DuEditor.FindProperty(remappingProperty, "m_Strength", "Strength");
-            m_LimitByStrength = DuEditor.FindProperty(remappingProperty, "m_LimitByStrength", "Limit By Strength");
-            m_Offset = DuEditor.FindProperty(remappingProperty, "m_Offset", "Offset");
             m_Invert = DuEditor.FindProperty(remappingProperty, "m_Invert", "Invert");
 
-            m_Min = DuEditor.FindProperty(remappingProperty, "m_Min", "Min");
-            m_Max = DuEditor.FindProperty(remappingProperty, "m_Max", "Max");
-            m_ClampMode = DuEditor.FindProperty(remappingProperty, "m_ClampMode", "Clamp Mode");
-            m_ClampMin = DuEditor.FindProperty(remappingProperty, "m_ClampMin", "Clamp Min");
-            m_ClampMax = DuEditor.FindProperty(remappingProperty, "m_ClampMax", "Clamp Max");
+            m_ClampInMode = DuEditor.FindProperty(remappingProperty, "m_ClampInMode", "Clamp In Mode");
+
+            m_ClampOutMode = DuEditor.FindProperty(remappingProperty, "m_ClampOutMode", "Clamp Out Mode");
+            m_ClampOutMin = DuEditor.FindProperty(remappingProperty, "m_ClampOutMin", "Clamp Out Min");
+            m_ClampOutMax = DuEditor.FindProperty(remappingProperty, "m_ClampOutMax", "Clamp Out Max");
 
             m_PostPower = DuEditor.FindProperty(remappingProperty, "m_PostPower", "Post Power");
             m_PostReshapeMode = DuEditor.FindProperty(remappingProperty, "m_PostReshapeMode", "Post Reshape");
@@ -89,21 +98,28 @@ namespace DustEngine.DustEditor
 
                 if (m_RemapPowerEnabled.IsTrue)
                 {
+                    DuEditor.PropertyExtendedSlider01(m_InMin);
+                    DuEditor.PropertyExtendedSlider01(m_InMax);
+                    DuEditor.PropertyField(m_ClampInMode);
+
+                    DuEditor.Space();
+
                     DuEditor.PropertyExtendedSlider(m_Strength, 0f, 1f, 0.01f);
-                    DuEditor.PropertyExtendedSlider01(m_Offset);
-                    DuEditor.PropertyField(m_LimitByStrength);
+
+                    DuEditor.Space();
+
+                    DuEditor.PropertyExtendedSlider(m_OutMin, 0f, 1f, 0.01f);
+                    DuEditor.PropertyExtendedSlider(m_OutMax, 0f, 1f, 0.01f);
+                    DuEditor.PropertyField(m_ClampOutMode);
+                    {
+                        if (clampOutMode == ClampMode.MinOnly || clampOutMode == ClampMode.MinAndMax)
+                            DuEditor.PropertyExtendedSlider(m_ClampOutMin, 0f, 1f, 0.01f);
+                        if (clampOutMode == ClampMode.MaxOnly || clampOutMode == ClampMode.MinAndMax)
+                            DuEditor.PropertyExtendedSlider(m_ClampOutMax, 0f, 1f, 0.01f);
+                    }
+                    DuEditor.Space();
+
                     DuEditor.PropertyField(m_Invert);
-                    DuEditor.Space();
-
-                    DuEditor.PropertyExtendedSlider(m_Min, 0f, 1f, 0.01f);
-                    DuEditor.PropertyExtendedSlider(m_Max, 0f, 1f, 0.01f);
-                    DuEditor.Space();
-
-                    DuEditor.PropertyField(m_ClampMode);
-                    if (clampMode == ClampMode.MinOnly || clampMode == ClampMode.MinAndMax)
-                        DuEditor.PropertyExtendedSlider(m_ClampMin, 0f, 1f, 0.01f);
-                    if (clampMode == ClampMode.MaxOnly || clampMode == ClampMode.MinAndMax)
-                        DuEditor.PropertyExtendedSlider(m_ClampMax, 0f, 1f, 0.01f);
                     DuEditor.Space();
 
                     DustGUI.Header("Post Update");
@@ -119,7 +135,7 @@ namespace DustEngine.DustEditor
                             DuEditor.PropertyFieldCurve(m_PostCurve);
                             break;
 
-                        case Remapping.PostReshapeMode.Step:
+                        case Remapping.PostReshapeMode.Steps:
                             DuEditor.PropertyExtendedIntSlider(m_PostStepsCount, 1, 25, 1, 1);
                             break;
                     }
@@ -178,8 +194,11 @@ namespace DustEngine.DustEditor
 
             // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-            if (m_Offset.isChanged)
-                m_Offset.valFloat = Remapping.NormalizeOffset(m_Offset.valFloat);
+            if (m_InMin.isChanged)
+                m_InMin.valFloat = Remapping.NormalizeInMinMax(m_InMin.valFloat);
+
+            if (m_InMax.isChanged)
+                m_InMax.valFloat = Remapping.NormalizeInMinMax(m_InMax.valFloat);
 
             if (m_PostStepsCount.isChanged)
                 m_PostStepsCount.valInt = Remapping.NormalizePostStepsCount(m_PostStepsCount.valInt);

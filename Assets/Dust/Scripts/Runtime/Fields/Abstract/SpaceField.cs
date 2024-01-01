@@ -93,6 +93,11 @@ namespace DustEngine
         {
             return gizmoFieldColor ? remapping.color : k_GizmosColorRangeOne;
         }
+
+        protected Color GetGizmoColorDefaultShape()
+        {
+            return k_GizmosColorDefaultShape;
+        }
 #endif
 
         //--------------------------------------------------------------------------------------------------------------

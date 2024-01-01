@@ -6,7 +6,7 @@ namespace DustEngine.DustEditor
     [CustomEditor(typeof(ConeField))]
     [CanEditMultipleObjects]
     [InitializeOnLoad]
-    public class ConeFieldEditor : SpaceFieldEditor
+    public class ConeFieldEditor : Space3DFieldEditor
     {
         private DuProperty m_Height;
         private DuProperty m_Radius;

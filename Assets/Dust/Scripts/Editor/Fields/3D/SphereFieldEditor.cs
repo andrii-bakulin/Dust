@@ -6,7 +6,7 @@ namespace DustEngine.DustEditor
     [CustomEditor(typeof(SphereField))]
     [CanEditMultipleObjects]
     [InitializeOnLoad]
-    public class SphereFieldEditor : SpaceFieldEditor
+    public class SphereFieldEditor : Space3DFieldEditor
     {
         private DuProperty m_Radius;
 

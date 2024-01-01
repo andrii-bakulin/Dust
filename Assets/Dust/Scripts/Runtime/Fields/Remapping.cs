@@ -8,7 +8,7 @@ namespace DustEngine
         public enum PostReshapeMode
         {
             None = 0,
-            Step = 1,
+            Steps = 1,
             Curve = 2,
         }
 
@@ -33,27 +33,27 @@ namespace DustEngine
         }
 
         [SerializeField]
+        private float m_InMin = 0.0f;
+        public float inMin
+        {
+            get => m_InMin;
+            set => m_InMin = NormalizeInMinMax(value);
+        }
+
+        [SerializeField]
+        private float m_InMax = 1.0f;
+        public float inMax
+        {
+            get => m_InMax;
+            set => m_InMax = NormalizeInMinMax(value);
+        }
+
+        [SerializeField]
         private float m_Strength = 1.0f;
         public float strength
         {
             get => m_Strength;
             set => m_Strength = value;
-        }
-
-        [SerializeField]
-        private float m_Offset = 0.0f;
-        public float offset
-        {
-            get => m_Offset;
-            set => m_Offset = NormalizeOffset(value);
-        }
-
-        [SerializeField]
-        private bool m_LimitByStrength = false;
-        public bool limitByStrength
-        {
-            get => m_LimitByStrength;
-            set => m_LimitByStrength = value;
         }
 
         [SerializeField]
@@ -65,45 +65,53 @@ namespace DustEngine
         }
 
         [SerializeField]
-        private float m_Min = 0.0f;
-        public float min
+        private float m_OutMin = 0.0f;
+        public float outMin
         {
-            get => m_Min;
-            set => m_Min = value;
+            get => m_OutMin;
+            set => m_OutMin = value;
         }
 
         [SerializeField]
-        private float m_Max = 1.0f;
-        public float max
+        private float m_OutMax = 1.0f;
+        public float outMax
         {
-            get => m_Max;
-            set => m_Max = value;
+            get => m_OutMax;
+            set => m_OutMax = value;
         }
 
         // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
         [SerializeField]
-        private ClampMode m_ClampMode = ClampMode.MinAndMax;
-        public ClampMode clampMode
+        private ClampMode m_ClampInMode = ClampMode.NoClamp;
+        public ClampMode clampInMode
         {
-            get => m_ClampMode;
-            set => m_ClampMode = value;
+            get => m_ClampInMode;
+            set => m_ClampInMode = value;
         }
 
         [SerializeField]
-        private float m_ClampMin = 0.0f;
-        public float clampMin
+        private ClampMode m_ClampOutMode = ClampMode.MinAndMax;
+        public ClampMode clampOutMode
         {
-            get => m_ClampMin;
-            set => m_ClampMin = value;
+            get => m_ClampOutMode;
+            set => m_ClampOutMode = value;
         }
 
         [SerializeField]
-        private float m_ClampMax = 1.0f;
-        public float clampMax
+        private float m_ClampOutMin = 0.0f;
+        public float clampOutMin
         {
-            get => m_ClampMax;
-            set => m_ClampMax = value;
+            get => m_ClampOutMin;
+            set => m_ClampOutMin = value;
+        }
+
+        [SerializeField]
+        private float m_ClampOutMax = 1.0f;
+        public float clampOutMax
+        {
+            get => m_ClampOutMax;
+            set => m_ClampOutMax = value;
         }
 
         // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -222,18 +230,22 @@ namespace DustEngine
             if (remapPowerEnabled)
             {
                 DynamicState.Append(ref dynamicState, ++seq, strength);
-                DynamicState.Append(ref dynamicState, ++seq, offset);
-                DynamicState.Append(ref dynamicState, ++seq, limitByStrength);
+                DynamicState.Append(ref dynamicState, ++seq, inMin);
+                DynamicState.Append(ref dynamicState, ++seq, inMax);
+                DynamicState.Append(ref dynamicState, ++seq, outMin);
+                DynamicState.Append(ref dynamicState, ++seq, outMax);
+
+                DynamicState.Append(ref dynamicState, ++seq, clampInMode);
+                DynamicState.Append(ref dynamicState, ++seq, clampOutMode);
+                {
+                    if (clampOutMode == ClampMode.MinOnly || clampOutMode == ClampMode.MinAndMax)
+                        DynamicState.Append(ref dynamicState, ++seq, clampOutMin);
+
+                    if (clampOutMode == ClampMode.MaxOnly || clampOutMode == ClampMode.MinAndMax)
+                        DynamicState.Append(ref dynamicState, ++seq, clampOutMax);
+                }
+
                 DynamicState.Append(ref dynamicState, ++seq, invert);
-                DynamicState.Append(ref dynamicState, ++seq, min);
-                DynamicState.Append(ref dynamicState, ++seq, max);
-                DynamicState.Append(ref dynamicState, ++seq, clampMode);
-
-                if (clampMode == ClampMode.MinOnly || clampMode == ClampMode.MinAndMax)
-                    DynamicState.Append(ref dynamicState, ++seq, clampMin);
-
-                if (clampMode == ClampMode.MaxOnly || clampMode == ClampMode.MinAndMax)
-                    DynamicState.Append(ref dynamicState, ++seq, clampMax);
 
                 DynamicState.Append(ref dynamicState, ++seq, postPower);
                 DynamicState.Append(ref dynamicState, ++seq, postReshapeMode);
@@ -283,40 +295,50 @@ namespace DustEngine
                 return inValue;
 
             //----------------------------------------------------------------------------------------------------------
+            // Define <in>
 
-            float inMin = 0f;
-            float inMax = 1f - offset;
+            float _inMin = inMin;
+            float _inMax = inMax;
 
-            if (Mathf.Approximately(inMin, inMax))
-                inMax = 0.0001f;
+            if (Mathf.Approximately(_inMin, _inMax))
+                _inMax = _inMin + 0.0001f;
 
-            float outMin;
-            float outMax;
+            if (clampInMode == ClampMode.MinOnly || clampInMode == ClampMode.MinAndMax)
+                inValue = Mathf.Max(inValue, _inMin);
+
+            if (clampInMode == ClampMode.MaxOnly || clampInMode == ClampMode.MinAndMax)
+                inValue = Mathf.Min(inValue, _inMax);
+
+            //----------------------------------------------------------------------------------------------------------
+            // Define <out>
+
+            float _outMin;
+            float _outMax;
 
             if (!invert)
             {
-                outMin = min;
-                outMax = Mathf.LerpUnclamped(min, max, strength);
+                _outMin = outMin;
+                _outMax = Mathf.LerpUnclamped(outMin, outMax, strength);
             }
             else
             {
-                outMin = 1f - min;
-                outMax = Mathf.LerpUnclamped(1f - min, 1f - max, strength);
+                _outMin = 1f - outMin;
+                _outMax = Mathf.LerpUnclamped(1f - outMin, 1f - outMax, strength);
             }
 
-            if (limitByStrength && inValue > inMax)
-                inValue = inMax;
+            //----------------------------------------------------------------------------------------------------------
+            // Fit It
 
-            float outValue = DuMath.Fit(inMin, inMax, outMin, outMax, inValue);
+            float outValue = DuMath.Fit(_inMin, _inMax, _outMin, _outMax, inValue);
 
             //----------------------------------------------------------------------------------------------------------
             // Clamp values if need
 
-            if (clampMode == ClampMode.MinOnly || clampMode == ClampMode.MinAndMax)
-                outValue = Mathf.Max(outValue, clampMin);
+            if (clampOutMode == ClampMode.MinOnly || clampOutMode == ClampMode.MinAndMax)
+                outValue = Mathf.Max(outValue, clampOutMin);
 
-            if (clampMode == ClampMode.MaxOnly || clampMode == ClampMode.MinAndMax)
-                outValue = Mathf.Min(outValue, clampMax);
+            if (clampOutMode == ClampMode.MaxOnly || clampOutMode == ClampMode.MinAndMax)
+                outValue = Mathf.Min(outValue, clampOutMax);
 
             //----------------------------------------------------------------------------------------------------------
             // Post Reshape
@@ -327,16 +349,16 @@ namespace DustEngine
                     // Nothing need to do
                     break;
 
-                case PostReshapeMode.Step:
-                    outValue = DuMath.Step(outValue, postStepsCount, outMin, outMax);
+                case PostReshapeMode.Steps:
+                    outValue = DuMath.Step(outValue, postStepsCount, _outMin, _outMax);
                     break;
 
                 case PostReshapeMode.Curve:
                 {
-                    float valueNormalized = DuMath.Fit(outMin, outMax, 0f, 1f, outValue);
+                    float valueNormalized = DuMath.Fit(_outMin, _outMax, 0f, 1f, outValue);
 
                     valueNormalized = postCurve.Evaluate(valueNormalized);
-                    outValue = DuMath.Fit01To(outMin, outMax, valueNormalized);
+                    outValue = DuMath.Fit01To(_outMin, _outMax, valueNormalized);
                     break;
                 }
             }
@@ -351,7 +373,7 @@ namespace DustEngine
         //--------------------------------------------------------------------------------------------------------------
         // Normalizer
 
-        public static float NormalizeOffset(float value)
+        public static float NormalizeInMinMax(float value)
         {
             return Mathf.Clamp01(value);
         }

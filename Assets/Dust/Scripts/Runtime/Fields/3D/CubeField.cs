@@ -3,7 +3,7 @@ using UnityEngine;
 namespace DustEngine
 {
     [AddComponentMenu("Dust/Fields/3D Fields/Cube Field")]
-    public class CubeField : SpaceField
+    public class CubeField : Space3DField
     {
         internal class Calc
         {
@@ -114,26 +114,9 @@ namespace DustEngine
         //--------------------------------------------------------------------------------------------------------------
 
 #if UNITY_EDITOR
-        protected override void DrawFieldGizmos()
+        protected override void DrawFieldGizmo(float scale)
         {
-            Gizmos.matrix = transform.localToWorldMatrix;
-
-            Color colorRange0 = GetGizmoColorRange0();
-            Color colorRange1 = GetGizmoColorRange1();
-
-            if (remapping.remapPowerEnabled)
-            {
-                Gizmos.color = !remapping.invert ? colorRange1 : colorRange0;
-                Gizmos.DrawWireCube(Vector3.zero, size * remapping.offset);
-
-                Gizmos.color = !remapping.invert ? colorRange0 : colorRange1;
-                Gizmos.DrawWireCube(Vector3.zero, size);
-            }
-            else
-            {
-                Gizmos.color = colorRange0;
-                Gizmos.DrawWireCube(Vector3.zero, size);
-            }
+            Gizmos.DrawWireCube(Vector3.zero, size * scale);
         }
 #endif
 

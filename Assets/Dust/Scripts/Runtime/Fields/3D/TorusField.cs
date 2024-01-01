@@ -3,7 +3,7 @@
 namespace DustEngine
 {
     [AddComponentMenu("Dust/Fields/3D Fields/Torus Field")]
-    public class TorusField : SpaceField
+    public class TorusField : Space3DField
     {
         [SerializeField]
         private float m_Radius = 2f;
@@ -90,26 +90,9 @@ namespace DustEngine
         //--------------------------------------------------------------------------------------------------------------
 
 #if UNITY_EDITOR
-        protected override void DrawFieldGizmos()
+        protected override void DrawFieldGizmo(float scale)
         {
-            Gizmos.matrix = transform.localToWorldMatrix;
-
-            Color colorRange0 = GetGizmoColorRange0();
-            Color colorRange1 = GetGizmoColorRange1();
-
-            if (remapping.remapPowerEnabled)
-            {
-                Gizmos.color = !remapping.invert ? colorRange1 : colorRange0;
-                DuGizmos.DrawWireTorus(radius, thickness * remapping.offset, Vector3.zero, direction, 64, 32);
-
-                Gizmos.color = !remapping.invert ? colorRange0 : colorRange1;
-                DuGizmos.DrawWireTorus(radius, thickness, Vector3.zero, direction, 64, 32);
-            }
-            else
-            {
-                Gizmos.color = colorRange0;
-                DuGizmos.DrawWireTorus(radius, thickness, Vector3.zero, direction, 64, 32);
-            }
+            DuGizmos.DrawWireTorus(radius, thickness * scale, Vector3.zero, direction, 64, 32);
         }
 #endif
 

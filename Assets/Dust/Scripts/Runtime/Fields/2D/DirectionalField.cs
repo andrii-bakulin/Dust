@@ -106,6 +106,9 @@ namespace DustEngine
 #if UNITY_EDITOR
         protected override void DrawFieldGizmos()
         {
+            float innerMinScale = 1f - remapping.inMin;
+            float innerMaxScale = 1f - remapping.inMax;
+
             float halfLength = length / 2f;
 
             Vector3 plainSize = AxisDirection.ConvertFromAxisXPlusToDirection(direction, new Vector3(0.001f, gizmoHeight, gizmoWidth));
@@ -119,16 +122,30 @@ namespace DustEngine
 
             if (remapping.remapPowerEnabled)
             {
-                // End plane
-                Gizmos.color = !remapping.invert ? colorRange1 : colorRange0;
-                Gizmos.DrawWireCube(offsetPlane1, plainSize);
+                if (innerMinScale > 0f && innerMaxScale > 0f)
+                {
+                    // End plane
+                    Gizmos.color = GetGizmoColorDefaultShape();
+                    Gizmos.DrawWireCube(offsetPlane1, plainSize);
+                }
 
-                // Middle plane
-                Gizmos.DrawWireCube(DuVector3.Fit01To(offsetPlane0, offsetPlane1, 1f - remapping.offset), plainSize);
+                if (innerMinScale < 1f && innerMaxScale < 1f)
+                {
+                    // Begin plane
+                    Gizmos.color = GetGizmoColorDefaultShape();
+                    Gizmos.DrawWireCube(offsetPlane0, plainSize);
+                }
 
-                // Begin plane
+                if (!Mathf.Approximately(innerMinScale, innerMaxScale))
+                {
+                    // Middle plane - MAX
+                    Gizmos.color = !remapping.invert ? colorRange1 : colorRange0;
+                    Gizmos.DrawWireCube(DuVector3.Fit01To(offsetPlane0, offsetPlane1, 1f - innerMaxScale), plainSize);
+                }
+
+                // Middle plane - MIN
                 Gizmos.color = !remapping.invert ? colorRange0 : colorRange1;
-                Gizmos.DrawWireCube(offsetPlane0, plainSize);
+                Gizmos.DrawWireCube(DuVector3.Fit01To(offsetPlane0, offsetPlane1, 1f - innerMinScale), plainSize);
             }
             else
             {

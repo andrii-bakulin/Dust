@@ -3,7 +3,7 @@
 namespace DustEngine
 {
     [AddComponentMenu("Dust/Fields/3D Fields/Sphere Field")]
-    public class SphereField : SpaceField
+    public class SphereField : Space3DField
     {
         [SerializeField]
         private float m_Radius = 1.0f;
@@ -62,26 +62,9 @@ namespace DustEngine
         //--------------------------------------------------------------------------------------------------------------
 
 #if UNITY_EDITOR
-        protected override void DrawFieldGizmos()
+        protected override void DrawFieldGizmo(float scale)
         {
-            Gizmos.matrix = transform.localToWorldMatrix;
-
-            Color colorRange0 = GetGizmoColorRange0();
-            Color colorRange1 = GetGizmoColorRange1();
-
-            if (remapping.remapPowerEnabled)
-            {
-                Gizmos.color = !remapping.invert ? colorRange1 : colorRange0;
-                Gizmos.DrawWireSphere(Vector3.zero, radius * remapping.offset);
-
-                Gizmos.color = !remapping.invert ? colorRange0 : colorRange1;
-                Gizmos.DrawWireSphere(Vector3.zero, radius);
-            }
-            else
-            {
-                Gizmos.color = colorRange0;
-                Gizmos.DrawWireSphere(Vector3.zero, radius);
-            }
+            Gizmos.DrawWireSphere(Vector3.zero, radius * scale);
         }
 #endif
 

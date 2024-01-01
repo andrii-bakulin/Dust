@@ -6,7 +6,7 @@ namespace DustEngine.DustEditor
     [CustomEditor(typeof(CylinderField))]
     [CanEditMultipleObjects]
     [InitializeOnLoad]
-    public class CylinderFieldEditor : SpaceFieldEditor
+    public class CylinderFieldEditor : Space3DFieldEditor
     {
         private DuProperty m_Height;
         private DuProperty m_Radius;

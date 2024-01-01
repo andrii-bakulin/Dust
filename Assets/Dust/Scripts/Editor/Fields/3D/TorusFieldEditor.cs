@@ -6,7 +6,7 @@ namespace DustEngine.DustEditor
     [CustomEditor(typeof(TorusField))]
     [CanEditMultipleObjects]
     [InitializeOnLoad]
-    public class TorusFieldEditor : SpaceFieldEditor
+    public class TorusFieldEditor : Space3DFieldEditor
     {
         private DuProperty m_Radius;
         private DuProperty m_Thickness;
