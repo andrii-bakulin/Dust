@@ -4,7 +4,7 @@ using System.Text.RegularExpressions;
 using UnityEditor;
 using UnityEngine;
 
-namespace DustEngine.DustEditor
+namespace Dust.DustEditor
 {
     public partial class DuEditor
     {
@@ -129,7 +129,7 @@ namespace DustEngine.DustEditor
                     {
                         string componentName = breadcrumb.component.ToString();
                         
-                        Match m = Regex.Match(componentName, @"\(DustEngine\.(.+)\)", RegexOptions.IgnoreCase);
+                        Match m = Regex.Match(componentName, @"\(Dust\.(.+)\)", RegexOptions.IgnoreCase);
                         if (m.Success && m.Groups.Count >= 2)
                             componentName = m.Groups[1].Value;
                             

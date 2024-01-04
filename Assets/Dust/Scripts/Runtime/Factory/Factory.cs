@@ -2,7 +2,7 @@
 using System.Linq;
 using UnityEngine;
 
-namespace DustEngine
+namespace Dust
 {
     public abstract partial class Factory : DuMonoBehaviour, IDynamicState
     {

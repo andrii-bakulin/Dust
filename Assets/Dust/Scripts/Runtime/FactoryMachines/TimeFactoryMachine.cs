@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace DustEngine
+namespace Dust
 {
     [AddComponentMenu("Dust/Factory Machines/Time Machine")]
     public class TimeFactoryMachine : PRSFactoryMachine

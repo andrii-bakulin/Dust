@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.TestTools;
 using Object = UnityEngine.Object;
 
-namespace DustEngine.Test.Actions.Destroy
+namespace Dust.Test.Actions.Destroy
 {
     public class DestroyActionTests : ActionTests
     {

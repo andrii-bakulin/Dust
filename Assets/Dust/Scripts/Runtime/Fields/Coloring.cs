@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace DustEngine
+namespace Dust
 {
     [System.Serializable]
     public class Coloring : IDynamicState

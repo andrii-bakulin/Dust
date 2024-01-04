@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace DustEngine
+namespace Dust
 {
     [AddComponentMenu("Dust/Fields/Math Fields/Round Field")]
     public class RoundField : MathField

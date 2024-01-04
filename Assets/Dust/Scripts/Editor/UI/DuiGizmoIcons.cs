@@ -1,7 +1,7 @@
 using System.Reflection;
 using UnityEditor;
 
-namespace DustEngine.DustEditor
+namespace Dust.DustEditor
 {
     [InitializeOnLoad]
     public class DuiGizmoIcons

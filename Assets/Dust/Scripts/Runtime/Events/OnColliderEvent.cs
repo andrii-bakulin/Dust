@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace DustEngine
+namespace Dust
 {
     public abstract class OnColliderEvent : OnAbstractEvent
     {

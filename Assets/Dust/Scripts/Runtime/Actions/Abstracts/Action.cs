@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace DustEngine
+namespace Dust
 {
     public abstract class Action : DuMonoBehaviour
     {

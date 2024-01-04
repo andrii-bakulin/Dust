@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace DustEngine
+namespace Dust
 {
     [AddComponentMenu("Dust/Helpers/Lock Transform")]
     [ExecuteAlways]

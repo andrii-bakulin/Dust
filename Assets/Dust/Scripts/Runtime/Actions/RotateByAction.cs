@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace DustEngine
+namespace Dust
 {
     [AddComponentMenu("Dust/Actions/RotateBy Action")]
     public class RotateByAction : IntervalWithRollbackAction

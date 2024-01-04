@@ -1,6 +1,6 @@
 using UnityEditor;
 
-namespace DustEngine.DustEditor
+namespace Dust.DustEditor
 {
     public static class EditorHelper
     {

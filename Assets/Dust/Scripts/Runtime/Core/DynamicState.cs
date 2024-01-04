@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace DustEngine
+namespace Dust
 {
     public interface IDynamicState
     {

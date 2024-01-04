@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace DustEngine
+namespace Dust
 {
     [AddComponentMenu("Dust/Factory Machines/Clamp Machine")]
     public class ClampFactoryMachine : BasicFactoryMachine

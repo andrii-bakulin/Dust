@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace DustEngine
+namespace Dust
 {
     [AddComponentMenu("Dust/Helpers/Random Transform")]
     public class RandomTransform : DuMonoBehaviour

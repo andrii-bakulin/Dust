@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace DustEngine
+namespace Dust
 {
     [AddComponentMenu("Dust/Gizmos/Cone Gizmo")]
     public class ConeGizmo : AbstractGizmo

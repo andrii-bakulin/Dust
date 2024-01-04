@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace DustEngine
+namespace Dust
 {
     [AddComponentMenu("Dust/Factory Machines/LookAt Machine")]
     public class LookAtFactoryMachine : BasicFactoryMachine

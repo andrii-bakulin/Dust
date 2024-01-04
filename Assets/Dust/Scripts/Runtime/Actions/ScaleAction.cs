@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace DustEngine
+namespace Dust
 {
     public abstract class ScaleAction : IntervalWithRollbackAction
     {

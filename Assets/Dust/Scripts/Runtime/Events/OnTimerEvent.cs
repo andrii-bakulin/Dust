@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace DustEngine
+namespace Dust
 {
     [AddComponentMenu("Dust/Events/On Timer Event")]
     public class OnTimerEvent : OnAbstractEvent

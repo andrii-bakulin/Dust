@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEditor;
 
-namespace DustEngine
+namespace Dust
 {
     public abstract class FactoryBuilder
     {

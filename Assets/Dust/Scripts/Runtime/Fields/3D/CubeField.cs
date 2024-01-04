@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace DustEngine
+namespace Dust
 {
     [AddComponentMenu("Dust/Fields/3D Fields/Cube Field")]
     public class CubeField : SpaceObjectField

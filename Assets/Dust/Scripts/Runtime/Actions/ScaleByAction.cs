@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace DustEngine
+namespace Dust
 {
     [AddComponentMenu("Dust/Actions/ScaleBy Action")]
     public class ScaleByAction : ScaleAction

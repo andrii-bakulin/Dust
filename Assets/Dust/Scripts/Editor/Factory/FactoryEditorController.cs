@@ -3,7 +3,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEditor;
 
-namespace DustEngine.DustEditor
+namespace Dust.DustEditor
 {
     [InitializeOnLoad]
     public static class FactoryEditorController

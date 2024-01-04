@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEditor;
 
-namespace DustEngine
+namespace Dust
 {
     public abstract class DuMonoBehaviour : MonoBehaviour
     {

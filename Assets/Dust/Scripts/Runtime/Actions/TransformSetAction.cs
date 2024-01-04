@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace DustEngine
+namespace Dust
 {
     [AddComponentMenu("Dust/Actions/Transform Set Action")]
     public class TransformSetAction : InstantAction

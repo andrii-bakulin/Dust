@@ -292,7 +292,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 860274625}
-        m_TargetAssemblyTypeName: DustEngine.TriggerGizmo, DustEngine
+        m_TargetAssemblyTypeName: Dust.TriggerGizmo, DustEngine
         m_MethodName: Trigger
         m_Mode: 1
         m_Arguments:
@@ -307,7 +307,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1835306270}
-        m_TargetAssemblyTypeName: DustEngine.TriggerGizmo, DustEngine
+        m_TargetAssemblyTypeName: Dust.TriggerGizmo, DustEngine
         m_MethodName: Trigger
         m_Mode: 1
         m_Arguments:
@@ -322,7 +322,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 576350766}
-        m_TargetAssemblyTypeName: DustEngine.TriggerGizmo, DustEngine
+        m_TargetAssemblyTypeName: Dust.TriggerGizmo, DustEngine
         m_MethodName: Trigger
         m_Mode: 1
         m_Arguments:
@@ -433,7 +433,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 920180384}
-        m_TargetAssemblyTypeName: DustEngine.TriggerGizmo, DustEngine
+        m_TargetAssemblyTypeName: Dust.TriggerGizmo, DustEngine
         m_MethodName: Trigger
         m_Mode: 1
         m_Arguments:
@@ -448,7 +448,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 763539197}
-        m_TargetAssemblyTypeName: DustEngine.TriggerGizmo, DustEngine
+        m_TargetAssemblyTypeName: Dust.TriggerGizmo, DustEngine
         m_MethodName: Trigger
         m_Mode: 1
         m_Arguments:
@@ -463,7 +463,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1227739235}
-        m_TargetAssemblyTypeName: DustEngine.TriggerGizmo, DustEngine
+        m_TargetAssemblyTypeName: Dust.TriggerGizmo, DustEngine
         m_MethodName: Trigger
         m_Mode: 1
         m_Arguments:
@@ -594,7 +594,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1808059299}
-        m_TargetAssemblyTypeName: DustEngine.TriggerGizmo, DustEngine
+        m_TargetAssemblyTypeName: Dust.TriggerGizmo, DustEngine
         m_MethodName: Trigger
         m_Mode: 1
         m_Arguments:
@@ -609,7 +609,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 246383381}
-        m_TargetAssemblyTypeName: DustEngine.TriggerGizmo, DustEngine
+        m_TargetAssemblyTypeName: Dust.TriggerGizmo, DustEngine
         m_MethodName: Trigger
         m_Mode: 1
         m_Arguments:
@@ -624,7 +624,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 37688944}
-        m_TargetAssemblyTypeName: DustEngine.TriggerGizmo, DustEngine
+        m_TargetAssemblyTypeName: Dust.TriggerGizmo, DustEngine
         m_MethodName: Trigger
         m_Mode: 5
         m_Arguments:
@@ -1055,7 +1055,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2068864280}
-        m_TargetAssemblyTypeName: DustEngine.TriggerGizmo, DustEngine
+        m_TargetAssemblyTypeName: Dust.TriggerGizmo, DustEngine
         m_MethodName: Trigger
         m_Mode: 1
         m_Arguments:
@@ -1085,7 +1085,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 39787013}
-        m_TargetAssemblyTypeName: DustEngine.TriggerGizmo, DustEngine
+        m_TargetAssemblyTypeName: Dust.TriggerGizmo, DustEngine
         m_MethodName: Trigger
         m_Mode: 1
         m_Arguments:
@@ -1115,7 +1115,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1394903151}
-        m_TargetAssemblyTypeName: DustEngine.TriggerGizmo, DustEngine
+        m_TargetAssemblyTypeName: Dust.TriggerGizmo, DustEngine
         m_MethodName: Trigger
         m_Mode: 1
         m_Arguments:
@@ -1766,7 +1766,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 819179546}
-        m_TargetAssemblyTypeName: DustEngine.TriggerGizmo, DustEngine
+        m_TargetAssemblyTypeName: Dust.TriggerGizmo, DustEngine
         m_MethodName: Trigger
         m_Mode: 1
         m_Arguments:
@@ -1781,7 +1781,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1170445962}
-        m_TargetAssemblyTypeName: DustEngine.TriggerGizmo, DustEngine
+        m_TargetAssemblyTypeName: Dust.TriggerGizmo, DustEngine
         m_MethodName: Trigger
         m_Mode: 1
         m_Arguments:
@@ -1796,7 +1796,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1602920481}
-        m_TargetAssemblyTypeName: DustEngine.TriggerGizmo, DustEngine
+        m_TargetAssemblyTypeName: Dust.TriggerGizmo, DustEngine
         m_MethodName: Trigger
         m_Mode: 1
         m_Arguments:

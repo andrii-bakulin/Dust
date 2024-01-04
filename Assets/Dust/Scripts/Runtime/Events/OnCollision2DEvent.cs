@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace DustEngine
+namespace Dust
 {
     [AddComponentMenu("Dust/Events/On Collision Event 2D")]
     public class OnCollision2DEvent : OnColliderEvent

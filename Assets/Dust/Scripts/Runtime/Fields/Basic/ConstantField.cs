@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace DustEngine
+namespace Dust
 {
     [AddComponentMenu("Dust/Fields/Basic Fields/Constant Field")]
     public class ConstantField : Field

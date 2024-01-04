@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace DustEngine.Test
+namespace Dust.Test
 {
     public static class Constants
     {

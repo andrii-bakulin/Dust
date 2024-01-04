@@ -3,7 +3,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.TestTools;
 
-namespace DustEngine.Test.Actions
+namespace Dust.Test.Actions
 {
     public class TransformActionTests : ActionTests
     {

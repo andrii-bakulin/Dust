@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace DustEngine
+namespace Dust
 {
     [AddComponentMenu("Dust/Actions/Update Hierarchy Action")]
     public class UpdateHierarchyAction : InstantAction

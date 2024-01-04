@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEditor;
 
-namespace DustEngine.DustEditor
+namespace Dust.DustEditor
 {
     [CustomEditor(typeof(CylinderField))]
     [CanEditMultipleObjects]

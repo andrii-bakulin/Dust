@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace DustEngine
+namespace Dust
 {
     [AddComponentMenu("Dust/Fields/2D Fields/Texture Factory Field")]
     public class TextureFactoryField : BasicField

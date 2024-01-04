@@ -1,4 +1,4 @@
-namespace DustEngine
+namespace Dust
 {
     public enum Axis6xDirection
     {

@@ -1675,7 +1675,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1731142624}
-        m_TargetAssemblyTypeName: DustEngine.Debugger, DustEngine
+        m_TargetAssemblyTypeName: Dust.Debugger, DustEngine
         m_MethodName: LogWarning
         m_Mode: 5
         m_Arguments:
@@ -1705,7 +1705,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1731142624}
-        m_TargetAssemblyTypeName: DustEngine.Debugger, DustEngine
+        m_TargetAssemblyTypeName: Dust.Debugger, DustEngine
         m_MethodName: LogNotice
         m_Mode: 5
         m_Arguments:
@@ -1786,7 +1786,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1822897242}
-        m_TargetAssemblyTypeName: DustEngine.Destroyer, DustEngine
+        m_TargetAssemblyTypeName: Dust.Destroyer, DustEngine
         m_MethodName: DestroyTarget
         m_Mode: 0
         m_Arguments:

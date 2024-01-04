@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-namespace DustEngine
+namespace Dust
 {
     public class UITextTintUpdater : TintAction.TintUpdater
     {

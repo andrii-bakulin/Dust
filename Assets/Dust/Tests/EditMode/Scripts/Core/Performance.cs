@@ -2,7 +2,7 @@ using System;
 using NUnit.Framework;
 using UnityEngine;
 
-namespace DustEngine.Test.EditMode
+namespace Dust.Test.EditMode
 {
     public class Performance
     {

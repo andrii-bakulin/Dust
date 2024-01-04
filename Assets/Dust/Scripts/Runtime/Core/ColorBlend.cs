@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace DustEngine
+namespace Dust
 {
     // https://en.wikipedia.org/wiki/Alpha_compositing#Alpha_blending
     // PS: "SRC over DST" [or] "colorOVER over colorBASE"

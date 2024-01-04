@@ -1,7 +1,7 @@
 ﻿using NUnit.Framework;
 using UnityEngine;
 
-namespace DustEngine.Test
+namespace Dust.Test
 {
     public abstract class CorePlayModeTests
     {

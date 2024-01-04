@@ -2,7 +2,7 @@
 using UnityEditor;
 
 #if UNITY_EDITOR
-namespace DustEngine
+namespace Dust
 {
     public partial class Factory
     {

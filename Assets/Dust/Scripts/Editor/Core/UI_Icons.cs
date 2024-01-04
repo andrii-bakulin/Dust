@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace DustEngine.DustEditor
+namespace Dust.DustEditor
 {
     public partial class UI
     {

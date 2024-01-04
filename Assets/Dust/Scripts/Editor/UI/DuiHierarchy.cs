@@ -2,7 +2,7 @@ using System;
 using UnityEditor;
 using UnityEngine;
 
-namespace DustEngine.DustEditor
+namespace Dust.DustEditor
 {
     [InitializeOnLoad]
     public static class DuiHierarchy

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using NUnit.Framework;
 using UnityEngine;
 
-namespace DustEngine.Test.Actions.Move
+namespace Dust.Test.Actions.Move
 {
     public abstract class MoveActionTests : TransformActionTests
     {

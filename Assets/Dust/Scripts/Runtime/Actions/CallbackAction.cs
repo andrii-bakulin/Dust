@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace DustEngine
+namespace Dust
 {
     [AddComponentMenu("Dust/Actions/Callback Action")]
     public class CallbackAction : InstantAction

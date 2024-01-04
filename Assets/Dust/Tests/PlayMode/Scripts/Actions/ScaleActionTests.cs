@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using NUnit.Framework;
 using UnityEngine;
 
-namespace DustEngine.Test.Actions.Scale
+namespace Dust.Test.Actions.Scale
 {
     public abstract class ScaleActionTests : TransformActionTests
     {

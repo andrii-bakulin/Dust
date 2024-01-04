@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace DustEngine
+namespace Dust
 {
     [AddComponentMenu("Dust/Animations/Pulsate")]
     public class Pulsate : DuMonoBehaviour

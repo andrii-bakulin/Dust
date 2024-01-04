@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using NUnit.Framework;
 using UnityEngine;
 
-namespace DustEngine.Test.Actions.Rotate
+namespace Dust.Test.Actions.Rotate
 {
     public class RotateActionTests : TransformActionTests
     {

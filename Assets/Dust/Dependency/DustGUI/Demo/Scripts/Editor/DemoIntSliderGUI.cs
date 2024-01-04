@@ -1,5 +1,4 @@
-﻿using DustEngine;
-using UnityEditor;
+﻿using UnityEditor;
 using UnityEngine;
 
 namespace DustDemo
@@ -27,18 +26,18 @@ namespace DustDemo
 
             main.value0 = EditorGUILayout.IntSlider("Standard Slider [0..10]", main.value0, 0, 10);
 
-            DustGUI.SpaceLine();
+            Dust.DustGUI.SpaceLine();
 
-            DustGUI.ExtraIntSlider.Create(10, 20, 1, 0, 50).LinkEditor(this).Draw("[0 .. [10 - 20] .. 50]", spValue1);
+            Dust.DustGUI.ExtraIntSlider.Create(10, 20, 1, 0, 50).LinkEditor(this).Draw("[0 .. [10 - 20] .. 50]", spValue1);
 
-            DustGUI.ExtraIntSlider.Create().LinkEditor(this).SetSlider(1, 100).Draw("[.... [1 - 100] ....]", spValue2);
+            Dust.DustGUI.ExtraIntSlider.Create().LinkEditor(this).SetSlider(1, 100).Draw("[.... [1 - 100] ....]", spValue2);
 
-            DustGUI.SpaceLine();
+            Dust.DustGUI.SpaceLine();
 
-            DustGUI.Label("[-100 .. [-50 - 50] .. 100]");
+            Dust.DustGUI.Label("[-100 .. [-50 - 50] .. 100]");
 
             // Use one Slider instance to draw few UI-Elements
-            var slider = new DustGUI.ExtraIntSlider(-50, 50, 5, -100, 100);
+            var slider = new Dust.DustGUI.ExtraIntSlider(-50, 50, 5, -100, 100);
             slider.LinkEditor(this);
 
             main.value3 = slider.Draw(main.value3);

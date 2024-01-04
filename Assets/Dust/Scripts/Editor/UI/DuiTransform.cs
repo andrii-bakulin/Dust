@@ -3,7 +3,7 @@ using System.Reflection;
 using UnityEditor;
 using UnityEngine;
 
-namespace DustEngine.DustEditor
+namespace Dust.DustEditor
 {
     [CustomEditor(typeof(Transform))]
     [CanEditMultipleObjects]

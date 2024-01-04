@@ -3,7 +3,7 @@ using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.TestTools;
 
-namespace DustEngine.Test.Actions.Rotate
+namespace Dust.Test.Actions.Rotate
 {
     public class RotateToActionTests : RotateActionTests
     {

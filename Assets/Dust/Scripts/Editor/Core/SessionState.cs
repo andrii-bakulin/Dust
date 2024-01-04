@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEditor;
 
-namespace DustEngine.DustEditor
+namespace Dust.DustEditor
 {
     public static class SessionState
     {
@@ -55,7 +55,7 @@ namespace DustEngine.DustEditor
 
         private static string GetKey(string key)
         {
-            return "DustEngine." + key;
+            return "Dust." + key;
         }
     }
 }

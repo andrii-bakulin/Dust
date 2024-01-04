@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace DustEngine
+namespace Dust
 {
     [Serializable]
     public struct DuIntRange : IEquatable<DuIntRange>
