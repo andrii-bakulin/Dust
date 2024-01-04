@@ -22,6 +22,7 @@ namespace Dust.DustEditor
             SetGizmoIconEnabled<ScaleByAction>(false);
             SetGizmoIconEnabled<ScaleToAction>(false);
             SetGizmoIconEnabled<SpawnAction>(false);
+            SetGizmoIconEnabled<StartAction>(false);
             SetGizmoIconEnabled<TintAction>(false);
             SetGizmoIconEnabled<TransformCopyAction>(false);
             SetGizmoIconEnabled<TransformRandomAction>(false);
@@ -65,14 +66,15 @@ namespace Dust.DustEditor
             SetGizmoIconEnabled<TransformFactoryMachine>(false);
             
             // Fields:2D
-            SetGizmoIconEnabled<DirectionalField>(false);
             SetGizmoIconEnabled<RadialField>(false);
             SetGizmoIconEnabled<TextureField>(false);
+            SetGizmoIconEnabled<TextureFactoryField>(false);
             SetGizmoIconEnabled<WaveField>(false);
             // Fields:3D
             SetGizmoIconEnabled<ConeField>(false);
             SetGizmoIconEnabled<CubeField>(false);
             SetGizmoIconEnabled<CylinderField>(false);
+            SetGizmoIconEnabled<DirectionalField>(false);
             SetGizmoIconEnabled<SphereField>(false);
             SetGizmoIconEnabled<TorusField>(false);
             // Fields:Basic
