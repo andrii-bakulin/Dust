@@ -5,14 +5,6 @@ namespace Dust
     [AddComponentMenu("Dust/Actions/Transform Copy Action")]
     public class TransformCopyAction : InstantAction
     {
-        public enum Space
-        {
-            World = 0,
-            Local = 1,
-        }
-
-        //--------------------------------------------------------------------------------------------------------------
-
         [SerializeField]
         private bool m_Position = false;
         public bool position
@@ -64,8 +56,8 @@ namespace Dust
         }
 
         [SerializeField]
-        private Space m_Space = Space.Local;
-        public Space space
+        private DuTransform.Space m_Space = DuTransform.Space.Local;
+        public DuTransform.Space space
         {
             get => m_Space;
             set
@@ -86,7 +78,7 @@ namespace Dust
             if (Dust.IsNull(activeTargetTransform))
                 return;
 
-            if (space == Space.World)
+            if (space == DuTransform.Space.World)
             {
                 if (position)
                     activeTargetTransform.position = sourceObject.transform.position;
@@ -97,7 +89,7 @@ namespace Dust
                 if (scale)
                     DuTransform.SetGlobalScale(activeTargetTransform, sourceObject.transform.lossyScale);
             }
-            else if (space == Space.Local)
+            else if (space == DuTransform.Space.Local)
             {
                 if (position)
                     activeTargetTransform.localPosition = sourceObject.transform.localPosition;
