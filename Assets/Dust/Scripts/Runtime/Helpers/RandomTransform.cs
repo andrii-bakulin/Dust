@@ -11,18 +11,6 @@ namespace Dust
             Start = 1,
         }
 
-        public enum Space
-        {
-            World = 0,
-            Local = 1,
-        }
-
-        public enum TransformMode
-        {
-            Add = 0,
-            Set = 1,
-        }
-
         //--------------------------------------------------------------------------------------------------------------
 
         [SerializeField]
@@ -120,16 +108,16 @@ namespace Dust
         }
 
         [SerializeField]
-        private TransformMode m_TransformMode = TransformMode.Set;
-        public TransformMode transformMode
+        private DuTransform.Mode m_TransformMode = DuTransform.Mode.Set;
+        public DuTransform.Mode transformMode
         {
             get => m_TransformMode;
             set => m_TransformMode = value;
         }
 
         [SerializeField]
-        private Space m_Space = Space.Local;
-        public Space space
+        private DuTransform.Space m_Space = DuTransform.Space.Local;
+        public DuTransform.Space space
         {
             get => m_Space;
             set => m_Space = value;
@@ -155,7 +143,7 @@ namespace Dust
         // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
         private DuRandom m_DuRandom;
-        private DuRandom duRandom => m_DuRandom ?? (m_DuRandom = new DuRandom(seed));
+        private DuRandom duRandom => m_DuRandom ??= new DuRandom(seed);
 
         //--------------------------------------------------------------------------------------------------------------
 
@@ -175,71 +163,22 @@ namespace Dust
         {
             if (positionEnabled)
             {
-                Vector3 value = duRandom.Range(positionRangeMin, positionRangeMax);
-                Vector3 position = Vector3.zero;
-
-                if (space == Space.World)
-                    position = transform.position;
-                else if (space == Space.Local)
-                    position = transform.localPosition;
-
-                if (transformMode == TransformMode.Add)
-                    position += value;
-                else if (transformMode == TransformMode.Set)
-                    position = value;
-
-                if (space == Space.World)
-                    transform.position = position;
-                else if (space == Space.Local)
-                    transform.localPosition = position;
+                var value = duRandom.Range(positionRangeMin, positionRangeMax);
+                DuTransform.UpdatePosition(transform, value, space, transformMode);
             }
 
             if (rotationEnabled)
             {
-                Vector3 value = duRandom.Range(rotationRangeMin, rotationRangeMax);
-                Vector3 rotation = Vector3.zero;
-
-                if (space == Space.World)
-                    rotation = transform.eulerAngles;
-                else if (space == Space.Local)
-                    rotation = transform.localEulerAngles;
-
-                if (transformMode == TransformMode.Add)
-                    rotation += value;
-                else if (transformMode == TransformMode.Set)
-                    rotation = value;
-
-                if (space == Space.World)
-                    transform.eulerAngles = rotation;
-                else if (space == Space.Local)
-                    transform.localEulerAngles = rotation;
+                var value = duRandom.Range(rotationRangeMin, rotationRangeMax);
+                DuTransform.UpdateRotation(transform, value, space, transformMode);
             }
 
             if (scaleEnabled)
             {
-                Vector3 value;
-                
-                if (scaleUniform)
-                    value = Vector3.Lerp(scaleRangeMin, scaleRangeMax, duRandom.Next());
-                else
-                    value = duRandom.Range(scaleRangeMin, scaleRangeMax);
-
-                Vector3 scale = Vector3.one;
-
-                if (space == Space.World)
-                    scale = transform.lossyScale;
-                else if (space == Space.Local)
-                    scale = transform.localScale;
-
-                if (transformMode == TransformMode.Add)
-                    scale += value;
-                else if (transformMode == TransformMode.Set)
-                    scale = value;
-
-                if (space == Space.World)
-                    DuTransform.SetGlobalScale(transform, scale);
-                else if (space == Space.Local)
-                    transform.localScale = scale;
+                var value = scaleUniform
+                    ? Vector3.Lerp(scaleRangeMin, scaleRangeMax, duRandom.Next())
+                    : duRandom.Range(scaleRangeMin, scaleRangeMax);
+                DuTransform.UpdateScale(transform, value, space, transformMode);
             }
         }
     }

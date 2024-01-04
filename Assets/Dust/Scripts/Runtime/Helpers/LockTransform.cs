@@ -6,14 +6,6 @@ namespace Dust
     [ExecuteAlways]
     public class LockTransform : MonoBehaviour
     {
-        public enum Space
-        {
-            World = 0,
-            Local = 1,
-        }
-
-        //--------------------------------------------------------------------------------------------------------------
-
         [SerializeField]
         private bool m_LockPosition = true;
         public bool lockPosition
@@ -88,8 +80,8 @@ namespace Dust
         // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
         [SerializeField]
-        private Space m_Space;
-        public Space space
+        private DuTransform.Space m_Space;
+        public DuTransform.Space space
         {
             get => m_Space;
             set
@@ -123,7 +115,7 @@ namespace Dust
         {
             if (lockPosition)
             {
-                if (space == Space.Local)
+                if (space == DuTransform.Space.Local)
                     transform.localPosition = m_Position;
                 else
                     transform.position = m_Position;
@@ -131,7 +123,7 @@ namespace Dust
 
             if (lockRotation)
             {
-                if (space == Space.Local)
+                if (space == DuTransform.Space.Local)
                     transform.localRotation = m_Rotation;
                 else
                     transform.rotation = m_Rotation;
@@ -146,10 +138,20 @@ namespace Dust
         public void FixLockStates()
         {
             if (lockPosition)
-                m_Position = space == Space.Local ? transform.localPosition : transform.position;
+                m_Position = space switch
+                {
+                    DuTransform.Space.World => transform.position,
+                    DuTransform.Space.Local => transform.localPosition,
+                    _ => Vector3.zero,
+                };
 
             if (lockRotation)
-                m_Rotation = space == Space.Local ? transform.localRotation : transform.rotation;
+                m_Rotation = space switch
+                {
+                    DuTransform.Space.World => transform.rotation,
+                    DuTransform.Space.Local => transform.localRotation,
+                    _ => Quaternion.identity,
+                };
 
             if (lockScale)
                 m_Scale = transform.localScale;
