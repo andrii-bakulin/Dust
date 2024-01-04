@@ -170,9 +170,9 @@ namespace Dust
         private DuNoise m_DuNoiseRot;
         private DuNoise m_DuNoiseScl;
 
-        private DuNoise duNoisePos => m_DuNoisePos ?? (m_DuNoisePos = new DuNoise(seed));
-        private DuNoise duNoiseRot => m_DuNoiseRot ?? (m_DuNoiseRot = new DuNoise(seed + 1235));
-        private DuNoise duNoiseScl => m_DuNoiseScl ?? (m_DuNoiseScl = new DuNoise(seed - 1235));
+        private DuNoise duNoisePos => m_DuNoisePos ??= new DuNoise(seed);
+        private DuNoise duNoiseRot => m_DuNoiseRot ??= new DuNoise(seed + 1235);
+        private DuNoise duNoiseScl => m_DuNoiseScl ??= new DuNoise(seed - 1235);
 
         private float m_OffsetDynamic;
 
