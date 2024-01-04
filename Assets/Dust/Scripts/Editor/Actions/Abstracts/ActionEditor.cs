@@ -163,9 +163,9 @@ namespace Dust.DustEditor
 
         // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-        protected virtual void OnInspectorGUI_Extended(string actionId)
+        protected virtual void OnInspectorGUI_Extended(string actionId, bool isDefaultOpen = false)
         {
-            if (DustGUI.FoldoutBegin("Extended", actionId + ".Extended", this, false))
+            if (DustGUI.FoldoutBegin("Extended", actionId + ".Extended", this, isDefaultOpen))
             {
                 OnInspectorGUI_Extended_BlockFirst();
                 OnInspectorGUI_Extended_BlockMiddle();
