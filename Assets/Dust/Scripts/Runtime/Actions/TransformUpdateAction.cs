@@ -2,17 +2,9 @@
 
 namespace Dust
 {
-    [AddComponentMenu("Dust/Actions/Transform Set Action")]
-    public class TransformSetAction : InstantAction
+    [AddComponentMenu("Dust/Actions/Transform Update Action")]
+    public class TransformUpdateAction : InstantAction
     {
-        public enum Space
-        {
-            World = 0,
-            Local = 1,
-        }
-
-        //--------------------------------------------------------------------------------------------------------------
-
         [SerializeField]
         private bool m_PositionEnabled = false;
         public bool positionEnabled
@@ -92,8 +84,8 @@ namespace Dust
         // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
         [SerializeField]
-        private Space m_Space = Space.Local;
-        public Space space
+        private DuTransform.Space m_Space = DuTransform.Space.Local;
+        public DuTransform.Space space
         {
             get => m_Space;
             set
@@ -101,6 +93,14 @@ namespace Dust
                 if (!IsAllowUpdateProperty()) return;
                 m_Space = value;
             }
+        }
+
+        [SerializeField]
+        private DuTransform.Mode m_TransformMode = DuTransform.Mode.Set;
+        public DuTransform.Mode transformMode
+        {
+            get => m_TransformMode;
+            set => m_TransformMode = value;
         }
 
         //--------------------------------------------------------------------------------------------------------------
@@ -111,27 +111,22 @@ namespace Dust
             if (Dust.IsNull(activeTargetTransform))
                 return;
 
-            if (space == Space.World)
+            if (positionEnabled)
             {
-                if (positionEnabled)
-                    activeTargetTransform.position = position;
-
-                if (rotationEnabled)
-                    activeTargetTransform.rotation = Quaternion.Euler(rotation);
-
-                if (scaleEnabled)
-                    DuTransform.SetGlobalScale(activeTargetTransform, scale);
+                var value = position;
+                DuTransform.UpdatePosition(transform, value, space, transformMode);
             }
-            else if (space == Space.Local)
+
+            if (rotationEnabled)
             {
-                if (positionEnabled)
-                    activeTargetTransform.localPosition = position;
+                var value = rotation;
+                DuTransform.UpdateRotation(transform, value, space, transformMode);
+            }
 
-                if (rotationEnabled)
-                    activeTargetTransform.localRotation = Quaternion.Euler(rotation);
-
-                if (scaleEnabled)
-                    activeTargetTransform.localScale = scale;
+            if (scaleEnabled)
+            {
+                var value = scale;
+                DuTransform.UpdateScale(transform, value, space, transformMode);
             }
         }
     }

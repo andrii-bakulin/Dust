@@ -3,10 +3,10 @@ using UnityEditor;
 
 namespace Dust.DustEditor
 {
-    [CustomEditor(typeof(TransformSetAction))]
+    [CustomEditor(typeof(TransformUpdateAction))]
     [CanEditMultipleObjects]
     [InitializeOnLoad]
-    public class TransformSetActionEditor : InstantActionEditor
+    public class TransformUpdateActionEditor : InstantActionEditor
     {
         private DuProperty m_PositionEnabled;
         private DuProperty m_RotationEnabled;
@@ -16,20 +16,22 @@ namespace Dust.DustEditor
         private DuProperty m_Rotation;
         private DuProperty m_Scale;
 
+        private DuProperty m_TransformMode;
+        
         private DuProperty m_Space;
 
         //--------------------------------------------------------------------------------------------------------------
 
-        static TransformSetActionEditor()
+        static TransformUpdateActionEditor()
         {
-            ActionsPopupButtons.AddActionTransform(typeof(TransformSetAction), "Transform Set");
+            ActionsPopupButtons.AddActionTransform(typeof(TransformUpdateAction), "Transform Update");
         }
 
-        [MenuItem("Dust/Actions/Transform Set")]
-        [MenuItem("GameObject/Dust/Actions/Transform Set")]
+        [MenuItem("Dust/Actions/Transform Update")]
+        [MenuItem("GameObject/Dust/Actions/Transform Update")]
         public static void AddComponentToSelectedObjects()
         {
-            AddComponentToSelectedOrNewObject("Transform Set Action", typeof(TransformSetAction));
+            AddComponentToSelectedOrNewObject("Transform Update Action", typeof(TransformUpdateAction));
         }
 
         //--------------------------------------------------------------------------------------------------------------
@@ -38,13 +40,15 @@ namespace Dust.DustEditor
         {
             base.InitializeEditor();
 
-            m_PositionEnabled = FindProperty("m_PositionEnabled", "Set Position");
-            m_RotationEnabled = FindProperty("m_RotationEnabled", "Set Rotation");
-            m_ScaleEnabled = FindProperty("m_ScaleEnabled", "Set Scale");
+            m_PositionEnabled = FindProperty("m_PositionEnabled", "Update Position");
+            m_RotationEnabled = FindProperty("m_RotationEnabled", "Update Rotation");
+            m_ScaleEnabled = FindProperty("m_ScaleEnabled", "Update Scale");
 
             m_Position = FindProperty("m_Position", "Position");
             m_Rotation = FindProperty("m_Rotation", "Rotation");
             m_Scale = FindProperty("m_Scale", "Scale");
+
+            m_TransformMode = FindProperty("m_TransformMode", "Transform Mode");
 
             m_Space = FindProperty("m_Space", "Space");
         }
@@ -73,13 +77,15 @@ namespace Dust.DustEditor
             }
 
             PropertyField(m_Space);
-                
             Space();
 
+            PropertyField(m_TransformMode);
+            Space();
+            
             // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-            OnInspectorGUI_Callbacks("TransformSetAction");
-            OnInspectorGUI_Extended("TransformSetAction");
+            OnInspectorGUI_Callbacks("TransformUpdateAction");
+            OnInspectorGUI_Extended("TransformUpdateAction");
 
             // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 

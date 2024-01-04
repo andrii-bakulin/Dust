@@ -25,7 +25,7 @@ namespace Dust.DustEditor
             SetGizmoIconEnabled<TintAction>(false);
             SetGizmoIconEnabled<TransformCopyAction>(false);
             SetGizmoIconEnabled<TransformRandomAction>(false);
-            SetGizmoIconEnabled<TransformSetAction>(false);
+            SetGizmoIconEnabled<TransformUpdateAction>(false);
             SetGizmoIconEnabled<UpdateHierarchyAction>(false);
             
             // Animations
