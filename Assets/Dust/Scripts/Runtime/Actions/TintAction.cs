@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace Dust
@@ -98,13 +99,14 @@ namespace Dust
             if (Dust.IsNull(m_ActiveTintUpdater))
                 return;
 
-            Color color;
+            Color color = playingPhase switch
+            {
+                PlayingPhase.Idle     => m_ActiveTintUpdater.startColor,
+                PlayingPhase.Main     => Color.Lerp(m_ActiveTintUpdater.startColor, tintColor, playbackState),
+                PlayingPhase.Rollback => Color.Lerp(tintColor, m_ActiveTintUpdater.startColor, playbackState),
+                _ => throw new ArgumentOutOfRangeException()
+            };
 
-            if (playingPhase == PlayingPhase.Main)
-                color = Color.Lerp(m_ActiveTintUpdater.startColor, tintColor, playbackState);
-            else
-                color = Color.Lerp(tintColor, m_ActiveTintUpdater.startColor, playbackState);
-            
             m_ActiveTintUpdater.Update(deltaTime, color);
         }
 
@@ -121,28 +123,33 @@ namespace Dust
 
         //--------------------------------------------------------------------------------------------------------------
         
-        private static TintMode[] autoDetectTintsSequence =
-        {
-            TintMode.MeshRenderer,
-
-            TintMode.UIImage,
-            TintMode.UIText,
-        };
-
         protected TintUpdater UniversalTintUpdater(TintMode inTintMode)
         {
+            if (inTintMode == TintMode.Auto)
+            {
+                TintMode[] autoDetectTintsSequence =
+                {
+                    TintMode.MeshRenderer,
+
+                    TintMode.UIImage,
+                    TintMode.UIText,
+                };
+                    
+                foreach (var tryTintMode in autoDetectTintsSequence)
+                {
+                    TintUpdater updater = UniversalTintUpdater(tryTintMode);
+
+                    if (Dust.IsNotNull(updater))
+                        return updater;
+                }
+
+                return null;
+            }
+            
+            // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
             switch (inTintMode)
             {
-                case TintMode.Auto:
-                    foreach (var tryTintMode in autoDetectTintsSequence)
-                    {
-                        TintUpdater updater = UniversalTintUpdater(tryTintMode);
-
-                        if (Dust.IsNotNull(updater))
-                            return updater;
-                    }
-                    return null;
-                    
                 case TintMode.MeshRenderer:
                     return MeshRendererTintUpdater.Create(this);
 
@@ -152,7 +159,7 @@ namespace Dust
                     return UITextTintUpdater.Create(this);
                 
                 default:
-                    return null;
+                    throw new ArgumentOutOfRangeException();
             }
         }
     }
