@@ -33,7 +33,7 @@ namespace Dust.DustEditor
             // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
             OnInspectorGUI_Callbacks("StartAction");
-            OnInspectorGUI_Extended("StartAction");
+            OnInspectorGUI_Extended("StartAction", true);
 
             // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
