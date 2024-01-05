@@ -190,13 +190,13 @@ namespace Dust
             if (positionEnabled)
             {
                 var value = duRandom.Range(positionRangeMin, positionRangeMax);
-                DuTransform.UpdatePosition(transform, value, space, transformMode);
+                DuTransform.UpdatePosition(activeTargetTransform, value, space, transformMode);
             }
 
             if (rotationEnabled)
             {
                 var value = duRandom.Range(rotationRangeMin, rotationRangeMax);
-                DuTransform.UpdateRotation(transform, value, space, transformMode);
+                DuTransform.UpdateRotation(activeTargetTransform, value, space, transformMode);
             }
 
             if (scaleEnabled)
@@ -204,7 +204,7 @@ namespace Dust
                 var value = scaleUniform
                     ? Vector3.Lerp(scaleRangeMin, scaleRangeMax, duRandom.Next())
                     : duRandom.Range(scaleRangeMin, scaleRangeMax);
-                DuTransform.UpdateScale(transform, value, space, transformMode);
+                DuTransform.UpdateScale(activeTargetTransform, value, space, transformMode);
             }
         }
     }
