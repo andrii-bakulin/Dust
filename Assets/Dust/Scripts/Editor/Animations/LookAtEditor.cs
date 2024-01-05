@@ -7,11 +7,11 @@ namespace Dust.DustEditor
     [CanEditMultipleObjects]
     public class LookAtEditor : DuEditor
     {
-        private DuProperty m_TargetObject;
-        private DuProperty m_UpVectorObject;
+        protected DuProperty m_TargetObject;
+        protected DuProperty m_UpVectorObject;
 
-        private DuProperty m_UpdateMode;
-        private DuProperty m_UpdateInEditor;
+        protected DuProperty m_UpdateMode;
+        protected DuProperty m_UpdateInEditor;
 
         //--------------------------------------------------------------------------------------------------------------
 

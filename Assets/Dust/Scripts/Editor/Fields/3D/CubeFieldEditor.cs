@@ -8,7 +8,7 @@ namespace Dust.DustEditor
     [InitializeOnLoad]
     public class CubeFieldEditor : SpaceObjectFieldEditor
     {
-        private DuProperty m_Size;
+        protected DuProperty m_Size;
 
         //--------------------------------------------------------------------------------------------------------------
 

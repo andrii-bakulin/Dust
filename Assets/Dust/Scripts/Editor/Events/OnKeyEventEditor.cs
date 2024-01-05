@@ -7,11 +7,11 @@ namespace Dust.DustEditor
     [CanEditMultipleObjects]
     public class OnKeyEventEditor : OnAbstractEventEditor
     {
-        private DuProperty m_KeyCode;
+        protected DuProperty m_KeyCode;
 
-        private DuProperty m_OnKeyDown;
-        private DuProperty m_OnKeyHold;
-        private DuProperty m_OnKeyUp;
+        protected DuProperty m_OnKeyDown;
+        protected DuProperty m_OnKeyHold;
+        protected DuProperty m_OnKeyUp;
 
         //--------------------------------------------------------------------------------------------------------------
 

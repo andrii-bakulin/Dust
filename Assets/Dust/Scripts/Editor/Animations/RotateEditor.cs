@@ -7,17 +7,17 @@ namespace Dust.DustEditor
     [CanEditMultipleObjects]
     public class RotateEditor : DuEditor
     {
-        private DuProperty m_Axis;
-        private DuProperty m_Speed;
-        private DuProperty m_Space;
+        protected DuProperty m_Axis;
+        protected DuProperty m_Speed;
+        protected DuProperty m_Space;
 
-        private DuProperty m_RotateAroundObject;
+        protected DuProperty m_RotateAroundObject;
 
-        private DuProperty m_UpdateMode;
+        protected DuProperty m_UpdateMode;
 
         // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-        private Rotate.Space space => (Rotate.Space) m_Space.valInt;
+        protected Rotate.Space space => (Rotate.Space) m_Space.valInt;
 
         //--------------------------------------------------------------------------------------------------------------
 

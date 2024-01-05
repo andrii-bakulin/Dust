@@ -7,21 +7,21 @@ namespace Dust.DustEditor
     [CanEditMultipleObjects]
     public class FollowEditor : DuEditor
     {
-        private DuProperty m_FollowObject;
-        private DuProperty m_FollowOffset;
+        protected DuProperty m_FollowObject;
+        protected DuProperty m_FollowOffset;
 
-        private DuProperty m_SpeedMode;
-        private DuProperty m_SpeedLimit;
+        protected DuProperty m_SpeedMode;
+        protected DuProperty m_SpeedLimit;
 
-        private DuProperty m_UseSmoothDamp;
-        private DuProperty m_SmoothTime;
+        protected DuProperty m_UseSmoothDamp;
+        protected DuProperty m_SmoothTime;
 
-        private DuProperty m_UpdateMode;
-        private DuProperty m_UpdateInEditor;
+        protected DuProperty m_UpdateMode;
+        protected DuProperty m_UpdateInEditor;
 
         // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-        private Follow.SpeedMode speedMode => (Follow.SpeedMode) m_SpeedMode.valInt;
+        protected Follow.SpeedMode speedMode => (Follow.SpeedMode) m_SpeedMode.valInt;
 
         //--------------------------------------------------------------------------------------------------------------
 

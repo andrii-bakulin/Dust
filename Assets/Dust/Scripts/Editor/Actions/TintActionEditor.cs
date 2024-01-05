@@ -10,9 +10,9 @@ namespace Dust.DustEditor
     [InitializeOnLoad]
     public class TintActionEditor : IntervalWithRollbackActionEditor
     {
-        private DuProperty m_TintColor;
-        private DuProperty m_TintMode;
-        private DuProperty m_PropertyName;
+        protected DuProperty m_TintColor;
+        protected DuProperty m_TintMode;
+        protected DuProperty m_PropertyName;
 
         protected TintAction.TintMode tintMode => (TintAction.TintMode) m_TintMode.valInt;
 

@@ -8,11 +8,11 @@ namespace Dust.DustEditor
     [InitializeOnLoad]
     public class DirectionalFieldEditor : SpaceObjectFieldEditor
     {
-        private DuProperty m_Length;
-        private DuProperty m_Direction;
+        protected DuProperty m_Length;
+        protected DuProperty m_Direction;
 
-        private DuProperty m_GizmoWidth;
-        private DuProperty m_GizmoHeight;
+        protected DuProperty m_GizmoWidth;
+        protected DuProperty m_GizmoHeight;
 
         //--------------------------------------------------------------------------------------------------------------
 

@@ -7,21 +7,21 @@ namespace Dust.DustEditor
     [CanEditMultipleObjects]
     public class RadialFactoryEditor : FactoryEditor
     {
-        private DuProperty m_Count;
-        private DuProperty m_Radius;
-        private DuProperty m_Orientation;
-        private DuProperty m_Align;
+        protected DuProperty m_Count;
+        protected DuProperty m_Radius;
+        protected DuProperty m_Orientation;
+        protected DuProperty m_Align;
 
-        private DuProperty m_LevelsCount;
-        private DuProperty m_LevelRadiusOffset;
-        private DuProperty m_DeltaCountPerLevel;
+        protected DuProperty m_LevelsCount;
+        protected DuProperty m_LevelRadiusOffset;
+        protected DuProperty m_DeltaCountPerLevel;
 
-        private DuProperty m_StartAngle;
-        private DuProperty m_EndAngle;
+        protected DuProperty m_StartAngle;
+        protected DuProperty m_EndAngle;
 
-        private DuProperty m_Offset;
-        private DuProperty m_OffsetVariation;
-        private DuProperty m_OffsetSeed;
+        protected DuProperty m_Offset;
+        protected DuProperty m_OffsetVariation;
+        protected DuProperty m_OffsetSeed;
 
         //--------------------------------------------------------------------------------------------------------------
 

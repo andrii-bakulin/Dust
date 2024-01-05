@@ -8,11 +8,11 @@ namespace Dust.DustEditor
     [InitializeOnLoad]
     public class DelayActionEditor : IntervalActionEditor
     {
-        private DuProperty m_DelayMode;
-        private DuProperty m_DurationRange;
-        private DuProperty m_Seed;
+        protected DuProperty m_DelayMode;
+        protected DuProperty m_DurationRange;
+        protected DuProperty m_Seed;
 
-        private DelayAction.DelayMode delayMode => (DelayAction.DelayMode) m_DelayMode.valInt;
+        protected DelayAction.DelayMode delayMode => (DelayAction.DelayMode) m_DelayMode.valInt;
 
         //--------------------------------------------------------------------------------------------------------------
 

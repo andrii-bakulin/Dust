@@ -6,10 +6,10 @@ namespace Dust.DustEditor
     [CanEditMultipleObjects]
     public class CylinderGizmoEditor : AbstractGizmoEditor
     {
-        private DuProperty m_Radius;
-        private DuProperty m_Height;
-        private DuProperty m_Center;
-        private DuProperty m_Direction;
+        protected DuProperty m_Radius;
+        protected DuProperty m_Height;
+        protected DuProperty m_Center;
+        protected DuProperty m_Direction;
 
         //--------------------------------------------------------------------------------------------------------------
 

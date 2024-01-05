@@ -8,9 +8,9 @@ namespace Dust.DustEditor
         protected DuProperty m_ObjectTags;
         protected DuProperty m_TagProcessingMode;
 
-        private DuProperty m_OnEnter;
-        private DuProperty m_OnStay;
-        private DuProperty m_OnExit;
+        protected DuProperty m_OnEnter;
+        protected DuProperty m_OnStay;
+        protected DuProperty m_OnExit;
 
         protected override void InitializeEditor()
         {

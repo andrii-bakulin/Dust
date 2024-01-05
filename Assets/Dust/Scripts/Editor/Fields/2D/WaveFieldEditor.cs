@@ -8,16 +8,16 @@ namespace Dust.DustEditor
     [InitializeOnLoad]
     public class WaveFieldEditor : SpaceFieldEditor
     {
-        private DuProperty m_Amplitude;
-        private DuProperty m_Size;
-        private DuProperty m_LinearFalloff;
-        private DuProperty m_Offset;
-        private DuProperty m_AnimationSpeed;
-        private DuProperty m_Direction;
+        protected DuProperty m_Amplitude;
+        protected DuProperty m_Size;
+        protected DuProperty m_LinearFalloff;
+        protected DuProperty m_Offset;
+        protected DuProperty m_AnimationSpeed;
+        protected DuProperty m_Direction;
 
-        private DuProperty m_GizmoSize;
-        private DuProperty m_GizmoQuality;
-        private DuProperty m_GizmoAnimated;
+        protected DuProperty m_GizmoSize;
+        protected DuProperty m_GizmoQuality;
+        protected DuProperty m_GizmoAnimated;
 
         //--------------------------------------------------------------------------------------------------------------
 

@@ -6,8 +6,8 @@ namespace Dust.DustEditor
     [CanEditMultipleObjects]
     public class CubeGizmoEditor : AbstractGizmoEditor
     {
-        private DuProperty m_Size;
-        private DuProperty m_Center;
+        protected DuProperty m_Size;
+        protected DuProperty m_Center;
 
         //--------------------------------------------------------------------------------------------------------------
 

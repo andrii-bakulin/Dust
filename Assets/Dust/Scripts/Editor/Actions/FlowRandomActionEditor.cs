@@ -8,9 +8,9 @@ namespace Dust.DustEditor
     [InitializeOnLoad]
     public class FlowRandomActionEditor : FlowActionEditor
     {
-        private DuProperty m_Actions;
+        protected DuProperty m_Actions;
 
-        private DuProperty m_Seed;
+        protected DuProperty m_Seed;
 
         //--------------------------------------------------------------------------------------------------------------
 

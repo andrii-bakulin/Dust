@@ -6,8 +6,8 @@ namespace Dust.DustEditor
     [CanEditMultipleObjects]
     public class SphereGizmoEditor : AbstractGizmoEditor
     {
-        private DuProperty m_Radius;
-        private DuProperty m_Center;
+        protected DuProperty m_Radius;
+        protected DuProperty m_Center;
 
         //--------------------------------------------------------------------------------------------------------------
 

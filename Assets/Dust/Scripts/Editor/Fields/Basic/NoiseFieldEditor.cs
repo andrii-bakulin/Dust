@@ -8,19 +8,19 @@ namespace Dust.DustEditor
     [InitializeOnLoad]
     public class NoiseFieldEditor : SpaceFieldEditor
     {
-        private DuProperty m_NoiseMode;
-        private DuProperty m_Seed;
+        protected DuProperty m_NoiseMode;
+        protected DuProperty m_Seed;
 
-        private DuProperty m_NoiseSpace;
-        private DuProperty m_NoiseScale;
-        private DuProperty m_NoisePower;
+        protected DuProperty m_NoiseSpace;
+        protected DuProperty m_NoiseScale;
+        protected DuProperty m_NoisePower;
 
-        private DuProperty m_AnimationSpeed;
-        private DuProperty m_AnimationOffset;
+        protected DuProperty m_AnimationSpeed;
+        protected DuProperty m_AnimationOffset;
 
-        private DuProperty m_IgnoreAxisX;
-        private DuProperty m_IgnoreAxisY;
-        private DuProperty m_IgnoreAxisZ;
+        protected DuProperty m_IgnoreAxisX;
+        protected DuProperty m_IgnoreAxisY;
+        protected DuProperty m_IgnoreAxisZ;
 
         //--------------------------------------------------------------------------------------------------------------
 

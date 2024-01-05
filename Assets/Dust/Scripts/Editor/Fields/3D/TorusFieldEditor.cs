@@ -8,9 +8,9 @@ namespace Dust.DustEditor
     [InitializeOnLoad]
     public class TorusFieldEditor : SpaceObjectFieldEditor
     {
-        private DuProperty m_Radius;
-        private DuProperty m_Thickness;
-        private DuProperty m_Direction;
+        protected DuProperty m_Radius;
+        protected DuProperty m_Thickness;
+        protected DuProperty m_Direction;
 
         //--------------------------------------------------------------------------------------------------------------
 

@@ -8,10 +8,10 @@ namespace Dust.DustEditor
     // [CanEditMultipleObjects]
     public class DebuggerEditor : DuEditor
     {
-        private DuProperty m_LogInMessageBox;
-        private DuProperty m_LogInConsole;
+        protected DuProperty m_LogInMessageBox;
+        protected DuProperty m_LogInConsole;
 
-        private DuProperty m_MessagesLimit;
+        protected DuProperty m_MessagesLimit;
 
         //--------------------------------------------------------------------------------------------------------------
 

@@ -8,15 +8,15 @@ namespace Dust.DustEditor
     [InitializeOnLoad]
     public class TextureFactoryFieldEditor : BasicFieldEditor
     {
-        private DuProperty m_Texture;
-        private DuProperty m_SpaceUVW;
+        protected DuProperty m_Texture;
+        protected DuProperty m_SpaceUVW;
 
-        private DuProperty m_FlipU;
-        private DuProperty m_FlipV;
-        private DuProperty m_FlipW;
+        protected DuProperty m_FlipU;
+        protected DuProperty m_FlipV;
+        protected DuProperty m_FlipW;
 
-        private DuProperty m_PowerSource;
-        private DuProperty m_ApplyPowerToAlpha;
+        protected DuProperty m_PowerSource;
+        protected DuProperty m_ApplyPowerToAlpha;
 
         //--------------------------------------------------------------------------------------------------------------
 

@@ -6,10 +6,10 @@ namespace Dust.DustEditor
     [CanEditMultipleObjects]
     public class MeshGizmoEditor : AbstractGizmoEditor
     {
-        private DuProperty m_Mesh;
-        private DuProperty m_Position;
-        private DuProperty m_Rotation;
-        private DuProperty m_Scale;
+        protected DuProperty m_Mesh;
+        protected DuProperty m_Position;
+        protected DuProperty m_Rotation;
+        protected DuProperty m_Scale;
 
         //--------------------------------------------------------------------------------------------------------------
 

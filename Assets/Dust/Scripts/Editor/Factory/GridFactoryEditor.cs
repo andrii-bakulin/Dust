@@ -7,12 +7,12 @@ namespace Dust.DustEditor
     [CanEditMultipleObjects]
     public class GridFactoryEditor : FactoryEditor
     {
-        private DuProperty m_Count;
-        private DuProperty m_Step;
+        protected DuProperty m_Count;
+        protected DuProperty m_Step;
 
-        private DuProperty m_OffsetDirection;
-        private DuProperty m_OffsetWidth;
-        private DuProperty m_OffsetHeight;
+        protected DuProperty m_OffsetDirection;
+        protected DuProperty m_OffsetWidth;
+        protected DuProperty m_OffsetHeight;
 
         //--------------------------------------------------------------------------------------------------------------
 

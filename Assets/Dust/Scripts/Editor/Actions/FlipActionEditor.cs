@@ -8,9 +8,9 @@ namespace Dust.DustEditor
     [InitializeOnLoad]
     public class FlipActionEditor : InstantActionEditor
     {
-        private DuProperty m_FlipX;
-        private DuProperty m_FlipY;
-        private DuProperty m_FlipZ;
+        protected DuProperty m_FlipX;
+        protected DuProperty m_FlipY;
+        protected DuProperty m_FlipZ;
 
         //--------------------------------------------------------------------------------------------------------------
 

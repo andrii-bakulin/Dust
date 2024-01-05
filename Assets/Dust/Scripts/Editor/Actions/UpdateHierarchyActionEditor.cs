@@ -8,11 +8,11 @@ namespace Dust.DustEditor
     [InitializeOnLoad]
     public class UpdateHierarchyActionEditor : InstantActionEditor
     {
-        private DuProperty m_UpdateMode;
-        private DuProperty m_OrderMode;
-        private DuProperty m_ReferenceObject;
+        protected DuProperty m_UpdateMode;
+        protected DuProperty m_OrderMode;
+        protected DuProperty m_ReferenceObject;
 
-        private UpdateHierarchyAction.UpdateMode updateMode
+        protected UpdateHierarchyAction.UpdateMode updateMode
             => (UpdateHierarchyAction.UpdateMode) m_UpdateMode.valInt;
 
         //--------------------------------------------------------------------------------------------------------------

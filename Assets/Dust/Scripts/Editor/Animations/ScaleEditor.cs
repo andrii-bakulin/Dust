@@ -7,12 +7,12 @@ namespace Dust.DustEditor
     [CanEditMultipleObjects]
     public class ScaleEditor : DuEditor
     {
-        private DuProperty m_DeltaScale;
-        private DuProperty m_Speed;
+        protected DuProperty m_DeltaScale;
+        protected DuProperty m_Speed;
 
-        private DuProperty m_Freeze;
+        protected DuProperty m_Freeze;
 
-        private DuProperty m_UpdateMode;
+        protected DuProperty m_UpdateMode;
 
         //--------------------------------------------------------------------------------------------------------------
 

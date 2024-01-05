@@ -7,25 +7,25 @@ namespace Dust.DustEditor
     [CanEditMultipleObjects]
     public class PulsateEditor : DuEditor
     {
-        private DuProperty m_Power;
-        private DuProperty m_SleepTime;
-        private DuProperty m_Freeze;
+        protected DuProperty m_Power;
+        protected DuProperty m_SleepTime;
+        protected DuProperty m_Freeze;
 
-        private DuProperty m_PositionEnabled;
-        private DuProperty m_PositionAmplitude;
-        private DuProperty m_PositionSpeed;
+        protected DuProperty m_PositionEnabled;
+        protected DuProperty m_PositionAmplitude;
+        protected DuProperty m_PositionSpeed;
 
-        private DuProperty m_RotationEnabled;
-        private DuProperty m_RotationAmplitude;
-        private DuProperty m_RotationSpeed;
+        protected DuProperty m_RotationEnabled;
+        protected DuProperty m_RotationAmplitude;
+        protected DuProperty m_RotationSpeed;
 
-        private DuProperty m_ScaleEnabled;
-        private DuProperty m_ScaleAmplitude;
-        private DuProperty m_ScaleSpeed;
+        protected DuProperty m_ScaleEnabled;
+        protected DuProperty m_ScaleAmplitude;
+        protected DuProperty m_ScaleSpeed;
 
-        private DuProperty m_EaseMode;
-        private DuProperty m_TransformMode;
-        private DuProperty m_UpdateMode;
+        protected DuProperty m_EaseMode;
+        protected DuProperty m_TransformMode;
+        protected DuProperty m_UpdateMode;
 
         //--------------------------------------------------------------------------------------------------------------
 

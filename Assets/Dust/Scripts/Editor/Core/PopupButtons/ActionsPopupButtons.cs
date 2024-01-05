@@ -5,7 +5,7 @@ namespace Dust.DustEditor
 {
     public class ActionsPopupButtons : PopupButtons
     {
-        private Action m_Action;
+        protected Action m_Action;
 
         //--------------------------------------------------------------------------------------------------------------
 

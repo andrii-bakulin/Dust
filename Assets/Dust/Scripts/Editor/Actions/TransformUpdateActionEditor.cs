@@ -8,17 +8,17 @@ namespace Dust.DustEditor
     [InitializeOnLoad]
     public class TransformUpdateActionEditor : InstantActionEditor
     {
-        private DuProperty m_PositionEnabled;
-        private DuProperty m_RotationEnabled;
-        private DuProperty m_ScaleEnabled;
+        protected DuProperty m_PositionEnabled;
+        protected DuProperty m_RotationEnabled;
+        protected DuProperty m_ScaleEnabled;
 
-        private DuProperty m_Position;
-        private DuProperty m_Rotation;
-        private DuProperty m_Scale;
+        protected DuProperty m_Position;
+        protected DuProperty m_Rotation;
+        protected DuProperty m_Scale;
 
-        private DuProperty m_TransformMode;
+        protected DuProperty m_TransformMode;
         
-        private DuProperty m_Space;
+        protected DuProperty m_Space;
 
         //--------------------------------------------------------------------------------------------------------------
 

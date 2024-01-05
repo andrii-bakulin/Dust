@@ -5,7 +5,7 @@ namespace Dust.DustEditor
 {
     public class FactoryMachinesPopupButtons : PopupButtons
     {
-        private FactoryEditor m_Factory;
+        protected FactoryEditor m_Factory;
 
         //--------------------------------------------------------------------------------------------------------------
 

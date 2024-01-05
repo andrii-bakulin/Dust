@@ -8,7 +8,7 @@ namespace Dust.DustEditor
     [InitializeOnLoad]
     public class SphereFieldEditor : SpaceObjectFieldEditor
     {
-        private DuProperty m_Radius;
+        protected DuProperty m_Radius;
 
         //--------------------------------------------------------------------------------------------------------------
 

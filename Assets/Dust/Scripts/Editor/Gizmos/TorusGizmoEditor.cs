@@ -6,10 +6,10 @@ namespace Dust.DustEditor
     [CanEditMultipleObjects]
     public class TorusGizmoEditor : AbstractGizmoEditor
     {
-        private DuProperty m_Radius;
-        private DuProperty m_Thickness;
-        private DuProperty m_Center;
-        private DuProperty m_Direction;
+        protected DuProperty m_Radius;
+        protected DuProperty m_Thickness;
+        protected DuProperty m_Center;
+        protected DuProperty m_Direction;
 
         //--------------------------------------------------------------------------------------------------------------
 

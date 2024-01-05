@@ -7,13 +7,13 @@ namespace Dust.DustEditor
     [CanEditMultipleObjects]
     public class LinearFactoryEditor : FactoryEditor
     {
-        private DuProperty m_Count;
-        private DuProperty m_Offset;
-        private DuProperty m_Amount;
-        private DuProperty m_Position;
-        private DuProperty m_Rotation;
-        private DuProperty m_Scale;
-        private DuProperty m_StepRotation;
+        protected DuProperty m_Count;
+        protected DuProperty m_Offset;
+        protected DuProperty m_Amount;
+        protected DuProperty m_Position;
+        protected DuProperty m_Rotation;
+        protected DuProperty m_Scale;
+        protected DuProperty m_StepRotation;
 
         //--------------------------------------------------------------------------------------------------------------
 

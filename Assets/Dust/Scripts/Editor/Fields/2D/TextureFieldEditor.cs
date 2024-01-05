@@ -8,18 +8,18 @@ namespace Dust.DustEditor
     [InitializeOnLoad]
     public class TextureFieldEditor : SpaceFieldEditor
     {
-        private DuProperty m_Texture;
-        private DuProperty m_WrapMode;
+        protected DuProperty m_Texture;
+        protected DuProperty m_WrapMode;
 
-        private DuProperty m_Width;
-        private DuProperty m_Height;
-        private DuProperty m_Direction;
+        protected DuProperty m_Width;
+        protected DuProperty m_Height;
+        protected DuProperty m_Direction;
 
-        private DuProperty m_FlipX;
-        private DuProperty m_FlipY;
+        protected DuProperty m_FlipX;
+        protected DuProperty m_FlipY;
 
-        private DuProperty m_PowerSource;
-        private DuProperty m_ApplyPowerToAlpha;
+        protected DuProperty m_PowerSource;
+        protected DuProperty m_ApplyPowerToAlpha;
 
         //--------------------------------------------------------------------------------------------------------------
 

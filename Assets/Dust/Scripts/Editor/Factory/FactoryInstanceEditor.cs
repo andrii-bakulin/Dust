@@ -7,21 +7,21 @@ namespace Dust.DustEditor
     // [CanEditMultipleObjects] -> Cannot!
     public class FactoryInstanceEditor : DuEditor
     {
-        private DuProperty m_UpdatePosition;
-        private DuProperty m_UpdateRotation;
-        private DuProperty m_UpdateScale;
+        protected DuProperty m_UpdatePosition;
+        protected DuProperty m_UpdateRotation;
+        protected DuProperty m_UpdateScale;
 
-        private DuProperty m_Index;
-        private DuProperty m_Offset;
-        private DuProperty m_RandomScalar;
-        private DuProperty m_RandomVector;
-        private DuProperty m_MaterialReferences;
+        protected DuProperty m_Index;
+        protected DuProperty m_Offset;
+        protected DuProperty m_RandomScalar;
+        protected DuProperty m_RandomVector;
+        protected DuProperty m_MaterialReferences;
 
-        private DuProperty m_ParentFactory;
-        private DuProperty m_PrevInstance;
-        private DuProperty m_NextInstance;
+        protected DuProperty m_ParentFactory;
+        protected DuProperty m_PrevInstance;
+        protected DuProperty m_NextInstance;
 
-        private DuProperty m_OnInstanceUpdate;
+        protected DuProperty m_OnInstanceUpdate;
 
         //--------------------------------------------------------------------------------------------------------------
 

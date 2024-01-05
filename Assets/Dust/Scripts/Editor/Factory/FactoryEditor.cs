@@ -6,33 +6,33 @@ namespace Dust.DustEditor
 {
     public abstract class FactoryEditor : DuEditor
     {
-        private DuProperty m_SourceObjects;
-        private DuProperty m_IterateMode;
-        private DuProperty m_Seed;
+        protected DuProperty m_SourceObjects;
+        protected DuProperty m_IterateMode;
+        protected DuProperty m_Seed;
 
-        private DuProperty m_DefaultValue;
-        private DuProperty m_DefaultColor;
-        private DuProperty m_FactoryMachines;
+        protected DuProperty m_DefaultValue;
+        protected DuProperty m_DefaultColor;
+        protected DuProperty m_FactoryMachines;
 
-        private DuProperty m_TransformSpace;
-        private DuProperty m_TransformSequence;
-        private DuProperty m_TransformPosition;
-        private DuProperty m_TransformRotation;
-        private DuProperty m_TransformScale;
-        private DuProperty m_TransformApplyDefaultScale;
+        protected DuProperty m_TransformSpace;
+        protected DuProperty m_TransformSequence;
+        protected DuProperty m_TransformPosition;
+        protected DuProperty m_TransformRotation;
+        protected DuProperty m_TransformScale;
+        protected DuProperty m_TransformApplyDefaultScale;
 
-        private DuProperty m_InstanceAccessMode;
-        private DuProperty m_InstanceTypeMode;
-        private DuProperty m_InstancesHolder;
-        private DuProperty m_InstancesFillRate;
-        private DuProperty m_InstancesFillSeed;
-        private DuProperty m_ForcedSetActive;
-        private DuProperty m_ForcedUpdateEachFrame;
+        protected DuProperty m_InstanceAccessMode;
+        protected DuProperty m_InstanceTypeMode;
+        protected DuProperty m_InstancesHolder;
+        protected DuProperty m_InstancesFillRate;
+        protected DuProperty m_InstancesFillSeed;
+        protected DuProperty m_ForcedSetActive;
+        protected DuProperty m_ForcedUpdateEachFrame;
 
-        private DuProperty m_InspectorDisplay;
-        private DuProperty m_InspectorScale;
+        protected DuProperty m_InspectorDisplay;
+        protected DuProperty m_InspectorScale;
 
-        private DuProperty m_AutoRebuildOnPrefabUpdated;
+        protected DuProperty m_AutoRebuildOnPrefabUpdated;
 
         // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 

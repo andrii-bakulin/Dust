@@ -8,18 +8,18 @@ namespace Dust.DustEditor
     [InitializeOnLoad]
     public class RadialFieldEditor : SpaceFieldEditor
     {
-        private DuProperty m_StartAngle;
-        private DuProperty m_EndAngle;
+        protected DuProperty m_StartAngle;
+        protected DuProperty m_EndAngle;
 
-        private DuProperty m_FadeInOffset;
-        private DuProperty m_FadeOutOffset;
+        protected DuProperty m_FadeInOffset;
+        protected DuProperty m_FadeOutOffset;
 
-        private DuProperty m_Iterations;
-        private DuProperty m_Offset;
+        protected DuProperty m_Iterations;
+        protected DuProperty m_Offset;
 
-        private DuProperty m_Direction;
+        protected DuProperty m_Direction;
 
-        private DuProperty m_GizmoRadius;
+        protected DuProperty m_GizmoRadius;
 
         //--------------------------------------------------------------------------------------------------------------
 

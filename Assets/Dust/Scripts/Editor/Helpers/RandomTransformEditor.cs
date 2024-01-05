@@ -7,24 +7,24 @@ namespace Dust.DustEditor
     [CanEditMultipleObjects]
     public class RandomTransformEditor : DuEditor
     {
-        private DuProperty m_PositionEnabled;
-        private DuProperty m_PositionRangeMin;
-        private DuProperty m_PositionRangeMax;
+        protected DuProperty m_PositionEnabled;
+        protected DuProperty m_PositionRangeMin;
+        protected DuProperty m_PositionRangeMax;
 
-        private DuProperty m_RotationEnabled;
-        private DuProperty m_RotationRangeMin;
-        private DuProperty m_RotationRangeMax;
+        protected DuProperty m_RotationEnabled;
+        protected DuProperty m_RotationRangeMin;
+        protected DuProperty m_RotationRangeMax;
 
-        private DuProperty m_ScaleEnabled;
-        private DuProperty m_ScaleRangeMin;
-        private DuProperty m_ScaleRangeMax;
-        private DuProperty m_ScaleUniform;
+        protected DuProperty m_ScaleEnabled;
+        protected DuProperty m_ScaleRangeMin;
+        protected DuProperty m_ScaleRangeMax;
+        protected DuProperty m_ScaleUniform;
 
-        private DuProperty m_ActivateMode;
-        private DuProperty m_TransformMode;
-        private DuProperty m_Space;
+        protected DuProperty m_ActivateMode;
+        protected DuProperty m_TransformMode;
+        protected DuProperty m_Space;
 
-        private DuProperty m_Seed;
+        protected DuProperty m_Seed;
 
         //--------------------------------------------------------------------------------------------------------------
 

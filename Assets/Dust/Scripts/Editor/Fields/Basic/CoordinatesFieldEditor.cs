@@ -8,19 +8,19 @@ namespace Dust.DustEditor
     [InitializeOnLoad]
     public class CoordinatesFieldEditor : SpaceFieldEditor
     {
-        private DuProperty m_PowerEnabled;
-        private DuProperty m_PowerUseAxisX;
-        private DuProperty m_PowerUseAxisY;
-        private DuProperty m_PowerUseAxisZ;
-        private DuProperty m_PowerScale;
-        private DuProperty m_PowerAggregate;
-        private DuProperty m_PowerMin;
-        private DuProperty m_PowerMax;
-        private DuProperty m_PowerShape;
+        protected DuProperty m_PowerEnabled;
+        protected DuProperty m_PowerUseAxisX;
+        protected DuProperty m_PowerUseAxisY;
+        protected DuProperty m_PowerUseAxisZ;
+        protected DuProperty m_PowerScale;
+        protected DuProperty m_PowerAggregate;
+        protected DuProperty m_PowerMin;
+        protected DuProperty m_PowerMax;
+        protected DuProperty m_PowerShape;
 
-        private DuProperty m_ColorEnabled;
-        private DuProperty m_ColorScale;
-        private DuProperty m_ColorShape;
+        protected DuProperty m_ColorEnabled;
+        protected DuProperty m_ColorScale;
+        protected DuProperty m_ColorShape;
 
         //--------------------------------------------------------------------------------------------------------------
 

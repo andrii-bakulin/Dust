@@ -8,12 +8,12 @@ namespace Dust.DustEditor
     [InitializeOnLoad]
     public class RotateByActionEditor : IntervalWithRollbackActionEditor
     {
-        private DuProperty m_RotateBy;
-        private DuProperty m_Space;
+        protected DuProperty m_RotateBy;
+        protected DuProperty m_Space;
 
-        private DuProperty m_ImproveAccuracy;
-        private DuProperty m_ImproveAccuracyThreshold;
-        private DuProperty m_ImproveAccuracyMaxIterations;
+        protected DuProperty m_ImproveAccuracy;
+        protected DuProperty m_ImproveAccuracyThreshold;
+        protected DuProperty m_ImproveAccuracyMaxIterations;
 
         //--------------------------------------------------------------------------------------------------------------
 

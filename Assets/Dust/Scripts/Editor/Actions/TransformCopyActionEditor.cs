@@ -8,12 +8,12 @@ namespace Dust.DustEditor
     [InitializeOnLoad]
     public class TransformCopyActionEditor : InstantActionEditor
     {
-        private DuProperty m_Position;
-        private DuProperty m_Rotation;
-        private DuProperty m_Scale;
+        protected DuProperty m_Position;
+        protected DuProperty m_Rotation;
+        protected DuProperty m_Scale;
 
-        private DuProperty m_SourceObject;
-        private DuProperty m_Space;
+        protected DuProperty m_SourceObject;
+        protected DuProperty m_Space;
 
         //--------------------------------------------------------------------------------------------------------------
 

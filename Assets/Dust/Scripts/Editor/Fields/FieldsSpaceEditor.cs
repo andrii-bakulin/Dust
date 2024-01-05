@@ -6,8 +6,8 @@ namespace Dust.DustEditor
     [CustomEditor(typeof(FieldsSpace))]
     public class FieldsSpaceEditor : DuEditor
     {
-        private DuProperty m_CalculatePower;
-        private DuProperty m_CalculateColor;
+        protected DuProperty m_CalculatePower;
+        protected DuProperty m_CalculateColor;
 
         private FieldsMapEditor m_FieldsMapEditor;
 

@@ -7,20 +7,20 @@ namespace Dust.DustEditor
     [CanEditMultipleObjects]
     public class DestroyerEditor : DuEditor
     {
-        private DuProperty m_DestroyMode;
+        protected DuProperty m_DestroyMode;
 
-        private DuProperty m_Timeout;
-        private DuProperty m_TimeoutRange;
+        protected DuProperty m_Timeout;
+        protected DuProperty m_TimeoutRange;
 
-        private DuProperty m_VolumeCenterMode;
-        private DuProperty m_VolumeCenter;
-        private DuProperty m_VolumeOffset;
-        private DuProperty m_VolumeSize;
-        private DuProperty m_VolumeSourceCenter;
+        protected DuProperty m_VolumeCenterMode;
+        protected DuProperty m_VolumeCenter;
+        protected DuProperty m_VolumeOffset;
+        protected DuProperty m_VolumeSize;
+        protected DuProperty m_VolumeSourceCenter;
 
-        private DuProperty m_DisableColliders;
+        protected DuProperty m_DisableColliders;
 
-        private DuProperty m_OnDestroy;
+        protected DuProperty m_OnDestroy;
 
         private Destroyer.DestroyMode destroyMode => (Destroyer.DestroyMode) m_DestroyMode.valInt;
 

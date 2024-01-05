@@ -8,9 +8,9 @@ namespace Dust.DustEditor
     [InitializeOnLoad]
     public class DestroyActionEditor : InstantActionEditor
     {
-        private DuProperty m_ApplyToSelf;
-        private DuProperty m_GameObjects;
-        private DuProperty m_Components;
+        protected DuProperty m_ApplyToSelf;
+        protected DuProperty m_GameObjects;
+        protected DuProperty m_Components;
 
         //--------------------------------------------------------------------------------------------------------------
 

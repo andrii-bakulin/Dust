@@ -8,15 +8,15 @@ namespace Dust.DustEditor
     [InitializeOnLoad]
     public class ActivateActionEditor : InstantActionEditor
     {
-        private DuProperty m_ActivationMode;
+        protected DuProperty m_ActivationMode;
 
-        private DuProperty m_ApplyToSelf;
-        private DuProperty m_GameObjects;
-        private DuProperty m_Components;
+        protected DuProperty m_ApplyToSelf;
+        protected DuProperty m_GameObjects;
+        protected DuProperty m_Components;
 
-        private DuProperty m_Seed;
+        protected DuProperty m_Seed;
 
-        private ActivateAction.ActivationMode activationMode => (ActivateAction.ActivationMode) m_ActivationMode.valInt;
+        protected ActivateAction.ActivationMode activationMode => (ActivateAction.ActivationMode) m_ActivationMode.valInt;
 
         //--------------------------------------------------------------------------------------------------------------
 

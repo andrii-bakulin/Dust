@@ -6,23 +6,23 @@ namespace Dust.DustEditor
     [CanEditMultipleObjects]
     public class TriggerGizmoEditor : AbstractGizmoEditor
     {
-        private DuProperty m_Size;
+        protected DuProperty m_Size;
 
-        private DuProperty m_TriggeredColor;
-        private DuProperty m_TriggeredSize;
+        protected DuProperty m_TriggeredColor;
+        protected DuProperty m_TriggeredSize;
 
-        private DuProperty m_ShowMessage;
-        private DuProperty m_HideMessageOnIdleState;
-        private DuProperty m_Message;
-        private DuProperty m_MessagePosition;
-        private DuProperty m_MessageOffset;
-        private DuProperty m_MessageSize;
-        private DuProperty m_MessageSizeInDepth;
+        protected DuProperty m_ShowMessage;
+        protected DuProperty m_HideMessageOnIdleState;
+        protected DuProperty m_Message;
+        protected DuProperty m_MessagePosition;
+        protected DuProperty m_MessageOffset;
+        protected DuProperty m_MessageSize;
+        protected DuProperty m_MessageSizeInDepth;
 
-        private DuProperty m_FalloffDuration;
-        private DuProperty m_Center;
+        protected DuProperty m_FalloffDuration;
+        protected DuProperty m_Center;
 
-        private DuProperty m_DebugLog;
+        protected DuProperty m_DebugLog;
 
         //--------------------------------------------------------------------------------------------------------------
 

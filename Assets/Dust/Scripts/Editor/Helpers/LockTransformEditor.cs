@@ -7,15 +7,15 @@ namespace Dust.DustEditor
     [CanEditMultipleObjects]
     public class LockTransformEditor : DuEditor
     {
-        private DuProperty m_LockPosition;
-        private DuProperty m_LockRotation;
-        private DuProperty m_LockScale;
+        protected DuProperty m_LockPosition;
+        protected DuProperty m_LockRotation;
+        protected DuProperty m_LockScale;
 
-        private DuProperty m_Position;
-        private DuProperty m_Rotation;
-        private DuProperty m_Scale;
+        protected DuProperty m_Position;
+        protected DuProperty m_Rotation;
+        protected DuProperty m_Scale;
 
-        private DuProperty m_Space;
+        protected DuProperty m_Space;
 
         //--------------------------------------------------------------------------------------------------------------
 

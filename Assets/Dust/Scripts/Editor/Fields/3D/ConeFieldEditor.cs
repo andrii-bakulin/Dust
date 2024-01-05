@@ -8,9 +8,9 @@ namespace Dust.DustEditor
     [InitializeOnLoad]
     public class ConeFieldEditor : SpaceObjectFieldEditor
     {
-        private DuProperty m_Height;
-        private DuProperty m_Radius;
-        private DuProperty m_Direction;
+        protected DuProperty m_Height;
+        protected DuProperty m_Radius;
+        protected DuProperty m_Direction;
 
         //--------------------------------------------------------------------------------------------------------------
 

@@ -8,24 +8,24 @@ namespace Dust.DustEditor
     [InitializeOnLoad]
     public class SpawnActionEditor : InstantActionEditor
     {
-        private DuProperty m_SpawnObjects;
-        private DuProperty m_SpawnObjectsIterate;
-        private DuProperty m_SpawnObjectsSeed;
+        protected DuProperty m_SpawnObjects;
+        protected DuProperty m_SpawnObjectsIterate;
+        protected DuProperty m_SpawnObjectsSeed;
 
-        private DuProperty m_SpawnPointMode;
-        private DuProperty m_SpawnPoints;
-        private DuProperty m_SpawnPointsIterate;
-        private DuProperty m_SpawnPointsSeed;
+        protected DuProperty m_SpawnPointMode;
+        protected DuProperty m_SpawnPoints;
+        protected DuProperty m_SpawnPointsIterate;
+        protected DuProperty m_SpawnPointsSeed;
 
-        private DuProperty m_MultipleSpawnEnabled;
-        private DuProperty m_MultipleSpawnCount;
-        private DuProperty m_MultipleSpawnSeed;
+        protected DuProperty m_MultipleSpawnEnabled;
+        protected DuProperty m_MultipleSpawnCount;
+        protected DuProperty m_MultipleSpawnSeed;
 
-        private DuProperty m_ParentMode;
+        protected DuProperty m_ParentMode;
 
-        private DuProperty m_ResetPosition;
-        private DuProperty m_ResetRotation;
-        private DuProperty m_ResetScale;
+        protected DuProperty m_ResetPosition;
+        protected DuProperty m_ResetRotation;
+        protected DuProperty m_ResetScale;
 
         //--------------------------------------------------------------------------------------------------------------
 

@@ -5,7 +5,7 @@ namespace Dust.DustEditor
 {
     public class FieldsPopupButtons : PopupButtons
     {
-        private FieldsMapEditor m_FieldsMap;
+        protected FieldsMapEditor m_FieldsMap;
 
         //--------------------------------------------------------------------------------------------------------------
 

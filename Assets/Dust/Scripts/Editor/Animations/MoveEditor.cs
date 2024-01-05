@@ -7,18 +7,18 @@ namespace Dust.DustEditor
     [CanEditMultipleObjects]
     public class MoveEditor : DuEditor
     {
-        private DuProperty m_TranslateType;
+        protected DuProperty m_TranslateType;
 
-        private DuProperty m_LinearSpeed;
+        protected DuProperty m_LinearSpeed;
 
-        private DuProperty m_WaveAmplitude;
-        private DuProperty m_WaveSpeed;
-        private DuProperty m_WaveOffset;
+        protected DuProperty m_WaveAmplitude;
+        protected DuProperty m_WaveSpeed;
+        protected DuProperty m_WaveOffset;
 
-        private DuProperty m_Space;
-        private DuProperty m_Freeze;
+        protected DuProperty m_Space;
+        protected DuProperty m_Freeze;
 
-        private DuProperty m_UpdateMode;
+        protected DuProperty m_UpdateMode;
 
         //--------------------------------------------------------------------------------------------------------------
 

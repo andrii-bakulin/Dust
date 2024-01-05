@@ -7,11 +7,11 @@ namespace Dust.DustEditor
     [CanEditMultipleObjects]
     public class OnMouseEventEditor : OnAbstractEventEditor
     {
-        private DuProperty m_MouseButtonIndex;
+        protected DuProperty m_MouseButtonIndex;
 
-        private DuProperty m_OnMouseButtonDown;
-        private DuProperty m_OnMouseButtonHold;
-        private DuProperty m_OnMouseButtonUp;
+        protected DuProperty m_OnMouseButtonDown;
+        protected DuProperty m_OnMouseButtonHold;
+        protected DuProperty m_OnMouseButtonUp;
 
         //--------------------------------------------------------------------------------------------------------------
 

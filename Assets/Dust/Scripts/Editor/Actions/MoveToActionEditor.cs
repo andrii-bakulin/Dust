@@ -8,8 +8,8 @@ namespace Dust.DustEditor
     [InitializeOnLoad]
     public class MoveToActionEditor : IntervalWithRollbackActionEditor
     {
-        private DuProperty m_MoveTo;
-        private DuProperty m_Space;
+        protected DuProperty m_MoveTo;
+        protected DuProperty m_Space;
 
         //--------------------------------------------------------------------------------------------------------------
 

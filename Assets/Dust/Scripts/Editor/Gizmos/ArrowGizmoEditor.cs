@@ -18,12 +18,12 @@ namespace Dust.DustEditor
             "Back (0, 0, -1)",
         };
 
-        private DuProperty m_Direction;
-        private DuProperty m_StartPosition;
-        private DuProperty m_Size;
+        protected DuProperty m_Direction;
+        protected DuProperty m_StartPosition;
+        protected DuProperty m_Size;
 
-        private DuProperty m_AxisColorMode;
-        private DuProperty m_ShowStartPoint;
+        protected DuProperty m_AxisColorMode;
+        protected DuProperty m_ShowStartPoint;
 
         //--------------------------------------------------------------------------------------------------------------
 

@@ -7,25 +7,25 @@ namespace Dust.DustEditor
     [CanEditMultipleObjects]
     public class FieldGizmoEditor : AbstractGizmoEditor
     {
-        private DuProperty m_SourceType;
-        private DuProperty m_Field;
-        private DuProperty m_FieldsSpace;
+        protected DuProperty m_SourceType;
+        protected DuProperty m_Field;
+        protected DuProperty m_FieldsSpace;
 
-        private DuProperty m_GridSize;
-        private DuProperty m_GridOffset;
-        private DuProperty m_GridPointsCount;
+        protected DuProperty m_GridSize;
+        protected DuProperty m_GridOffset;
+        protected DuProperty m_GridPointsCount;
 
-        private DuProperty m_PowerVisible;
-        private DuProperty m_PowerSize;
-        private DuProperty m_PowerDotsVisible;
-        private DuProperty m_PowerDotsSize;
-        private DuProperty m_PowerDotsColor;
-        private DuProperty m_PowerImpactOnDotsSize;
+        protected DuProperty m_PowerVisible;
+        protected DuProperty m_PowerSize;
+        protected DuProperty m_PowerDotsVisible;
+        protected DuProperty m_PowerDotsSize;
+        protected DuProperty m_PowerDotsColor;
+        protected DuProperty m_PowerImpactOnDotsSize;
 
-        private DuProperty m_ColorVisible;
-        private DuProperty m_ColorSize;
-        private DuProperty m_PowerImpactOnColorSize;
-        private DuProperty m_ColorAllowTransparent;
+        protected DuProperty m_ColorVisible;
+        protected DuProperty m_ColorSize;
+        protected DuProperty m_PowerImpactOnColorSize;
+        protected DuProperty m_ColorAllowTransparent;
 
         //--------------------------------------------------------------------------------------------------------------
 

@@ -8,8 +8,8 @@ namespace Dust.DustEditor
     [InitializeOnLoad]
     public class ScaleByActionEditor : IntervalWithRollbackActionEditor
     {
-        private DuProperty m_ScaleBy;
-        private DuProperty m_Space;
+        protected DuProperty m_ScaleBy;
+        protected DuProperty m_Space;
 
         //--------------------------------------------------------------------------------------------------------------
 
