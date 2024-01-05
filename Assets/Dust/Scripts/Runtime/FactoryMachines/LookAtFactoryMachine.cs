@@ -34,7 +34,7 @@ namespace Dust
         }
 
         [SerializeField]
-        private GameObject m_TargetObject = null;
+        private GameObject m_TargetObject;
         public GameObject targetObject
         {
             get => m_TargetObject;
@@ -52,7 +52,7 @@ namespace Dust
         }
 
         [SerializeField]
-        private GameObject m_UpVectorObject = null;
+        private GameObject m_UpVectorObject;
         public GameObject upVectorObject
         {
             get => m_UpVectorObject;
@@ -62,7 +62,7 @@ namespace Dust
         // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
         [SerializeField]
-        private bool m_LockAxisX = false;
+        private bool m_LockAxisX;
         public bool lockAxisX
         {
             get => m_LockAxisX;
@@ -70,7 +70,7 @@ namespace Dust
         }
 
         [SerializeField]
-        private bool m_LockAxisY = false;
+        private bool m_LockAxisY;
         public bool lockAxisY
         {
             get => m_LockAxisY;
@@ -78,7 +78,7 @@ namespace Dust
         }
 
         [SerializeField]
-        private bool m_LockAxisZ = false;
+        private bool m_LockAxisZ;
         public bool lockAxisZ
         {
             get => m_LockAxisZ;

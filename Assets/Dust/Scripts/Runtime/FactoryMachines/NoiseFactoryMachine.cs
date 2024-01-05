@@ -36,7 +36,7 @@ namespace Dust
         //--------------------------------------------------------------------------------------------------------------
 
         [SerializeField]
-        protected float m_Min = 0.0f;
+        protected float m_Min;
         public float min
         {
             get => m_Min;
@@ -70,7 +70,7 @@ namespace Dust
         }
 
         [SerializeField]
-        private float m_AnimationSpeed = 0f;
+        private float m_AnimationSpeed;
         public float animationSpeed
         {
             get => m_AnimationSpeed;
@@ -78,7 +78,7 @@ namespace Dust
         }
 
         [SerializeField]
-        private float m_AnimationOffset = 0f;
+        private float m_AnimationOffset;
         public float animationOffset
         {
             get => m_AnimationOffset;
@@ -86,7 +86,7 @@ namespace Dust
         }
 
         [SerializeField]
-        private bool m_Synchronized = false;
+        private bool m_Synchronized;
         public bool synchronized
         {
             get => m_Synchronized;

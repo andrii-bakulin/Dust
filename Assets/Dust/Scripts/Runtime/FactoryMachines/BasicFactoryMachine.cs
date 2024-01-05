@@ -35,7 +35,7 @@ namespace Dust
         //--------------------------------------------------------------------------------------------------------------
 
         [SerializeField]
-        protected bool m_ValueImpactEnabled = false;
+        protected bool m_ValueImpactEnabled;
         public bool valueImpactEnabled
         {
             get => m_ValueImpactEnabled;
@@ -59,7 +59,7 @@ namespace Dust
         }
 
         [SerializeField]
-        protected bool m_ValueClampEnabled = false;
+        protected bool m_ValueClampEnabled;
         public bool valueClampEnabled
         {
             get => m_ValueClampEnabled;
@@ -67,7 +67,7 @@ namespace Dust
         }
 
         [SerializeField]
-        protected float m_ValueClampMin = 0f;
+        protected float m_ValueClampMin;
         public float valueClampMin
         {
             get => m_ValueClampMin;
@@ -85,7 +85,7 @@ namespace Dust
         // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
         [SerializeField]
-        protected bool m_ColorImpactEnabled = false;
+        protected bool m_ColorImpactEnabled;
         public bool colorImpactEnabled
         {
             get => m_ColorImpactEnabled;

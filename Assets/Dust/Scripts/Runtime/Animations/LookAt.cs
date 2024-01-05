@@ -7,7 +7,7 @@ namespace Dust
     public class LookAt : DuMonoBehaviour
     {
         [SerializeField]
-        private GameObject m_TargetObject = null;
+        private GameObject m_TargetObject;
         public GameObject targetObject
         {
             get => m_TargetObject;
@@ -15,7 +15,7 @@ namespace Dust
         }
 
         [SerializeField]
-        private GameObject m_UpVectorObject = null;
+        private GameObject m_UpVectorObject;
         public GameObject upVectorObject
         {
             get => m_UpVectorObject;

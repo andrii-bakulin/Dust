@@ -6,7 +6,7 @@ namespace Dust
     public class TransformRandomAction : InstantAction
     {
         [SerializeField]
-        private bool m_PositionEnabled = false;
+        private bool m_PositionEnabled;
         public bool positionEnabled
         {
             get => m_PositionEnabled;
@@ -44,7 +44,7 @@ namespace Dust
         // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
         [SerializeField]
-        private bool m_RotationEnabled = false;
+        private bool m_RotationEnabled;
         public bool rotationEnabled
         {
             get => m_RotationEnabled;
@@ -82,7 +82,7 @@ namespace Dust
         // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
         [SerializeField]
-        private bool m_ScaleEnabled = false;
+        private bool m_ScaleEnabled;
         public bool scaleEnabled
         {
             get => m_ScaleEnabled;
@@ -158,7 +158,7 @@ namespace Dust
         // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
         [SerializeField]
-        private int m_Seed = 0;
+        private int m_Seed;
         public int seed
         {
             get => m_Seed;

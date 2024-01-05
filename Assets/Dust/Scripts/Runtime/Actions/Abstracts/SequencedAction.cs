@@ -6,7 +6,7 @@ namespace Dust
     public abstract class SequencedAction : Action
     {
         [SerializeField]
-        protected List<Action> m_OnCompleteActions = null;
+        protected List<Action> m_OnCompleteActions;
         public List<Action> onCompleteActions
         {
             get

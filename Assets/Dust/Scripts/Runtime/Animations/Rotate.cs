@@ -40,7 +40,7 @@ namespace Dust
         }
 
         [SerializeField]
-        private GameObject m_RotateAroundObject = null;
+        private GameObject m_RotateAroundObject;
         public GameObject rotateAroundObject
         {
             get => m_RotateAroundObject;

@@ -55,7 +55,7 @@ namespace Dust
         // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
         [SerializeField]
-        private bool m_ShowMessage = false;
+        private bool m_ShowMessage;
         public bool showMessage
         {
             get => m_ShowMessage;
@@ -63,7 +63,7 @@ namespace Dust
         }
 
         [SerializeField]
-        private bool m_HideMessageOnIdleState = false;
+        private bool m_HideMessageOnIdleState;
         public bool hideMessageOnIdleState
         {
             get => m_HideMessageOnIdleState;
@@ -103,7 +103,7 @@ namespace Dust
         }
 
         [SerializeField]
-        private bool m_MessageSizeInDepth = false;
+        private bool m_MessageSizeInDepth;
         public bool messageSizeInDepth
         {
             get => m_MessageSizeInDepth;

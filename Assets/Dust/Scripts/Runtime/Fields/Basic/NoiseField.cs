@@ -30,7 +30,7 @@ namespace Dust
         // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
         [SerializeField]
-        private float m_AnimationSpeed = 0f;
+        private float m_AnimationSpeed;
         public float animationSpeed
         {
             get => m_AnimationSpeed;
@@ -38,7 +38,7 @@ namespace Dust
         }
 
         [SerializeField]
-        private float m_AnimationOffset = 0f;
+        private float m_AnimationOffset;
         public float animationOffset
         {
             get => m_AnimationOffset;
@@ -74,7 +74,7 @@ namespace Dust
         // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
         [SerializeField]
-        private bool m_IgnoreAxisX = false;
+        private bool m_IgnoreAxisX;
         public bool ignoreAxisX
         {
             get => m_IgnoreAxisX;
@@ -82,7 +82,7 @@ namespace Dust
         }
 
         [SerializeField]
-        private bool m_IgnoreAxisY = false;
+        private bool m_IgnoreAxisY;
         public bool ignoreAxisY
         {
             get => m_IgnoreAxisY;
@@ -90,7 +90,7 @@ namespace Dust
         }
 
         [SerializeField]
-        private bool m_IgnoreAxisZ = false;
+        private bool m_IgnoreAxisZ;
         public bool ignoreAxisZ
         {
             get => m_IgnoreAxisZ;

@@ -6,15 +6,15 @@ namespace Dust
     public class OnCollision2DEvent : OnColliderEvent
     {
         [SerializeField]
-        private Collision2DEvent m_OnEnter = null;
+        private Collision2DEvent m_OnEnter;
         public Collision2DEvent onEnter => m_OnEnter;
 
         [SerializeField]
-        private Collision2DEvent m_OnStay = null;
+        private Collision2DEvent m_OnStay;
         public Collision2DEvent onStay => m_OnStay;
 
         [SerializeField]
-        private Collision2DEvent m_OnExit = null;
+        private Collision2DEvent m_OnExit;
         public Collision2DEvent onExit => m_OnExit;
 
         //--------------------------------------------------------------------------------------------------------------

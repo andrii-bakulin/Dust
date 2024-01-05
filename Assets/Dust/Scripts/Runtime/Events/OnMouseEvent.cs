@@ -25,15 +25,15 @@ namespace Dust
         }
 
         [SerializeField]
-        private MouseButtonEvent m_OnMouseButtonDown = null;
+        private MouseButtonEvent m_OnMouseButtonDown;
         public MouseButtonEvent onMouseButtonDown => m_OnMouseButtonDown;
 
         [SerializeField]
-        private MouseButtonEvent m_OnMouseButtonHold = null;
+        private MouseButtonEvent m_OnMouseButtonHold;
         public MouseButtonEvent onMouseButtonHold => m_OnMouseButtonHold;
 
         [SerializeField]
-        private MouseButtonEvent m_OnMouseButtonUp = null;
+        private MouseButtonEvent m_OnMouseButtonUp;
         public MouseButtonEvent onMouseButtonUp => m_OnMouseButtonUp;
 
         //--------------------------------------------------------------------------------------------------------------

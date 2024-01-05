@@ -16,15 +16,15 @@ namespace Dust
         }
 
         [SerializeField]
-        private KeyEvent m_OnKeyDown = null;
+        private KeyEvent m_OnKeyDown;
         public KeyEvent onKeyDown => m_OnKeyDown;
 
         [SerializeField]
-        private KeyEvent m_OnKeyHold = null;
+        private KeyEvent m_OnKeyHold;
         public KeyEvent onKeyHold => m_OnKeyHold;
 
         [SerializeField]
-        private KeyEvent m_OnKeyUp = null;
+        private KeyEvent m_OnKeyUp;
         public KeyEvent onKeyUp => m_OnKeyUp;
 
         //--------------------------------------------------------------------------------------------------------------

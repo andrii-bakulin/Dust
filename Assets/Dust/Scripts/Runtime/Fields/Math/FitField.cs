@@ -6,7 +6,7 @@ namespace Dust
     public class FitField : MathField
     {
         [SerializeField]
-        private float m_MinInput = 0f;
+        private float m_MinInput;
         public float minInput
         {
             get => m_MinInput;
@@ -22,7 +22,7 @@ namespace Dust
         }
 
         [SerializeField]
-        private float m_MinOutput = 0f;
+        private float m_MinOutput;
         public float minOutput
         {
             get => m_MinOutput;

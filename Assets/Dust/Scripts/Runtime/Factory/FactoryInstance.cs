@@ -23,7 +23,7 @@ namespace Dust
             public Vector3 rotation { get; set; } = Vector3.zero;
             public Vector3 scale { get; set; } = Vector3.one;
 
-            public float value { get; set; } = 0f;
+            public float value { get; set; }
             public Color color { get; set; } = Color.magenta;
             public Vector3 uvw { get; set; } = Vector3.zero;
 
@@ -142,15 +142,15 @@ namespace Dust
         // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
         [SerializeField]
-        internal Factory m_ParentFactory = null;
+        internal Factory m_ParentFactory;
         public Factory parentFactory => m_ParentFactory;
 
         [SerializeField]
-        private FactoryInstance m_PrevInstance = null;
+        private FactoryInstance m_PrevInstance;
         public FactoryInstance prevInstance => m_PrevInstance;
 
         [SerializeField]
-        private FactoryInstance m_NextInstance = null;
+        private FactoryInstance m_NextInstance;
         public FactoryInstance nextInstance => m_NextInstance;
 
         // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -199,7 +199,7 @@ namespace Dust
         // Because if developer enable debug mode from inspector and click on factory instance
         // Then Inspector auto-create m_MaterialReference object.
         // But it'll have from values and will not be inserted to references array
-        private bool m_MaterialReferenceLinked = false;
+        private bool m_MaterialReferenceLinked;
 
         // No need to serialize field.
         // It's just link to m_MaterialReferences[0]
@@ -224,7 +224,7 @@ namespace Dust
         // @DUST.todo: Now I use only 1st element of the array as main reference to material.
         // But in future I can add more references for few MeshRender:Materials + specific params
         [SerializeField]
-        private List<MaterialReference> m_MaterialReferences = null;
+        private List<MaterialReference> m_MaterialReferences;
         private List<MaterialReference> materialReferences
         {
             get
@@ -239,7 +239,7 @@ namespace Dust
         // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
         [SerializeField]
-        private InstanceUpdateEvent m_OnInstanceUpdate = null;
+        private InstanceUpdateEvent m_OnInstanceUpdate;
         public InstanceUpdateEvent onInstanceUpdate => m_OnInstanceUpdate;
 
         // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -274,8 +274,8 @@ namespace Dust
 
         //--------------------------------------------------------------------------------------------------------------
 
-        private bool m_DidApplyMaterialUpdatesBefore = false;
-        private bool m_DidApplyMaterialUpdatesLastIteration = false;
+        private bool m_DidApplyMaterialUpdatesBefore;
+        private bool m_DidApplyMaterialUpdatesLastIteration;
 
         internal void ResetDynamicStateToZeroState()
         {

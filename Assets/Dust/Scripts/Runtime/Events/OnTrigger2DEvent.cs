@@ -6,15 +6,15 @@ namespace Dust
     public class OnTrigger2DEvent : OnColliderEvent
     {
         [SerializeField]
-        private Trigger2DEvent m_OnEnter = null;
+        private Trigger2DEvent m_OnEnter;
         public Trigger2DEvent onEnter => m_OnEnter;
 
         [SerializeField]
-        private Trigger2DEvent m_OnStay = null;
+        private Trigger2DEvent m_OnStay;
         public Trigger2DEvent onStay => m_OnStay;
 
         [SerializeField]
-        private Trigger2DEvent m_OnExit = null;
+        private Trigger2DEvent m_OnExit;
         public Trigger2DEvent onExit => m_OnExit;
 
         //--------------------------------------------------------------------------------------------------------------

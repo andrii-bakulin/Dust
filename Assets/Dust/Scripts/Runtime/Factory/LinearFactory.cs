@@ -21,7 +21,7 @@ namespace Dust
         }
 
         [SerializeField]
-        private int m_Offset = 0;
+        private int m_Offset;
         public int offset
         {
             get => m_Offset;

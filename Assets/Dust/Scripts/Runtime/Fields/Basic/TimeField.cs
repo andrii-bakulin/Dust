@@ -37,7 +37,7 @@ namespace Dust
         }
 
         [SerializeField]
-        private float m_Offset = 0f;
+        private float m_Offset;
         public float offset
         {
             get => m_Offset;

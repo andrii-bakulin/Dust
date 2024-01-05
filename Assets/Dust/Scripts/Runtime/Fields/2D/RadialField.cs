@@ -6,7 +6,7 @@ namespace Dust
     public class RadialField : SpaceField
     {
         [SerializeField]
-        private float m_StartAngle = 0.0f;
+        private float m_StartAngle;
         public float startAngle
         {
             get => m_StartAngle;
@@ -46,7 +46,7 @@ namespace Dust
         }
 
         [SerializeField]
-        private float m_Offset = 0.0f;
+        private float m_Offset;
         public float offset
         {
             get => m_Offset;

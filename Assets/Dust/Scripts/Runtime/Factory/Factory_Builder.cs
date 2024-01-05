@@ -32,7 +32,7 @@ namespace Dust
 
         //--------------------------------------------------------------------------------------------------------------
 
-        private int m_SourceObjectsLastStampId = 0;
+        private int m_SourceObjectsLastStampId;
 
         private int GetSourceObjectsStampId()
         {

@@ -14,7 +14,7 @@ namespace Dust
         //--------------------------------------------------------------------------------------------------------------
 
         [SerializeField]
-        private bool m_RemapPowerEnabled = false;
+        private bool m_RemapPowerEnabled;
         public bool remapPowerEnabled
         {
             get => m_RemapPowerEnabled;
@@ -22,7 +22,7 @@ namespace Dust
         }
 
         [SerializeField]
-        private float m_InMin = 0.0f;
+        private float m_InMin;
         public float inMin
         {
             get => m_InMin;
@@ -46,7 +46,7 @@ namespace Dust
         }
 
         [SerializeField]
-        private bool m_Invert = false;
+        private bool m_Invert;
         public bool invert
         {
             get => m_Invert;
@@ -54,7 +54,7 @@ namespace Dust
         }
 
         [SerializeField]
-        private float m_OutMin = 0.0f;
+        private float m_OutMin;
         public float outMin
         {
             get => m_OutMin;
@@ -88,7 +88,7 @@ namespace Dust
         }
 
         [SerializeField]
-        private float m_ClampOutMin = 0.0f;
+        private float m_ClampOutMin;
         public float clampOutMin
         {
             get => m_ClampOutMin;

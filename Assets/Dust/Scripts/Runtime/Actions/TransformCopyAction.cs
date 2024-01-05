@@ -6,7 +6,7 @@ namespace Dust
     public class TransformCopyAction : InstantAction
     {
         [SerializeField]
-        private bool m_Position = false;
+        private bool m_Position;
         public bool position
         {
             get => m_Position;
@@ -18,7 +18,7 @@ namespace Dust
         }
 
         [SerializeField]
-        private bool m_Rotation = false;
+        private bool m_Rotation;
         public bool rotation
         {
             get => m_Rotation;
@@ -30,7 +30,7 @@ namespace Dust
         }
 
         [SerializeField]
-        private bool m_Scale = false;
+        private bool m_Scale;
         public bool scale
         {
             get => m_Scale;

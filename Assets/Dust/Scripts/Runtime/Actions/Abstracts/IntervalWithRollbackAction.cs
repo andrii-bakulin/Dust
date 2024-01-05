@@ -14,7 +14,7 @@ namespace Dust
         //--------------------------------------------------------------------------------------------------------------
 
         [SerializeField]
-        protected bool m_PlayRollback = false;
+        protected bool m_PlayRollback;
         public bool playRollback
         {
             get => m_PlayRollback;

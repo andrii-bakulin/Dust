@@ -27,7 +27,7 @@ namespace Dust
         public class Record
         {
             [SerializeField]
-            private FactoryMachine m_FactoryMachine = null;
+            private FactoryMachine m_FactoryMachine;
             public FactoryMachine factoryMachine
             {
                 get => m_FactoryMachine;

@@ -6,7 +6,7 @@ namespace Dust
     public class FlipAction : InstantAction
     {
         [SerializeField]
-        private bool m_FlipX = false;
+        private bool m_FlipX;
         public bool flipX
         {
             get => m_FlipX;
@@ -18,7 +18,7 @@ namespace Dust
         }
 
         [SerializeField]
-        private bool m_FlipY = false;
+        private bool m_FlipY;
         public bool flipY
         {
             get => m_FlipY;
@@ -30,7 +30,7 @@ namespace Dust
         }
 
         [SerializeField]
-        private bool m_FlipZ = false;
+        private bool m_FlipZ;
         public bool flipZ
         {
             get => m_FlipZ;

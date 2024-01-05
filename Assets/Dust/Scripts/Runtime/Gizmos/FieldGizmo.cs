@@ -66,7 +66,7 @@ namespace Dust
         // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
         [SerializeField]
-        private bool m_PowerVisible = false;
+        private bool m_PowerVisible;
         public bool powerVisible
         {
             get => m_PowerVisible;
@@ -82,7 +82,7 @@ namespace Dust
         }
 
         [SerializeField]
-        private bool m_PowerDotsVisible = false;
+        private bool m_PowerDotsVisible;
         public bool powerDotsVisible
         {
             get => m_PowerDotsVisible;
@@ -98,7 +98,7 @@ namespace Dust
         }
 
         [SerializeField]
-        private bool m_PowerImpactOnDotsSize = false;
+        private bool m_PowerImpactOnDotsSize;
         public bool powerImpactOnDotsSize
         {
             get => m_PowerImpactOnDotsSize;
@@ -132,7 +132,7 @@ namespace Dust
         }
 
         [SerializeField]
-        private bool m_PowerImpactOnColorSize = false;
+        private bool m_PowerImpactOnColorSize;
         public bool powerImpactOnColorSize
         {
             get => m_PowerImpactOnColorSize;

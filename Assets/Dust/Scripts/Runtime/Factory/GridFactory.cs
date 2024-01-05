@@ -60,7 +60,7 @@ namespace Dust
         }
 
         [SerializeField]
-        private float m_OffsetWidth = 0f;
+        private float m_OffsetWidth;
         public float offsetWidth
         {
             get => m_OffsetWidth;
@@ -74,7 +74,7 @@ namespace Dust
         }
 
         [SerializeField]
-        private float m_OffsetHeight = 0f;
+        private float m_OffsetHeight;
         public float offsetHeight
         {
             get => m_OffsetHeight;

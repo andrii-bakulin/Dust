@@ -6,7 +6,7 @@ namespace Dust
     {
         protected Vector3 m_DeltaLocalMove;
 
-        protected bool m_AutoRotateBySelfDirection = false;
+        protected bool m_AutoRotateBySelfDirection;
 
         //--------------------------------------------------------------------------------------------------------------
         // Dust.Action lifecycle

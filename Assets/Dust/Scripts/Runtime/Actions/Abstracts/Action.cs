@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 namespace Dust
@@ -16,7 +15,7 @@ namespace Dust
         //--------------------------------------------------------------------------------------------------------------
 
         [SerializeField]
-        protected bool m_AutoStart = false;
+        protected bool m_AutoStart;
         public bool autoStart
         {
             get => m_AutoStart;
@@ -40,7 +39,7 @@ namespace Dust
         }
 
         [SerializeField]
-        protected GameObject m_TargetObject = null;
+        protected GameObject m_TargetObject;
         public GameObject targetObject
         {
             get => m_TargetObject;

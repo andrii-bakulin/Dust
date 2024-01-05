@@ -6,7 +6,7 @@ namespace Dust
     public class InvertField : MathField
     {
         [SerializeField]
-        private bool m_ColorInvertAlpha = false;
+        private bool m_ColorInvertAlpha;
         public bool colorInvertAlpha
         {
             get => m_ColorInvertAlpha;

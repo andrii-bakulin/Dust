@@ -147,7 +147,7 @@ namespace Dust
         // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
         [SerializeField]
-        private bool m_ForcedSetActive = false;
+        private bool m_ForcedSetActive;
         public bool forcedSetActive
         {
             get => m_ForcedSetActive;
@@ -267,7 +267,7 @@ namespace Dust
         // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
         [SerializeField]
-        private float m_DefaultValue = 0f;
+        private float m_DefaultValue;
         public float defaultValue
         {
             get => m_DefaultValue;
@@ -309,7 +309,7 @@ namespace Dust
         // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
         [SerializeField]
-        private bool m_ForcedUpdateEachFrame = false;
+        private bool m_ForcedUpdateEachFrame;
         public bool forcedUpdateEachFrame
         {
             get => m_ForcedUpdateEachFrame;

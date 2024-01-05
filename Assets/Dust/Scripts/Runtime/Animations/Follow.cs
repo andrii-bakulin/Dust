@@ -16,7 +16,7 @@ namespace Dust
         //--------------------------------------------------------------------------------------------------------------
 
         [SerializeField]
-        private GameObject m_FollowObject = null;
+        private GameObject m_FollowObject;
         public GameObject followObject
         {
             get => m_FollowObject;
@@ -52,7 +52,7 @@ namespace Dust
         // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
         [SerializeField]
-        private bool m_UseSmoothDamp = false;
+        private bool m_UseSmoothDamp;
         public bool useSmoothDamp
         {
             get => m_UseSmoothDamp;

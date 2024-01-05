@@ -44,7 +44,7 @@ namespace Dust
         }
 
         [SerializeField]
-        protected bool m_FlipU = false;
+        protected bool m_FlipU;
         public bool flipU
         {
             get => m_FlipU;
@@ -52,7 +52,7 @@ namespace Dust
         }
 
         [SerializeField]
-        protected bool m_FlipV = false;
+        protected bool m_FlipV;
         public bool flipV
         {
             get => m_FlipV;
@@ -60,7 +60,7 @@ namespace Dust
         }
 
         [SerializeField]
-        protected bool m_FlipW = false;
+        protected bool m_FlipW;
         public bool flipW
         {
             get => m_FlipW;
@@ -78,7 +78,7 @@ namespace Dust
         }
 
         [SerializeField]
-        protected bool m_ApplyPowerToAlpha = false;
+        protected bool m_ApplyPowerToAlpha;
         public bool applyPowerToAlpha
         {
             get => m_ApplyPowerToAlpha;

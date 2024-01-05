@@ -41,7 +41,7 @@ namespace Dust
         // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
         [SerializeField]
-        private bool m_ImproveAccuracy = false;
+        private bool m_ImproveAccuracy;
         public bool improveAccuracy
         {
             get => m_ImproveAccuracy;

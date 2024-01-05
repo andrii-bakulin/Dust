@@ -44,7 +44,7 @@ namespace Dust
         // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
         [SerializeField]
-        private float m_RainbowMinOffset = 0.0f;
+        private float m_RainbowMinOffset;
         public float rainbowMinOffset
         {
             get => m_RainbowMinOffset;
@@ -60,7 +60,7 @@ namespace Dust
         }
 
         [SerializeField]
-        private bool m_RainbowRepeat = false;
+        private bool m_RainbowRepeat;
         public bool rainbowRepeat
         {
             get => m_RainbowRepeat;

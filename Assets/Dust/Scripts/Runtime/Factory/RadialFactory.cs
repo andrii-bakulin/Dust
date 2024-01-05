@@ -94,7 +94,7 @@ namespace Dust
         }
 
         [SerializeField]
-        private int m_DeltaCountPerLevel = 0;
+        private int m_DeltaCountPerLevel;
         public int deltaCountPerLevel
         {
             get => m_DeltaCountPerLevel;
@@ -110,7 +110,7 @@ namespace Dust
         // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
         [SerializeField]
-        private float m_StartAngle = 0f;
+        private float m_StartAngle;
         public float startAngle
         {
             get => m_StartAngle;
@@ -140,7 +140,7 @@ namespace Dust
         // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
         [SerializeField]
-        private float m_Offset = 0f;
+        private float m_Offset;
         public float offset
         {
             get => m_Offset;
@@ -154,7 +154,7 @@ namespace Dust
         }
 
         [SerializeField]
-        private float m_OffsetVariation = 0f;
+        private float m_OffsetVariation;
         public float offsetVariation
         {
             get => m_OffsetVariation;

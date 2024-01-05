@@ -72,7 +72,7 @@ namespace Dust
         }
 
         [SerializeField]
-        private float m_PowerMin = 0;
+        private float m_PowerMin;
         public float powerMin
         {
             get => m_PowerMin;

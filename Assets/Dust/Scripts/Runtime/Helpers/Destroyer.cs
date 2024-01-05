@@ -88,7 +88,7 @@ namespace Dust
         }
 
         [SerializeField]
-        private GameObject m_VolumeSourceCenter = null;
+        private GameObject m_VolumeSourceCenter;
         public GameObject volumeSourceCenter
         {
             get => m_VolumeSourceCenter;
@@ -108,7 +108,7 @@ namespace Dust
         //--------------------------------------------------------------------------------------------------------------
 
         [SerializeField]
-        private DestroyerEvent m_OnDestroy = null;
+        private DestroyerEvent m_OnDestroy;
         public DestroyerEvent onDestroy => m_OnDestroy;
 
         //--------------------------------------------------------------------------------------------------------------

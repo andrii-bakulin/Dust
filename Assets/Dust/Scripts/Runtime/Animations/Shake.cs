@@ -17,7 +17,7 @@ namespace Dust
         //--------------------------------------------------------------------------------------------------------------
 
         [SerializeField]
-        private int m_Seed = 0;
+        private int m_Seed;
         public int seed
         {
             get => m_Seed;
@@ -40,7 +40,7 @@ namespace Dust
         }
 
         [SerializeField]
-        private float m_WarmUpTime = 0f;
+        private float m_WarmUpTime;
         public float warmUpTime
         {
             get => m_WarmUpTime;
@@ -48,7 +48,7 @@ namespace Dust
         }
 
         [SerializeField]
-        private bool m_Freeze = false;
+        private bool m_Freeze;
         public bool freeze
         {
             get => m_Freeze;
@@ -58,7 +58,7 @@ namespace Dust
         // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
         [SerializeField]
-        private bool m_PositionEnabled = false;
+        private bool m_PositionEnabled;
         public bool positionEnabled
         {
             get => m_PositionEnabled;
@@ -84,7 +84,7 @@ namespace Dust
         // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
         [SerializeField]
-        private bool m_RotationEnabled = false;
+        private bool m_RotationEnabled;
         public bool rotationEnabled
         {
             get => m_RotationEnabled;
@@ -110,7 +110,7 @@ namespace Dust
         // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
         [SerializeField]
-        private bool m_ScaleEnabled = false;
+        private bool m_ScaleEnabled;
         public bool scaleEnabled
         {
             get => m_ScaleEnabled;
@@ -134,7 +134,7 @@ namespace Dust
         }
 
         [SerializeField]
-        private bool m_ScaleUniform = false;
+        private bool m_ScaleUniform;
         public bool scaleUniform
         {
             get => m_ScaleUniform;
@@ -174,7 +174,7 @@ namespace Dust
         private DuNoise m_DuNoise;
         private DuNoise duNoise => m_DuNoise ??= new DuNoise(seed);
 
-        private float m_TimeOffset = 0f;
+        private float m_TimeOffset;
 
         private float m_PositionTimeOffset;
         private float m_RotationTimeOffset;

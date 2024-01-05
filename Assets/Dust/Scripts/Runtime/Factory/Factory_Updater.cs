@@ -15,7 +15,7 @@ namespace Dust
 #endif
         // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-        private int m_LastDynamicStateHashCode = 0;
+        private int m_LastDynamicStateHashCode;
         public int lastDynamicStateHashCode => m_LastDynamicStateHashCode;
 
         //--------------------------------------------------------------------------------------------------------------

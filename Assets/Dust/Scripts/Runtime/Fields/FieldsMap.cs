@@ -56,7 +56,7 @@ namespace Dust
             }
 
             [SerializeField]
-            private Field m_Field = null;
+            private Field m_Field;
             public Field field
             {
                 get => m_Field;
@@ -117,7 +117,7 @@ namespace Dust
         }
 
         [SerializeField]
-        private float m_DefaultPower = 0f;
+        private float m_DefaultPower;
         public float defaultPower
         {
             get => m_DefaultPower;

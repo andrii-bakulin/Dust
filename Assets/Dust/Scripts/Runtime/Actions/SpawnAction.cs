@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
 
 namespace Dust
 {
@@ -51,7 +50,7 @@ namespace Dust
         }
 
         [SerializeField]
-        private int m_SpawnPointsIteration = 0;
+        private int m_SpawnPointsIteration;
         public int spawnPointsIteration
         {
             get => m_SpawnPointsIteration;
@@ -59,7 +58,7 @@ namespace Dust
         }
 
         [SerializeField]
-        private int m_SpawnPointsSeed = 0;
+        private int m_SpawnPointsSeed;
         public int spawnPointsSeed
         {
             get => m_SpawnPointsSeed;
@@ -81,7 +80,7 @@ namespace Dust
         }
 
         [SerializeField]
-        private int m_SpawnObjectsIteration = 0;
+        private int m_SpawnObjectsIteration;
         public int spawnObjectsIteration
         {
             get => m_SpawnObjectsIteration;
@@ -89,7 +88,7 @@ namespace Dust
         }
 
         [SerializeField]
-        private int m_SpawnObjectsSeed = 0;
+        private int m_SpawnObjectsSeed;
         public int spawnObjectsSeed
         {
             get => m_SpawnObjectsSeed;
@@ -99,7 +98,7 @@ namespace Dust
         // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
         [SerializeField]
-        private bool m_MultipleSpawnEnabled = false;
+        private bool m_MultipleSpawnEnabled;
         public bool multipleSpawnEnabled
         {
             get => m_MultipleSpawnEnabled;
@@ -115,7 +114,7 @@ namespace Dust
         }
 
         [SerializeField]
-        private int m_MultipleSpawnSeed = 0;
+        private int m_MultipleSpawnSeed;
         public int multipleSpawnSeed
         {
             get => m_MultipleSpawnSeed;
@@ -135,7 +134,7 @@ namespace Dust
         // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
         [SerializeField]
-        private bool m_ResetPosition = false;
+        private bool m_ResetPosition;
         public bool resetPosition
         {
             get => m_ResetPosition;
@@ -143,7 +142,7 @@ namespace Dust
         }
 
         [SerializeField]
-        private bool m_ResetRotation = false;
+        private bool m_ResetRotation;
         public bool resetRotation
         {
             get => m_ResetRotation;
@@ -151,7 +150,7 @@ namespace Dust
         }
 
         [SerializeField]
-        private bool m_ResetScale = false;
+        private bool m_ResetScale;
         public bool resetScale
         {
             get => m_ResetScale;

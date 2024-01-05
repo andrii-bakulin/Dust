@@ -56,7 +56,7 @@ namespace Dust
         // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
         [SerializeField]
-        protected bool m_RotationEnabled = false;
+        protected bool m_RotationEnabled;
         public bool rotationEnabled
         {
             get => m_RotationEnabled;
@@ -82,7 +82,7 @@ namespace Dust
         // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
         [SerializeField]
-        protected bool m_ScaleEnabled = false;
+        protected bool m_ScaleEnabled;
         public bool scaleEnabled
         {
             get => m_ScaleEnabled;

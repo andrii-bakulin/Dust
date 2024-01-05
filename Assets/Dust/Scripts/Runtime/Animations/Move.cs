@@ -75,7 +75,7 @@ namespace Dust
         }
 
         [SerializeField]
-        private bool m_Freeze = false;
+        private bool m_Freeze;
         public bool freeze
         {
             get => m_Freeze;

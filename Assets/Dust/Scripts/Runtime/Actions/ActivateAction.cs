@@ -29,7 +29,7 @@ namespace Dust
         }
 
         [SerializeField]
-        private bool m_ApplyToSelf = false;
+        private bool m_ApplyToSelf;
         public bool applyToSelf
         {
             get => m_ApplyToSelf;
@@ -41,7 +41,7 @@ namespace Dust
         }
 
         [SerializeField]
-        private int m_Seed = 0;
+        private int m_Seed;
         public int seed
         {
             get => m_Seed;

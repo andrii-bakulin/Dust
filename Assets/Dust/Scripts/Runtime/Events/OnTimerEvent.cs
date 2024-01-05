@@ -23,7 +23,7 @@ namespace Dust
         }
 
         [SerializeField]
-        private int m_Repeat = 0;
+        private int m_Repeat;
         public int repeat
         {
             get => m_Repeat;
@@ -31,7 +31,7 @@ namespace Dust
         }
 
         [SerializeField]
-        private bool m_FireOnStart = false;
+        private bool m_FireOnStart;
         public bool fireOnStart
         {
             get => m_FireOnStart;
@@ -39,7 +39,7 @@ namespace Dust
         }
 
         [SerializeField]
-        private TimerEvent m_OnFire = null;
+        private TimerEvent m_OnFire;
         public TimerEvent onFire => m_OnFire;
 
         // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

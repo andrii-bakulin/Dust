@@ -16,7 +16,7 @@ namespace Dust
         }
 
         [SerializeField]
-        private bool m_LogInConsole = false;
+        private bool m_LogInConsole;
         public bool logInConsole
         {
             get => m_LogInConsole;

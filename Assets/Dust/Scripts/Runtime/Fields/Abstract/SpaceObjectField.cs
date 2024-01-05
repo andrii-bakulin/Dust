@@ -6,7 +6,7 @@ namespace Dust
     public abstract class SpaceObjectField : SpaceField
     {
         [SerializeField]
-        private bool m_Unlimited = false;
+        private bool m_Unlimited;
         public bool unlimited
         {
             get => m_Unlimited;

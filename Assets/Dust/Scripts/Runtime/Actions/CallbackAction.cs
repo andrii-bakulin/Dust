@@ -15,7 +15,7 @@ namespace Dust
         //--------------------------------------------------------------------------------------------------------------
 
         [SerializeField]
-        protected ActionCallback m_OnCompleteCallback = null;
+        protected ActionCallback m_OnCompleteCallback;
         public ActionCallback onCompleteCallback => m_OnCompleteCallback;
 
         //--------------------------------------------------------------------------------------------------------------
