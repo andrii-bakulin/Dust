@@ -8,21 +8,21 @@ namespace Dust.DustEditor
     {
         public static class Icons
         {
-            public const string ADD_ACTION = "UI/Add-Action";
-            public const string ADD_FACTORY_MACHINE = "UI/Add-Factory-Machine";
-            public const string ADD_FIELD = "UI/Add-Field";
+            public static readonly string ADD_ACTION = "UI/Add-Action";
+            public static readonly string ADD_FACTORY_MACHINE = "UI/Add-Factory-Machine";
+            public static readonly string ADD_FIELD = "UI/Add-Field";
 
-            public const string ACTION_PLAY = "UI/Action-Play";
-            public const string ACTION_IDLE = "UI/Action-Idle";
-            public const string ACTION_NEXT = "UI/Action-Next";
+            public static readonly string ACTION_PLAY = "UI/Action-Play";
+            public static readonly string ACTION_IDLE = "UI/Action-Idle";
+            public static readonly string ACTION_NEXT = "UI/Action-Next";
 
-            public const string DELETE = "UI/Delete";
+            public static readonly string DELETE = "UI/Delete";
 
-            public const string STATE_ENABLED = "UI/State-Enabled";
-            public const string STATE_DISABLED = "UI/State-Disabled";
+            public static readonly string STATE_ENABLED = "UI/State-Enabled";
+            public static readonly string STATE_DISABLED = "UI/State-Disabled";
 
-            public const string GAME_OBJECT_STATS = "UI/GameObject-Stats";
-            public const string TRANSFORM_RESET = "UI/Transform-Reset";
+            public static readonly string GAME_OBJECT_STATS = "UI/GameObject-Stats";
+            public static readonly string TRANSFORM_RESET = "UI/Transform-Reset";
 
             private static readonly Dictionary<string, Texture> classIconsCache = new Dictionary<string, Texture>();
 
