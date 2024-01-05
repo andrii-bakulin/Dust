@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace Dust
@@ -7,14 +8,14 @@ namespace Dust
     public class DestroyAction : InstantAction
     {
         [SerializeField]
-        private bool m_ApplyToSelf = true;
-        public bool applyToSelf
+        private bool m_ApplyToTarget = true;
+        public bool applyToTarget
         {
-            get => m_ApplyToSelf;
+            get => m_ApplyToTarget;
             set
             {
                 if (!IsAllowUpdateProperty()) return;
-                m_ApplyToSelf = value;
+                m_ApplyToTarget = value;
             }
         }
 
@@ -44,27 +45,18 @@ namespace Dust
 
         public void DestroyNow()
         {
-            if (Dust.IsNull(activeTargetObject))
-                return;
-
-            foreach (var comp in components)
+            foreach (var comp in components.Where(comp => !Dust.IsNull(comp)))
             {
-                if (Dust.IsNull(comp))
-                    continue;
-
                 Destroy(comp);
             }
 
-            foreach (var go in gameObjects)
+            foreach (var go in gameObjects.Where(go => !Dust.IsNull(go)))
             {
-                if (Dust.IsNull(go))
-                    continue;
-
                 Destroy(go);
             }
 
-            if (applyToSelf)
-                Destroy(this.gameObject);
+            if (applyToTarget && Dust.IsNotNull(activeTargetObject))
+                Destroy(activeTargetObject);
         }
     }
 }

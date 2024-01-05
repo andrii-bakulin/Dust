@@ -79,7 +79,7 @@ namespace Dust.Test.Actions.Destroy
             var testObject1 = CreateTestObject(1);
 
             var actDestroy = testObject1.AddComponent<DestroyAction>();
-            actDestroy.applyToSelf = true;
+            actDestroy.applyToTarget = true;
 
             Assert.That(IsTestObjectExists(1), Is.True);
 
@@ -104,7 +104,7 @@ namespace Dust.Test.Actions.Destroy
             actDelay.duration = Sec(0.5f);
 
             var actDestroy = testObject1.AddComponent<DestroyAction>();
-            actDestroy.applyToSelf = true;
+            actDestroy.applyToTarget = true;
             actDelay.onCompleteActions.Add(actDestroy);
             
             Assert.That(IsTestObjectExists(1), Is.True);
@@ -138,7 +138,7 @@ namespace Dust.Test.Actions.Destroy
             actDelay.duration = Sec(0.25f);
 
             var actDestroy = testObject2.AddComponent<DestroyAction>();
-            actDestroy.applyToSelf = true;
+            actDestroy.applyToTarget = true;
             actDestroy.onCompleteActions.Add(actMoving);
 
             actDelay.onCompleteActions.Add(actDestroy);
