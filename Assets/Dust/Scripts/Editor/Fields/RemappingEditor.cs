@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEditor;
 
@@ -115,6 +116,9 @@ namespace Dust.DustEditor
                         case Remapping.PostReshapeMode.Steps:
                             DuEditor.PropertyExtendedIntSlider(m_PostStepsCount, 1, 25, 1, 1);
                             break;
+
+                        default:
+                            throw new ArgumentOutOfRangeException();
                     }
                 }
 

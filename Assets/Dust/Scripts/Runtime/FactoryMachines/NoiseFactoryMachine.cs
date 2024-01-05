@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace Dust
 {
@@ -209,9 +210,7 @@ namespace Dust
 
             switch (noiseMode)
             {
-                default:
                 case NoiseMode.Random:
-                {
                     var randomVector = factoryInstance.randomVector * 100f;
 
                     if (noiseDimension == NoiseDimension.Noise1D)
@@ -243,10 +242,8 @@ namespace Dust
                         }
                     }
                     break;
-                }
 
                 case NoiseMode.Perlin:
-                {
                     float animTotalOffset = m_OffsetDynamic + animationOffset;
                     Vector3 inSpaceOffset;
 
@@ -308,7 +305,9 @@ namespace Dust
                         }
                     }
                     break;
-                }
+
+                default:
+                    throw new ArgumentOutOfRangeException();
             }
 
             // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -345,7 +344,6 @@ namespace Dust
         {
             switch (axisRemapping)
             {
-                default:
                 case AxisRemapping.Off: break;
                 case AxisRemapping.XyzToXzy: v = new Vector3(v.x, v.z, v.y); break;
                 case AxisRemapping.XyzToYxz: v = new Vector3(v.y, v.x, v.z); break;
@@ -396,6 +394,9 @@ namespace Dust
 
                     DynamicState.Append(ref dynamicState, ++seq, m_OffsetDynamic);
                     break;
+
+                default:
+                    throw new ArgumentOutOfRangeException();
             }
 
             return DynamicState.Normalize(dynamicState);

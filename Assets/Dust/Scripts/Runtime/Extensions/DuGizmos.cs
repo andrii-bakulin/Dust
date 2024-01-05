@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace Dust
@@ -116,7 +117,6 @@ namespace Dust
 
             switch (direction)
             {
-                default:
                 case Axis3xDirection.X:
                     offset0 = new Vector3(1f, 0f, 0f);
 
@@ -143,6 +143,9 @@ namespace Dust
                     directionA = Axis3xDirection.X;
                     directionB = Axis3xDirection.Y;
                     break;
+
+                default:
+                    throw new ArgumentOutOfRangeException();
             }
 
             DrawCircle(radius + thickness, center, direction, 64);

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -321,8 +322,14 @@ namespace Dust
                         case IterateMode.Random:
                             spawnAtPoint = spawnPoints[spawnPointsRandom.Range(0, spawnPoints.Count)];
                             break;
+
+                        default:
+                            throw new ArgumentOutOfRangeException();
                     }
                     break;
+
+                default:
+                    throw new ArgumentOutOfRangeException();
             }
 
             if (Dust.IsNull(spawnAtPoint))
@@ -341,6 +348,9 @@ namespace Dust
                     case IterateMode.Random:
                         objectToSpawn = spawnObjects[spawnObjectsRandom.Range(0, spawnObjects.Count)];
                         break;
+
+                    default:
+                        throw new ArgumentOutOfRangeException();
                 }
             }
 

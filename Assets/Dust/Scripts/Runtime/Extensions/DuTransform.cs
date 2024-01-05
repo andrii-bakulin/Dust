@@ -67,7 +67,7 @@ namespace Dust
                     break;
 
                 default:
-                    return;
+                    throw new ArgumentOutOfRangeException();
             }
         }
 
@@ -98,7 +98,7 @@ namespace Dust
                     break;
 
                 default:
-                    return;
+                    throw new ArgumentOutOfRangeException();
             }
         }
 
@@ -129,7 +129,7 @@ namespace Dust
                     break;
 
                 default:
-                    return;
+                    throw new ArgumentOutOfRangeException();
             }
         }
     }

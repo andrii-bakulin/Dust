@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
@@ -58,18 +59,22 @@ namespace Dust.DustEditor
         {
             switch (visColumnPower)
             {
-                default:
                 case ColumnVisibility.Auto:       showPowerEditor = m_FieldsMapInstance.calculatePower; break;
                 case ColumnVisibility.ForcedShow: showPowerEditor = true; break;
                 case ColumnVisibility.ForcedHide: showPowerEditor = false; break;
+
+                default:
+                    throw new ArgumentOutOfRangeException();
             }
 
             switch (visColumnColor)
             {
-                default:
                 case ColumnVisibility.Auto:       showColorEditor = m_FieldsMapInstance.calculateColor; break;
                 case ColumnVisibility.ForcedShow: showColorEditor = true; break;
                 case ColumnVisibility.ForcedHide: showColorEditor = false; break;
+
+                default:
+                    throw new ArgumentOutOfRangeException();
             }
 
             // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -372,12 +377,12 @@ namespace Dust.DustEditor
 
         //--------------------------------------------------------------------------------------------------------------
 
-        private void AddFieldsFromObjectsList(Object[] objectReferences)
+        private void AddFieldsFromObjectsList(UnityEngine.Object[] objectReferences)
         {
             if (Dust.IsNull(objectReferences) || objectReferences.Length == 0)
                 return;
 
-            foreach (Object obj in objectReferences)
+            foreach (var obj in objectReferences)
             {
                 if (obj is GameObject)
                 {

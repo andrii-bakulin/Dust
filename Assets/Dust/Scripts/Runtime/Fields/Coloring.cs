@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace Dust
@@ -133,6 +134,9 @@ namespace Dust
                     DynamicState.Append(ref dynamicState, ++seq, randomMinColor);
                     DynamicState.Append(ref dynamicState, ++seq, randomMaxColor);
                     break;
+
+                default:
+                    throw new ArgumentOutOfRangeException();
             }
 
             return DynamicState.Normalize(dynamicState);

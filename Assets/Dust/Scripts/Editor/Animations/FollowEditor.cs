@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEditor;
 
 namespace Dust.DustEditor
@@ -73,6 +74,9 @@ namespace Dust.DustEditor
                 case Follow.SpeedMode.Limited:
                     PropertyField(m_SpeedLimit);
                     break;
+
+                default:
+                    throw new ArgumentOutOfRangeException();
             }
 
             Space();

@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace Dust
 {
@@ -169,6 +170,9 @@ namespace Dust
                 case Space.Self:
                     this.transform.localPosition += extDeltaPosition;
                     break;
+
+                default:
+                    throw new ArgumentOutOfRangeException();
             }
 
             m_LastDeltaPosition = deltaPosition;

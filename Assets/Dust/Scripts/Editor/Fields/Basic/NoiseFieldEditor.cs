@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEditor;
 
 namespace Dust.DustEditor
@@ -75,7 +76,6 @@ namespace Dust.DustEditor
             switch ((NoiseField.NoiseMode) m_NoiseMode.valInt)
             {
                 case NoiseField.NoiseMode.Random:
-                default:
                     // Ignore
                     break;
 
@@ -94,6 +94,9 @@ namespace Dust.DustEditor
                     PropertyField(m_IgnoreAxisZ);
                     Space();
                     break;
+
+                default:
+                    throw new ArgumentOutOfRangeException();
             }
 
             PropertyField(m_Hint);

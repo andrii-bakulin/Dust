@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace Dust
 {
@@ -105,6 +106,9 @@ namespace Dust
 
                     transform.RotateAround(rotateAroundObject.transform.position, axis, speed * deltaTime);
                     break;
+
+                default:
+                    throw new ArgumentOutOfRangeException();
             }
         }
     }

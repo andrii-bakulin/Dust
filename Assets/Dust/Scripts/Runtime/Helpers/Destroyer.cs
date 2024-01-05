@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.Events;
 
 namespace Dust
@@ -128,7 +129,6 @@ namespace Dust
 
             switch (destroyMode)
             {
-                default:
                 case DestroyMode.Manual:
                 case DestroyMode.Time:
                     // Nothing need to do...
@@ -136,7 +136,7 @@ namespace Dust
                     break;
 
                 case DestroyMode.TimeRange:
-                    m_TimeLimit = Random.Range(timeoutRange.min, timeoutRange.max);
+                    m_TimeLimit = UnityEngine.Random.Range(timeoutRange.min, timeoutRange.max);
                     break;
 
                 case DestroyMode.AliveZone:
@@ -144,6 +144,9 @@ namespace Dust
                     if (volumeCenterMode == VolumeCenterMode.StartPosition)
                         volumeCenter = this.transform.position;
                     break;
+
+                default:
+                    throw new ArgumentOutOfRangeException();
             }
         }
 
@@ -151,7 +154,6 @@ namespace Dust
         {
             switch (destroyMode)
             {
-                default:
                 case DestroyMode.Manual:
                     // Nothing need to do...
                     break;
@@ -173,6 +175,9 @@ namespace Dust
                     if (IsInsideVolume())
                         DestroySelf();
                     break;
+
+                default:
+                    throw new ArgumentOutOfRangeException();
             }
         }
 
@@ -210,7 +215,6 @@ namespace Dust
         {
             switch (destroyMode)
             {
-                default:
                 case DestroyMode.Manual:
                 case DestroyMode.Time:
                 case DestroyMode.TimeRange:
@@ -223,6 +227,9 @@ namespace Dust
                 case DestroyMode.DeadZone:
                     Gizmos.color = Color.red;
                     break;
+
+                default:
+                    throw new ArgumentOutOfRangeException();
             }
 
             // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

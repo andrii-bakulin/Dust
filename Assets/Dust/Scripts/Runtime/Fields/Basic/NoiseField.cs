@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace Dust
 {
@@ -155,6 +156,9 @@ namespace Dust
 
                     DynamicState.Append(ref dynamicState, ++seq, m_OffsetDynamic);
                     break;
+
+                default:
+                    throw new ArgumentOutOfRangeException();
             }
 
             return DynamicState.Normalize(dynamicState);
@@ -184,6 +188,9 @@ namespace Dust
 
                 case NoiseMode.Perlin:
                     return "Perlin";
+
+                default:
+                    throw new ArgumentOutOfRangeException();
             }
 
             return "";
@@ -198,14 +205,10 @@ namespace Dust
             switch (noiseMode)
             {
                 case NoiseMode.Random:
-                default:
-                {
                     result.power = duNoise.Perlin1D(fieldPoint.inOffset * 1328.8767f, fieldPoint.inOffset * 2984.7353f, 2f);
                     break;
-                }
 
                 case NoiseMode.Perlin:
-                {
                     Vector3 inSpaceOffset = fieldPoint.inPosition; // point in world space
 
                     if (noiseSpace == NoiseSpace.Local)
@@ -222,7 +225,9 @@ namespace Dust
 
                     result.power = duNoise.Perlin3D(inSpaceOffset, animTotalOffset, noisePower);
                     break;
-                }
+
+                default:
+                    throw new ArgumentOutOfRangeException();
             }
 
             result.power *= power;

@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace Dust
 {
@@ -82,6 +83,9 @@ namespace Dust
                     case OrderMode.Last:
                         activeTargetObject.transform.SetAsLastSibling();
                         break;
+
+                    default:
+                        throw new ArgumentOutOfRangeException();
                 }
             }
             else if (updateMode == UpdateMode.SetReferenceObjectAsChildOfTarget)
@@ -98,6 +102,9 @@ namespace Dust
                     case OrderMode.Last:
                         referenceObject.transform.SetAsLastSibling();
                         break;
+
+                    default:
+                        throw new ArgumentOutOfRangeException();
                 }
             }
             else if (updateMode == UpdateMode.CopyParentFromReferenceObject ||

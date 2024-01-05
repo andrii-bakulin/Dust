@@ -275,6 +275,9 @@ namespace Dust
                         SetInstanceZeroStates_Position(instanceState);
                         SetInstanceZeroStates_Scale(instanceState);
                         break;
+
+                    default:
+                        throw new ArgumentOutOfRangeException();
                 }
 
                 SetInstanceZeroStates_Value(instanceState);
@@ -309,6 +312,9 @@ namespace Dust
                 case TransformSpace.Instance:
                     instanceState.position += DuMath.RotatePoint(transformPosition, instanceState.rotation);
                     break;
+
+                default:
+                    throw new ArgumentOutOfRangeException();
             }
         }
 

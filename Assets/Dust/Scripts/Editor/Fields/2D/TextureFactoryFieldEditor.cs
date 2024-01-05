@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEditor;
 
 namespace Dust.DustEditor
@@ -66,7 +67,6 @@ namespace Dust.DustEditor
 
             switch ((TextureFactoryField.SpaceUVW) m_SpaceUVW.valInt)
             {
-                default:
                 case TextureFactoryField.SpaceUVW.UV:
                     PropertyField(m_FlipU);
                     PropertyField(m_FlipV);
@@ -81,6 +81,9 @@ namespace Dust.DustEditor
                     PropertyField(m_FlipV);
                     PropertyField(m_FlipW);
                     break;
+
+                default:
+                    throw new ArgumentOutOfRangeException();
             }
             Space();
 

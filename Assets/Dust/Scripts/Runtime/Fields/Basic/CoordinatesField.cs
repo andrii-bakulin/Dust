@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Dust
@@ -175,13 +176,14 @@ namespace Dust
 
             if (items.Count > 1)
             {
-                switch (powerAggregate)
+                hint = powerAggregate switch
                 {
-                    case AggregateMode.Avg: hint = "AVG( " + string.Join(", ", items) + " )"; break;
-                    case AggregateMode.Min: hint = "MIN( " + string.Join(", ", items) + " )"; break;
-                    case AggregateMode.Max: hint = "MAX( " + string.Join(", ", items) + " )"; break;
-                    case AggregateMode.Sum: hint = "SUM( " + string.Join(", ", items) + " )"; break;
-                }
+                    AggregateMode.Avg => "AVG( " + string.Join(", ", items) + " )",
+                    AggregateMode.Min => "MIN( " + string.Join(", ", items) + " )",
+                    AggregateMode.Max => "MAX( " + string.Join(", ", items) + " )",
+                    AggregateMode.Sum => "SUM( " + string.Join(", ", items) + " )",
+                    _ => throw new ArgumentOutOfRangeException()
+                };
             }
             else if (items.Count == 1)
             {
@@ -206,47 +208,47 @@ namespace Dust
 
                 if (powerUseAxisX && powerUseAxisY && powerUseAxisZ)
                 {
-                    switch (powerAggregate)
+                    value = powerAggregate switch
                     {
-                        default:
-                        case AggregateMode.Avg: value = (localPoint.x + localPoint.y + localPoint.z) / 3f; break;
-                        case AggregateMode.Min: value = Mathf.Min(Mathf.Min(localPoint.x, localPoint.y), localPoint.z); break;
-                        case AggregateMode.Max: value = Mathf.Max(Mathf.Max(localPoint.x, localPoint.y), localPoint.z); break;
-                        case AggregateMode.Sum: value = localPoint.x + localPoint.y + localPoint.z; break;
-                    }
+                        AggregateMode.Avg => (localPoint.x + localPoint.y + localPoint.z) / 3f,
+                        AggregateMode.Min => Mathf.Min(Mathf.Min(localPoint.x, localPoint.y), localPoint.z),
+                        AggregateMode.Max => Mathf.Max(Mathf.Max(localPoint.x, localPoint.y), localPoint.z),
+                        AggregateMode.Sum => localPoint.x + localPoint.y + localPoint.z,
+                        _ => throw new ArgumentOutOfRangeException()
+                    };
                 }
                 else if (powerUseAxisX && powerUseAxisY)
                 {
-                    switch (powerAggregate)
+                    value = powerAggregate switch
                     {
-                        default:
-                        case AggregateMode.Avg: value = (localPoint.x + localPoint.y) / 2f; break;
-                        case AggregateMode.Min: value = Mathf.Min(localPoint.x, localPoint.y); break;
-                        case AggregateMode.Max: value = Mathf.Max(localPoint.x, localPoint.y); break;
-                        case AggregateMode.Sum: value = localPoint.x + localPoint.y; break;
-                    }
+                        AggregateMode.Avg => (localPoint.x + localPoint.y) / 2f,
+                        AggregateMode.Min => Mathf.Min(localPoint.x, localPoint.y),
+                        AggregateMode.Max => Mathf.Max(localPoint.x, localPoint.y),
+                        AggregateMode.Sum => localPoint.x + localPoint.y,
+                        _ => throw new ArgumentOutOfRangeException()
+                    };
                 }
                 else if (powerUseAxisY && powerUseAxisZ)
                 {
-                    switch (powerAggregate)
+                    value = powerAggregate switch
                     {
-                        default:
-                        case AggregateMode.Avg: value = (localPoint.y + localPoint.z) / 2f; break;
-                        case AggregateMode.Min: value = Mathf.Min(localPoint.y, localPoint.z); break;
-                        case AggregateMode.Max: value = Mathf.Max(localPoint.y, localPoint.z); break;
-                        case AggregateMode.Sum: value = localPoint.y + localPoint.z; break;
-                    }
+                        AggregateMode.Avg => (localPoint.y + localPoint.z) / 2f,
+                        AggregateMode.Min => Mathf.Min(localPoint.y, localPoint.z),
+                        AggregateMode.Max => Mathf.Max(localPoint.y, localPoint.z),
+                        AggregateMode.Sum => localPoint.y + localPoint.z,
+                        _ => throw new ArgumentOutOfRangeException()
+                    };
                 }
                 else if (powerUseAxisX && powerUseAxisZ)
                 {
-                    switch (powerAggregate)
+                    value = powerAggregate switch
                     {
-                        default:
-                        case AggregateMode.Avg: value = (localPoint.x + localPoint.z) / 2f; break;
-                        case AggregateMode.Min: value = Mathf.Min(localPoint.x, localPoint.z); break;
-                        case AggregateMode.Max: value = Mathf.Max(localPoint.x, localPoint.z); break;
-                        case AggregateMode.Sum: value = localPoint.x + localPoint.z; break;
-                    }
+                        AggregateMode.Avg => (localPoint.x + localPoint.z) / 2f,
+                        AggregateMode.Min => Mathf.Min(localPoint.x, localPoint.z),
+                        AggregateMode.Max => Mathf.Max(localPoint.x, localPoint.z),
+                        AggregateMode.Sum => localPoint.x + localPoint.z,
+                        _ => throw new ArgumentOutOfRangeException()
+                    };
                 }
                 else if (powerUseAxisX)
                 {

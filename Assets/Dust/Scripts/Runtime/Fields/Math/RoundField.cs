@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace Dust
 {
@@ -49,20 +50,13 @@ namespace Dust
             if (DuMath.IsZero(distance))
                 return 0f;
 
-            switch (roundMode)
+            value = roundMode switch
             {
-                case RoundMode.Round:
-                    value = Mathf.Round(value / distance) * distance;
-                    break;
-
-                case RoundMode.Floor:
-                    value = Mathf.Floor(value / distance) * distance;
-                    break;
-
-                case RoundMode.Ceil:
-                    value = Mathf.Ceil(value / distance) * distance;
-                    break;
-            }
+                RoundMode.Round => Mathf.Round(value / distance) * distance,
+                RoundMode.Floor => Mathf.Floor(value / distance) * distance,
+                RoundMode.Ceil => Mathf.Ceil(value / distance) * distance,
+                _ => throw new ArgumentOutOfRangeException()
+            };
 
             return value;
         }
@@ -77,16 +71,15 @@ namespace Dust
 
         public override string FieldDynamicHint()
         {
-            string hint = "";
-
-            switch (roundMode)
+            string roundType = roundMode switch
             {
-                case RoundMode.Round: hint = "Round"; break;
-                case RoundMode.Floor: hint = "Floor"; break;
-                case RoundMode.Ceil:  hint = "Ceil"; break;
-            }
+                RoundMode.Round => "Round",
+                RoundMode.Floor => "Floor",
+                RoundMode.Ceil => "Ceil",
+                _ => throw new ArgumentOutOfRangeException()
+            };
 
-            return hint + ", " + distance.ToString("F2");
+            return roundType + ", " + distance.ToString("F2");
         }
 
         //--------------------------------------------------------------------------------------------------------------

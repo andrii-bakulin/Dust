@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEditor;
 
 namespace Dust.DustEditor
@@ -109,6 +110,9 @@ namespace Dust.DustEditor
                             PropertySeedRandomOrFixed(m_SpawnPointsSeed);
                     }
                     break;
+
+                default:
+                    throw new ArgumentOutOfRangeException();
             }
 
             Space();

@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEditor;
 
 namespace Dust.DustEditor
@@ -90,7 +91,6 @@ namespace Dust.DustEditor
             switch ((NoiseFactoryMachine.NoiseMode) m_NoiseMode.valInt)
             {
                 case NoiseFactoryMachine.NoiseMode.Random:
-                default:
                     // Ignore
                     break;
 
@@ -104,6 +104,9 @@ namespace Dust.DustEditor
                     PropertyExtendedSlider(m_AnimationOffset, -5f, 5f, 0.01f);
                     Space();
                     break;
+
+                default:
+                    throw new ArgumentOutOfRangeException();
             }
 
             // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

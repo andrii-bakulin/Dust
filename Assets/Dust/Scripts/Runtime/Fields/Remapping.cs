@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace Dust
 {
@@ -242,13 +243,14 @@ namespace Dust
                     break;
 
                 case PostReshapeMode.Curve:
-                {
                     float valueNormalized = DuMath.Fit(_outMin, _outMax, 0f, 1f, outValue);
 
                     valueNormalized = postCurve.Evaluate(valueNormalized);
                     outValue = DuMath.Fit01To(_outMin, _outMax, valueNormalized);
                     break;
-                }
+
+                default:
+                    throw new ArgumentOutOfRangeException();
             }
 
             outValue *= postPower;

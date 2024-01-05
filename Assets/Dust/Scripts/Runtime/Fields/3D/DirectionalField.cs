@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace Dust
@@ -74,18 +75,16 @@ namespace Dust
 
             Vector3 localPosition = transform.worldToLocalMatrix.MultiplyPoint(fieldPoint.inPosition);
 
-            float distanceToPoint;
-
-            switch (direction)
+            float distanceToPoint = direction switch
             {
-                default:
-                case Axis6xDirection.XPlus:  distanceToPoint = -localPosition.x; break;
-                case Axis6xDirection.XMinus: distanceToPoint = +localPosition.x; break;
-                case Axis6xDirection.YPlus:  distanceToPoint = -localPosition.y; break;
-                case Axis6xDirection.YMinus: distanceToPoint = +localPosition.y; break;
-                case Axis6xDirection.ZPlus:  distanceToPoint = -localPosition.z; break;
-                case Axis6xDirection.ZMinus: distanceToPoint = +localPosition.z; break;
-            }
+                Axis6xDirection.XPlus  => -localPosition.x,
+                Axis6xDirection.XMinus => +localPosition.x,
+                Axis6xDirection.YPlus  => -localPosition.y,
+                Axis6xDirection.YMinus => +localPosition.y,
+                Axis6xDirection.ZPlus  => -localPosition.z,
+                Axis6xDirection.ZMinus => +localPosition.z,
+                _ => throw new ArgumentOutOfRangeException()
+            };
 
             if (DuMath.IsNotZero(length))
             {

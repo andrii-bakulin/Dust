@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Dust
@@ -113,6 +114,9 @@ namespace Dust
                 case ClampMode.NoClamp:
                     parts.Add("(∞ .. ∞)");
                     break;
+
+                default:
+                    throw new ArgumentOutOfRangeException();
             }
 
             if (colorClampMode != ClampMode.NoClamp)

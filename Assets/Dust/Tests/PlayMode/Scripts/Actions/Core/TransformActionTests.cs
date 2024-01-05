@@ -55,9 +55,10 @@ namespace Dust.Test.Actions
             {
                 case ObjectTopLevel: return topLevelObj;
                 case ObjectSubLevel: return lastLevelObj;
-            }
 
-            throw new Exception("Undefined ObjLevelId");
+                default:
+                    throw new Exception("Undefined ObjLevelId");
+            }
         }
     }
 }

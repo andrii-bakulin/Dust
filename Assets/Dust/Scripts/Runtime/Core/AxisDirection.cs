@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace Dust
@@ -8,10 +9,12 @@ namespace Dust
         {
             switch (direction)
             {
-                default:
                 case Axis3xDirection.X: return "X";
                 case Axis3xDirection.Y: return "Y";
                 case Axis3xDirection.Z: return "Z";
+
+                default:
+                    throw new ArgumentOutOfRangeException();
             }
         }
 
@@ -19,7 +22,6 @@ namespace Dust
         {
             switch (direction)
             {
-                default:
                 case Axis6xDirection.XPlus:  return "X+";
                 case Axis6xDirection.XMinus: return "X-";
 
@@ -28,6 +30,9 @@ namespace Dust
 
                 case Axis6xDirection.ZPlus:  return "Z+";
                 case Axis6xDirection.ZMinus: return "Z-";
+
+                default:
+                    throw new ArgumentOutOfRangeException();
             }
         }
 
@@ -37,10 +42,12 @@ namespace Dust
         {
             switch (direction)
             {
-                default:
                 case Axis3xDirection.X: return Axis6xDirection.XPlus;
                 case Axis3xDirection.Y: return Axis6xDirection.YPlus;
                 case Axis3xDirection.Z: return Axis6xDirection.ZPlus;
+
+                default:
+                    throw new ArgumentOutOfRangeException();
             }
         }
 
@@ -48,7 +55,6 @@ namespace Dust
         {
             switch (direction)
             {
-                default:
                 case Axis6xDirection.XPlus:
                 case Axis6xDirection.XMinus: return Axis3xDirection.X;
 
@@ -57,6 +63,9 @@ namespace Dust
 
                 case Axis6xDirection.ZPlus:
                 case Axis6xDirection.ZMinus: return Axis3xDirection.Z;
+
+                default:
+                    throw new ArgumentOutOfRangeException();
             }
         }
 
@@ -68,10 +77,12 @@ namespace Dust
 
             switch (direction)
             {
-                default:
-                case Axis3xDirection.X: break;
+                case Axis3xDirection.X: /* Keep it as is */ break;
                 case Axis3xDirection.Y: convertedPoint.x = +originPoint.y; convertedPoint.y = +originPoint.x; break;
                 case Axis3xDirection.Z: convertedPoint.x = +originPoint.z; convertedPoint.z = +originPoint.x; break;
+
+                default:
+                    throw new ArgumentOutOfRangeException();
             }
 
             return convertedPoint;
@@ -83,10 +94,12 @@ namespace Dust
 
             switch (direction)
             {
-                default:
-                case Axis3xDirection.X: break;
+                case Axis3xDirection.X: /* Keep it as is */ break;
                 case Axis3xDirection.Y: originPoint.y = +convertedPoint.x; originPoint.x = +convertedPoint.y; break;
                 case Axis3xDirection.Z: originPoint.z = +convertedPoint.x; originPoint.x = +convertedPoint.z; break;
+
+                default:
+                    throw new ArgumentOutOfRangeException();
             }
 
             return originPoint;
@@ -106,6 +119,9 @@ namespace Dust
                 case Axis6xDirection.YMinus: convertedPoint.x = +originPoint.y; convertedPoint.y = -originPoint.x; break;
                 case Axis6xDirection.ZPlus:  convertedPoint.x = +originPoint.z; convertedPoint.z = +originPoint.x; break;
                 case Axis6xDirection.ZMinus: convertedPoint.x = +originPoint.z; convertedPoint.z = -originPoint.x; break;
+
+                default:
+                    throw new ArgumentOutOfRangeException();
             }
 
             return convertedPoint;
@@ -123,6 +139,9 @@ namespace Dust
                 case Axis6xDirection.YMinus: originPoint.y = +convertedPoint.x; originPoint.x = -convertedPoint.y; break;
                 case Axis6xDirection.ZPlus:  originPoint.z = +convertedPoint.x; originPoint.x = +convertedPoint.z; break;
                 case Axis6xDirection.ZMinus: originPoint.z = +convertedPoint.x; originPoint.x = -convertedPoint.z; break;
+
+                default:
+                    throw new ArgumentOutOfRangeException();
             }
 
             return originPoint;

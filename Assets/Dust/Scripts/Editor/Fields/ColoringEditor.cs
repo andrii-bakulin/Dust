@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEditor;
 
@@ -70,6 +71,9 @@ namespace Dust.DustEditor
                         DustGUI.Field("Preview", DuGradient.CreateBetweenColors(m_RandomMinColor.valColor, m_RandomMaxColor.valColor));
                         DustGUI.Unlock();
                         break;
+
+                    default:
+                        throw new ArgumentOutOfRangeException();
                 }
 
                 DuEditor.Space();

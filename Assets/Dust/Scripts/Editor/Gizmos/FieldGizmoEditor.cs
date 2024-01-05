@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEditor;
 
 namespace Dust.DustEditor
@@ -80,6 +81,9 @@ namespace Dust.DustEditor
                 case FieldGizmo.SourceType.FieldsSpace:
                     PropertyField(m_FieldsSpace);
                     break;
+
+                default:
+                    throw new ArgumentOutOfRangeException();
             }
 
             Space();

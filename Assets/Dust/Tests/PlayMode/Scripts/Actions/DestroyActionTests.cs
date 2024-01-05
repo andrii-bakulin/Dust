@@ -3,7 +3,6 @@ using System.Collections;
 using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.TestTools;
-using Object = UnityEngine.Object;
 
 namespace Dust.Test.Actions.Destroy
 {
@@ -26,7 +25,7 @@ namespace Dust.Test.Actions.Destroy
             {
                 var testObject = GetTestObject(index);
                 if (testObject != null)
-                    Object.DestroyImmediate(testObject);   
+                    UnityEngine.Object.DestroyImmediate(testObject);   
             }
             yield break;
         }

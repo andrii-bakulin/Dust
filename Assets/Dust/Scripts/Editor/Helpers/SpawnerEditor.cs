@@ -1,4 +1,5 @@
-﻿using System.Reflection;
+﻿using System;
+using System.Reflection;
 using UnityEngine;
 using UnityEditor;
 
@@ -99,6 +100,9 @@ namespace Dust.DustEditor
                 case Spawner.SpawnEvent.IntervalInRange:
                     PropertyFieldDurationRange(m_IntervalRange);
                     break;
+
+                default:
+                    throw new ArgumentOutOfRangeException();
             }
 
             Space();
@@ -139,6 +143,9 @@ namespace Dust.DustEditor
                             PropertySeedRandomOrFixed(m_SpawnPointsSeed);
                     }
                     break;
+
+                default:
+                    throw new ArgumentOutOfRangeException();
             }
 
             Space();

@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEditor;
 
 namespace Dust.DustEditor
@@ -68,6 +69,9 @@ namespace Dust.DustEditor
                     PropertyField(m_WaveSpeed);
                     PropertyField(m_WaveOffset);
                     break;
+
+                default:
+                    throw new ArgumentOutOfRangeException();
             }
 
             Space();

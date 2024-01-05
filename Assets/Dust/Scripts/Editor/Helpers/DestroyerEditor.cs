@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEditor;
 
 namespace Dust.DustEditor
@@ -103,8 +104,14 @@ namespace Dust.DustEditor
                             PropertyField(m_VolumeOffset);
                             PropertyField(m_VolumeSize);
                             break;
+
+                        default:
+                            throw new ArgumentOutOfRangeException();
                     }
                     break;
+
+                default:
+                    throw new ArgumentOutOfRangeException();
             }
 
             Space();
@@ -141,6 +148,9 @@ namespace Dust.DustEditor
                 case Destroyer.DestroyMode.DeadZone:
                     DustGUI.HelpBoxInfo("GameObject will be destroyed\nwhen it will get inside Dead Zone");
                     break;
+
+                default:
+                    throw new ArgumentOutOfRangeException();
             }
 
             // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

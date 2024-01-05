@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
@@ -51,7 +52,7 @@ namespace Dust
             // and instanceGameObject is NULL. In that cases I forced create instance as object!
             if (Dust.IsNull(instanceGameObject))
             {
-                instanceGameObject = Object.Instantiate(prefab, parent);
+                instanceGameObject = UnityEngine.Object.Instantiate(prefab, parent);
                 instanceGameObject.name = instanceGameObject.name.Replace("(Clone)", "");
             }
 
@@ -101,6 +102,9 @@ namespace Dust
                 case Factory.IterateMode.Random:
                     m_ObjectsQueue_duRandom = new DuRandom( DuRandom.NormalizeSeedToNonRandom(m_Factory.seed) );
                     break;
+
+                default:
+                    throw new ArgumentOutOfRangeException();
             }
         }
 
@@ -112,11 +116,13 @@ namespace Dust
             switch (m_Factory.iterateMode)
             {
                 case Factory.IterateMode.Iterate:
-                default:
                     return m_Factory.sourceObjects[m_ObjectsQueue_index++ % m_Factory.sourceObjects.Count];
 
                 case Factory.IterateMode.Random:
                     return m_Factory.sourceObjects[m_ObjectsQueue_duRandom.Range(0, m_Factory.sourceObjects.Count)];
+
+                default:
+                    throw new ArgumentOutOfRangeException();
             }
         }
 
