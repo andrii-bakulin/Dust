@@ -45,15 +45,11 @@ namespace Dust
 
         public void DestroyNow()
         {
-            foreach (var comp in components.Where(comp => Dust.IsNotNull(comp)))
-            {
+            foreach (var comp in components.Where(Dust.IsNotNull))
                 Destroy(comp);
-            }
 
-            foreach (var go in gameObjects.Where(go => Dust.IsNotNull(go)))
-            {
+            foreach (var go in gameObjects.Where(Dust.IsNotNull))
                 Destroy(go);
-            }
 
             if (applyToTarget && Dust.IsNotNull(activeTargetObject))
                 Destroy(activeTargetObject);

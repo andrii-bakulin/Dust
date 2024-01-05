@@ -79,12 +79,10 @@ namespace Dust
             if (applyToTarget && Dust.IsNotNull(activeTargetObject))
                 activeTargetObject.SetActive( GetNewState(activeTargetObject.activeSelf) );
 
-            foreach (var go in gameObjects.Where(go => Dust.IsNotNull(go)))
-            {
+            foreach (var go in gameObjects.Where(Dust.IsNotNull))
                 go.SetActive(GetNewState(go.activeSelf));
-            }
 
-            foreach (var comp in components.Where(comp => Dust.IsNotNull(comp)))
+            foreach (var comp in components.Where(Dust.IsNotNull))
             {
                 if (comp as Behaviour is Behaviour compBehaviour)
                 {

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace Dust
@@ -68,16 +69,8 @@ namespace Dust
             // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
             // Calculate Weight
 
-            var totalWeight = 0f;
+            var totalWeight = actions.Where(Dust.IsNotNull).Sum(actionRecord => actionRecord.weight);
 
-            foreach (var actionRecord in actions)
-            {
-                if (Dust.IsNull(actionRecord))
-                    continue;
-                
-                totalWeight += actionRecord.weight;
-            }
-            
             // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
             // If ALL are ZERO -> just call random with same weights
 
@@ -96,11 +89,8 @@ namespace Dust
 
             var randomWeight = duRandom.Range(0f, totalWeight);
             
-            foreach (var actionRecord in actions)
+            foreach (var actionRecord in actions.Where(Dust.IsNotNull))
             {
-                if (Dust.IsNull(actionRecord))
-                    continue;
-
                 if (randomWeight > actionRecord.weight)
                 {
                     randomWeight -= actionRecord.weight;
