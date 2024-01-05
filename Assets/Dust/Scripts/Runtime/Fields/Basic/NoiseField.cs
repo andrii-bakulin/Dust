@@ -192,8 +192,6 @@ namespace Dust
                 default:
                     throw new ArgumentOutOfRangeException();
             }
-
-            return "";
         }
 
         public override void Calculate(Field.Point fieldPoint, out Field.Result result, bool calculateColor)

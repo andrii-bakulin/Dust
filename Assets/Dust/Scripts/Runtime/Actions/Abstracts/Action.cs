@@ -164,13 +164,13 @@ namespace Dust
                 };
             }
 
-            if (Dust.IsNull(activeTargetObject))
+            if (Dust.IsNull(m_ActiveTargetObject))
             {
                 Debug.LogError("Cannot start action, because failed to detect target object");
                 return;
             }
             
-            m_ActiveTargetTransform = activeTargetObject.transform;
+            m_ActiveTargetTransform = m_ActiveTargetObject.transform;
 
             // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
