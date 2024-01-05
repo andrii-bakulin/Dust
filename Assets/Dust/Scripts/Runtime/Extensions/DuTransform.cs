@@ -42,6 +42,9 @@ namespace Dust
 
         public static void UpdatePosition(Transform transform, Vector3 value, Space space, Mode mode)
         {
+            if (Dust.IsNull(transform))
+                return;
+
             var position = space switch
             {
                 DuTransform.Space.World => transform.position,
@@ -73,6 +76,9 @@ namespace Dust
 
         public static void UpdateRotation(Transform transform, Vector3 value, Space space, Mode mode)
         {
+            if (Dust.IsNull(transform))
+                return;
+
             var rotation = space switch
             {
                 DuTransform.Space.World => transform.eulerAngles,
@@ -104,6 +110,9 @@ namespace Dust
 
         public static void UpdateScale(Transform transform, Vector3 value, Space space, Mode mode)
         {
+            if (Dust.IsNull(transform))
+                return;
+
             var scale = space switch
             {
                 DuTransform.Space.World => transform.lossyScale,
