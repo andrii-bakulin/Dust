@@ -5,9 +5,9 @@ namespace Dust.Test
 {
     public abstract class CorePlayModeTests
     {
-        protected float Sec(float sec)
+        protected float Sec(float seconds)
         {
-            return sec * Constants.TIME_SCALE;
+            return seconds * Constants.TIME_SCALE;
         }
 
         protected void Assert_Equal(Vector3 testValue, Vector3 baseValue, string message = "")

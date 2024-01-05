@@ -15,7 +15,7 @@ namespace Dust.DustEditor
         //Unity's built-in editor
         private Editor _defaultEditor;
 
-        private bool _meshInfoRead = false;
+        private bool _meshInfoRead;
         private string _meshInfoMessage = "";
 
         void OnEnable()
