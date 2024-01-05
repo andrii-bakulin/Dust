@@ -16,13 +16,13 @@ namespace Dust.DustEditor
 
         //--------------------------------------------------------------------------------------------------------------
 
-        private FieldsMap m_FieldsMapInstance;
+        private readonly FieldsMap m_FieldsMapInstance;
         public FieldsMap fieldsMapInstance => m_FieldsMapInstance;
 
-        private DuEditor m_Editor;
-
-        private DuEditor.DuProperty m_DefaultPower;
-        private DuEditor.DuProperty m_DefaultColor;
+        private readonly DuEditor m_Editor;
+        private readonly DuEditor.DuProperty m_DefaultPower;
+        private readonly DuEditor.DuProperty m_DefaultColor;
+        
         private DuEditor.DuProperty m_Fields;
 
         // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

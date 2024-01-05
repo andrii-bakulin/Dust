@@ -7,13 +7,13 @@ namespace Dust.DustEditor
     {
         public class DuProperty
         {
-            public string propertyPath;
-            public string title;
-            public string tooltip;
-            public SerializedProperty property;
-            public bool isChanged;
+            internal string propertyPath;
+            internal string title;
+            internal string tooltip;
+            internal SerializedProperty property;
+            internal bool isChanged;
 
-            public Editor parentEditor;
+            internal Editor parentEditor;
 
             //--------------------------------------------------------------------------------------------------------------
             // Helpers
