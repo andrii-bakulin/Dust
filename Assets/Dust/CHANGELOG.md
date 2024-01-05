@@ -1,6 +1,7 @@
 ## [0.3.2] - 2024-01-04
 
 Fix: TransformRandomAction - correct use target object reference
+Fix: TransformUpdateAction - correct use target object reference
 
 
 ------------------------------------------------------------------------------------------------------------------------
