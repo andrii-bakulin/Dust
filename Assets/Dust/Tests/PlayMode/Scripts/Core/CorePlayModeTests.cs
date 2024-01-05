@@ -10,7 +10,12 @@ namespace Dust.Test
             return seconds * Constants.TIME_SCALE;
         }
 
-        protected void Assert_Equal(Vector3 testValue, Vector3 baseValue, string message = "")
+        //--------------------------------------------------------------------------------------------------------------
+
+        protected void Assert_Equal(Vector3 testValue, Vector3 baseValue)
+            => Assert_Equal(testValue, baseValue, "");
+
+        protected void Assert_Equal(Vector3 testValue, Vector3 baseValue, string message)
         {
             float distance = Vector3.Distance(testValue, baseValue);
 
@@ -22,7 +27,12 @@ namespace Dust.Test
             Assert.That(distance, Is.LessThanOrEqualTo(Constants.VECTOR_DISTANCE_DELTA), message);
         }
 
-        protected void Assert_NotEqual(Vector3 testValue, Vector3 baseValue, string message = "")
+        //--------------------------------------------------------------------------------------------------------------
+
+        protected void Assert_NotEqual(Vector3 testValue, Vector3 baseValue)
+            => Assert_NotEqual(testValue, baseValue, "");
+        
+        protected void Assert_NotEqual(Vector3 testValue, Vector3 baseValue, string message)
         {
             float distance = Vector3.Distance(testValue, baseValue);
 
@@ -34,7 +44,12 @@ namespace Dust.Test
             Assert.That(distance, Is.Not.LessThanOrEqualTo(Constants.VECTOR_DISTANCE_DELTA), message);
         }
 
-        protected void Assert_Equal(Quaternion testValue, Quaternion baseValue, string message = "")
+        //--------------------------------------------------------------------------------------------------------------
+
+        protected void Assert_Equal(Quaternion testValue, Quaternion baseValue)
+            => Assert_Equal(testValue, baseValue, "");
+
+        protected void Assert_Equal(Quaternion testValue, Quaternion baseValue, string message)
         {
             float angle = Quaternion.Angle(testValue, baseValue);
 
@@ -46,7 +61,12 @@ namespace Dust.Test
             Assert.That(angle, Is.LessThanOrEqualTo(Constants.QUATERNION_ANGLE_DELTA), message);
         }
 
-        protected void Assert_NotEqual(Quaternion testValue, Quaternion baseValue, string message = "")
+        //--------------------------------------------------------------------------------------------------------------
+
+        protected void Assert_NotEqual(Quaternion testValue, Quaternion baseValue)
+            => Assert_NotEqual(testValue, baseValue, "");
+        
+        protected void Assert_NotEqual(Quaternion testValue, Quaternion baseValue, string message)
         {
             float angle = Quaternion.Angle(testValue, baseValue);
 

@@ -350,6 +350,9 @@ namespace Dust
                 case AxisRemapping.XyzToYzx: v = new Vector3(v.y, v.z, v.x); break;
                 case AxisRemapping.XyzToZxy: v = new Vector3(v.z, v.x, v.y); break;
                 case AxisRemapping.XyzToZyx: v = new Vector3(v.z, v.y, v.x); break;
+
+                default:
+                    throw new ArgumentOutOfRangeException();
             }
             return v;
         }

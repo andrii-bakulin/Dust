@@ -17,6 +17,6 @@ namespace Dust.Test
         internal static readonly string FLOAT_ACCURACY_MASK = "F3";
 
         // true : false
-        internal static bool DEBUG_LOG = true;
+        internal static readonly bool DEBUG_LOG = true;
     }
 }
