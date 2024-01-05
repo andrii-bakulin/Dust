@@ -10,7 +10,7 @@ namespace Dust.DustEditor
     {
         protected DuProperty m_ActivationMode;
 
-        protected DuProperty m_ApplyToSelf;
+        protected DuProperty m_ApplyToTarget;
         protected DuProperty m_GameObjects;
         protected DuProperty m_Components;
 
@@ -40,7 +40,7 @@ namespace Dust.DustEditor
 
             m_ActivationMode = FindProperty("m_ActivationMode", "Activation Mode");
 
-            m_ApplyToSelf = FindProperty("m_ApplyToSelf", "Apply To Self");
+            m_ApplyToTarget = FindProperty("m_ApplyToTarget", "Apply To Target");
             m_GameObjects = FindProperty("m_GameObjects", "Game Objects");
             m_Components = FindProperty("m_Components", "Components");
 
@@ -62,10 +62,11 @@ namespace Dust.DustEditor
 
             Space();
                 
-            PropertyField(m_ApplyToSelf);
+            PropertyField(m_ApplyToTarget);
+            Space();
+
             PropertyField(m_GameObjects);
             PropertyField(m_Components);
-
             Space();
 
             // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

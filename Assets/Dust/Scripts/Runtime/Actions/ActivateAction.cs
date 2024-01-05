@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace Dust
@@ -29,14 +30,14 @@ namespace Dust
         }
 
         [SerializeField]
-        private bool m_ApplyToSelf;
-        public bool applyToSelf
+        private bool m_ApplyToTarget;
+        public bool applyToTarget
         {
-            get => m_ApplyToSelf;
+            get => m_ApplyToTarget;
             set
             {
                 if (!IsAllowUpdateProperty()) return;
-                m_ApplyToSelf = value;
+                m_ApplyToTarget = value;
             }
         }
 
@@ -75,25 +76,16 @@ namespace Dust
 
         protected override void OnActionUpdate(float deltaTime)
         {
-            if (Dust.IsNull(activeTargetTransform))
-                return;
-            
-            if (applyToSelf)
-                gameObject.SetActive(GetNewState(gameObject.activeSelf));
+            if (applyToTarget && Dust.IsNotNull(activeTargetObject))
+                activeTargetObject.SetActive( GetNewState(activeTargetObject.activeSelf) );
 
-            foreach (var go in gameObjects)
+            foreach (var go in gameObjects.Where(go => Dust.IsNotNull(go)))
             {
-                if (Dust.IsNull(go))
-                    continue;
-                
                 go.SetActive(GetNewState(go.activeSelf));
             }
 
-            foreach (var comp in components)
+            foreach (var comp in components.Where(comp => Dust.IsNotNull(comp)))
             {
-                if (Dust.IsNull(comp))
-                    continue;
-
                 if (comp as Behaviour is Behaviour compBehaviour)
                 {
                     compBehaviour.enabled = GetNewState(compBehaviour.enabled);
