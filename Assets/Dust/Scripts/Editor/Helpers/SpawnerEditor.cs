@@ -30,6 +30,7 @@ namespace Dust.DustEditor
         protected DuProperty m_Limit;
         protected DuProperty m_SpawnOnAwake;
 
+        protected DuProperty m_ActivateInstance;
         protected DuProperty m_ResetPosition;
         protected DuProperty m_ResetRotation;
         protected DuProperty m_ResetScale;
@@ -72,6 +73,7 @@ namespace Dust.DustEditor
             m_Limit = FindProperty("m_Limit", "Total Limit");
             m_SpawnOnAwake = FindProperty("m_SpawnOnAwake", "Spawn On Awake");
 
+            m_ActivateInstance = FindProperty("m_ActivateInstance", "Activate Instance", "If TRUE, all new GameObjects will be forcibly set to active.");
             m_ResetPosition = FindProperty("m_ResetPosition", "Position");
             m_ResetRotation = FindProperty("m_ResetRotation", "Rotation");
             m_ResetScale = FindProperty("m_ResetScale", "Scale");
@@ -168,14 +170,18 @@ namespace Dust.DustEditor
 
             PropertyField(m_Limit);
             PropertyField(m_SpawnOnAwake);
-            PropertyField(m_ParentMode);
 
             Space();
 
             // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-            if (DustGUI.FoldoutBegin("Reset Transform", "Spawner.ResetTransform", false))
+            if (DustGUI.FoldoutBegin("On Spawn Instance", "Spawner.OnSpawnInstance", true))
             {
+                PropertyField(m_ActivateInstance);
+                PropertyField(m_ParentMode);
+
+                Space();
+
                 PropertyField(m_ResetPosition);
                 PropertyField(m_ResetRotation);
                 PropertyField(m_ResetScale);

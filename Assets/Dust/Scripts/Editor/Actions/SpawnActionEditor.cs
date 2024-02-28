@@ -22,8 +22,8 @@ namespace Dust.DustEditor
         protected DuProperty m_MultipleSpawnCount;
         protected DuProperty m_MultipleSpawnSeed;
 
+        protected DuProperty m_ActivateInstance;
         protected DuProperty m_ParentMode;
-
         protected DuProperty m_ResetPosition;
         protected DuProperty m_ResetRotation;
         protected DuProperty m_ResetScale;
@@ -61,11 +61,11 @@ namespace Dust.DustEditor
             m_MultipleSpawnCount = FindProperty("m_MultipleSpawnCount", "Spawn Count");
             m_MultipleSpawnSeed = FindProperty("m_MultipleSpawnSeed", "Seed");
 
+            m_ActivateInstance = FindProperty("m_ActivateInstance", "Activate Instance", "If TRUE, all new GameObjects will be forcibly set to active.");
             m_ParentMode = FindProperty("m_ParentMode", "Assign Parent As");
-
-            m_ResetPosition = FindProperty("m_ResetPosition", "Position");
-            m_ResetRotation = FindProperty("m_ResetRotation", "Rotation");
-            m_ResetScale = FindProperty("m_ResetScale", "Scale");
+            m_ResetPosition = FindProperty("m_ResetPosition", "Reset Position");
+            m_ResetRotation = FindProperty("m_ResetRotation", "Reset Rotation");
+            m_ResetScale = FindProperty("m_ResetScale", "Reset Scale");
         }
 
         public override void OnInspectorGUI()
@@ -133,14 +133,13 @@ namespace Dust.DustEditor
 
             // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-            PropertyField(m_ParentMode);
-
-            Space();
-
-            // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-            if (DustGUI.FoldoutBegin("Reset Transform", "Spawner.ResetTransform", false))
+            if (DustGUI.FoldoutBegin("On Spawn Instance", "SpawnAction.OnSpawnInstance", true))
             {
+                PropertyField(m_ActivateInstance);
+                PropertyField(m_ParentMode);
+
+                Space();
+
                 PropertyField(m_ResetPosition);
                 PropertyField(m_ResetRotation);
                 PropertyField(m_ResetScale);

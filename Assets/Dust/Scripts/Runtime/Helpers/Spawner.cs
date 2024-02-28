@@ -194,6 +194,14 @@ namespace Dust
             set => m_SpawnOnAwake = value;
         }
 
+        [SerializeField]
+        private bool m_ActivateInstance;
+        public bool activateInstance
+        {
+            get => m_ActivateInstance;
+            set => m_ActivateInstance = value;
+        }
+
         // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
         [SerializeField]
@@ -380,6 +388,9 @@ namespace Dust
             
             if (resetScale)
                 obj.transform.localScale = Vector3.one;
+            
+            if (activateInstance)
+                obj.SetActive(true);
 
             // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
