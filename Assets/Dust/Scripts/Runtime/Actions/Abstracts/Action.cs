@@ -102,6 +102,12 @@ namespace Dust
                 return;
 
             ActionInnerStart(previousAction);
+
+            // This is required because sometimes the 1st frame's ActionInnerUpdate() call occurs only in
+            // the next update after the object with action(s) was created/spawned.
+            // This prevents the flickering of the object if the 1st action moves the object to any location
+            // with a 0f time duration!
+            ActionInnerUpdate(Time.deltaTime);
         }
 
         public void Stop()
