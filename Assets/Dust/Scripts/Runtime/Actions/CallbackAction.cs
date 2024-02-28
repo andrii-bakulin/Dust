@@ -21,7 +21,7 @@ namespace Dust
         //--------------------------------------------------------------------------------------------------------------
         // Dust.Action lifecycle
 
-        protected override void OnActionUpdate(float deltaTime)
+        protected override void OnActionExecute()
         {
             onCompleteCallback?.Invoke(this);
         }

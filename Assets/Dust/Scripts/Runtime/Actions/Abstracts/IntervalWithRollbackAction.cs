@@ -51,6 +51,14 @@ namespace Dust
             m_PlayingPhase = PlayingPhase.Main;
         }
 
+        protected override bool IsInstantAction()
+        {
+            if (playRollback && DuMath.IsZero(duration) && DuMath.IsZero(rollbackDuration))
+                return true;
+            
+            return DuMath.IsZero(duration);
+        }
+            
         protected override void ActionInnerUpdate(float deltaTime)
         {
             if (playRollback && DuMath.IsZero(duration) && DuMath.IsZero(rollbackDuration))

@@ -179,7 +179,7 @@ namespace Dust
 
         //--------------------------------------------------------------------------------------------------------------
 
-        protected override void OnActionUpdate(float deltaTime)
+        protected override void OnActionExecute()
         {
             if (multipleSpawnEnabled)
             {

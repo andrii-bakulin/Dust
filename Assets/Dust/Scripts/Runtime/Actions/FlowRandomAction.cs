@@ -61,7 +61,7 @@ namespace Dust
         //--------------------------------------------------------------------------------------------------------------
         // Dust.Action lifecycle
 
-        protected override void OnActionUpdate(float deltaTime)
+        protected override void OnActionExecute()
         {
             if (actions.Count == 0)
                 return;

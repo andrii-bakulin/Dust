@@ -84,30 +84,19 @@ namespace Dust
                 Play();
         }
 
-        private void Update()
-        {
-            if (!isPlaying)
-                return;
-
-            ActionInnerUpdate(Time.deltaTime);
-        }
-
         //--------------------------------------------------------------------------------------------------------------
 
         public void Play() => Play(null);
 
-        public void Play(Action previousAction)
+        internal void Play(Action previousAction)
         {
+            if (this.enabled == false)
+                return; // if component not enabled -> don't start action
+
             if (isPlaying)
-                return;
+                return; // no need restart playing action
 
             ActionInnerStart(previousAction);
-
-            // This is required because sometimes the 1st frame's ActionInnerUpdate() call occurs only in
-            // the next update after the object with action(s) was created/spawned.
-            // This prevents the flickering of the object if the 1st action moves the object to any location
-            // with a 0f time duration!
-            ActionInnerUpdate(Time.deltaTime);
         }
 
         public void Stop()
@@ -185,8 +174,6 @@ namespace Dust
             OnActionStart();
         }
 
-        protected abstract void ActionInnerUpdate(float deltaTime);
-
         protected virtual void ActionInnerStop(bool isTerminated)
         {
             m_IsPlaying = false;
@@ -195,14 +182,12 @@ namespace Dust
         }
 
         //--------------------------------------------------------------------------------------------------------------
-        // Dust.Action lifecycle
+        // Dust.Action lifecycle for custom logic of each actions
 
         protected virtual void OnActionStart()
         {
             // Nothing need to do
         }
-
-        protected abstract void OnActionUpdate(float deltaTime);
 
         protected virtual void OnActionStop(bool isTerminated)
         {

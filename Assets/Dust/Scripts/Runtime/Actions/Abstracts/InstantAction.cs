@@ -4,11 +4,18 @@ namespace Dust
 {
     public abstract class InstantAction : SequencedAction
     {
-        protected override void ActionInnerUpdate(float deltaTime)
+        protected override void ActionInnerStart(Action previousAction)
         {
-            OnActionUpdate(deltaTime);
+            base.ActionInnerStart(previousAction);
 
+            OnActionExecute();
+            
             ActionInnerStop(false);
         }
+        
+        //--------------------------------------------------------------------------------------------------------------
+        // Abstract methods to implement
+
+        protected abstract void OnActionExecute();
     }
 }

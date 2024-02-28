@@ -23,30 +23,30 @@ namespace Dust
         protected override void ActionInnerStop(bool isTerminated)
         {
             base.ActionInnerStop(isTerminated);
-            
-            if (!isTerminated)
+
+            if (isTerminated)
+                return;
+
+            if (Dust.IsNull(onCompleteActions))
+                return;
+
+            foreach (var action in onCompleteActions)
             {
-                if (Dust.IsNotNull(onCompleteActions))
-                {
-                    foreach (var action in onCompleteActions)
-                    {
-                        if (Dust.IsNull(action))
-                            continue;
+                if (Dust.IsNull(action))
+                    continue;
                         
-                        // Situation:
-                        //      I have 1st action "Reset Transform" which starts 2 actions "Move" (2s) + "Rotate" (2s).
-                        //      Then "Move" restart "Reset Transform" and repeat forever.
-                        // Sometimes have situation when "Move" action finished and "Rotate" action needs
-                        //      few updates more to finish.
-                        //      But "Move" action start "Reset Transform" and then the last one restarts "Move"+"Rotate"
-                        // In case if just call Play() for "Move" and "Rotate" then "Rotate" will not restart
-                        //      and stop playing in a few Updates.
-                        // Solution: need call Stop() method for all actions before I re-start them!
-                        action.Stop();
+                // Situation:
+                //      I have 1st action "Reset Transform" which starts 2 actions "Move" (2s) + "Rotate" (2s).
+                //      Then "Move" restart "Reset Transform" and repeat forever.
+                // Sometimes have situation when "Move" action finished and "Rotate" action needs
+                //      few updates more to finish.
+                //      But "Move" action start "Reset Transform" and then the last one restarts "Move"+"Rotate"
+                // In case if just call Play() for "Move" and "Rotate" then "Rotate" will not restart
+                //      and stop playing in a few Updates.
+                // Solution: need call Stop() method for all actions before I re-start them!
+                action.Stop();
                         
-                        action.Play(this);
-                    }
-                }
+                action.Play(this);
             }
         }
     }

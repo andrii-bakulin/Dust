@@ -30,9 +30,9 @@ namespace Dust
         //--------------------------------------------------------------------------------------------------------------
         // Dust.Action lifecycle
 
-        protected override void OnActionUpdate(float deltaTime)
+        protected override void OnActionExecute()
         {
-            // Cannot call DestroyNow() here, because then callbacks will be ignored
+            // Cannot call DestroyNow() here, because then callbacks will be ignored if I drop self-object
             // So require call it as a last instruction in ActionInnerStop method! 
         }
 

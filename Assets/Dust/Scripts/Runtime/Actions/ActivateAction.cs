@@ -74,7 +74,7 @@ namespace Dust
         //--------------------------------------------------------------------------------------------------------------
         // Dust.Action lifecycle
 
-        protected override void OnActionUpdate(float deltaTime)
+        protected override void OnActionExecute()
         {
             if (applyToTarget && Dust.IsNotNull(activeTargetObject))
                 activeTargetObject.SetActive( GetNewState(activeTargetObject.activeSelf) );

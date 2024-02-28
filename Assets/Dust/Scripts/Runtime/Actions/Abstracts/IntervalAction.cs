@@ -64,6 +64,16 @@ namespace Dust
 
         //--------------------------------------------------------------------------------------------------------------
 
+        private void Update()
+        {
+            if (!isPlaying)
+                return;
+
+            ActionInnerUpdate(Time.deltaTime);
+        }
+
+        //--------------------------------------------------------------------------------------------------------------
+
         protected override void ActionInnerStart(Action previousAction)
         {
             m_PlaybackIndex = 0;
@@ -71,6 +81,14 @@ namespace Dust
             ActionPlaybackInitialize();
 
             base.ActionInnerStart(previousAction);
+
+            if (IsInstantAction())
+            {
+                // This is instance action!
+                // Required execute it right now!
+                
+                ActionInnerUpdate(0f);
+            }
         }
 
         protected virtual void ActionPlaybackInitialize()
@@ -79,7 +97,12 @@ namespace Dust
             m_PlaybackState = 0f;
         }
 
-        protected override void ActionInnerUpdate(float deltaTime)
+        protected virtual bool IsInstantAction()
+        {
+            return DuMath.IsZero(duration);
+        }
+            
+        protected virtual void ActionInnerUpdate(float deltaTime)
         {
             if (duration > 0f)
             {
@@ -102,7 +125,7 @@ namespace Dust
         {
             m_PlaybackIndex++;
 
-            bool isActionCompleted = repeatMode switch
+            bool isActionFullyCompleted = repeatMode switch
             {
                 RepeatMode.PlayOnce => true,
                 RepeatMode.Repeat => m_PlaybackIndex >= repeatTimes,
@@ -110,9 +133,9 @@ namespace Dust
                 _ => true, // For undefined state -> forced finish action
             };
 
-            if (!isActionCompleted)
+            if (!isActionFullyCompleted)
             {
-                ActionPlaybackInitialize(); // Replay
+                ActionPlaybackInitialize(); // ReInitialize and Replay
                 return;
             }
             
@@ -127,6 +150,11 @@ namespace Dust
 
             base.ActionInnerStop(isTerminated);
         }
+
+        //--------------------------------------------------------------------------------------------------------------
+        // Abstract methods to implement
+
+        protected abstract void OnActionUpdate(float deltaTime);
 
         //--------------------------------------------------------------------------------------------------------------
         // Normalizer

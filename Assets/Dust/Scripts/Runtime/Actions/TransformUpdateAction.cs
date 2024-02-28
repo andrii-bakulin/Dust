@@ -106,7 +106,7 @@ namespace Dust
         //--------------------------------------------------------------------------------------------------------------
         // Dust.Action lifecycle
 
-        protected override void OnActionUpdate(float deltaTime)
+        protected override void OnActionExecute()
         {
             if (Dust.IsNull(activeTargetTransform))
                 return;
