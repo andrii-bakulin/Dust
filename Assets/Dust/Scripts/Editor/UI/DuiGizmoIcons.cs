@@ -28,6 +28,9 @@ namespace Dust.DustEditor
             SetGizmoIconEnabled<TransformRandomAction>(false);
             SetGizmoIconEnabled<TransformUpdateAction>(false);
             SetGizmoIconEnabled<UpdateHierarchyAction>(false);
+
+            // Actions.Rigidbody
+            SetGizmoIconEnabled<RigidbodyAddForceAction>(false);
             
             // Animations
             SetGizmoIconEnabled<Follow>(false);
