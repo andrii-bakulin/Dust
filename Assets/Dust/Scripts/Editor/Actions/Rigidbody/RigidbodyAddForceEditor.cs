@@ -19,8 +19,8 @@ namespace Dust.DustEditor
             ActionsPopupButtons.AddActionPhysics(typeof(RigidbodyAddForceAction), "AddForce");
         }
 
-        [MenuItem("Dust/Actions/Rigidbody/AddForce")]
-        [MenuItem("GameObject/Dust/Actions/Rigidbody/AddForce")]
+        [MenuItem("Dust/Actions/Physics/AddForce")]
+        [MenuItem("GameObject/Dust/Actions/Physics/AddForce")]
         public static void AddComponentToSelectedObjects()
         {
             AddComponentToSelectedOrNewObject("Rigidbody AddForce Action", typeof(RigidbodyAddForceAction));
