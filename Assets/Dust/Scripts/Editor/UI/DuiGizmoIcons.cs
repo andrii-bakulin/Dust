@@ -31,6 +31,7 @@ namespace Dust.DustEditor
 
             // Actions.Rigidbody
             SetGizmoIconEnabled<RigidbodyAddForceAction>(false);
+            SetGizmoIconEnabled<RigidbodyAddTorqueAction>(false);
             
             // Animations
             SetGizmoIconEnabled<Follow>(false);
