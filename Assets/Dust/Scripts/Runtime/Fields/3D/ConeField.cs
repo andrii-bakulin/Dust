@@ -65,7 +65,7 @@ namespace Dust
 
             if (radius > 0f && height > 0f && DuVector3.IsAllAxisNonZero(transform.localScale))
             {
-                Vector3 localPosition = transform.worldToLocalMatrix.MultiplyPoint(fieldPoint.inPosition);
+                Vector3 localPosition = transform.InverseTransformPoint(fieldPoint.inPosition);
 
                 // Convert to [X+]-axis-space by direction
                 localPosition = AxisDirection.ConvertFromDirectionToAxisXPlus(direction, localPosition);

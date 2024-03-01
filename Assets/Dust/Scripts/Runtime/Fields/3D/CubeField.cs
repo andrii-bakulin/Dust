@@ -79,7 +79,7 @@ namespace Dust
 
             if (DuVector3.IsAllAxisNonZero(size) && DuVector3.IsAllAxisNonZero(transform.localScale))
             {
-                Vector3 localPosition = transform.worldToLocalMatrix.MultiplyPoint(fieldPoint.inPosition);
+                Vector3 localPosition = transform.InverseTransformPoint(fieldPoint.inPosition);
 
                 float distanceToPoint = localPosition.magnitude;
                 float distanceToEdge = Mathf.Infinity;

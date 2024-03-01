@@ -198,7 +198,7 @@ namespace Dust
 
         public override void Calculate(Field.Point fieldPoint, out Field.Result result, bool calculateColor)
         {
-            Vector3 localPoint = transform.worldToLocalMatrix.MultiplyPoint(fieldPoint.inPosition);
+            Vector3 localPoint = transform.InverseTransformPoint(fieldPoint.inPosition);
 
             if (powerEnabled)
             {

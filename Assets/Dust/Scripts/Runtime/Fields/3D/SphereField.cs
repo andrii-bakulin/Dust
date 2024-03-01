@@ -47,7 +47,7 @@ namespace Dust
 
             if (radius > 0f && DuVector3.IsAllAxisNonZero(transform.localScale))
             {
-                Vector3 localPosition = transform.worldToLocalMatrix.MultiplyPoint(fieldPoint.inPosition);
+                Vector3 localPosition = transform.InverseTransformPoint(fieldPoint.inPosition);
 
                 float distanceToPoint = localPosition.magnitude;
                 float distanceToEdge = radius;

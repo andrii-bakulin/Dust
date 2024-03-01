@@ -150,7 +150,7 @@ namespace Dust
             }
             else if (texture.isReadable)
             {
-                Vector3 localPosition = transform.worldToLocalMatrix.MultiplyPoint(fieldPoint.inPosition);
+                Vector3 localPosition = transform.InverseTransformPoint(fieldPoint.inPosition);
 
                 // Convert to [X+]-axis-space by direction
                 localPosition = AxisDirection.ConvertFromDirectionToAxisXPlus(direction, localPosition);

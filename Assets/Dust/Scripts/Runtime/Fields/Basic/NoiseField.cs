@@ -210,7 +210,7 @@ namespace Dust
                     Vector3 inSpaceOffset = fieldPoint.inPosition; // point in world space
 
                     if (noiseSpace == NoiseSpace.Local)
-                        inSpaceOffset = transform.worldToLocalMatrix.MultiplyPoint(inSpaceOffset);
+                        inSpaceOffset = transform.InverseTransformPoint(inSpaceOffset);
 
                     if (ignoreAxisX) inSpaceOffset.x = 0f;
                     if (ignoreAxisY) inSpaceOffset.y = 0f;

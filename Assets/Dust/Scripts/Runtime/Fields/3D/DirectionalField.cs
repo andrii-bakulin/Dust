@@ -73,7 +73,7 @@ namespace Dust
         {
             result.power = 0f;
 
-            Vector3 localPosition = transform.worldToLocalMatrix.MultiplyPoint(fieldPoint.inPosition);
+            Vector3 localPosition = transform.InverseTransformPoint(fieldPoint.inPosition);
 
             float distanceToPoint = direction switch
             {

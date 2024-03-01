@@ -181,7 +181,7 @@ namespace Dust
 
         public override void Calculate(Field.Point fieldPoint, out Field.Result result, bool calculateColor)
         {
-            Vector3 localPosition = transform.worldToLocalMatrix.MultiplyPoint(fieldPoint.inPosition);
+            Vector3 localPosition = transform.InverseTransformPoint(fieldPoint.inPosition);
 
             // Convert to Axis X+ (xp) space
             var xpLocalPosition = AxisDirection.ConvertFromDirectionToAxisXPlus(direction, localPosition);
