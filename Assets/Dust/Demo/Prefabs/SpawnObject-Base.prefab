@@ -28,12 +28,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4590907805841877425}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &4590907805841877451
 MeshFilter:
@@ -54,6 +55,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -91,10 +93,21 @@ Rigidbody:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4590907805841877425}
-  serializedVersion: 2
+  serializedVersion: 4
   m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -115,9 +128,9 @@ MonoBehaviour:
   m_PositionEnabled: 1
   m_PositionRangeMin: {x: -0.25, y: 0, z: -0.25}
   m_PositionRangeMax: {x: 0.25, y: 0, z: 0.25}
-  m_RotationEnabled: 0
-  m_RotationRangeMin: {x: -0, y: -180, z: -0}
-  m_RotationRangeMax: {x: 0, y: 180, z: 0}
+  m_RotationEnabled: 1
+  m_RotationRangeMin: {x: -180, y: -180, z: -180}
+  m_RotationRangeMax: {x: 180, y: 180, z: 180}
   m_ScaleEnabled: 1
   m_ScaleRangeMin: {x: 0.15, y: 0.15, z: 0.15}
   m_ScaleRangeMax: {x: 0.33, y: 0.33, z: 0.33}

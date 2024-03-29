@@ -61,7 +61,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 65c48eeaa604849c49d87ea9f1384c48, type: 2}
+  - {fileID: 2100000, guid: c9965487bf64c4a5e935d5ab7a4118fc, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -190,7 +190,7 @@ TextMesh:
   m_Font: {fileID: 12800000, guid: 63402472675044d8f932cc18958ad1c1, type: 3}
   m_Color:
     serializedVersion: 2
-    rgba: 4280295456
+    rgba: 4286611584
 --- !u!1 &4555384661247630378
 GameObject:
   m_ObjectHideFlags: 0
@@ -201,7 +201,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4555384661247630383}
   m_Layer: 0
-  m_Name: Demo-Platform
+  m_Name: Platform-Dark
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

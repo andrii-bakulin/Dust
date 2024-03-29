@@ -14,7 +14,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4590907805841877425, guid: 0a7d20910e871478f814affd9de95257, type: 3}
       propertyPath: m_Name
-      value: SpawnObject-Var2
+      value: SpawnObject-Var-Cube
       objectReference: {fileID: 0}
     - target: {fileID: 4590907805841877450, guid: 0a7d20910e871478f814affd9de95257, type: 3}
       propertyPath: m_RootOrder
@@ -63,14 +63,26 @@ PrefabInstance:
     - target: {fileID: 4590907805841877451, guid: 0a7d20910e871478f814affd9de95257, type: 3}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+      objectReference: {fileID: -5495902117074765545, guid: d4d91ea6a77044314aacada78aa5e6c5, type: 3}
     - target: {fileID: 4590907805841877452, guid: 0a7d20910e871478f814affd9de95257, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 2257860d395a64caab43575c21bffefd, type: 2}
+      objectReference: {fileID: 2100000, guid: 92d42b97fc67349a6bd7f1693d2ca165, type: 2}
+    - target: {fileID: 4979808448803148166, guid: 0a7d20910e871478f814affd9de95257, type: 3}
+      propertyPath: m_ScaleUniform
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4979808448803148166, guid: 0a7d20910e871478f814affd9de95257, type: 3}
       propertyPath: m_TransformMode
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4979808448803148166, guid: 0a7d20910e871478f814affd9de95257, type: 3}
+      propertyPath: m_ScaleRangeMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4979808448803148166, guid: 0a7d20910e871478f814affd9de95257, type: 3}
+      propertyPath: m_ScaleRangeMin.y
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 4979808448803148166, guid: 0a7d20910e871478f814affd9de95257, type: 3}
       propertyPath: m_PositionRangeMax.x
@@ -93,22 +105,22 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 4590907805841877425, guid: 0a7d20910e871478f814affd9de95257, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: -6870321498060224346}
+      insertIndex: 4
+      addedObject: {fileID: 7982144203608339296}
   m_SourcePrefab: {fileID: 100100000, guid: 0a7d20910e871478f814affd9de95257, type: 3}
 --- !u!1 &2872860718845723962 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4590907805841877425, guid: 0a7d20910e871478f814affd9de95257, type: 3}
   m_PrefabInstance: {fileID: 1758758773033069707}
   m_PrefabAsset: {fileID: 0}
---- !u!136 &-6870321498060224346
-CapsuleCollider:
+--- !u!65 &7982144203608339296
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2872860718845723962}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 95743b8507fed44f78303cea77155b12, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -119,8 +131,6 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}

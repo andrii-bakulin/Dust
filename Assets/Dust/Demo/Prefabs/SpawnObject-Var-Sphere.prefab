@@ -14,7 +14,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4590907805841877425, guid: 0a7d20910e871478f814affd9de95257, type: 3}
       propertyPath: m_Name
-      value: SpawnObject-Var3
+      value: SpawnObject-Var-Sphere
       objectReference: {fileID: 0}
     - target: {fileID: 4590907805841877450, guid: 0a7d20910e871478f814affd9de95257, type: 3}
       propertyPath: m_RootOrder
@@ -63,11 +63,11 @@ PrefabInstance:
     - target: {fileID: 4590907805841877451, guid: 0a7d20910e871478f814affd9de95257, type: 3}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+      objectReference: {fileID: -8844700393703326736, guid: 6a6a5ba7857dd4e37a77f1fdef10ce6f, type: 3}
     - target: {fileID: 4590907805841877452, guid: 0a7d20910e871478f814affd9de95257, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 2bff0706db5fe4c01a5586e6d81b6fb8, type: 2}
+      objectReference: {fileID: 2100000, guid: e2b20c884e7a24191a5d89e07f020bbc, type: 2}
     - target: {fileID: 4979808448803148166, guid: 0a7d20910e871478f814affd9de95257, type: 3}
       propertyPath: m_TransformMode
       value: 1
@@ -93,22 +93,22 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 4590907805841877425, guid: 0a7d20910e871478f814affd9de95257, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 8930632917285682667}
+      insertIndex: 4
+      addedObject: {fileID: 592197442549595723}
   m_SourcePrefab: {fileID: 100100000, guid: 0a7d20910e871478f814affd9de95257, type: 3}
 --- !u!1 &2872860718845723962 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4590907805841877425, guid: 0a7d20910e871478f814affd9de95257, type: 3}
   m_PrefabInstance: {fileID: 1758758773033069707}
   m_PrefabAsset: {fileID: 0}
---- !u!135 &8930632917285682667
+--- !u!135 &592197442549595723
 SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2872860718845723962}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 95743b8507fed44f78303cea77155b12, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -120,5 +120,5 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.5
+  m_Radius: 0.7
   m_Center: {x: 0, y: 0, z: 0}
