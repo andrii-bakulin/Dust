@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Linq;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -99,6 +101,20 @@ namespace Dust
         //--------------------------------------------------------------------------------------------------------------
 
         [SerializeField]
+        private bool m_SelfDestroy = true;
+        public bool selfDestroy => m_SelfDestroy;
+
+        [SerializeField]
+        private List<GameObject> m_GameObjects = new List<GameObject>();
+        public List<GameObject> gameObjects => m_GameObjects;
+
+        [SerializeField]
+        private List<Component> m_Components = new List<Component>();
+        public List<Component> components => m_Components;
+
+        //--------------------------------------------------------------------------------------------------------------
+
+        [SerializeField]
         private DestroyerEvent m_OnDestroy;
         public DestroyerEvent onDestroy => m_OnDestroy;
 
@@ -153,17 +169,17 @@ namespace Dust
                     m_TimeAlive += Time.deltaTime;
 
                     if (m_TimeAlive >= m_TimeLimit)
-                        DestroySelf();
+                        Destroy();
                     break;
 
                 case DestroyMode.AliveZone:
                     if (!IsInsideVolume())
-                        DestroySelf();
+                        Destroy();
                     break;
 
                 case DestroyMode.DeadZone:
                     if (IsInsideVolume())
-                        DestroySelf();
+                        Destroy();
                     break;
 
                 default:
@@ -252,50 +268,52 @@ namespace Dust
 #endif
 
         //--------------------------------------------------------------------------------------------------------------
+        
+        public void Destroy()
+        {
+            if (Dust.IsNotNull(onDestroy) && onDestroy.GetPersistentEventCount() > 0)
+                onDestroy.Invoke(this.gameObject);
+
+            foreach (var comp in components.Where(Dust.IsNotNull))
+                Destroy(comp);
+
+            foreach (var go in gameObjects.Where(Dust.IsNotNull))
+                Destroy(go);
+
+            if (selfDestroy)
+                Destroy(this.gameObject);
+        }
+
+        //--------------------------------------------------------------------------------------------------------------
+        // This is custom events to use in UnityEditor callback setup
 
         public void DestroySelf()
         {
             DestroyGameObject(this.gameObject);
         }
-
-        public void DestroyTarget(GameObject gameObjectToDestroy)
+        
+        public void DestroyGameObject(GameObject destroyGameObject)
         {
-            DestroyGameObject(gameObjectToDestroy);
+            if (Dust.IsNull(destroyGameObject))
+                return;
+
+            Destroy(destroyGameObject);
         }
         
-        public void DestroyTarget(Component component)
+        public void DestroyGameObject(Component component)
         {
+            if (Dust.IsNull(component))
+                return;
+
             DestroyGameObject(component.gameObject);
         }
 
-        public void DestroyTarget(Collision other)
+        public void DestroyComponent(Component component)
         {
-            DestroyGameObject(other.gameObject);
-        }
+            if (Dust.IsNull(component))
+                return;
 
-        public void DestroyTarget(Collider other)
-        {
-            DestroyGameObject(other.gameObject);
-        }
-
-        public void DestroyTarget(Collision2D other)
-        {
-            DestroyGameObject(other.gameObject);
-        }
-
-        public void DestroyTarget(Collider2D other)
-        {
-            DestroyGameObject(other.gameObject);
-        }
-
-        protected void DestroyGameObject(GameObject gameObjectToDestroy)
-        {
-            if (Dust.IsNotNull(onDestroy) && onDestroy.GetPersistentEventCount() > 0)
-                onDestroy.Invoke(gameObjectToDestroy);
-
-            this.enabled = false;
-
-            Destroy(gameObjectToDestroy);
+            Destroy(component);
         }
 
         //--------------------------------------------------------------------------------------------------------------

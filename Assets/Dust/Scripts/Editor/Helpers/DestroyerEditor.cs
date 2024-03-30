@@ -19,6 +19,10 @@ namespace Dust.DustEditor
         protected DuProperty m_VolumeSize;
         protected DuProperty m_VolumeSourceCenter;
 
+        protected DuProperty m_SelfDestroy;
+        protected DuProperty m_GameObjects;
+        protected DuProperty m_Components;
+
         protected DuProperty m_OnDestroy;
 
         private Destroyer.DestroyMode destroyMode => (Destroyer.DestroyMode) m_DestroyMode.valInt;
@@ -48,6 +52,10 @@ namespace Dust.DustEditor
             m_VolumeOffset = FindProperty("m_VolumeOffset", "Offset");
             m_VolumeSize = FindProperty("m_VolumeSize", "Size");
             m_VolumeSourceCenter = FindProperty("m_VolumeSourceCenter", "Center Source Object");
+
+            m_SelfDestroy = FindProperty("m_SelfDestroy", "Self Destroy");
+            m_GameObjects = FindProperty("m_GameObjects", "Destroy Game Objects");
+            m_Components = FindProperty("m_Components", "Destroy Components");
 
             m_OnDestroy = FindProperty("m_OnDestroy", "On Destroy");
         }
@@ -110,6 +118,15 @@ namespace Dust.DustEditor
                     throw new ArgumentOutOfRangeException();
             }
 
+            Space();
+
+            // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+            PropertyField(m_SelfDestroy);
+            Space();
+            
+            PropertyField(m_GameObjects);
+            PropertyField(m_Components);
             Space();
 
             // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
