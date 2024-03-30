@@ -99,16 +99,6 @@ namespace Dust
         //--------------------------------------------------------------------------------------------------------------
 
         [SerializeField]
-        private bool m_DisableColliders = true;
-        public bool disableColliders
-        {
-            get => m_DisableColliders;
-            set => m_DisableColliders = value;
-        }
-
-        //--------------------------------------------------------------------------------------------------------------
-
-        [SerializeField]
         private DestroyerEvent m_OnDestroy;
         public DestroyerEvent onDestroy => m_OnDestroy;
 
@@ -302,16 +292,6 @@ namespace Dust
         {
             if (Dust.IsNotNull(onDestroy) && onDestroy.GetPersistentEventCount() > 0)
                 onDestroy.Invoke(gameObjectToDestroy);
-
-            if (disableColliders)
-            {
-                var colliders = gameObjectToDestroy.GetComponents<Collider>();
-
-                foreach (var col in colliders)
-                {
-                    col.enabled = false;
-                }
-            }
 
             this.enabled = false;
 

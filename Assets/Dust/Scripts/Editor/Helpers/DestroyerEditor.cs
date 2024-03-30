@@ -19,8 +19,6 @@ namespace Dust.DustEditor
         protected DuProperty m_VolumeSize;
         protected DuProperty m_VolumeSourceCenter;
 
-        protected DuProperty m_DisableColliders;
-
         protected DuProperty m_OnDestroy;
 
         private Destroyer.DestroyMode destroyMode => (Destroyer.DestroyMode) m_DestroyMode.valInt;
@@ -50,8 +48,6 @@ namespace Dust.DustEditor
             m_VolumeOffset = FindProperty("m_VolumeOffset", "Offset");
             m_VolumeSize = FindProperty("m_VolumeSize", "Size");
             m_VolumeSourceCenter = FindProperty("m_VolumeSourceCenter", "Center Source Object");
-
-            m_DisableColliders = FindProperty("m_DisableColliders", "Disable Colliders");
 
             m_OnDestroy = FindProperty("m_OnDestroy", "On Destroy");
         }
@@ -116,11 +112,7 @@ namespace Dust.DustEditor
 
             Space();
 
-            PropertyField(m_DisableColliders);
-
             // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-            Space();
 
             if (DustGUI.FoldoutBegin("Events", "Destroyer.Events", false))
             {

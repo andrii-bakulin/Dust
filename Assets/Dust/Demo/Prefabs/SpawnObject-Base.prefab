@@ -161,7 +161,6 @@ MonoBehaviour:
   m_VolumeOffset: {x: 0, y: 0, z: 0}
   m_VolumeSize: {x: 1, y: 1, z: 1}
   m_VolumeSourceCenter: {fileID: 0}
-  m_DisableColliders: 1
   m_OnDestroy:
     m_PersistentCalls:
       m_Calls: []
