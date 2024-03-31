@@ -69,7 +69,7 @@ namespace Dust
         // Used by: { MeshRenderer } 
 
         [SerializeField]
-        private string m_PropertyName = "_Color";
+        private string m_PropertyName = "_BaseColor";
         public string propertyName
         {
             get => m_PropertyName;

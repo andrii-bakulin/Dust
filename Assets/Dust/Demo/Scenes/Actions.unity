@@ -3313,8 +3313,8 @@ MonoBehaviour:
   m_PlayRollback: 0
   m_RollbackDuration: 1
   m_TintColor: {r: 1, g: 1, b: 0, a: 1}
-  m_TintMode: 0
-  m_PropertyName: _Color
+  m_TintMode: 1
+  m_PropertyName: _BaseColor
 --- !u!114 &952449506
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3338,8 +3338,8 @@ MonoBehaviour:
   m_PlayRollback: 0
   m_RollbackDuration: 1
   m_TintColor: {r: 1, g: 0, b: 1, a: 1}
-  m_TintMode: 0
-  m_PropertyName: _Color
+  m_TintMode: 1
+  m_PropertyName: _BaseColor
 --- !u!114 &952449507
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3363,8 +3363,8 @@ MonoBehaviour:
   m_PlayRollback: 0
   m_RollbackDuration: 1
   m_TintColor: {r: 0, g: 1, b: 1, a: 1}
-  m_TintMode: 0
-  m_PropertyName: _Color
+  m_TintMode: 1
+  m_PropertyName: _BaseColor
 --- !u!1 &969964393 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5065096020563194986, guid: fea214dcfb6114448ba2e65631b300ed,
@@ -5586,9 +5586,7 @@ PrefabInstance:
     - target: {fileID: 6020086575731987624, guid: de011416d1efd411495a050805ad2357,
         type: 3}
       propertyPath: m_Text
-      value: 'Tint
-
-        (only for Standart render)'
+      value: Tint
       objectReference: {fileID: 0}
     - target: {fileID: 8644486408928407222, guid: de011416d1efd411495a050805ad2357,
         type: 3}
@@ -7139,8 +7137,8 @@ MonoBehaviour:
   m_PlayRollback: 1
   m_RollbackDuration: 0.5
   m_TintColor: {r: 0.78431374, g: 0, b: 0, a: 1}
-  m_TintMode: 0
-  m_PropertyName: _Color
+  m_TintMode: 1
+  m_PropertyName: _BaseColor
 --- !u!114 &1688576774
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7164,8 +7162,8 @@ MonoBehaviour:
   m_PlayRollback: 0
   m_RollbackDuration: 1
   m_TintColor: {r: 0, g: 0, b: 0, a: 1}
-  m_TintMode: 0
-  m_PropertyName: _Color
+  m_TintMode: 1
+  m_PropertyName: _BaseColor
 --- !u!1 &1690361060 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4555384661247630378, guid: de011416d1efd411495a050805ad2357,
@@ -7600,8 +7598,8 @@ MonoBehaviour:
   m_PlayRollback: 0
   m_RollbackDuration: 1
   m_TintColor: {r: 0, g: 0, b: 1, a: 1}
-  m_TintMode: 0
-  m_PropertyName: _Color
+  m_TintMode: 1
+  m_PropertyName: _BaseColor
 --- !u!114 &1749914396
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7625,8 +7623,8 @@ MonoBehaviour:
   m_PlayRollback: 0
   m_RollbackDuration: 1
   m_TintColor: {r: 0, g: 1, b: 0, a: 1}
-  m_TintMode: 0
-  m_PropertyName: _Color
+  m_TintMode: 1
+  m_PropertyName: _BaseColor
 --- !u!114 &1749914397
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7650,8 +7648,8 @@ MonoBehaviour:
   m_PlayRollback: 0
   m_RollbackDuration: 1
   m_TintColor: {r: 1, g: 0, b: 0, a: 1}
-  m_TintMode: 0
-  m_PropertyName: _Color
+  m_TintMode: 1
+  m_PropertyName: _BaseColor
 --- !u!1001 &1825372543
 PrefabInstance:
   m_ObjectHideFlags: 0

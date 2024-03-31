@@ -38,7 +38,10 @@ namespace Dust.DustEditor
 
             m_TintColor = FindProperty("m_TintColor", "Tint Color");
             m_TintMode = FindProperty("m_TintMode", "Tint Mode");
-            m_PropertyName = FindProperty("m_PropertyName", "Property Name");
+            m_PropertyName = FindProperty("m_PropertyName", "Property Name", 
+                "To change color for Material use next color property names:" + "\n" +
+                "- _BaseColor for URP and HDRP" + "\n" +
+                "- _Color for Standard Render Pipeline");
         }
 
         public override void OnInspectorGUI()
