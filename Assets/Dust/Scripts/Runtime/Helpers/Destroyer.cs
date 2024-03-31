@@ -292,6 +292,8 @@ namespace Dust
             DestroyGameObject(this.gameObject);
         }
         
+        // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+        
         public void DestroyGameObject(GameObject destroyGameObject)
         {
             if (Dust.IsNull(destroyGameObject))
@@ -307,6 +309,24 @@ namespace Dust
 
             DestroyGameObject(component.gameObject);
         }
+
+        public void DestroyGameObject(Collision collision)
+        {
+            if (Dust.IsNull(collision))
+                return;
+
+            DestroyGameObject(collision.gameObject);
+        }
+
+        public void DestroyGameObject(Collision2D collision)
+        {
+            if (Dust.IsNull(collision))
+                return;
+
+            DestroyGameObject(collision.gameObject);
+        }
+
+        // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
         public void DestroyComponent(Component component)
         {
