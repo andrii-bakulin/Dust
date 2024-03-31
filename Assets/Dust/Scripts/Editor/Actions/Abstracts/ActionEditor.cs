@@ -115,13 +115,41 @@ namespace Dust.DustEditor
 
                 if (action as SequencedAction is SequencedAction sequencedAction)
                 {
+                    Action actionNeedDetach = null;
+                    Action actionNeedDestroy = null;
+
                     foreach (var nextAction in sequencedAction.onCompleteActions)
                     {
                         if (Dust.IsNull(nextAction))
                             continue;
 
                         Texture icon = UI.Icons.GetTextureByComponent(nextAction);
-                        DustGUI.IconButton(icon);
+                        
+                        if (DustGUI.IconButton(icon))
+                        {
+                            if (Event.current.alt && Event.current.shift)
+                            {
+                                actionNeedDestroy = nextAction;
+                            }
+                            else if (Event.current.alt)
+                            {
+                                actionNeedDetach = nextAction;
+                            }
+                        }
+                    }
+                    
+                    if (Dust.IsNotNull(actionNeedDestroy))
+                    {
+                        Undo.RecordObject(sequencedAction, "Detach Linked Action");
+                        sequencedAction.onCompleteActions.Remove(actionNeedDestroy);
+
+                        Undo.DestroyObjectImmediate(actionNeedDestroy);
+                    }
+
+                    if (Dust.IsNotNull(actionNeedDetach))
+                    {
+                        Undo.RecordObject(sequencedAction, "Detach Linked Action");
+                        sequencedAction.onCompleteActions.Remove(actionNeedDetach);
                     }
                 }
 
