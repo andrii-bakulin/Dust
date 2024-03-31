@@ -125,9 +125,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb443279d95ea4feca98323499ae4579, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_PositionEnabled: 1
-  m_PositionRangeMin: {x: -0.25, y: 0, z: -0.25}
-  m_PositionRangeMax: {x: 0.25, y: 0, z: 0.25}
+  m_PositionEnabled: 0
+  m_PositionRangeMin: {x: 0, y: 0, z: 0}
+  m_PositionRangeMax: {x: 0, y: 0, z: 0}
   m_RotationEnabled: 1
   m_RotationRangeMin: {x: -180, y: -180, z: -180}
   m_RotationRangeMax: {x: 180, y: 180, z: 180}
@@ -161,6 +161,9 @@ MonoBehaviour:
   m_VolumeOffset: {x: 0, y: 0, z: 0}
   m_VolumeSize: {x: 1, y: 1, z: 1}
   m_VolumeSourceCenter: {fileID: 0}
+  m_SelfDestroy: 1
+  m_GameObjects: []
+  m_Components: []
   m_OnDestroy:
     m_PersistentCalls:
       m_Calls: []

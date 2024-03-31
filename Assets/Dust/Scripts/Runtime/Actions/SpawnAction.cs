@@ -17,6 +17,8 @@ namespace Dust
         {
             Self = 0,
             Points = 1,
+            SphereVolume = 2,
+            BoxVolume = 3
         }
 
         public enum SpawnParentMode
@@ -64,6 +66,24 @@ namespace Dust
         {
             get => m_SpawnPointsSeed;
             set => m_SpawnPointsSeed = value;
+        }
+
+        // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+        
+        [SerializeField]
+        private float m_SphereVolumeRadius = 0.5f;
+        public float sphereVolumeRadius
+        {
+            get => m_SphereVolumeRadius;
+            set => m_SphereVolumeRadius = NormalizeSphereVolumeRadius(value);
+        }
+        
+        [SerializeField]
+        private Vector3 m_BoxVolumeSize = Vector3.one;
+        public Vector3 boxVolumeSize
+        {
+            get => m_BoxVolumeSize;
+            set => m_BoxVolumeSize = NormalizeBoxVolumeSize(value);
         }
 
         // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -201,7 +221,9 @@ namespace Dust
             GameObject spawnAtPoint = null;
             GameObject objectToSpawn = null;
 
-            // Detect spawn point  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+            Vector3 spawnOffsetPosition = Vector3.zero;
+
+            // Detect spawn point & offset - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
             switch (spawnPointMode)
             {
@@ -226,6 +248,20 @@ namespace Dust
                         default:
                             throw new ArgumentOutOfRangeException();
                     }
+                    break;
+
+                case SpawnPointMode.SphereVolume:
+                    spawnAtPoint = this.gameObject;
+
+                    spawnOffsetPosition = spawnPointsRandom.Range(-Vector3.one, Vector3.one);
+                    spawnOffsetPosition.Normalize();
+                    spawnOffsetPosition *= spawnPointsRandom.Range(0f, sphereVolumeRadius);
+                    break;
+                    
+                case SpawnPointMode.BoxVolume:
+                    spawnAtPoint = this.gameObject;
+
+                    spawnOffsetPosition = spawnPointsRandom.Range(-boxVolumeSize, boxVolumeSize) / 2f;
                     break;
 
                 default:
@@ -286,11 +322,53 @@ namespace Dust
 
             // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+            obj.transform.localPosition += spawnOffsetPosition;
+
+            // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
             return obj;
         }
 
         //--------------------------------------------------------------------------------------------------------------
+
+#if UNITY_EDITOR
+        private void OnDrawGizmosSelected()
+        {
+            Gizmos.matrix = transform.localToWorldMatrix;
+            Gizmos.color = Color.yellow;
+
+            switch (spawnPointMode)
+            {
+                case SpawnPointMode.Self:
+                case SpawnPointMode.Points:
+                    return;
+
+                case SpawnPointMode.SphereVolume:
+                    Gizmos.DrawWireSphere(Vector3.zero, sphereVolumeRadius);
+                    break;
+
+                case SpawnPointMode.BoxVolume:
+                    Gizmos.DrawWireCube(Vector3.zero, boxVolumeSize);
+                    break;
+
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
+        }
+#endif
+
+        //--------------------------------------------------------------------------------------------------------------
         // Normalizer
+
+        public static float NormalizeSphereVolumeRadius(float radius)
+        {
+            return Mathf.Abs(radius);
+        }
+
+        public static Vector3 NormalizeBoxVolumeSize(Vector3 value)
+        {
+            return DuVector3.Abs(value);
+        }
 
         public static DuIntRange NormalizeMultipleSpawnCount(DuIntRange range)
         {
