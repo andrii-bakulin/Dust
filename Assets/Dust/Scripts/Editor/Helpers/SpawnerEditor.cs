@@ -22,6 +22,9 @@ namespace Dust.DustEditor
         protected DuProperty m_SpawnPointsIterate;
         protected DuProperty m_SpawnPointsSeed;
 
+        protected DuProperty m_SphereVolumeRadius;
+        protected DuProperty m_BoxVolumeSize;
+
         protected DuProperty m_MultipleSpawnEnabled;
         protected DuProperty m_MultipleSpawnCount;
         protected DuProperty m_MultipleSpawnSeed;
@@ -65,6 +68,9 @@ namespace Dust.DustEditor
             m_SpawnPointsIterate = FindProperty("m_SpawnPointsIterate", "Spawn Points Iterate");
             m_SpawnPointsSeed = FindProperty("m_SpawnPointsSeed", "Seed");
 
+            m_SphereVolumeRadius = FindProperty("m_SphereVolumeRadius", "Volume Radius");
+            m_BoxVolumeSize = FindProperty("m_BoxVolumeSize", "Volume Size");
+            
             m_MultipleSpawnEnabled = FindProperty("m_MultipleSpawnEnabled", "Enabled");
             m_MultipleSpawnCount = FindProperty("m_MultipleSpawnCount", "Spawn Count");
             m_MultipleSpawnSeed = FindProperty("m_MultipleSpawnSeed", "Seed");
@@ -74,9 +80,9 @@ namespace Dust.DustEditor
             m_SpawnOnAwake = FindProperty("m_SpawnOnAwake", "Spawn On Awake");
 
             m_ActivateInstance = FindProperty("m_ActivateInstance", "Activate Instance", "If TRUE, all new GameObjects will be forcibly set to active.");
-            m_ResetPosition = FindProperty("m_ResetPosition", "Position");
-            m_ResetRotation = FindProperty("m_ResetRotation", "Rotation");
-            m_ResetScale = FindProperty("m_ResetScale", "Scale");
+            m_ResetPosition = FindProperty("m_ResetPosition", "Reset Position");
+            m_ResetRotation = FindProperty("m_ResetRotation", "Reset Rotation");
+            m_ResetScale = FindProperty("m_ResetScale", "Reset Scale");
             
             m_OnSpawn = FindProperty("m_OnSpawn", "On Spawn");
         }
@@ -144,6 +150,16 @@ namespace Dust.DustEditor
                         if ((Spawner.IterateMode) m_SpawnPointsIterate.valInt == Spawner.IterateMode.Random)
                             PropertySeedRandomOrFixed(m_SpawnPointsSeed);
                     }
+                    break;
+                
+                case Spawner.SpawnPointMode.SphereVolume:
+                    PropertyExtendedSlider(m_SphereVolumeRadius, 0f, 5f, 0.01f, 0f);
+                    PropertySeedRandomOrFixed(m_SpawnPointsSeed);
+                    break;
+
+                case Spawner.SpawnPointMode.BoxVolume:
+                    PropertyField(m_BoxVolumeSize);
+                    PropertySeedRandomOrFixed(m_SpawnPointsSeed);
                     break;
 
                 default:
@@ -236,6 +252,12 @@ namespace Dust.DustEditor
 
             // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
             // Validate & Normalize Data
+
+            if (m_SphereVolumeRadius.isChanged)
+                m_SphereVolumeRadius.valFloat = Spawner.NormalizeSphereVolumeRadius(m_SphereVolumeRadius.valFloat);
+
+            if (m_BoxVolumeSize.isChanged)
+                m_BoxVolumeSize.valVector3 = Spawner.NormalizeBoxVolumeSize(m_BoxVolumeSize.valVector3);
 
             if (m_Interval.isChanged)
                 m_Interval.valFloat = Spawner.NormalizeIntervalValue(m_Interval.valFloat);
