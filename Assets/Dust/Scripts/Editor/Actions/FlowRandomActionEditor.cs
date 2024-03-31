@@ -16,7 +16,7 @@ namespace Dust.DustEditor
 
         static FlowRandomActionEditor()
         {
-            ActionsPopupButtons.AddActionFlow(typeof(FlowRandomAction), "Flow Random");
+            ActionsPopupButtons.AddActionOthers(typeof(FlowRandomAction), "Flow Random");
         }
 
         [MenuItem("Dust/Actions/Flow Random")]
