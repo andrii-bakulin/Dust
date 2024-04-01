@@ -5,7 +5,7 @@ namespace Dust.DustEditor
 {
     [CustomEditor(typeof(OnCollisionEvent))]
     [CanEditMultipleObjects]
-    public class OnCollisionEventEditor : OnColliderEventEditor
+    public class OnCollisionEventEditor : OnCollideEventEditor
     {
         [MenuItem("Dust/Events/On Collision")]
         [MenuItem("GameObject/Dust/Events/On Collision")]

@@ -5,7 +5,7 @@ namespace Dust.DustEditor
 {
     [CustomEditor(typeof(OnTrigger2DEvent))]
     [CanEditMultipleObjects]
-    public class OnTrigger2DEventEditor : OnColliderEventEditor
+    public class OnTrigger2DEventEditor : OnCollideEventEditor
     {
         [MenuItem("Dust/Events/On Trigger 2D")]
         [MenuItem("GameObject/Dust/Events/On Trigger 2D")]

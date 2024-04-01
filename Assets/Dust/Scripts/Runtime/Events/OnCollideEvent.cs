@@ -5,7 +5,7 @@ using UnityEngine.Events;
 
 namespace Dust
 {
-    public abstract class OnColliderEvent : OnAbstractEvent
+    public abstract class OnCollideEvent : OnAbstractEvent
     {
         public enum TagProcessingMode
         {
@@ -51,6 +51,11 @@ namespace Dust
         }
 
         //--------------------------------------------------------------------------------------------------------------
+
+        private void Start()
+        {
+            // Require to show "Enable" checkbox in UnityEditor
+        }
 
         protected bool IsRequireSendEvent(GameObject otherGameObject)
         {

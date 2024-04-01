@@ -3,7 +3,7 @@
 namespace Dust
 {
     [AddComponentMenu("Dust/Events/On Collision Event 2D")]
-    public class OnCollision2DEvent : OnColliderEvent
+    public class OnCollision2DEvent : OnCollideEvent
     {
         [SerializeField]
         private Collision2DEvent m_OnEnter;
@@ -21,7 +21,9 @@ namespace Dust
 
         private void OnCollisionEnter2D(Collision2D other)
         {
-            if (Dust.IsNull(onEnter) || onEnter.GetPersistentEventCount() == 0 || !IsRequireSendEvent(other.gameObject))
+            if (!this.enabled ||
+                Dust.IsNull(onEnter) || onEnter.GetPersistentEventCount() == 0 ||
+                !IsRequireSendEvent(other.gameObject))
                 return;
 
             onEnter.Invoke(other);
@@ -29,7 +31,9 @@ namespace Dust
 
         private void OnCollisionStay2D(Collision2D other)
         {
-            if (Dust.IsNull(onStay) || onStay.GetPersistentEventCount() == 0 || !IsRequireSendEvent(other.gameObject))
+            if (!this.enabled ||
+                Dust.IsNull(onStay) || onStay.GetPersistentEventCount() == 0 ||
+                !IsRequireSendEvent(other.gameObject))
                 return;
 
             onStay.Invoke(other);
@@ -37,7 +41,9 @@ namespace Dust
 
         private void OnCollisionExit2D(Collision2D other)
         {
-            if (Dust.IsNull(onExit) || onExit.GetPersistentEventCount() == 0 || !IsRequireSendEvent(other.gameObject))
+            if (!this.enabled ||
+                Dust.IsNull(onExit) || onExit.GetPersistentEventCount() == 0 ||
+                !IsRequireSendEvent(other.gameObject))
                 return;
 
             onExit.Invoke(other);
