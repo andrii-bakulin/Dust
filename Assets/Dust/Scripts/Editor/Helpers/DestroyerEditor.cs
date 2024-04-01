@@ -142,7 +142,11 @@ namespace Dust.DustEditor
             switch (destroyMode)
             {
                 case Destroyer.DestroyMode.Manual:
-                    DustGUI.HelpBoxInfo("To destroy GameObject call DestroySelf() or DestroyTarget() method");
+                    DustGUI.HelpBoxInfo("To destroy GameObject or Component call one of the methods:" + "\n" +
+                        "- Destroy()" + "\n" +
+                        "- DestroySelf()" + "\n" + 
+                        "- DestroyGameObject( .. )" + "\n" + 
+                        "- DestroyComponent( .. )");
                     break;
 
                 case Destroyer.DestroyMode.Time:

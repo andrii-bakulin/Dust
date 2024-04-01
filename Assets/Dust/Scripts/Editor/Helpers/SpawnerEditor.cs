@@ -98,7 +98,7 @@ namespace Dust.DustEditor
             switch ((Spawner.SpawnEvent) m_SpawnEvent.valInt)
             {
                 case Spawner.SpawnEvent.Manual:
-                    DustGUI.HelpBoxInfo("Call method Spawn() or SpawnSingleObject() to spawn object(s)");
+                    DustGUI.HelpBoxInfo("Call Spawn() method to spawn object(s)");
                     break;
 
                 case Spawner.SpawnEvent.FixedInterval:
