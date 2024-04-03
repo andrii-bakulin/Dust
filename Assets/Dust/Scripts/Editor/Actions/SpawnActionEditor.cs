@@ -27,7 +27,6 @@ namespace Dust.DustEditor
 
         protected DuProperty m_ActivateInstance;
         protected DuProperty m_ParentMode;
-        protected DuProperty m_ResetPosition;
         protected DuProperty m_ResetRotation;
         protected DuProperty m_ResetScale;
 
@@ -69,7 +68,6 @@ namespace Dust.DustEditor
 
             m_ActivateInstance = FindProperty("m_ActivateInstance", "Activate Instance", "If TRUE, all new GameObjects will be forcibly set to active.");
             m_ParentMode = FindProperty("m_ParentMode", "Assign Parent As");
-            m_ResetPosition = FindProperty("m_ResetPosition", "Reset Position");
             m_ResetRotation = FindProperty("m_ResetRotation", "Reset Rotation");
             m_ResetScale = FindProperty("m_ResetScale", "Reset Scale");
         }
@@ -84,6 +82,8 @@ namespace Dust.DustEditor
 
             PropertyField(m_SpawnObjects);
                 
+            Space();
+
             if (m_SpawnObjects.property.arraySize > 1)
             {
                 PropertyField(m_SpawnObjectsIterate);
@@ -156,7 +156,6 @@ namespace Dust.DustEditor
 
                 Space();
 
-                PropertyField(m_ResetPosition);
                 PropertyField(m_ResetRotation);
                 PropertyField(m_ResetScale);
 

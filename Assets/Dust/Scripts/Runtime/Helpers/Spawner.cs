@@ -225,14 +225,6 @@ namespace Dust
         // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
         [SerializeField]
-        private bool m_ResetPosition;
-        public bool resetPosition
-        {
-            get => m_ResetPosition;
-            set => m_ResetPosition = value;
-        }
-
-        [SerializeField]
         private bool m_ResetRotation;
         public bool resetRotation
         {
@@ -405,6 +397,9 @@ namespace Dust
 
             // 1. Create object and make parent as spawn-object
             GameObject obj = Instantiate(objectToSpawn, spawnAtPoint.transform);
+            {
+                obj.transform.localPosition = spawnOffsetPosition;
+            }
 
             // 2. Change parent if need
             obj.transform.parent = parentMode switch
@@ -416,21 +411,16 @@ namespace Dust
             };
 
             // 3. Reset transform if need only after change parent!
-            if (resetPosition)
-                obj.transform.localPosition = Vector3.zero;
-
             if (resetRotation)
                 obj.transform.localRotation = Quaternion.identity;
             
             if (resetScale)
                 obj.transform.localScale = Vector3.one;
             
-            if (activateInstance)
-                obj.SetActive(true);
-
             // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-            obj.transform.localPosition += spawnOffsetPosition;
+            if (activateInstance)
+                obj.SetActive(true);
 
             // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
