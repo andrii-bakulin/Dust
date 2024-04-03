@@ -14,6 +14,7 @@ namespace Dust.DustEditor
             SetGizmoIconEnabled<CallbackAction>(false);
             SetGizmoIconEnabled<DelayAction>(false);
             SetGizmoIconEnabled<DestroyAction>(false);
+            SetGizmoIconEnabled<FindGameObjectAction>(false);
             SetGizmoIconEnabled<FlipAction>(false);
             SetGizmoIconEnabled<FlowRandomAction>(false);
             SetGizmoIconEnabled<MoveByAction>(false);
