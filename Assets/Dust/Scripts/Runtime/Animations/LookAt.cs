@@ -31,7 +31,7 @@ namespace Dust
         }
 
         [SerializeField]
-        private bool m_UpdateInEditor = true;
+        private bool m_UpdateInEditor;
         public bool updateInEditor
         {
             get => m_UpdateInEditor;
