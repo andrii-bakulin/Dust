@@ -40,10 +40,11 @@ namespace Dust.DustEditor
 
             // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-            PropertyField(m_LogInMessageBox);
             PropertyField(m_LogInConsole);
+            PropertyField(m_LogInMessageBox);
 
-            PropertyField(m_MessagesLimit);
+            if (m_LogInMessageBox.valBool)
+                PropertyField(m_MessagesLimit);
 
             if (Application.isPlaying)
             {
