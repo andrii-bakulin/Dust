@@ -92,22 +92,6 @@ namespace Dust.DustEditor
             // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
             // Validate & Normalize Data
 
-            if (m_FollowObject.isChanged)
-            {
-                GameObject followObject = m_FollowObject.GameObjectReference;
-
-                if (Dust.IsNotNull(followObject))
-                {
-                    foreach (var entity in GetSerializedEntitiesByTargets())
-                    {
-                        Vector3 followOffset = (entity.target as Follow).transform.position - followObject.transform.position;
-
-                        entity.serializedObject.FindProperty("m_FollowOffset").vector3Value = DuVector3.Round(followOffset);
-                        entity.serializedObject.ApplyModifiedProperties();
-                    }
-                }
-            }
-
             if (m_SpeedLimit.isChanged)
                 m_SpeedLimit.valFloat = Follow.NormalizeSpeedLimit(m_SpeedLimit.valFloat);
 
