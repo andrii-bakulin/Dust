@@ -35,7 +35,7 @@ namespace Dust.DustEditor
 
         static SpawnActionEditor()
         {
-            ActionsPopupButtons.AddActionTransform(typeof(SpawnAction), "Spawn");
+            ActionsPopupButtons.AddActionGameObject(typeof(SpawnAction), "Spawn");
         }
 
         [MenuItem("Dust/Actions/Spawn")]

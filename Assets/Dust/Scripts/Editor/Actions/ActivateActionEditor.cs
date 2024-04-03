@@ -22,7 +22,7 @@ namespace Dust.DustEditor
 
         static ActivateActionEditor()
         {
-            ActionsPopupButtons.AddActionTransform(typeof(ActivateAction), "Activate");
+            ActionsPopupButtons.AddActionGameObject(typeof(ActivateAction), "Activate");
         }
 
         [MenuItem("Dust/Actions/Activate")]

@@ -16,7 +16,7 @@ namespace Dust.DustEditor
 
         static DestroyActionEditor()
         {
-            ActionsPopupButtons.AddActionOthers(typeof(DestroyAction), "Destroy");
+            ActionsPopupButtons.AddActionGameObject(typeof(DestroyAction), "Destroy");
         }
 
         [MenuItem("Dust/Actions/Destroy")]
