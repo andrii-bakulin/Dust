@@ -12,6 +12,10 @@ Add animations, sequence of actions, fields, catch events, and generate unique s
 
 Easy to use. No coding required!
 
+## Demo
+
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/I6Rmo0b638U/0.jpg)](https://www.youtube.com/watch?v=I6Rmo0b638U)
+
 ## License
 
 MIT License
