@@ -31,6 +31,11 @@ All notable changes to this package will be documented in this file.
 - Big review all Demos
 - Update project to use URP
 
+### Experimental
+- Added `Variables` (float)
+- Added `Variables` > `NumericVariableAction` to change `NumbericVariables`
+- Added `Variables` > `NumericToString` convertor
+
 
 
 ## [0.3.2] - 2024-01-05
