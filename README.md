@@ -1,12 +1,9 @@
 # Dust for Unity
 
-DustGUI is library for simplify usage of Unity GUI elements from `GUI`, `GUILayout` and `EditorGUILayout` classes.
-
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/f0619421a1a24563ae96591a81d430a5)](https://app.codacy.com/gh/andrii-bakulin/Dust/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade)
-
 ![Unity 2022.3 - success tested](https://img.shields.io/static/v1?label=Unity%202022.3&message=tested&color=success)
 ![Unity 2021.* - success tested](https://img.shields.io/static/v1?label=Unity%202021.*&message=tested&color=success)
-![Unity 2020.* - success tested](https://img.shields.io/static/v1?label=Unity%202020.1&message=tested&color=success)
+![Unity 2020.* - success tested](https://img.shields.io/static/v1?label=Unity%202020.*&message=tested&color=success)
 ![Unity 2019.* - success tested](https://img.shields.io/static/v1?label=Unity%202019.*&message=tested&color=success)
 
 Dust is 80+ simple but powerful components to Unity.
