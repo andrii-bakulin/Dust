@@ -97,9 +97,6 @@ namespace Dust.Experimental.Variables
             if (Mathf.Approximately(m_Value, newValue))
                 return false;
 
-            bool doFireMinLimitEvent = false;
-            bool doFireMaxLimitEvent = false;
-
             m_Value = newValue;
 
             if (useMinLimit && m_Value < minLimit)
