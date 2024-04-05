@@ -79,6 +79,17 @@ namespace Dust
                 AppendLogMessages($"[E] {message}");
         }
 
+        public void LogDebug(GameObject gameObj)
+        {
+            string gameObjName = gameObj ? gameObj.name + " #" + gameObj.GetInstanceID() : "NULL";
+
+            if (logInConsole)
+                Debug.Log($"GameObject [{gameObject.name}]: report about gameObject - {gameObjName}");
+
+            if (logInMessageBox)
+                AppendLogMessages($"[D] {gameObjName}");
+        }
+
         //--------------------------------------------------------------------------------------------------------------
 
         private void AppendLogMessages(string message)
