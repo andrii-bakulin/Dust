@@ -40,7 +40,7 @@ namespace Dust.Experimental
             if (Dust.IsNull(manager))
             {
 #if UNITY_EDITOR
-                Debug.LogWarning($"Cannot find manager with scope {scope}");
+                Debug.LogError($"Cannot find manager with scope `{scope}`");
 #endif
                 return;
             }
@@ -52,7 +52,7 @@ namespace Dust.Experimental
             if (Dust.IsNull(variable))
             {
 #if UNITY_EDITOR
-                Debug.LogWarning($"Cannot find variable with name `{variableName}` in {scope} manager");
+                Debug.LogError($"Cannot find variable `{variableName}` in `{scope}` manager");
 #endif
                 return;
             }

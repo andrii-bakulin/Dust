@@ -51,7 +51,12 @@ namespace Dust.Experimental.Variables
         public override bool Execute(Action action, string param)
         {
             if (float.TryParse(param, out float val) == false)
+            {
+#if UNITY_EDITOR
+                Debug.LogWarning($"Cannot convert '{param}' to float value");
+#endif
                 return false;
+            }
 
             return action switch
             {
