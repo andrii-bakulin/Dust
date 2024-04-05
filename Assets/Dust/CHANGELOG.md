@@ -11,7 +11,8 @@ All notable changes to this package will be documented in this file.
 - `AddForce` (Rigidbody) - add new action to add force on `RigidBody`
 - `AddTorque` (Rigidbody) - add new action to add torque on `RigidBody`
 - `Destroyer` - review component structure, review custom Destroy.. methods
-- `FindGameObjectAction` - add new action to find GameObject
+- `FindGameObjectAction` - added new action to find GameObject
+- `FindGameObjectAction` - added `scope` to find object in `All Scene`, `Only in Parents`, `Only in Children`
 - `Follow` & `LookAt` - set default value for `updateInEditor` field as false
 - `Follow` - remove auto-set offset on init object to follow
 - `OnColliderEvent` - renamed + added Enabled-checkbox in UnityEditor to turn on/off event from editor
