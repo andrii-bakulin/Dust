@@ -46,6 +46,7 @@ namespace Dust.DustEditor
         public override void OnInspectorGUI()
         {
             var main = target as LockTransform;
+            var space = (DuTransform.Space) m_Space.valInt;
 
             InspectorInitStates();
 
@@ -53,7 +54,9 @@ namespace Dust.DustEditor
 
             PropertyField(m_LockPosition);
             PropertyField(m_LockRotation);
-            PropertyField(m_LockScale);
+            
+            if (space == DuTransform.Space.Local)
+                PropertyField(m_LockScale);
 
             Space();
 
@@ -69,31 +72,14 @@ namespace Dust.DustEditor
 
                     if (main.enabled && (m_LockPosition.IsTrue || m_LockRotation.IsTrue || m_LockScale.IsTrue))
                     {
-                        var space = (DuTransform.Space) m_Space.valInt;
-
                         if (m_LockPosition.IsTrue)
-                        {
-                            string title = space == DuTransform.Space.Local
-                                ? "Local Position"
-                                : "World Position";
-                            DustGUI.Field(title, m_Position.valVector3);
-                        }
+                            DustGUI.Field(m_Position.title, m_Position.valVector3);
 
                         if (m_LockRotation.IsTrue)
-                        {
-                            string title = space == DuTransform.Space.Local
-                                ? "Local Rotation"
-                                : "World Rotation";
-                            DustGUI.Field(title, m_Rotation.valQuaternion.eulerAngles);
-                        }
+                            DustGUI.Field(m_Rotation.title, m_Rotation.valQuaternion.eulerAngles);
 
-                        if (m_LockScale.IsTrue)
-                        {
-                            string title = space == DuTransform.Space.Local
-                                ? "Local Scale"
-                                : "Local* Scale";
-                            DustGUI.Field(title, m_Scale.valVector3);
-                        }
+                        if (space == DuTransform.Space.Local && m_LockScale.IsTrue)
+                            DustGUI.Field(m_Scale.title, m_Scale.valVector3);
                     }
                     else
                     {
@@ -123,7 +109,8 @@ namespace Dust.DustEditor
                 {
                     var origin = subTarget as LockTransform;
 
-                    origin.FixLockStates();
+                    if (Dust.IsNotNull(origin))
+                        origin.FixLockStates();
                 }
             }
         }

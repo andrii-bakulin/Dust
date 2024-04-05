@@ -15,6 +15,7 @@ All notable changes to this package will be documented in this file.
 - `FindGameObjectAction` - added `scope` to find object in `All Scene`, `Only in Parents`, `Only in Children`
 - `Follow` & `LookAt` - set default value for `updateInEditor` field as false
 - `Follow` - remove auto-set offset on init object to follow
+- `LockTransform` - Ignore `lock scale` for `World` space
 - `OnColliderEvent` - renamed + added Enabled-checkbox in UnityEditor to turn on/off event from editor
 - `SpawnAction` & `Spawner` - added activateInstance property. Allow activate disabled object on spawn instances
 - `SpawnAction` & `Spawner` - remove `resetPosition` field. Position will be auto reset to the zero+offset

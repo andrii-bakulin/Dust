@@ -131,9 +131,14 @@ namespace Dust
 
             if (lockScale)
             {
-                transform.localScale = m_Scale;
+                if (space == DuTransform.Space.Local)
+                    transform.localScale = m_Scale;
+                // else
+                //  -> for World I ignore that!
             }
         }
+        
+        // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
         public void FixLockStates()
         {
