@@ -4,6 +4,8 @@ All notable changes to this package will be documented in this file.
 
 
 ## [Unreleased]
+- Added new component `Helpers > ClampPosition`
+- Added new component `Helpers > ClampScale`
 
 
 ## [0.4.0] - 2024-04-05

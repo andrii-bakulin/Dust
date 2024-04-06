@@ -111,6 +111,8 @@ namespace Dust.DustEditor
             SetGizmoIconEnabled<TriggerGizmo>(false);
             
             // Helpers
+            SetGizmoIconEnabled<ClampPosition>(false);
+            SetGizmoIconEnabled<ClampScale>(false);
             SetGizmoIconEnabled<Debugger>(false);
             SetGizmoIconEnabled<Destroyer>(false);
             SetGizmoIconEnabled<LockTransform>(false);
