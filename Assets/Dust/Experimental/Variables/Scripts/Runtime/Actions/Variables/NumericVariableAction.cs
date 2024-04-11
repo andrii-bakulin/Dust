@@ -1,9 +1,8 @@
-using Dust.Experimental.Variables;
 using UnityEngine;
 
-namespace Dust.Experimental
+namespace Dust.Experimental.Variables
 {
-    [AddComponentMenu("Dust/* Experimental/Actions/Numeric Variable")]
+    [AddComponentMenu("Dust/* Experimental/Variables/Actions/Numeric Variable")]
     public class NumericVariableAction : VariableAction
     {
         [SerializeField]

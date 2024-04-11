@@ -1,7 +1,6 @@
-using Dust.Experimental.Variables;
 using UnityEngine;
 
-namespace Dust.Experimental
+namespace Dust.Experimental.Variables
 {
     public abstract class VariableAction : InstantAction
     {

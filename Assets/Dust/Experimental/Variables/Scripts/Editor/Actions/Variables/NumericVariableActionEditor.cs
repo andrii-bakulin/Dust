@@ -1,8 +1,6 @@
-using Dust.DustEditor;
-using UnityEngine;
 using UnityEditor;
 
-namespace Dust.Experimental.Editor
+namespace Dust.Experimental.Variables.Editor
 {
     [CustomEditor(typeof(NumericVariableAction))]
     [CanEditMultipleObjects]
@@ -20,8 +18,8 @@ namespace Dust.Experimental.Editor
             // ActionsPopupButtons.AddActionOthers(typeof(NumericVariableAction), "Numeric Variable");
         }
 
-        [MenuItem("Dust/* Experimental/Actions/Numeric Variable")]
-        [MenuItem("GameObject/Dust/* Experimental/Actions/Numeric Variable")]
+        [MenuItem("Dust/* Experimental/Variables/Actions/Numeric Variable")]
+        [MenuItem("GameObject/Dust/* Experimental/Variables/Actions/Numeric Variable")]
         public static void AddComponentToSelectedObjects()
         {
             AddComponentToSelectedOrNewObject("Numeric Variable Action", typeof(NumericVariableAction));

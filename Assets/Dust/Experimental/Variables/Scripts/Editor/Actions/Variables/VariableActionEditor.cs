@@ -1,8 +1,7 @@
-using Dust.Experimental.Variables;
 using UnityEngine;
 using UnityEditor;
 
-namespace Dust.Experimental.Editor
+namespace Dust.Experimental.Variables.Editor
 {
     public abstract class VariableActionEditor : DustEditor.InstantActionEditor
     {

@@ -1,5 +1,6 @@
 {
-    "name": "DustExperimental",
+    "name": "DustEditor-Experimental-Variables",
+    "rootNamespace": "",
     "references": [
         "GUID:d573e6529b0394095b6aad46750b0a46",
         "GUID:6e726f0bb79bf4f59824d454b2da5004",
