@@ -4,7 +4,7 @@ namespace Dust.DustEditor
 {
     public static class EditorHelper
     {
-        internal static void OptimizeObjectReferencesArray(ref DuEditor.DuProperty itemsListProperty, string refObjectKey)
+        public static void OptimizeObjectReferencesArray(ref DuEditor.DuProperty itemsListProperty, string refObjectKey)
         {
             bool changed = false;
 

@@ -1,5 +1,8 @@
 using System;
 using System.Reflection;
+#if !DUST_IGNORE_EXPERIMENTAL_DEFORMERS
+using Dust.Experimental.Deformers;
+#endif
 using UnityEditor;
 
 namespace Dust.DustEditor
@@ -44,8 +47,11 @@ namespace Dust.DustEditor
             SetGizmoIconEnabled<Scale>(false);
             SetGizmoIconEnabled<Shake>(false);
             
-#if DUST_NEW_FEATURE_DEFORMER
+#if !DUST_IGNORE_EXPERIMENTAL_DEFORMERS
             // Deformers
+            SetGizmoIconEnabled<MeshDeformer>(false);
+            SetGizmoIconEnabled<TwistDeformer>(false);
+            SetGizmoIconEnabled<WaveDeformer>(false);
 #endif
             
             // Events

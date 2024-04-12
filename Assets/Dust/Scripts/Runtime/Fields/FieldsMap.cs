@@ -95,7 +95,7 @@ namespace Dust
             Custom = 0,
             FieldsSpace = 1,
             FactoryMachine = 2,
-#if DUST_NEW_FEATURE_DEFORMER
+#if !DUST_IGNORE_EXPERIMENTAL_DEFORMERS
             Deformer = 3,
 #endif
         }
@@ -154,7 +154,7 @@ namespace Dust
 
         //--------------------------------------------------------------------------------------------------------------
 
-#if DUST_NEW_FEATURE_DEFORMER
+#if !DUST_IGNORE_EXPERIMENTAL_DEFORMERS
         public static FieldsMap Deformer()
         {
             return new FieldsMap

@@ -11,6 +11,9 @@ namespace Dust.DustEditor
             public static readonly string ADD_ACTION = "UI/Add-Action";
             public static readonly string ADD_FACTORY_MACHINE = "UI/Add-Factory-Machine";
             public static readonly string ADD_FIELD = "UI/Add-Field";
+#if !DUST_IGNORE_EXPERIMENTAL_DEFORMERS
+            public static readonly string ADD_DEFORMER = "UI/Add-Deformer";
+#endif
 
             public static readonly string ACTION_PLAY = "UI/Action-Play";
             public static readonly string ACTION_IDLE = "UI/Action-Idle";
@@ -30,9 +33,9 @@ namespace Dust.DustEditor
             {
                 "Components/Actions/",
                 "Components/Animations/", 
-    #if DUST_NEW_FEATURE_DEFORMER
+#if !DUST_IGNORE_EXPERIMENTAL_DEFORMERS
                 "Components/Deformers/",
-    #endif
+#endif
                 "Components/Events/",
                 "Components/Factory/",
                 "Components/FactoryMachines/",

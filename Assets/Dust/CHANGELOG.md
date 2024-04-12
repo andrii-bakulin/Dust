@@ -7,6 +7,10 @@ All notable changes to this package will be documented in this file.
 - Added new component `Helpers > ClampPosition`
 - Added new component `Helpers > ClampScale`
 
+### Experimental
+- Added Deformer Components: `Mesh Deformer`, `Twist Deformer`, `Wave Deformer`
+
+
 
 ## [0.4.0] - 2024-04-05
 ### Added / Updated / Fixed

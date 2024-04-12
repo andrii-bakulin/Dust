@@ -15,6 +15,24 @@ namespace Dust.DustEditor
 
             internal Editor parentEditor;
 
+#if !DUST_IGNORE_EXPERIMENTAL_DEFORMERS
+            //--------------------------------------------------------------------------------------------------------------
+            // This properties required only for Experimental components
+            // So, these properties maybe dropped any time!
+
+            public SerializedProperty experimentalProperty
+            {
+                get => property;
+                set => property = value;
+            }
+
+            public bool experimentalIsChanged
+            {
+                get => isChanged;
+                set => isChanged = value;
+            }
+#endif
+
             //--------------------------------------------------------------------------------------------------------------
             // Helpers
 

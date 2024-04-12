@@ -1,5 +1,8 @@
 using UnityEngine;
 using UnityEditor;
+#if !DUST_IGNORE_EXPERIMENTAL_DEFORMERS
+using AbstractDeformer = Dust.Experimental.Deformers.AbstractDeformer;
+#endif
 
 namespace Dust.DustEditor
 {
@@ -16,19 +19,19 @@ namespace Dust.DustEditor
 
         public static GameObject AddFieldComponentByType(GameObject activeGameObject, System.Type duFieldType)
         {
-#if DUST_NEW_FEATURE_DEFORMER
-            DuDeformer selectedDeformer = null;
+#if !DUST_IGNORE_EXPERIMENTAL_DEFORMERS
+            AbstractDeformer selectedDeformer = null;
 #endif
             FieldsSpace selectedFieldsSpace = null;
             BasicFactoryMachine selectedFactoryMachine = null;
 
             if (Dust.IsNotNull(activeGameObject))
             {
-#if DUST_NEW_FEATURE_DEFORMER
-                selectedDeformer = activeGameObject.GetComponent<DuDeformer>();
+#if !DUST_IGNORE_EXPERIMENTAL_DEFORMERS
+                selectedDeformer = activeGameObject.GetComponent<AbstractDeformer>();
 
                 if (Dust.IsNull(selectedDeformer) && Dust.IsNotNull(activeGameObject.transform.parent))
-                    selectedDeformer = activeGameObject.transform.parent.GetComponent<DuDeformer>();
+                    selectedDeformer = activeGameObject.transform.parent.GetComponent<AbstractDeformer>();
 #endif
 
                 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -48,9 +51,12 @@ namespace Dust.DustEditor
 
             var gameObject = new GameObject();
             {
-                Field field = gameObject.AddComponent(duFieldType) as Field;
+                var field = gameObject.AddComponent(duFieldType) as Field;
 
-#if DUST_NEW_FEATURE_DEFORMER
+                if (Dust.IsNull(field))
+                    return null;
+
+#if !DUST_IGNORE_EXPERIMENTAL_DEFORMERS
                 if (Dust.IsNotNull(selectedDeformer))
                 {
                     field.transform.parent = selectedDeformer.transform;

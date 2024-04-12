@@ -1,3 +1,6 @@
+#if !DUST_IGNORE_EXPERIMENTAL_DEFORMERS
+using Dust.Experimental.Deformers;
+#endif
 using UnityEngine;
 
 namespace Dust
@@ -103,8 +106,8 @@ namespace Dust
             dynamicState ^= sequenceIndex * 712464 + (Dust.IsNotNull(coloring) ? coloring.GetDynamicStateHashCode() : 123456);
         }
 
-#if DUST_NEW_FEATURE_DEFORMER
-        public static void Append(ref int dynamicState, int sequenceIndex, DuDeformer deformer)
+#if !DUST_IGNORE_EXPERIMENTAL_DEFORMERS
+        public static void Append(ref int dynamicState, int sequenceIndex, AbstractDeformer deformer)
         {
             dynamicState ^= sequenceIndex * 291422 + (Dust.IsNotNull(deformer) ? deformer.GetDynamicStateHashCode() : 123456);
         }
