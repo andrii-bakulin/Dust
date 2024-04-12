@@ -40,13 +40,9 @@ namespace Dust.DustEditor
 
             // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-            if (DustGUI.FoldoutBegin("Parameters", "FieldsSpace.Parameters"))
-            {
-                PropertyField(m_CalculatePower);
-                PropertyField(m_CalculateColor);
-                Space();
-            }
-            DustGUI.FoldoutEnd();
+            PropertyField(m_CalculatePower);
+            PropertyField(m_CalculateColor);
+            Space();
 
             m_FieldsMapEditor.OnInspectorGUI();
 

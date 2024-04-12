@@ -28,8 +28,8 @@ namespace Dust.Experimental.Deformers.Editor
             DeformersPopupButtons.AddDeformer(typeof(WaveDeformer), "Wave");
         }
 
-        [MenuItem("Dust/* Experimental/Deformers/Wave")]
-        [MenuItem("GameObject/Dust/* Experimental/Deformers/Wave")]
+        [MenuItem("Dust/* Experimental/Deformers/Wave Deformer")]
+        [MenuItem("GameObject/Dust/* Experimental/Deformers/Wave Deformer")]
         public static void AddComponent()
         {
             AddDeformerComponentByType(typeof(WaveDeformer));

@@ -24,7 +24,7 @@ namespace Dust.Experimental.Deformers.Editor
         
         // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-        private readonly Dictionary<string, Rect> m_RectsUI = new Dictionary<string, Rect>();
+        private readonly Dictionary<string, Rect> m_RectsUI = new();
 
         //--------------------------------------------------------------------------------------------------------------
 

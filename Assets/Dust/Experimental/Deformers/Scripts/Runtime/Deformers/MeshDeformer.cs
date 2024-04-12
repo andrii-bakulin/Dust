@@ -4,7 +4,7 @@ using UnityEditor;
 
 namespace Dust.Experimental.Deformers
 {
-    [AddComponentMenu("Dust/* Experimental/Deformers/Core/Mesh Deformer")]
+    [AddComponentMenu("Dust/* Experimental/Deformers/Mesh Deformer")]
     [RequireComponent(typeof(MeshFilter))]
     [ExecuteInEditMode]
     public class MeshDeformer : DuMonoBehaviour, IDynamicState

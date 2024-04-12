@@ -20,8 +20,8 @@ namespace Dust.Experimental.Deformers.Editor
             DeformersPopupButtons.AddDeformer(typeof(TwistDeformer), "Twist");
         }
 
-        [MenuItem("Dust/* Experimental/Deformers/Twist")]
-        [MenuItem("GameObject/Dust/* Experimental/Deformers/Twist")]
+        [MenuItem("Dust/* Experimental/Deformers/Twist Deformer")]
+        [MenuItem("GameObject/Dust/* Experimental/Deformers/Twist Deformer")]
         public static void AddComponent()
         {
             AddDeformerComponentByType(typeof(TwistDeformer));
