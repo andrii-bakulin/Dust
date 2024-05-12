@@ -192,10 +192,10 @@ namespace Dust
             if (Mathf.Approximately(_inMin, _inMax))
                 _inMax = _inMin + 0.0001f;
 
-            if (clampInMode == ClampMode.MinOnly || clampInMode == ClampMode.MinAndMax)
+            if (clampInMode is ClampMode.MinOnly or ClampMode.MinAndMax)
                 inValue = Mathf.Max(inValue, _inMin);
 
-            if (clampInMode == ClampMode.MaxOnly || clampInMode == ClampMode.MinAndMax)
+            if (clampInMode is ClampMode.MaxOnly or ClampMode.MinAndMax)
                 inValue = Mathf.Min(inValue, _inMax);
 
             //----------------------------------------------------------------------------------------------------------
