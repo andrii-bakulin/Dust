@@ -9,6 +9,7 @@ namespace Dust
         {
             World = 0,
             Relative = 1,
+            Self = 2,
         }
 
         //--------------------------------------------------------------------------------------------------------------
@@ -70,6 +71,11 @@ namespace Dust
 
                 case Space.Relative:
                     rb.AddRelativeForce(forceVector, forceMode);
+                    break;
+                
+                case Space.Self:
+                    var selfForceVector = activeTargetTransform.transform.TransformDirection(forceVector);
+                    rb.AddRelativeForce(selfForceVector, forceMode);
                     break;
             }
         }
