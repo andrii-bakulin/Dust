@@ -15,6 +15,7 @@ namespace Dust
         {
             Set = 0,
             Add = 1,
+            Multiply = 2
         }
         
         //--------------------------------------------------------------------------------------------------------------
@@ -56,6 +57,7 @@ namespace Dust
             {
                 DuTransform.Mode.Set => value,
                 DuTransform.Mode.Add => position + value,
+                DuTransform.Mode.Multiply => Vector3.Scale(position, value), 
                 _ => position
             };
 
@@ -90,6 +92,7 @@ namespace Dust
             {
                 DuTransform.Mode.Set => value,
                 DuTransform.Mode.Add => rotation + value,
+                DuTransform.Mode.Multiply => Vector3.Scale(rotation, value),
                 _ => rotation
             };
 
@@ -124,6 +127,7 @@ namespace Dust
             {
                 DuTransform.Mode.Set => value,
                 DuTransform.Mode.Add => scale + value,
+                DuTransform.Mode.Multiply => Vector3.Scale(scale, value),
                 _ => scale
             };
 
