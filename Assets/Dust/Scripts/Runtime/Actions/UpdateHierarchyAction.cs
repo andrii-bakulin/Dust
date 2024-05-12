@@ -66,7 +66,10 @@ namespace Dust
 
         protected override void OnActionExecute()
         {
-            if (Dust.IsNull(activeTargetObject) || referenceObject.Equals(activeTargetObject))
+            if (Dust.IsNull(activeTargetObject))
+                return;
+                
+            if (Dust.IsNotNull(referenceObject) && referenceObject.Equals(activeTargetObject))
                 return;
 
             if (updateMode == UpdateMode.SetTargetAsChildOfReferenceObject)
@@ -90,6 +93,9 @@ namespace Dust
             }
             else if (updateMode == UpdateMode.SetReferenceObjectAsChildOfTarget)
             {
+                if (Dust.IsNull(referenceObject))
+                    return;
+
                 if (UpdateParent(referenceObject, activeTargetObject) == false)
                     return;
 
