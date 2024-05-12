@@ -111,6 +111,11 @@ namespace Dust
 
         //--------------------------------------------------------------------------------------------------------------
 
+        public void Reset()
+        {
+            ResetCalcData();
+        }
+
         public void ResetCalcData()
         {
             m_Calc = null;
