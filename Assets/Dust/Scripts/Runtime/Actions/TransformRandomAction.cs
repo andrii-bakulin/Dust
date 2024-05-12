@@ -41,6 +41,18 @@ namespace Dust
             }
         }
 
+        [SerializeField]
+        private DuTransform.Mode m_PositionTransformMode = DuTransform.Mode.Set;
+        public DuTransform.Mode positionTransformMode
+        {
+            get => m_PositionTransformMode;
+            set
+            {
+                if (!IsAllowUpdateProperty()) return;
+                m_PositionTransformMode = value;
+            }
+        }
+
         // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
         [SerializeField]
@@ -79,6 +91,18 @@ namespace Dust
             }
         }
 
+        [SerializeField]
+        private DuTransform.Mode m_RotationTransformMode = DuTransform.Mode.Set;
+        public DuTransform.Mode rotationTransformMode
+        {
+            get => m_RotationTransformMode;
+            set
+            {
+                if (!IsAllowUpdateProperty()) return;
+                m_RotationTransformMode = value;
+            }
+        }
+
         // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
         [SerializeField]
@@ -106,7 +130,7 @@ namespace Dust
         }
 
         [SerializeField]
-        private Vector3 m_ScaleRangeMax = DuVector3.New(+1.0f);
+        private Vector3 m_ScaleRangeMax = DuVector3.New(+2.0f);
         public Vector3 scaleRangeMax
         {
             get => m_ScaleRangeMax;
@@ -114,6 +138,18 @@ namespace Dust
             {
                 if (!IsAllowUpdateProperty()) return;
                 m_ScaleRangeMax = value;
+            }
+        }
+
+        [SerializeField]
+        private DuTransform.Mode m_ScaleTransformMode = DuTransform.Mode.Set;
+        public DuTransform.Mode scaleTransformMode
+        {
+            get => m_ScaleTransformMode;
+            set
+            {
+                if (!IsAllowUpdateProperty()) return;
+                m_ScaleTransformMode = value;
             }
         }
 
@@ -130,18 +166,6 @@ namespace Dust
         }
 
         // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-        [SerializeField]
-        private DuTransform.Mode m_TransformMode = DuTransform.Mode.Set;
-        public DuTransform.Mode transformMode
-        {
-            get => m_TransformMode;
-            set
-            {
-                if (!IsAllowUpdateProperty()) return;
-                m_TransformMode = value;
-            }
-        }
 
         [SerializeField]
         private DuTransform.Space m_Space = DuTransform.Space.Local;
@@ -190,13 +214,13 @@ namespace Dust
             if (positionEnabled)
             {
                 var value = duRandom.Range(positionRangeMin, positionRangeMax);
-                DuTransform.UpdatePosition(activeTargetTransform, value, space, transformMode);
+                DuTransform.UpdatePosition(activeTargetTransform, value, space, positionTransformMode);
             }
 
             if (rotationEnabled)
             {
                 var value = duRandom.Range(rotationRangeMin, rotationRangeMax);
-                DuTransform.UpdateRotation(activeTargetTransform, value, space, transformMode);
+                DuTransform.UpdateRotation(activeTargetTransform, value, space, rotationTransformMode);
             }
 
             if (scaleEnabled)
@@ -204,7 +228,7 @@ namespace Dust
                 var value = scaleUniform
                     ? Vector3.Lerp(scaleRangeMin, scaleRangeMax, duRandom.Next())
                     : duRandom.Range(scaleRangeMin, scaleRangeMax);
-                DuTransform.UpdateScale(activeTargetTransform, value, space, transformMode);
+                DuTransform.UpdateScale(activeTargetTransform, value, space, scaleTransformMode);
             }
         }
     }

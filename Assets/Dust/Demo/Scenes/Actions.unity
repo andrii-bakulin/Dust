@@ -2650,7 +2650,6 @@ MonoBehaviour:
   m_MultipleSpawnSeed: -31250
   m_ActivateInstance: 0
   m_ParentMode: 0
-  m_ResetPosition: 0
   m_ResetRotation: 0
   m_ResetScale: 0
 --- !u!114 &674186449
@@ -4453,14 +4452,16 @@ MonoBehaviour:
   m_PositionEnabled: 1
   m_PositionRangeMin: {x: 0, y: -0.25, z: 0}
   m_PositionRangeMax: {x: 0, y: 0.25, z: 0}
+  m_PositionTransformMode: 0
   m_RotationEnabled: 1
-  m_RotationRangeMin: {x: -0, y: -180, z: -0}
-  m_RotationRangeMax: {x: 0, y: 180, z: 0}
-  m_ScaleEnabled: 0
-  m_ScaleRangeMin: {x: -0.5, y: -0.5, z: -0.5}
-  m_ScaleRangeMax: {x: 1, y: 1, z: 1}
+  m_RotationRangeMin: {x: -0, y: -45, z: -0}
+  m_RotationRangeMax: {x: 0, y: 45, z: 0}
+  m_RotationTransformMode: 1
+  m_ScaleEnabled: 1
+  m_ScaleRangeMin: {x: 0.5, y: 0.5, z: 0.5}
+  m_ScaleRangeMax: {x: 2, y: 2, z: 2}
+  m_ScaleTransformMode: 2
   m_ScaleUniform: 1
-  m_TransformMode: 1
   m_Space: 1
   m_Seed: 0
 --- !u!1 &1107888605 stripped
