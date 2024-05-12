@@ -33,8 +33,8 @@ namespace Dust.DustEditor
             base.InitializeEditor();
 
             m_ForceVector = FindProperty("m_ForceVector", "Force Vector");
-            m_ForceMode = FindProperty("m_ForceMode", "ForceMode");
-            m_ForceSpace = FindProperty("m_ForceSpace", "ForceSpace");
+            m_ForceMode = FindProperty("m_ForceMode", "Mode");
+            m_ForceSpace = FindProperty("m_ForceSpace", "Space");
         }
 
         public override void OnInspectorGUI()
