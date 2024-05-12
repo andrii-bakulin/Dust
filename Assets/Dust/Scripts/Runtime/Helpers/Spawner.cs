@@ -293,24 +293,24 @@ namespace Dust
             m_SpawnDelay = GetDelayLimit();
         }
 
-        public void Spawn()
+        public void Spawn() => Spawn(0);
+        
+        public void Spawn(int spawnCount)
         {
             if (m_Limit > 0 && m_Count >= m_Limit)
                 return;
 
-            if (multipleSpawnEnabled)
+            if (spawnCount <= 0)
             {
-                int spawnCount = multipleSpawnRandom.Range(multipleSpawnCount.min, multipleSpawnCount.max + 1);
-
-                if (m_Limit > 0)
-                    spawnCount = Mathf.Min(spawnCount, m_Limit - m_Count);
-
-                for (int i = 0; i < spawnCount; i++)
-                {
-                    SpawnSingleObject();
-                }
+                spawnCount = multipleSpawnEnabled 
+                    ? multipleSpawnRandom.Range(multipleSpawnCount.min, multipleSpawnCount.max + 1)
+                    : 1;
             }
-            else
+
+            if (m_Limit > 0)
+                spawnCount = Mathf.Min(spawnCount, m_Limit - m_Count);
+
+            for (int i = 0; i < spawnCount; i++)
             {
                 SpawnSingleObject();
             }
