@@ -125,18 +125,16 @@ namespace Dust
         }
 
         public static float Fit01To(float outMin, float outMax, float inValue)
-            => Fit01To(outMin, outMax, inValue, false);
+            => Fit(0f, 1f, outMin, outMax, inValue, false);
 
         public static float Fit01To(float outMin, float outMax, float inValue, bool clamped)
-        {
-            if (clamped)
-            {
-                if (inValue <= 0f) return outMin;
-                if (inValue >= 1f) return outMax;
-            }
+            => Fit(0f, 1f, outMin, outMax, inValue, clamped);
 
-            return outMin + (outMax - outMin) * inValue;
-        }
+        public static float FitTo01(float inMin, float inMax, float inValue)
+            => Fit(inMin, inMax, 0f, 1f, inValue, false);
+
+        public static float FitTo01(float inMin, float inMax, float inValue, bool clamped)
+            => Fit(inMin, inMax, 0f, 1f, inValue, clamped);
 
         //--------------------------------------------------------------------------------------------------------------
 
