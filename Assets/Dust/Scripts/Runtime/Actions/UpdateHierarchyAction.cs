@@ -30,11 +30,7 @@ namespace Dust
         public UpdateMode updateMode
         {
             get => m_UpdateMode;
-            set
-            {
-                if (!IsAllowUpdateProperty()) return;
-                m_UpdateMode = value;
-            }
+            set => m_UpdateMode = value;
         }
 
         [SerializeField]
@@ -42,11 +38,7 @@ namespace Dust
         public OrderMode orderMode
         {
             get => m_OrderMode;
-            set
-            {
-                if (!IsAllowUpdateProperty()) return;
-                m_OrderMode = value;
-            }
+            set => m_OrderMode = value;
         }
 
         [SerializeField]
@@ -54,11 +46,7 @@ namespace Dust
         public GameObject referenceObject
         {
             get => m_ReferenceObject;
-            set
-            {
-                if (!IsAllowUpdateProperty()) return;
-                m_ReferenceObject = value;
-            }
+            set => m_ReferenceObject = value;
         }
 
         //--------------------------------------------------------------------------------------------------------------

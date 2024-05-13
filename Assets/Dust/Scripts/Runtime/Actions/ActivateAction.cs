@@ -22,11 +22,7 @@ namespace Dust
         public ActivationMode activationMode
         {
             get => m_ActivationMode;
-            set
-            {
-                if (!IsAllowUpdateProperty()) return;
-                m_ActivationMode = value;
-            }
+            set => m_ActivationMode = value;
         }
 
         [SerializeField]
@@ -34,11 +30,7 @@ namespace Dust
         public bool applyToTarget
         {
             get => m_ApplyToTarget;
-            set
-            {
-                if (!IsAllowUpdateProperty()) return;
-                m_ApplyToTarget = value;
-            }
+            set => m_ApplyToTarget = value;
         }
 
         [SerializeField]
@@ -48,8 +40,6 @@ namespace Dust
             get => m_Seed;
             set
             {
-                if (!IsAllowUpdateProperty()) return;
-
                 if (m_Seed == value)
                     return;
 
@@ -59,11 +49,11 @@ namespace Dust
         }
 
         [SerializeField]
-        private List<GameObject> m_GameObjects = new List<GameObject>();
+        private List<GameObject> m_GameObjects = new();
         public List<GameObject> gameObjects => m_GameObjects;
 
         [SerializeField]
-        private List<Component> m_Components = new List<Component>();
+        private List<Component> m_Components = new();
         public List<Component> components => m_Components;
 
         // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

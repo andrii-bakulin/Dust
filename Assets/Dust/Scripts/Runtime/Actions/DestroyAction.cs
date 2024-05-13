@@ -12,19 +12,15 @@ namespace Dust
         public bool applyToTarget
         {
             get => m_ApplyToTarget;
-            set
-            {
-                if (!IsAllowUpdateProperty()) return;
-                m_ApplyToTarget = value;
-            }
+            set => m_ApplyToTarget = value;
         }
 
         [SerializeField]
-        private List<GameObject> m_GameObjects = new List<GameObject>();
+        private List<GameObject> m_GameObjects = new();
         public List<GameObject> gameObjects => m_GameObjects;
 
         [SerializeField]
-        private List<Component> m_Components = new List<Component>();
+        private List<Component> m_Components = new();
         public List<Component> components => m_Components;
 
         //--------------------------------------------------------------------------------------------------------------

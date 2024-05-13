@@ -10,11 +10,7 @@ namespace Dust
         public bool positionEnabled
         {
             get => m_PositionEnabled;
-            set
-            {
-                if (!IsAllowUpdateProperty()) return;
-                m_PositionEnabled = value;
-            }
+            set => m_PositionEnabled = value;
         }
 
         [SerializeField]
@@ -22,11 +18,7 @@ namespace Dust
         public Vector3 positionRangeMin
         {
             get => m_PositionRangeMin;
-            set
-            {
-                if (!IsAllowUpdateProperty()) return;
-                m_PositionRangeMin = value;
-            }
+            set => m_PositionRangeMin = value;
         }
 
         [SerializeField]
@@ -34,11 +26,7 @@ namespace Dust
         public Vector3 positionRangeMax
         {
             get => m_PositionRangeMax;
-            set
-            {
-                if (!IsAllowUpdateProperty()) return;
-                m_PositionRangeMax = value;
-            }
+            set => m_PositionRangeMax = value;
         }
 
         [SerializeField]
@@ -46,11 +34,7 @@ namespace Dust
         public DuTransform.Mode positionTransformMode
         {
             get => m_PositionTransformMode;
-            set
-            {
-                if (!IsAllowUpdateProperty()) return;
-                m_PositionTransformMode = value;
-            }
+            set => m_PositionTransformMode = value;
         }
 
         // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -60,11 +44,7 @@ namespace Dust
         public bool rotationEnabled
         {
             get => m_RotationEnabled;
-            set
-            {
-                if (!IsAllowUpdateProperty()) return;
-                m_RotationEnabled = value;
-            }
+            set => m_RotationEnabled = value;
         }
 
         [SerializeField]
@@ -72,11 +52,7 @@ namespace Dust
         public Vector3 rotationRangeMin
         {
             get => m_RotationRangeMin;
-            set
-            {
-                if (!IsAllowUpdateProperty()) return;
-                m_RotationRangeMin = value;
-            }
+            set => m_RotationRangeMin = value;
         }
 
         [SerializeField]
@@ -84,11 +60,7 @@ namespace Dust
         public Vector3 rotationRangeMax
         {
             get => m_RotationRangeMax;
-            set
-            {
-                if (!IsAllowUpdateProperty()) return;
-                m_RotationRangeMax = value;
-            }
+            set => m_RotationRangeMax = value;
         }
 
         [SerializeField]
@@ -96,11 +68,7 @@ namespace Dust
         public DuTransform.Mode rotationTransformMode
         {
             get => m_RotationTransformMode;
-            set
-            {
-                if (!IsAllowUpdateProperty()) return;
-                m_RotationTransformMode = value;
-            }
+            set => m_RotationTransformMode = value;
         }
 
         // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -110,11 +78,7 @@ namespace Dust
         public bool scaleEnabled
         {
             get => m_ScaleEnabled;
-            set
-            {
-                if (!IsAllowUpdateProperty()) return;
-                m_ScaleEnabled = value;
-            }
+            set => m_ScaleEnabled = value;
         }
 
         [SerializeField]
@@ -122,11 +86,7 @@ namespace Dust
         public Vector3 scaleRangeMin
         {
             get => m_ScaleRangeMin;
-            set
-            {
-                if (!IsAllowUpdateProperty()) return;
-                m_ScaleRangeMin = value;
-            }
+            set => m_ScaleRangeMin = value;
         }
 
         [SerializeField]
@@ -134,11 +94,7 @@ namespace Dust
         public Vector3 scaleRangeMax
         {
             get => m_ScaleRangeMax;
-            set
-            {
-                if (!IsAllowUpdateProperty()) return;
-                m_ScaleRangeMax = value;
-            }
+            set => m_ScaleRangeMax = value;
         }
 
         [SerializeField]
@@ -146,11 +102,7 @@ namespace Dust
         public DuTransform.Mode scaleTransformMode
         {
             get => m_ScaleTransformMode;
-            set
-            {
-                if (!IsAllowUpdateProperty()) return;
-                m_ScaleTransformMode = value;
-            }
+            set => m_ScaleTransformMode = value;
         }
 
         [SerializeField] 
@@ -158,11 +110,7 @@ namespace Dust
         public bool scaleUniform
         {
             get => m_ScaleUniform;
-            set
-            {
-                if (!IsAllowUpdateProperty()) return;
-                m_ScaleUniform = value;
-            }
+            set => m_ScaleUniform = value;
         }
 
         // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -172,11 +120,7 @@ namespace Dust
         public DuTransform.Space space
         {
             get => m_Space;
-            set
-            {
-                if (!IsAllowUpdateProperty()) return;
-                m_Space = value;
-            }
+            set => m_Space = value;
         }
 
         // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -188,8 +132,6 @@ namespace Dust
             get => m_Seed;
             set
             {
-                if (!IsAllowUpdateProperty()) return;
-
                 if (m_Seed == value)
                     return;
 

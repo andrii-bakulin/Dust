@@ -65,15 +65,13 @@ namespace Dust
 
         protected bool IsAllowUpdateProperty()
         {
-            if (isPlaying)
-            {
-#if UNITY_EDITOR
-                Dust.Debug.Warning("Cannot update property for action while it playing");
-#endif
-                return false;
-            }
+            if (!isPlaying)
+                return true;
 
-            return true;
+#if UNITY_EDITOR
+            Dust.Debug.Warning("Cannot update property for action while it playing");
+#endif
+            return false;
         }
 
         //--------------------------------------------------------------------------------------------------------------

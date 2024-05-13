@@ -10,11 +10,7 @@ namespace Dust
         public bool position
         {
             get => m_Position;
-            set
-            {
-                if (!IsAllowUpdateProperty()) return;
-                m_Position = value;
-            }
+            set => m_Position = value;
         }
 
         [SerializeField]
@@ -22,11 +18,7 @@ namespace Dust
         public bool rotation
         {
             get => m_Rotation;
-            set
-            {
-                if (!IsAllowUpdateProperty()) return;
-                m_Rotation = value;
-            }
+            set => m_Rotation = value;
         }
 
         [SerializeField]
@@ -34,11 +26,7 @@ namespace Dust
         public bool scale
         {
             get => m_Scale;
-            set
-            {
-                if (!IsAllowUpdateProperty()) return;
-                m_Scale = value;
-            }
+            set => m_Scale = value;
         }
 
         // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -48,11 +36,7 @@ namespace Dust
         public GameObject sourceObject
         {
             get => m_SourceObject;
-            set
-            {
-                if (!IsAllowUpdateProperty()) return;
-                m_SourceObject = value;
-            }
+            set => m_SourceObject = value;
         }
 
         [SerializeField]
@@ -60,11 +44,7 @@ namespace Dust
         public DuTransform.Space space
         {
             get => m_Space;
-            set
-            {
-                if (!IsAllowUpdateProperty()) return;
-                m_Space = value;
-            }
+            set => m_Space = value;
         }
 
         //--------------------------------------------------------------------------------------------------------------

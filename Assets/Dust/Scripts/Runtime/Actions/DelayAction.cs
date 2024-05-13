@@ -46,6 +46,10 @@ namespace Dust
             set
             {
                 if (!IsAllowUpdateProperty()) return;
+
+                if (m_Seed == value)
+                    return;
+
                 m_Seed = value;
                 m_Random = null;
             }

@@ -10,11 +10,7 @@ namespace Dust
         public bool flipX
         {
             get => m_FlipX;
-            set
-            {
-                if (!IsAllowUpdateProperty()) return;
-                m_FlipX = value;
-            }
+            set => m_FlipX = value;
         }
 
         [SerializeField]
@@ -22,11 +18,7 @@ namespace Dust
         public bool flipY
         {
             get => m_FlipY;
-            set
-            {
-                if (!IsAllowUpdateProperty()) return;
-                m_FlipY = value;
-            }
+            set => m_FlipY = value;
         }
 
         [SerializeField]
@@ -34,11 +26,7 @@ namespace Dust
         public bool flipZ
         {
             get => m_FlipZ;
-            set
-            {
-                if (!IsAllowUpdateProperty()) return;
-                m_FlipZ = value;
-            }
+            set => m_FlipZ = value;
         }
 
         //--------------------------------------------------------------------------------------------------------------

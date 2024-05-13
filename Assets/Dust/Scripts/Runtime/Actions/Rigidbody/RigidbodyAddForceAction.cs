@@ -19,11 +19,7 @@ namespace Dust
         public Vector3 forceVector
         {
             get => m_ForceVector;
-            set
-            {
-                if (!IsAllowUpdateProperty()) return;
-                m_ForceVector = value;
-            }
+            set => m_ForceVector = value;
         }
 
         [SerializeField]
@@ -31,11 +27,7 @@ namespace Dust
         public ForceMode forceMode
         {
             get => m_ForceMode;
-            set
-            {
-                if (!IsAllowUpdateProperty()) return;
-                m_ForceMode = value;
-            }
+            set => m_ForceMode = value;
         }
 
         [SerializeField]
@@ -43,11 +35,7 @@ namespace Dust
         public Space forceSpace
         {
             get => m_ForceSpace;
-            set
-            {
-                if (!IsAllowUpdateProperty()) return;
-                m_ForceSpace = value;
-            }
+            set => m_ForceSpace = value;
         }
 
         //--------------------------------------------------------------------------------------------------------------

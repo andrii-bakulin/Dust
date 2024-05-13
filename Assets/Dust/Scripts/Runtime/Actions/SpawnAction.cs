@@ -41,7 +41,7 @@ namespace Dust
         // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
         [SerializeField]
-        private List<GameObject> m_SpawnPoints = new List<GameObject>();
+        private List<GameObject> m_SpawnPoints = new();
         public List<GameObject> spawnPoints => m_SpawnPoints;
 
         [SerializeField]
@@ -89,7 +89,7 @@ namespace Dust
         // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
         [SerializeField]
-        private List<GameObject> m_SpawnObjects = new List<GameObject>();
+        private List<GameObject> m_SpawnObjects = new();
         public List<GameObject> spawnObjects => m_SpawnObjects;
 
         [SerializeField]

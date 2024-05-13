@@ -31,7 +31,7 @@ namespace Dust
         //--------------------------------------------------------------------------------------------------------------
         
         [SerializeField]
-        private List<Record> m_Actions = new List<Record>();
+        private List<Record> m_Actions = new();
         public List<Record> actions => m_Actions;
         
         // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

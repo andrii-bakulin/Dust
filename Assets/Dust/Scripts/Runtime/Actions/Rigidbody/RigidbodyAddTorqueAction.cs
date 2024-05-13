@@ -18,11 +18,7 @@ namespace Dust
         public Vector3 torqueVector
         {
             get => m_TorqueVector;
-            set
-            {
-                if (!IsAllowUpdateProperty()) return;
-                m_TorqueVector = value;
-            }
+            set => m_TorqueVector = value;
         }
 
         [SerializeField]
@@ -30,11 +26,7 @@ namespace Dust
         public ForceMode torqueMode
         {
             get => m_TorqueMode;
-            set
-            {
-                if (!IsAllowUpdateProperty()) return;
-                m_TorqueMode = value;
-            }
+            set => m_TorqueMode = value;
         }
 
         [SerializeField]
@@ -42,11 +34,7 @@ namespace Dust
         public Space torqueSpace
         {
             get => m_TorqueSpace;
-            set
-            {
-                if (!IsAllowUpdateProperty()) return;
-                m_TorqueSpace = value;
-            }
+            set => m_TorqueSpace = value;
         }
 
         //--------------------------------------------------------------------------------------------------------------
