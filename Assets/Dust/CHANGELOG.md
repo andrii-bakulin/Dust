@@ -4,8 +4,27 @@ All notable changes to this package will be documented in this file.
 
 
 ## [Unreleased]
+### Added / Updated / Fixed
+- Added new component `Actions > Instantiate Action`
+- Added new component `Actions > Value Color Action`
+- Added new component `Actions > Value Float Action`
+- Added new component `Actions > Value Gradient Action`
+- Added new component `Actions > Value Vector2 Action`
+- Added new component `Actions > Value Vector3 Action`
 - Added new component `Helpers > ClampPosition`
 - Added new component `Helpers > ClampScale`
+- Renamed component `TransformUpdateAction` to `TransformAction`
+- Renamed component `UpdateHierarchyAction` to `HierarchyAction` 
+- For all instant actions removed locks to change values while playing
+- `DuTransform` - added new transform mode - Multiply
+- `CubeField` - reset pre-calculated data when user reset component state from UnityEditor
+- `RigidbodyAddForceAction` - added new space `Self`
+- `Spawner` - allow spawn fixed amount at once when custom call Spawn method
+- `StartAction` - Added static method Play to auto-search and play start action
+- `TransformRandomAction` - added transform-mode property for each P.R.S. separately
+
+### Others
+- Updated meta-ids for URP settings (remove conflicts with other default URP projects)
 
 ### Experimental
 - Added Deformer Components: `Mesh Deformer`, `Twist Deformer`, `Wave Deformer`
