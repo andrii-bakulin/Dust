@@ -3,10 +3,10 @@ using UnityEditor;
 
 namespace Dust.DustEditor
 {
-    [CustomEditor(typeof(TransformUpdateAction))]
+    [CustomEditor(typeof(TransformAction))]
     [CanEditMultipleObjects]
     [InitializeOnLoad]
-    public class TransformUpdateActionEditor : InstantActionEditor
+    public class TransformActionEditor : InstantActionEditor
     {
         protected DuProperty m_PositionEnabled;
         protected DuProperty m_RotationEnabled;
@@ -22,16 +22,16 @@ namespace Dust.DustEditor
 
         //--------------------------------------------------------------------------------------------------------------
 
-        static TransformUpdateActionEditor()
+        static TransformActionEditor()
         {
-            ActionsPopupButtons.AddActionTransform(typeof(TransformUpdateAction), "Transform Update");
+            ActionsPopupButtons.AddActionTransform(typeof(TransformAction), "Transform");
         }
 
-        [MenuItem("Dust/Actions/Transform Update")]
-        [MenuItem("GameObject/Dust/Actions/Transform Update")]
+        [MenuItem("Dust/Actions/Transform")]
+        [MenuItem("GameObject/Dust/Actions/Transform")]
         public static void AddComponentToSelectedObjects()
         {
-            AddComponentToSelectedOrNewObject("Transform Update Action", typeof(TransformUpdateAction));
+            AddComponentToSelectedOrNewObject("Transform Action", typeof(TransformAction));
         }
 
         //--------------------------------------------------------------------------------------------------------------
@@ -84,8 +84,8 @@ namespace Dust.DustEditor
             
             // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-            OnInspectorGUI_Callbacks("TransformUpdateAction");
-            OnInspectorGUI_Extended("TransformUpdateAction");
+            OnInspectorGUI_Callbacks("TransformAction");
+            OnInspectorGUI_Extended("TransformAction");
 
             // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 

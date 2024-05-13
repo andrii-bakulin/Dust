@@ -2,8 +2,8 @@
 
 namespace Dust
 {
-    [AddComponentMenu("Dust/Actions/Transform Update Action")]
-    public class TransformUpdateAction : InstantAction
+    [AddComponentMenu("Dust/Actions/Transform Action")]
+    public class TransformAction : InstantAction
     {
         [SerializeField]
         private bool m_PositionEnabled;
