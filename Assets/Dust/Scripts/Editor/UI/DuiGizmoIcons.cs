@@ -20,6 +20,7 @@ namespace Dust.DustEditor
             SetGizmoIconEnabled<FindGameObjectAction>(false);
             SetGizmoIconEnabled<FlipAction>(false);
             SetGizmoIconEnabled<FlowRandomAction>(false);
+            SetGizmoIconEnabled<InstantiateAction>(false);
             SetGizmoIconEnabled<MoveByAction>(false);
             SetGizmoIconEnabled<MoveToAction>(false);
             SetGizmoIconEnabled<RotateByAction>(false);
