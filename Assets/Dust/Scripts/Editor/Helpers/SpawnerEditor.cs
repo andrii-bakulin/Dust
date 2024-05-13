@@ -74,7 +74,7 @@ namespace Dust.DustEditor
             m_MultipleSpawnCount = FindProperty("m_MultipleSpawnCount", "Spawn Count");
             m_MultipleSpawnSeed = FindProperty("m_MultipleSpawnSeed", "Seed");
 
-            m_ParentMode = FindProperty("m_ParentMode", "Assign Parent As");
+            m_ParentMode = FindProperty("m_ParentMode", "Assign Parent");
             m_Limit = FindProperty("m_Limit", "Total Limit");
             m_SpawnOnAwake = FindProperty("m_SpawnOnAwake", "Spawn On Awake");
 

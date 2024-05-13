@@ -67,7 +67,7 @@ namespace Dust.DustEditor
             m_MultipleSpawnSeed = FindProperty("m_MultipleSpawnSeed", "Seed");
 
             m_ActivateInstance = FindProperty("m_ActivateInstance", "Activate Instance", "If TRUE, all new GameObjects will be forcibly set to active.");
-            m_ParentMode = FindProperty("m_ParentMode", "Assign Parent As");
+            m_ParentMode = FindProperty("m_ParentMode", "Assign Parent");
             m_ResetRotation = FindProperty("m_ResetRotation", "Reset Rotation");
             m_ResetScale = FindProperty("m_ResetScale", "Reset Scale");
         }

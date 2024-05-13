@@ -84,22 +84,13 @@ namespace Dust
                 return;
 
             if (positionEnabled)
-            {
-                var value = position;
-                DuTransform.UpdatePosition(activeTargetTransform, value, space, transformMode);
-            }
+                DuTransform.UpdatePosition(activeTargetTransform, position, space, transformMode);
 
             if (rotationEnabled)
-            {
-                var value = rotation;
-                DuTransform.UpdateRotation(activeTargetTransform, value, space, transformMode);
-            }
+                DuTransform.UpdateRotation(activeTargetTransform, rotation, space, transformMode);
 
             if (scaleEnabled)
-            {
-                var value = scale;
-                DuTransform.UpdateScale(activeTargetTransform, value, space, transformMode);
-            }
+                DuTransform.UpdateScale(activeTargetTransform, scale, space, transformMode);
         }
     }
 }
