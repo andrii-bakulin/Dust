@@ -34,6 +34,11 @@ namespace Dust.DustEditor
             SetGizmoIconEnabled<TransformAction>(false);
             SetGizmoIconEnabled<TransformCopyAction>(false);
             SetGizmoIconEnabled<TransformRandomAction>(false);
+            SetGizmoIconEnabled<ValueColorAction>(false);
+            SetGizmoIconEnabled<ValueFloatAction>(false);
+            SetGizmoIconEnabled<ValueGradientAction>(false);
+            SetGizmoIconEnabled<ValueVector2Action>(false);
+            SetGizmoIconEnabled<ValueVector3Action>(false);
 
             // Actions.Rigidbody
             SetGizmoIconEnabled<RigidbodyAddForceAction>(false);
