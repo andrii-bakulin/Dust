@@ -4295,7 +4295,7 @@ PrefabInstance:
     - target: {fileID: 4555384661247630378, guid: de011416d1efd411495a050805ad2357,
         type: 3}
       propertyPath: m_Name
-      value: Actions:UpdateHierarchy
+      value: Actions:Hierarchy
       objectReference: {fileID: 0}
     - target: {fileID: 4555384661247630378, guid: de011416d1efd411495a050805ad2357,
         type: 3}
@@ -4340,7 +4340,7 @@ PrefabInstance:
     - target: {fileID: 6020086575731987624, guid: de011416d1efd411495a050805ad2357,
         type: 3}
       propertyPath: m_Text
-      value: Update Hierarchy
+      value: Hierarchy
       objectReference: {fileID: 0}
     - target: {fileID: 8644486408928407222, guid: de011416d1efd411495a050805ad2357,
         type: 3}
@@ -5981,7 +5981,7 @@ PrefabInstance:
     - target: {fileID: 5065096020563194986, guid: fea214dcfb6114448ba2e65631b300ed,
         type: 3}
       propertyPath: m_Name
-      value: Cube UpdateHierarchy
+      value: Cube Hierarchy
       objectReference: {fileID: 0}
     - target: {fileID: 5548722066588020432, guid: fea214dcfb6114448ba2e65631b300ed,
         type: 3}

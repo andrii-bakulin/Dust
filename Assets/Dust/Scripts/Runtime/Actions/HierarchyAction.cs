@@ -3,18 +3,18 @@ using UnityEngine;
 
 namespace Dust
 {
-    [AddComponentMenu("Dust/Actions/Update Hierarchy Action")]
-    public class UpdateHierarchyAction : InstantAction
+    [AddComponentMenu("Dust/Actions/Hierarchy Action")]
+    public class HierarchyAction : InstantAction
     {
         public enum UpdateMode
         {
             SetTargetAsChildOfReferenceObject = 0,
             SetReferenceObjectAsChildOfTarget = 1,
 
-            CopyParentFromReferenceObject = 2,
+            SetParentAsHasReferenceObject = 2,
             
-            SetTargetBeforeReferenceObject = 3,
-            SetTargetAfterReferenceObject = 4,
+            PutTargetBeforeReferenceObject = 3,
+            PutTargetAfterReferenceObject = 4,
         }
 
         public enum OrderMode
@@ -101,9 +101,9 @@ namespace Dust
                         throw new ArgumentOutOfRangeException();
                 }
             }
-            else if (updateMode == UpdateMode.CopyParentFromReferenceObject ||
-                     updateMode == UpdateMode.SetTargetBeforeReferenceObject ||
-                     updateMode == UpdateMode.SetTargetAfterReferenceObject)
+            else if (updateMode == UpdateMode.SetParentAsHasReferenceObject ||
+                     updateMode == UpdateMode.PutTargetBeforeReferenceObject ||
+                     updateMode == UpdateMode.PutTargetAfterReferenceObject)
             {
                 if (Dust.IsNull(referenceObject))
                     return;
@@ -116,11 +116,11 @@ namespace Dust
                     if (!activeTargetObject.transform.parent.Equals(referenceObject.transform.parent))
                         return;
 
-                if (updateMode == UpdateMode.SetTargetBeforeReferenceObject)
+                if (updateMode == UpdateMode.PutTargetBeforeReferenceObject)
                 {
                     activeTargetObject.transform.SetSiblingIndex(curSiblingIndex);
                 }
-                else if (updateMode == UpdateMode.SetTargetAfterReferenceObject)
+                else if (updateMode == UpdateMode.PutTargetAfterReferenceObject)
                 {
                     activeTargetObject.transform.SetSiblingIndex(curSiblingIndex+1);
                 }

@@ -3,30 +3,30 @@ using UnityEditor;
 
 namespace Dust.DustEditor
 {
-    [CustomEditor(typeof(UpdateHierarchyAction))]
+    [CustomEditor(typeof(HierarchyAction))]
     [CanEditMultipleObjects]
     [InitializeOnLoad]
-    public class UpdateHierarchyActionEditor : InstantActionEditor
+    public class HierarchyActionEditor : InstantActionEditor
     {
         protected DuProperty m_UpdateMode;
         protected DuProperty m_OrderMode;
         protected DuProperty m_ReferenceObject;
 
-        protected UpdateHierarchyAction.UpdateMode updateMode
-            => (UpdateHierarchyAction.UpdateMode) m_UpdateMode.valInt;
+        protected HierarchyAction.UpdateMode updateMode
+            => (HierarchyAction.UpdateMode) m_UpdateMode.valInt;
 
         //--------------------------------------------------------------------------------------------------------------
 
-        static UpdateHierarchyActionEditor()
+        static HierarchyActionEditor()
         {
-            ActionsPopupButtons.AddActionTransform(typeof(UpdateHierarchyAction), "Update Hierarchy");
+            ActionsPopupButtons.AddActionTransform(typeof(HierarchyAction), "Hierarchy");
         }
 
-        [MenuItem("Dust/Actions/Update Hierarchy")]
-        [MenuItem("GameObject/Dust/Actions/Update Hierarchy")]
+        [MenuItem("Dust/Actions/Hierarchy")]
+        [MenuItem("GameObject/Dust/Actions/Hierarchy")]
         public static void AddComponentToSelectedObjects()
         {
-            AddComponentToSelectedOrNewObject("Update Hierarchy Action", typeof(UpdateHierarchyAction));
+            AddComponentToSelectedOrNewObject("Hierarchy Action", typeof(HierarchyAction));
         }
 
         //--------------------------------------------------------------------------------------------------------------
@@ -50,8 +50,8 @@ namespace Dust.DustEditor
 
             PropertyField(m_UpdateMode);
 
-            if (updateMode == UpdateHierarchyAction.UpdateMode.SetTargetAsChildOfReferenceObject ||
-                updateMode == UpdateHierarchyAction.UpdateMode.SetReferenceObjectAsChildOfTarget)
+            if (updateMode == HierarchyAction.UpdateMode.SetTargetAsChildOfReferenceObject ||
+                updateMode == HierarchyAction.UpdateMode.SetReferenceObjectAsChildOfTarget)
             {
                 PropertyField(m_OrderMode);
             }
@@ -62,8 +62,8 @@ namespace Dust.DustEditor
 
             // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-            OnInspectorGUI_Callbacks("UpdateHierarchyAction");
-            OnInspectorGUI_Extended("UpdateHierarchyAction");
+            OnInspectorGUI_Callbacks("HierarchyAction");
+            OnInspectorGUI_Extended("HierarchyAction");
 
             // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 

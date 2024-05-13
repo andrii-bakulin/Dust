@@ -20,6 +20,7 @@ namespace Dust.DustEditor
             SetGizmoIconEnabled<FindGameObjectAction>(false);
             SetGizmoIconEnabled<FlipAction>(false);
             SetGizmoIconEnabled<FlowRandomAction>(false);
+            SetGizmoIconEnabled<HierarchyAction>(false);
             SetGizmoIconEnabled<InstantiateAction>(false);
             SetGizmoIconEnabled<MoveByAction>(false);
             SetGizmoIconEnabled<MoveToAction>(false);
@@ -33,7 +34,6 @@ namespace Dust.DustEditor
             SetGizmoIconEnabled<TransformAction>(false);
             SetGizmoIconEnabled<TransformCopyAction>(false);
             SetGizmoIconEnabled<TransformRandomAction>(false);
-            SetGizmoIconEnabled<UpdateHierarchyAction>(false);
 
             // Actions.Rigidbody
             SetGizmoIconEnabled<RigidbodyAddForceAction>(false);
